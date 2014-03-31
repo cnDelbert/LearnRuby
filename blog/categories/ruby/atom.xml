@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | Notes for Ruby]]></title>
   <link href="http://ruby.code.kekou.de/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://ruby.code.kekou.de/"/>
-  <updated>2014-03-31T22:24:08+08:00</updated>
+  <updated>2014-03-31T22:25:11+08:00</updated>
   <id>http://ruby.code.kekou.de/</id>
   <author>
     <name><![CDATA[Delbert]]></name>
@@ -19,6 +19,9 @@
     <updated>2014-03-31T22:15:50+08:00</updated>
     <id>http://ruby.code.kekou.de/blog/2014/03/31/ex00</id>
     <content type="html"><![CDATA[<p>由于安装 Octopress，应该是已经部署好了 Ruby 的环境了。我是在 Windows 7 X64 环境下操作的。</p>
+
+<!--more-->
+
 
 <h4>Windows 7 X64</h4>
 
@@ -50,6 +53,9 @@ E:\SourceCode\GitHub&gt;
     <updated>2014-03-31T21:55:45+08:00</updated>
     <id>http://ruby.code.kekou.de/blog/2014/03/31/learn-ruby-the-hard-way</id>
     <content type="html"><![CDATA[<h4>为什么学 Ruby</h4>
+
+<!--more-->
+
 
 <p>不一定是兴趣，只是想给自己找点事情做。既然 Octopress 已经搭建好了，在 codecademy 上也稍微学了一点了，有了一个可以循序渐进的东西，为什么不开始呢？</p>
 
