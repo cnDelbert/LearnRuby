@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | Notes for Ruby]]></title>
   <link href="http://ruby.code.kekou.de/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://ruby.code.kekou.de/"/>
-  <updated>2014-03-31T22:08:28+08:00</updated>
+  <updated>2014-03-31T22:24:08+08:00</updated>
   <id>http://ruby.code.kekou.de/</id>
   <author>
     <name><![CDATA[Delbert]]></name>
@@ -12,6 +12,37 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 0: 准备工作]]></title>
+    <link href="http://ruby.code.kekou.de/blog/2014/03/31/ex00/"/>
+    <updated>2014-03-31T22:15:50+08:00</updated>
+    <id>http://ruby.code.kekou.de/blog/2014/03/31/ex00</id>
+    <content type="html"><![CDATA[<p>由于安装 Octopress，应该是已经部署好了 Ruby 的环境了。我是在 Windows 7 X64 环境下操作的。</p>
+
+<h4>Windows 7 X64</h4>
+
+<pre><code>E:\SourceCode\GitHub&gt; ruby -v
+ruby 1.9.3p429 (2013-05-15) [i386-mingw32]
+</code></pre>
+
+<p>我安装的是 1.9.3 版本的。</p>
+
+<p>同样，也可以运行 Ruby 命令行，可能 PowerShell 属于 bash 吧，退出方式是 Linux 的 <code>Ctrl+D</code>，而不是 <code>Ctrl+Z</code>。</p>
+
+<pre><code>E:\SourceCode\GitHub&gt; irb
+irb(main):001:0&gt; ^Z
+=&gt; nil
+irb(main):002:0* ^C
+irb(main):002:0&gt;
+E:\SourceCode\GitHub&gt; 
+</code></pre>
+
+<p>已经安装了 Vim 的，Notepad++ 也已经安装了 Vim 插件，不过还是用不惯。</p>
+
+<p>暑假就可以用 Mac OS 了，期待我的更新吧。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Learn Ruby the Hard Way]]></title>
@@ -30,7 +61,7 @@
 
 <p>希望没有。多学点东西总是没错的，技不压身嘛。</p>
 
-<p>对了，最后放上链接 &lt;//lrthw.github.io></p>
+<p>对了，最后放上链接 <a href="http://lrthw.github.io">http://lrthw.github.io</a></p>
 ]]></content>
   </entry>
   
