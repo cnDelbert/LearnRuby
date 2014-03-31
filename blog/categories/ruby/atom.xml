@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Notes for Ruby]]></title>
-  <link href="http://ruby.code.kekou.de/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Ruby | Notes for Ruby]]></title>
+  <link href="http://ruby.code.kekou.de/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://ruby.code.kekou.de/"/>
   <updated>2014-03-31T22:05:34+08:00</updated>
   <id>http://ruby.code.kekou.de/</id>
