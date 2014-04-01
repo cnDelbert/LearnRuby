@@ -4,7 +4,7 @@
   <title><![CDATA[Notes for Ruby]]></title>
   <link href="http://ruby.code.kekou.de//atom.xml" rel="self"/>
   <link href="http://ruby.code.kekou.de//"/>
-  <updated>2014-04-01T09:50:47+08:00</updated>
+  <updated>2014-04-01T09:57:41+08:00</updated>
   <id>http://ruby.code.kekou.de//</id>
   <author>
     <name><![CDATA[Delbert]]></name>
@@ -18,7 +18,37 @@
     <link href="http://ruby.code.kekou.de//blog/2014/03/31/ex01/"/>
     <updated>2014-03-31T22:33:27+08:00</updated>
     <id>http://ruby.code.kekou.de//blog/2014/03/31/ex01</id>
-    <content type="html"><![CDATA[
+    <content type="html"><![CDATA[<p>将下面的代码复制保存为 <code>ex1.rb</code>，然后执行。</p>
+
+<!--more-->
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>puts "Hello World!"
+</span><span class='line'>puts "Hello Again!"
+</span><span class='line'>puts "I use Notepad++."
+</span><span class='line'>puts "This is fun."
+</span><span class='line'>puts "Yea! I'm printing..."
+</span><span class='line'>puts "Well, save this as 'ex1.rb'."</span></code></pre></td></tr></table></div></figure>
+
+
+<p>执行后显示</p>
+
+<pre><code>E:\SourceCode\GitHub&gt; ruby ex1.rb
+Hello World!
+Hello Again!
+I use Notepad++.
+This is fun.
+Yea! I'm printing...
+Well, save this as 'ex1.rb'.
+</code></pre>
+
+<p><code>#</code>的做用应该是注释。没有尝试，但是应该错不了。</p>
 ]]></content>
   </entry>
   

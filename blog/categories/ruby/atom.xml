@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | Notes for Ruby]]></title>
   <link href="http://ruby.code.kekou.de//blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://ruby.code.kekou.de//"/>
-  <updated>2014-04-01T09:50:47+08:00</updated>
+  <updated>2014-04-01T09:57:41+08:00</updated>
   <id>http://ruby.code.kekou.de//</id>
   <author>
     <name><![CDATA[Delbert]]></name>
@@ -18,7 +18,32 @@
     <link href="http://ruby.code.kekou.de//blog/2014/03/31/ex01/"/>
     <updated>2014-03-31T22:33:27+08:00</updated>
     <id>http://ruby.code.kekou.de//blog/2014/03/31/ex01</id>
-    <content type="html"><![CDATA[
+    <content type="html"><![CDATA[<p>将下面的代码复制保存为 <code>ex1.rb</code>，然后执行。</p>
+
+<!--more-->
+
+
+<p><code>
+puts "Hello World!"
+puts "Hello Again!"
+puts "I use Notepad++."
+puts "This is fun."
+puts "Yea! I'm printing..."
+puts "Well, save this as 'ex1.rb'."
+</code></p>
+
+<p>执行后显示</p>
+
+<pre><code>E:\SourceCode\GitHub&gt; ruby ex1.rb
+Hello World!
+Hello Again!
+I use Notepad++.
+This is fun.
+Yea! I'm printing...
+Well, save this as 'ex1.rb'.
+</code></pre>
+
+<p><code>#</code>的做用应该是注释。没有尝试，但是应该错不了。</p>
 ]]></content>
   </entry>
   
