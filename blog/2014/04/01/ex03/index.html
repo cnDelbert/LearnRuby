@@ -23,9 +23,8 @@
 12
 13
 14
-puts "Calc the results of 3+5"
-puts 3+5 puts "And 3.0+5"
-puts 3.0+5 puts &hellip;">
+puts &quot;Calc the results of 3+5&quot;
+puts 3+5 puts &quot;And 3.0+5& &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -112,7 +111,9 @@ puts 3.0+5 puts &hellip;">
 <!--more-->
 
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -126,25 +127,26 @@ puts 3.0+5 puts &hellip;">
 <span class='line-number'>12</span>
 <span class='line-number'>13</span>
 <span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>puts "Calc the results of 3+5"
-</span><span class='line'>puts 3+5
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Calc the results of 3+5&quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="mi">3</span><span class="o">+</span><span class="mi">5</span>
 </span><span class='line'>
-</span><span class='line'>puts "And 3.0+5"
-</span><span class='line'>puts 3.0+5
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;And 3.0+5&quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="mi">3</span><span class="o">.</span><span class="mi">0</span><span class="o">+</span><span class="mi">5</span>
 </span><span class='line'>
-</span><span class='line'>puts "And if it is true the 4 equals to 5"
-</span><span class='line'>puts 4 == 5
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;And if it is true the 4 equals to 5&quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">5</span>
 </span><span class='line'>
-</span><span class='line'>puts "3/2"
-</span><span class='line'>puts 3/2
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;3/2&quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="mi">3</span><span class="o">/</span><span class="mi">2</span>
 </span><span class='line'>
-</span><span class='line'>puts "3.0/2"
-</span><span class='line'>puts 3.0/2</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;3.0/2&quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="mi">3</span><span class="o">.</span><span class="mi">0</span><span class="o">/</span><span class="mi">2</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>输出</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -154,16 +156,17 @@ puts 3.0+5 puts &hellip;">
 <span class='line-number'>8</span>
 <span class='line-number'>9</span>
 <span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>Calc the results of 3+5
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>Calc the results of 3+5
 </span><span class='line'>8
 </span><span class='line'>And 3.0+5
 </span><span class='line'>8.0
-</span><span class='line'>And if it is true the 4 equals to 5
-</span><span class='line'>false
+</span><span class='line'>And <span class="k">if </span>it is <span class="nb">true </span>the 4 equals to 5
+</span><span class='line'><span class="nb">false</span>
 </span><span class='line'>3/2
 </span><span class='line'>1
 </span><span class='line'>3.0/2
-</span><span class='line'>1.5</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>1.5
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>其实，添加 PATH 之后直接用 irb 来代替 calc 应该可以的吧？</p>

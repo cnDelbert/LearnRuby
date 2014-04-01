@@ -15,8 +15,7 @@
 4
 5
 #This is comment.
-puts "You can see this." #While you will not see this
-# &hellip;">
+puts &quot;You can see this.&quot; #While you will not &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -105,28 +104,30 @@ puts "You can see this." #While you will not see this
 
 <p>一行中， <code>#</code> 之后的所有内容都不会被执行。</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>#This is comment.
-</span><span class='line'>puts "You can see this." #While you will not see this
-</span><span class='line'>#This will not run.
-</span><span class='line'>#puts "This will not run."
-</span><span class='line'>puts "This will run."</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#This is comment.</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;You can see this.&quot;</span> <span class="c1">#While you will not see this</span>
+</span><span class='line'><span class="c1">#This will not run.</span>
+</span><span class='line'><span class="c1">#puts &quot;This will not run.&quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;This will run.&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>将会输出</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>C:\Users\Administrator&gt;ruby ex2.rb
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>C:<span class="se">\U</span>sers<span class="se">\A</span>dministrator&gt;ruby ex2.rb
 </span><span class='line'>
 </span><span class='line'>You can see this.
-</span><span class='line'>This will run.</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>This will run.
+</span></code></pre></td></tr></table></div></figure>
 
 </div>
 

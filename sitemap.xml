@@ -2,38 +2,38 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://ruby.code.kekou.de//blog/2014/03/31/learn-ruby-the-hard-way/</loc>
-        <lastmod>2014-04-01T09:46:48+08:00</lastmod>
+        <lastmod>2014-04-01T16:25:25+08:00</lastmod>
     </url>
     <url>
         <loc>http://ruby.code.kekou.de//blog/2014/03/31/ex00/</loc>
-        <lastmod>2014-04-01T10:25:38+08:00</lastmod>
+        <lastmod>2014-04-01T16:25:25+08:00</lastmod>
     </url>
     <url>
         <loc>http://ruby.code.kekou.de//blog/2014/03/31/ex01/</loc>
-        <lastmod>2014-04-01T13:25:34+08:00</lastmod>
+        <lastmod>2014-04-01T16:38:44+08:00</lastmod>
     </url>
     <url>
         <loc>http://ruby.code.kekou.de//blog/2014/04/01/ex02/</loc>
-        <lastmod>2014-04-01T13:36:10+08:00</lastmod>
+        <lastmod>2014-04-01T16:38:44+08:00</lastmod>
     </url>
     <url>
         <loc>http://ruby.code.kekou.de//blog/2014/04/01/ex03/</loc>
-        <lastmod>2014-04-01T13:46:54+08:00</lastmod>
+        <lastmod>2014-04-01T16:38:54+08:00</lastmod>
     </url>
     <url>
         <loc>http://ruby.code.kekou.de//blog/2014/04/01/ex04/</loc>
-        <lastmod>2014-04-01T14:31:37+08:00</lastmod>
+        <lastmod>2014-04-01T16:33:22+08:00</lastmod>
     </url>
     <url>
         <loc>http://ruby.code.kekou.de//blog/archives/</loc>
-        <lastmod>2014-04-01T14:31:37+08:00</lastmod>
+        <lastmod>2014-04-01T16:38:54+08:00</lastmod>
     </url>
     <url>
         <loc>http://ruby.code.kekou.de//</loc>
-        <lastmod>2014-04-01T14:31:37+08:00</lastmod>
+        <lastmod>2014-04-01T16:38:54+08:00</lastmod>
     </url>
     <url>
         <loc>http://ruby.code.kekou.de//robots.txt</loc>
-        <lastmod>2014-04-01T09:40:27+08:00</lastmod>
+        <lastmod>2014-04-01T16:25:25+08:00</lastmod>
     </url>
 </urlset>
