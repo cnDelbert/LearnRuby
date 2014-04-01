@@ -4,7 +4,7 @@
   <title><![CDATA[Notes for Ruby]]></title>
   <link href="http://ruby.code.kekou.de//atom.xml" rel="self"/>
   <link href="http://ruby.code.kekou.de//"/>
-  <updated>2014-04-01T13:48:51+08:00</updated>
+  <updated>2014-04-01T14:31:47+08:00</updated>
   <id>http://ruby.code.kekou.de//</id>
   <author>
     <name><![CDATA[Delbert]]></name>
@@ -12,6 +12,96 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 4: 变量和命名]]></title>
+    <link href="http://ruby.code.kekou.de//blog/2014/04/01/ex04/"/>
+    <updated>2014-04-01T14:13:58+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/2014/04/01/ex04</id>
+    <content type="html"><![CDATA[<p>似乎 Ruby 是<strong>弱类型</strong>的语言，不用声明一个变量的类型即可使用。</p>
+
+<!--more-->
+
+
+<p>用自己喜欢的方式给变量来命名，我喜欢骆驼(Camel)式的，就像这样 <code>thisVar</code>，不需要 underscore <code>_</code>。</p>
+
+<p>update:</p>
+
+<p>看到一个评论是这样说的：</p>
+
+<blockquote><p>python大小写混合原因是大小写敏感，实际上是java风格；php小写加下划线是语言对大小写不敏感的原因；ruby既大小写敏感，又使用小写加下划线，感觉不伦不类啊。</p></blockquote>
+
+<p>另外， Ruby 的行末竟然是不用加分号<code>;</code>的，太晕了。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>cars = 100
+</span><span class='line'>passengers = 90
+</span><span class='line'>drivers = 30
+</span><span class='line'>space_in_a_car = 4.0
+</span><span class='line'>cars_not_driven = cars - drivers
+</span><span class='line'>cars_driven = drivers
+</span><span class='line'>carpool_capacity = cars_driven * space_in_a_car
+</span><span class='line'>average_passengers_per_car = passengers / cars_driven
+</span><span class='line'>
+</span><span class='line'>puts "There are #{cars} cars available."
+</span><span class='line'>puts "There are only #{drivers} drivers available."
+</span><span class='line'>puts "There will be #{cars_not_driven} empty cars today."
+</span><span class='line'>puts "We can transport #{carpool_capacity} people today."
+</span><span class='line'>puts "We have #{passengers} passengers to carpool today."
+</span><span class='line'>puts "We need to put about #{average_passengers_per_car} in each car."</span></code></pre></td></tr></table></div></figure>
+
+
+<p>执行后将会输出</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>There are 100 cars available.
+</span><span class='line'>There are only 30 drivers available.
+</span><span class='line'>There will be 70 empty cars today.
+</span><span class='line'>We can transport 120.0 people today.
+</span><span class='line'>We have 90 passengers to carpool today.
+</span><span class='line'>We need to put about 3 in each car.</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Ruby 在输出中调用变量是 <code>#{var}</code> 的形式。总感觉就是 php 的变种。</p>
+
+<p>irb 中庸变量名来进行计算：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>irb(main):001:0&gt; i = 4
+</span><span class='line'>=&gt; 4
+</span><span class='line'>irb(main):002:0&gt; s = 3
+</span><span class='line'>=&gt; 3
+</span><span class='line'>irb(main):003:0&gt; i*s
+</span><span class='line'>=&gt; 12</span></code></pre></td></tr></table></div></figure>
+
+
+<p>输入 <code>Ctrl+D</code> 返回命令行/Bash。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Ex 3: 数字和数学计算]]></title>

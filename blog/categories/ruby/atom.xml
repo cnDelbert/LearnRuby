@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | Notes for Ruby]]></title>
   <link href="http://ruby.code.kekou.de//blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://ruby.code.kekou.de//"/>
-  <updated>2014-04-01T13:48:51+08:00</updated>
+  <updated>2014-04-01T14:31:47+08:00</updated>
   <id>http://ruby.code.kekou.de//</id>
   <author>
     <name><![CDATA[Delbert]]></name>
@@ -12,6 +12,68 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 4: 变量和命名]]></title>
+    <link href="http://ruby.code.kekou.de//blog/2014/04/01/ex04/"/>
+    <updated>2014-04-01T14:13:58+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/2014/04/01/ex04</id>
+    <content type="html"><![CDATA[<p>似乎 Ruby 是<strong>弱类型</strong>的语言，不用声明一个变量的类型即可使用。</p>
+
+<!--more-->
+
+
+<p>用自己喜欢的方式给变量来命名，我喜欢骆驼(Camel)式的，就像这样 <code>thisVar</code>，不需要 underscore <code>_</code>。</p>
+
+<p>update:</p>
+
+<p>看到一个评论是这样说的：</p>
+
+<blockquote><p>python大小写混合原因是大小写敏感，实际上是java风格；php小写加下划线是语言对大小写不敏感的原因；ruby既大小写敏感，又使用小写加下划线，感觉不伦不类啊。</p></blockquote>
+
+<p>另外， Ruby 的行末竟然是不用加分号<code>;</code>的，太晕了。</p>
+
+<p>```
+cars = 100
+passengers = 90
+drivers = 30
+space_in_a_car = 4.0
+cars_not_driven = cars &ndash; drivers
+cars_driven = drivers
+carpool_capacity = cars_driven * space_in_a_car
+average_passengers_per_car = passengers / cars_driven</p>
+
+<p>puts &ldquo;There are #{cars} cars available.&rdquo;
+puts &ldquo;There are only #{drivers} drivers available.&rdquo;
+puts &ldquo;There will be #{cars_not_driven} empty cars today.&rdquo;
+puts &ldquo;We can transport #{carpool_capacity} people today.&rdquo;
+puts &ldquo;We have #{passengers} passengers to carpool today.&rdquo;
+puts &ldquo;We need to put about #{average_passengers_per_car} in each car.&rdquo;
+<code>
+执行后将会输出
+</code>
+There are 100 cars available.
+There are only 30 drivers available.
+There will be 70 empty cars today.
+We can transport 120.0 people today.
+We have 90 passengers to carpool today.
+We need to put about 3 in each car.
+```</p>
+
+<p>Ruby 在输出中调用变量是 <code>#{var}</code> 的形式。总感觉就是 php 的变种。</p>
+
+<p>irb 中庸变量名来进行计算：
+<code>
+irb(main):001:0&gt; i = 4
+=&gt; 4
+irb(main):002:0&gt; s = 3
+=&gt; 3
+irb(main):003:0&gt; i*s
+=&gt; 12
+</code>
+输入 <code>Ctrl+D</code> 返回命令行/Bash。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Ex 2: 注释和＃号]]></title>
