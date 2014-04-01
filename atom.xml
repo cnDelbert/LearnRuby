@@ -4,7 +4,7 @@
   <title><![CDATA[Notes for Ruby]]></title>
   <link href="http://ruby.code.kekou.de//atom.xml" rel="self"/>
   <link href="http://ruby.code.kekou.de//"/>
-  <updated>2014-04-01T16:39:06+08:00</updated>
+  <updated>2014-04-01T21:04:49+08:00</updated>
   <id>http://ruby.code.kekou.de//</id>
   <author>
     <name><![CDATA[Delbert]]></name>
@@ -12,6 +12,238 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 7: 更多输出]]></title>
+    <link href="http://ruby.code.kekou.de//blog/2014/04/01/ex07/"/>
+    <updated>2014-04-01T20:51:50+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/2014/04/01/ex07</id>
+    <content type="html"><![CDATA[<p>格式化输出并不要求后面一定是变量，输出的同时可以进行类似数学计算的奇怪东东。</p>
+
+<!--more-->
+
+
+
+
+<figure class='code'><figcaption><span>ex07.rb</span><a href='//ruby.code.kekou.de/code/ex07.rb'>Download Code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Normal sentences.&quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;This is %s.&quot;</span><span class="sx">%&quot;a word&quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;And next one will output </span><span class="si">#{</span><span class="mi">10</span><span class="si">}</span><span class="s2"> dots.&quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;.&quot;</span><span class="o">*</span><span class="mi">10</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">word1</span> <span class="o">=</span> <span class="s2">&quot;W&quot;</span>
+</span><span class='line'><span class="n">word2</span> <span class="o">=</span> <span class="s2">&quot;o&quot;</span>
+</span><span class='line'><span class="n">word3</span> <span class="o">=</span> <span class="s2">&quot;r&quot;</span>
+</span><span class='line'><span class="n">word4</span> <span class="o">=</span> <span class="s2">&quot;d&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">print</span> <span class="n">word1</span><span class="o">+</span><span class="n">word2</span><span class="o">+</span><span class="n">word3</span><span class="o">+</span><span class="n">word4</span>    <span class="c1">#No Return</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;And&quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="n">word1</span><span class="o">+</span><span class="n">word2</span><span class="o">+</span><span class="n">word3</span><span class="o">+</span><span class="n">word4</span> <span class="c1">#Switch to the next line.</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">print</span> <span class="s2">&quot;Now you see the DIFFERENCE.&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>从输出来看，可以明显看到区别：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>Normal sentences.
+</span><span class='line'>This is a word.
+</span><span class='line'>And next one will output 10 dots.
+</span><span class='line'>..........
+</span><span class='line'>WordAnd
+</span><span class='line'>Word
+</span><span class='line'>Now you see the DIFFERENCE.<span class="o">&lt;&lt;&lt;</span> Process finished. <span class="o">(</span>Exit code 0<span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>其中 <code>&lt;&lt;&lt; Process finished. (Exit code 0)</code> 是结束后没有换行，命令行的内容自动加到了后面。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 6: 字符串]]></title>
+    <link href="http://ruby.code.kekou.de//blog/2014/04/01/ex06/"/>
+    <updated>2014-04-01T17:12:41+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/2014/04/01/ex06</id>
+    <content type="html"><![CDATA[<p>前面用 <code>puts</code> 输出的用双引号引起来的就是字符串。</p>
+
+<!--more-->
+
+
+
+
+<figure class='code'><figcaption><span>ex6.rb</span><a href='//ruby.code.kekou.de/code/ex6.rb'>Download code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;There are </span><span class="si">#{</span><span class="mi">10</span><span class="si">}</span><span class="s2"> types of people.&quot;</span>   <span class="c1"># 10 本身是数字</span>
+</span><span class='line'><span class="n">binary</span> <span class="o">=</span> <span class="s2">&quot;binary&quot;</span>
+</span><span class='line'><span class="n">do_not</span> <span class="o">=</span> <span class="s2">&quot;don&#39;t&quot;</span>
+</span><span class='line'><span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;Those who know </span><span class="si">#{</span><span class="n">binary</span><span class="si">}</span><span class="s2"> and those who </span><span class="si">#{</span><span class="n">do_not</span><span class="si">}</span><span class="s2">.&quot;</span><span class="c1"># 引用另外两个变量</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="n">x</span>
+</span><span class='line'><span class="nb">puts</span> <span class="n">y</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;I said: </span><span class="si">#{</span><span class="n">x</span><span class="si">}</span><span class="s2">.&quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;I also said: &#39;</span><span class="si">#{</span><span class="n">y</span><span class="si">}</span><span class="s2">&#39;.&quot;</span> <span class="c1"># 继续引用 x 和 y</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">hilarious</span> <span class="o">=</span> <span class="kp">false</span>
+</span><span class='line'><span class="n">joke_evaluation</span> <span class="o">=</span> <span class="s2">&quot;Isn&#39;t that joke so funny?! </span><span class="si">#{</span><span class="n">hilarious</span><span class="si">}</span><span class="s2">&quot;</span> <span class="c1"># 布尔值的变量</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="n">joke_evaluation</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">w</span> <span class="o">=</span> <span class="s2">&quot;This is the left side of...&quot;</span>
+</span><span class='line'><span class="n">e</span> <span class="o">=</span> <span class="s2">&quot;a string with a right side.&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="n">w</span> <span class="o">+</span> <span class="n">e</span> <span class="c1"># + 连接字符串</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>上面的代码中加上了部分注释， bash 中输出如下</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>There are 10 types of people.
+</span><span class='line'>Those who know binary and those who don<span class="s1">&#39;t.</span>
+</span><span class='line'><span class="s1">I said: There are 10 types of people..</span>
+</span><span class='line'><span class="s1">I also said: &#39;</span>Those who know binary and those who don<span class="s1">&#39;t.&#39;</span>.
+</span><span class='line'>Isn<span class="err">&#39;</span>t that joke so funny?! <span class="nb">false</span>
+</span><span class='line'>This is the left side of...a string with a right side.
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 5: 更多的变量和输出]]></title>
+    <link href="http://ruby.code.kekou.de//blog/2014/04/01/ex05/"/>
+    <updated>2014-04-01T17:12:11+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/2014/04/01/ex05</id>
+    <content type="html"><![CDATA[<p>本节是格式化输出，如果不理解，参考 C 语言的 <code>printf</code> 函数即可。</p>
+
+<!--more-->
+
+
+
+
+<figure class='code'><figcaption><span>ex5.rb</span><a href='//ruby.code.kekou.de/code/ex5.rb'>Download code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">my_name</span> <span class="o">=</span> <span class="s1">&#39;Delbert&#39;</span>
+</span><span class='line'><span class="n">my_age</span> <span class="o">=</span> <span class="mi">35</span> <span class="c1"># not a lie</span>
+</span><span class='line'><span class="n">my_height</span> <span class="o">=</span> <span class="mi">74</span> <span class="c1"># inches</span>
+</span><span class='line'><span class="n">my_weight</span> <span class="o">=</span> <span class="mi">180</span> <span class="c1"># lbs</span>
+</span><span class='line'><span class="n">my_eyes</span> <span class="o">=</span> <span class="s1">&#39;Blue&#39;</span>
+</span><span class='line'><span class="n">my_teeth</span> <span class="o">=</span> <span class="s1">&#39;White&#39;</span>
+</span><span class='line'><span class="n">my_hair</span> <span class="o">=</span> <span class="s1">&#39;Brown&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Let&#39;s talk about %s.&quot;</span> <span class="o">%</span> <span class="n">my_name</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;He&#39;s %d inches tall.&quot;</span> <span class="o">%</span> <span class="n">my_height</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;He&#39;s %d pounds heavy.&quot;</span> <span class="o">%</span> <span class="n">my_weight</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Actually that&#39;s not too heavy.&quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;He&#39;s got %s eyes and %s hair.&quot;</span> <span class="o">%</span> <span class="o">[</span><span class="n">my_eyes</span><span class="p">,</span> <span class="n">my_hair</span><span class="o">]</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;His teeth are usually %s depending on the coffee.&quot;</span> <span class="o">%</span> <span class="n">my_teeth</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># this line is tricky, try to get it exactly right</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;If I add %d, %d, and %d I get %d.&quot;</span> <span class="o">%</span> <span class="o">[</span><span class="n">my_age</span><span class="p">,</span> <span class="n">my_height</span><span class="p">,</span> <span class="n">my_weight</span><span class="p">,</span> <span class="n">my_age</span> <span class="o">+</span> <span class="n">my_height</span> <span class="o">+</span> <span class="n">my_weight</span><span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>运行后输出的是</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>Let<span class="s1">&#39;s talk about Delbert.</span>
+</span><span class='line'><span class="s1">He&#39;</span>s 74 inches tall.
+</span><span class='line'>He<span class="s1">&#39;s 180 pounds heavy.</span>
+</span><span class='line'><span class="s1">Actually that&#39;</span>s not too heavy.
+</span><span class='line'>He<span class="err">&#39;</span>s got Blue eyes and Brown hair.
+</span><span class='line'>His teeth are usually White depending on the coffee.
+</span><span class='line'>If I add 35, 74, and 180 I get 289.
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>下面是转换英寸和厘米的（我不知道<code>磅</code>这个单位是多重）</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#convert inch to cm</span>
+</span><span class='line'><span class="n">inch</span> <span class="o">=</span> <span class="mi">23</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;%d inches equals %f cm.&quot;</span><span class="sx">%[inch, inch/2.54]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<p>输出</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>23 inches equals 9.055118 cm.
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Ex 4: 变量和命名]]></title>
@@ -33,7 +265,7 @@
 
 <p>另外， Ruby 的行末竟然是不用加分号<code>;</code>的，太晕了。</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>ex4.rb</span><a href='//ruby.code.kekou.de/code/ex4.rb'>Download code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -118,7 +350,7 @@
 
 
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>ex3.rb</span><a href='//ruby.code.kekou.de/code/ex3.rb'>Download code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -190,7 +422,7 @@
 
 <p>一行中， <code>#</code> 之后的所有内容都不会被执行。</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>ex2.rb</span><a href='//ruby.code.kekou.de/code/ex2.rb'>Download code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -230,7 +462,7 @@
 
 
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>ex1.rb</span><a href='//ruby.code.kekou.de/code/ex1.rb'>Download code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -280,21 +512,31 @@
 
 <h4>Windows 7 X64</h4>
 
-<pre><code>E:\SourceCode\GitHub&gt; ruby -v
-ruby 1.9.3p429 (2013-05-15) [i386-mingw32]
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>E:<span class="se">\S</span>ourceCode<span class="se">\G</span>itHub&gt; ruby -v
+</span><span class='line'>ruby 1.9.3p429 <span class="o">(</span>2013-05-15<span class="o">)</span> <span class="o">[</span>i386-mingw32<span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>我安装的是 1.9.3 版本的。</p>
 
 <p>同样，也可以运行 Ruby 命令行，可能 PowerShell 属于 bash 吧，退出方式是 Linux 的 <code>Ctrl+D</code>，而不是 <code>Ctrl+Z</code>。</p>
 
-<pre><code>E:\SourceCode\GitHub&gt; irb
-irb(main):001:0&gt; ^Z
-=&gt; nil
-irb(main):002:0* ^C
-irb(main):002:0&gt;
-E:\SourceCode\GitHub&gt; 
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>E:<span class="se">\S</span>ourceCode<span class="se">\G</span>itHub&gt; irb
+</span><span class='line'>irb<span class="o">(</span>main<span class="o">)</span>:001:0&gt; ^Z
+</span><span class='line'><span class="o">=</span>&gt; nil
+</span><span class='line'>irb<span class="o">(</span>main<span class="o">)</span>:002:0* ^C
+</span><span class='line'>irb<span class="o">(</span>main<span class="o">)</span>:002:0&gt;
+</span><span class='line'>E:<span class="se">\S</span>ourceCode<span class="se">\G</span>itHub&gt;
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>已经安装了 Vim 的，Notepad++ 也已经安装了 Vim 插件，不过还是用不惯。</p>
 
