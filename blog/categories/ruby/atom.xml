@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | Notes for Ruby]]></title>
   <link href="http://ruby.code.kekou.de//blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://ruby.code.kekou.de//"/>
-  <updated>2014-04-01T10:37:59+08:00</updated>
+  <updated>2014-04-01T13:47:03+08:00</updated>
   <id>http://ruby.code.kekou.de//</id>
   <author>
     <name><![CDATA[Delbert]]></name>
@@ -12,6 +12,42 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 2: 注释和＃号]]></title>
+    <link href="http://ruby.code.kekou.de//blog/2014/04/01/ex02/"/>
+    <updated>2014-04-01T13:20:46+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/2014/04/01/ex02</id>
+    <content type="html"><![CDATA[<p><code>#</code> 的作用是注释，英文为 octothorpe 或者 pound character。</p>
+
+<!--more-->
+
+
+<p>一行中， <code>#</code> 之后的所有内容都不会被执行。</p>
+
+<p>```</p>
+
+<h1>This is comment.</h1>
+
+<p>puts &ldquo;You can see this.&rdquo; #While you will not see this</p>
+
+<h1>This will not run.</h1>
+
+<h1>puts &ldquo;This will not run.&rdquo;</h1>
+
+<p>puts &ldquo;This will run.&rdquo;
+```</p>
+
+<p>将会输出</p>
+
+<p>```
+C:\Users\Administrator>ruby ex2.rb</p>
+
+<p>You can see this.
+This will run.
+```</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Ex 1: 第一个程序]]></title>
@@ -34,6 +70,8 @@ puts "Well, save this as 'ex1.rb'."
 
 <p>执行后显示</p>
 
+<p>```</p>
+
 <pre><code>E:\SourceCode\GitHub&gt; ruby ex1.rb
 Hello World!
 Hello Again!
@@ -43,7 +81,9 @@ Yea! I'm printing...
 Well, save this as 'ex1.rb'.
 </code></pre>
 
-<p><code>#</code>的做用应该是注释。没有尝试，但是应该错不了。</p>
+<p>```</p>
+
+<p><code>#</code>的作用应该是注释。没有尝试，但是应该错不了。</p>
 ]]></content>
   </entry>
   

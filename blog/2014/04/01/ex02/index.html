@@ -5,12 +5,18 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Ex 0: 准备工作 - Notes for Ruby</title>
+  <title>Ex 2: 注释和＃号 - Notes for Ruby</title>
   <meta name="author" content="Delbert">
 
   
-  <meta name="description" content="由于安装 Octopress，应该是已经部署好了 Ruby 的环境了。我是在 Windows 7 X64 环境下操作的。 Windows 7 X64 E:\SourceCode\GitHub&gt; ruby -v
-ruby 1.9.3p429 (2013-05-15) [i386-mingw32 &hellip;">
+  <meta name="description" content="# 的作用是注释，英文为 octothorpe 或者 pound character。 一行中， # 之后的所有内容都不会被执行。 1
+2
+3
+4
+5
+#This is comment.
+puts "You can see this." #While you will not see this
+# &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +25,7 @@ ruby 1.9.3p429 (2013-05-15) [i386-mingw32 &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ruby.code.kekou.de//blog/2014/03/31/ex00">
+  <link rel="canonical" href="http://ruby.code.kekou.de//blog/2014/04/01/ex02">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Notes for Ruby" type="application/atom+xml">
@@ -69,7 +75,7 @@ ruby 1.9.3p429 (2013-05-15) [i386-mingw32 &hellip;">
   
   <header>
     
-      <h1 class="entry-title">Ex 0: 准备工作</h1>
+      <h1 class="entry-title">Ex 2: 注释和＃号</h1>
     
     
       <p class="meta">
@@ -85,39 +91,43 @@ ruby 1.9.3p429 (2013-05-15) [i386-mingw32 &hellip;">
   
 
 
-<time datetime="2014-03-31T22:15:50+08:00" pubdate data-updated="true">Mar 31<span>st</span>, 2014</time>
+<time datetime="2014-04-01T13:20:46+08:00" pubdate data-updated="true">Apr 1<span>st</span>, 2014</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>由于安装 Octopress，应该是已经部署好了 Ruby 的环境了。我是在 Windows 7 X64 环境下操作的。</p>
+<div class="entry-content"><p><code>#</code> 的作用是注释，英文为 octothorpe 或者 pound character。</p>
 
 <!--more-->
 
 
-<h4>Windows 7 X64</h4>
+<p>一行中， <code>#</code> 之后的所有内容都不会被执行。</p>
 
-<pre><code>E:\SourceCode\GitHub&gt; ruby -v
-ruby 1.9.3p429 (2013-05-15) [i386-mingw32]
-</code></pre>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#This is comment.
+</span><span class='line'>puts "You can see this." #While you will not see this
+</span><span class='line'>#This will not run.
+</span><span class='line'>#puts "This will not run."
+</span><span class='line'>puts "This will run."</span></code></pre></td></tr></table></div></figure>
 
-<p>我安装的是 1.9.3 版本的。</p>
 
-<p>同样，也可以运行 Ruby 命令行，可能 PowerShell 属于 bash 吧，退出方式是 Linux 的 <code>Ctrl+D</code>，而不是 <code>Ctrl+Z</code>。</p>
+<p>将会输出</p>
 
-<pre><code>E:\SourceCode\GitHub&gt; irb
-irb(main):001:0&gt; ^Z
-=&gt; nil
-irb(main):002:0* ^C
-irb(main):002:0&gt;
-E:\SourceCode\GitHub&gt; 
-</code></pre>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>C:\Users\Administrator&gt;ruby ex2.rb
+</span><span class='line'>
+</span><span class='line'>You can see this.
+</span><span class='line'>This will run.</span></code></pre></td></tr></table></div></figure>
 
-<p>已经安装了 Vim 的，Notepad++ 也已经安装了 Vim 插件，不过还是用不惯。</p>
-
-<p>暑假就可以用 Mac OS 了，期待我的更新吧。</p>
 </div>
 
 
@@ -140,7 +150,7 @@ E:\SourceCode\GitHub&gt;
   
 
 
-<time datetime="2014-03-31T22:15:50+08:00" pubdate data-updated="true">Mar 31<span>st</span>, 2014</time>
+<time datetime="2014-04-01T13:20:46+08:00" pubdate data-updated="true">Apr 1<span>st</span>, 2014</time>
       
 
 <span class="categories">
@@ -154,7 +164,7 @@ E:\SourceCode\GitHub&gt;
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://ruby.code.kekou.de//blog/2014/03/31/ex00/" data-via="cnDelbert" data-counturl="http://ruby.code.kekou.de//blog/2014/03/31/ex00/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://ruby.code.kekou.de//blog/2014/04/01/ex02/" data-via="cnDelbert" data-counturl="http://ruby.code.kekou.de//blog/2014/04/01/ex02/" >Tweet</a>
   
   
   
@@ -163,10 +173,10 @@ E:\SourceCode\GitHub&gt;
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/03/31/learn-ruby-the-hard-way/" title="Previous Post: Learn Ruby The Hard Way">&laquo; Learn Ruby The Hard Way</a>
+        <a class="basic-alignment left" href="/blog/2014/03/31/ex01/" title="Previous Post: Ex 1: 第一个程序">&laquo; Ex 1: 第一个程序</a>
       
       
-        <a class="basic-alignment right" href="/blog/2014/03/31/ex01/" title="Next Post: Ex 1: 第一个程序">Ex 1: 第一个程序 &raquo;</a>
+        <a class="basic-alignment right" href="/blog/2014/04/01/ex03/" title="Next Post: Ex 3: 数字和数学计算">Ex 3: 数字和数学计算 &raquo;</a>
       
     </p>
   </footer>
