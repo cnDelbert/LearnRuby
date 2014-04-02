@@ -1,7 +1,7 @@
 # Here's some new strange stuff, remember type it exactly.
 
 days = "Mon Tue Wed Thu Fri Sat Sun"
-months = "Jan\nFeb\nMar\nApr\nMay\nJun\nJul\nAug"
+months = "Jan\nFeb\nMar\nApr\nMay\nJun\nJul\nAug" #转义字符
 
 puts "Here are the days: ", days
 puts "Here are the months: ", months
