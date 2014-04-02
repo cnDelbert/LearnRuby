@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | Notes for Ruby]]></title>
   <link href="http://ruby.code.kekou.de//blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://ruby.code.kekou.de//"/>
-  <updated>2014-04-02T19:13:15+08:00</updated>
+  <updated>2014-04-02T20:34:02+08:00</updated>
   <id>http://ruby.code.kekou.de//</id>
   <author>
     <name><![CDATA[Delbert]]></name>
@@ -12,6 +12,50 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 12: 模块(Modules)]]></title>
+    <link href="http://ruby.code.kekou.de//blog/2014/04/02/ex12/"/>
+    <updated>2014-04-02T20:07:56+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/2014/04/02/ex12</id>
+    <content type="html"><![CDATA[<p>上来的那个<del>栗子</del>例子是分析 URL 的。</p>
+
+<p>``` ruby ex12.rb //ruby.code.kekou.de/code/ex12.rb Download Code
+require &lsquo;open-uri&rsquo;</p>
+
+<p>open(&ldquo;<a href="http://baidu.com">http://baidu.com</a>&rdquo;) do |f|
+  f.each_line {|line| p line}
+  puts f.base_uri         # <a href="http://baidu.com">http://baidu.com</a>
+  puts f.content_type     # &ldquo;text/html&rdquo;
+  puts f.charset          # &ldquo;iso-8859-1&rdquo;
+  puts f.content_encoding # []
+  puts f.last_modified    # 2010-01-12 21:48:00 +0800
+end
+```</p>
+
+<p>貌似和原文说的不是太一样，执行 <code>open</code> 的时候会将整个页面进行输出吗？我在命令行下面是将整个页面都输出了。</p>
+
+<p>用 ruby-lang 的话会产生运行时错误。</p>
+
+<p>我用 <code>http://baidu.com</code> 是因为产生的输出很少。如下：</p>
+
+<pre><code>"&lt;html&gt;\n"
+"&lt;meta http-equiv=\"refresh\" content=\"0;url=http://www.baidu.com/\"&gt;\n"
+"&lt;/html&gt;\n"
+http://baidu.com
+text/html
+iso-8859-1
+2010-01-12 21:48:00 +0800
+</code></pre>
+
+<ol>
+<li><p>关于 <code>require</code> 和 <code>include</code>，找到了一篇文章： <a href="http://www.cnblogs.com/phaibin/archive/2009/11/06/1597333.html">http://www.cnblogs.com/phaibin/archive/2009/11/06/1597333.html</a>，原文在<a href="http://ionrails.com/2009/09/19/ruby_require-vs-load-vs-include-vs-extend/">这里</a>    。</p></li>
+<li><p>貌似不能。</p></li>
+<li><p>安装路径下 <code>/lib/ruby/版本号/</code> 中寻找。</p></li>
+</ol>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Ex 11: 提问]]></title>
@@ -222,50 +266,6 @@ I had this thing. That you could type up right. But it didn't sing. So I said go
 %X  使用十六进制数字０f的无符号十六进制整数
 %%  打印一个百分号
 </code></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ex 7: 更多输出]]></title>
-    <link href="http://ruby.code.kekou.de//blog/2014/04/01/ex07/"/>
-    <updated>2014-04-01T20:51:50+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/2014/04/01/ex07</id>
-    <content type="html"><![CDATA[<p>格式化输出并不要求后面一定是变量，输出的同时可以进行类似数学计算的奇怪东东。</p>
-
-<!--more-->
-
-
-<p>``` ruby ex7.rb //ruby.code.kekou.de/code/ex7.rb Download Code
-puts &ldquo;Normal sentences.&rdquo;
-puts &ldquo;This is %s.&rdquo;%&ldquo;a word&rdquo;
-puts &ldquo;And next one will output #{10} dots.&rdquo;
-puts &ldquo;.&rdquo;*10</p>
-
-<p>word1 = &ldquo;W&rdquo;
-word2 = &ldquo;o&rdquo;
-word3 = &ldquo;r&rdquo;
-word4 = &ldquo;d&rdquo;</p>
-
-<p>print word1+word2+word3+word4   #No Return
-puts &ldquo;And&rdquo;
-puts word1+word2+word3+word4    #Switch to the next line.</p>
-
-<p>print &ldquo;Now you see the DIFFERENCE.&rdquo;
-```</p>
-
-<p>从输出来看，可以明显看到区别：</p>
-
-<p><code>bash
-Normal sentences.
-This is a word.
-And next one will output 10 dots.
-..........
-WordAnd
-Word
-Now you see the DIFFERENCE.&lt;&lt;&lt; Process finished. (Exit code 0)
-</code></p>
-
-<p>其中 <code>&lt;&lt;&lt; Process finished. (Exit code 0)</code> 是结束后没有换行，命令行的内容自动加到了后面。</p>
 ]]></content>
   </entry>
   
