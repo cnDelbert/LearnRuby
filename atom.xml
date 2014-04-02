@@ -4,7 +4,7 @@
   <title><![CDATA[Notes for Ruby]]></title>
   <link href="http://ruby.code.kekou.de//atom.xml" rel="self"/>
   <link href="http://ruby.code.kekou.de//"/>
-  <updated>2014-04-02T14:15:36+08:00</updated>
+  <updated>2014-04-02T19:13:15+08:00</updated>
   <id>http://ruby.code.kekou.de//</id>
   <author>
     <name><![CDATA[Delbert]]></name>
@@ -185,38 +185,22 @@ I'll do a list:
 
 <p>会输出</p>
 
-<figure class='code'><figcaption><span>ex9.rb</span><a href='//ruby.code.kekou.de/code/ex9.rb'>Download Code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Here</span> <span class="n">are</span> <span class="n">the</span> <span class="ss">days</span><span class="p">:</span>
-</span><span class='line'><span class="no">Mon</span> <span class="no">Tue</span> <span class="no">Wed</span> <span class="no">Thu</span> <span class="no">Fri</span> <span class="no">Sat</span> <span class="no">Sun</span>
-</span><span class='line'><span class="no">Here</span> <span class="n">are</span> <span class="n">the</span> <span class="ss">months</span><span class="p">:</span>
-</span><span class='line'><span class="no">Jan</span>
-</span><span class='line'><span class="no">Feb</span>
-</span><span class='line'><span class="no">Mar</span>
-</span><span class='line'><span class="no">Apr</span>
-</span><span class='line'><span class="no">May</span>
-</span><span class='line'><span class="no">Jun</span>
-</span><span class='line'><span class="no">Jul</span>
-</span><span class='line'><span class="no">Aug</span>
-</span><span class='line'><span class="no">There</span><span class="s1">&#39;s something going on here.</span>
-</span><span class='line'><span class="s1">With the three double-quotes.</span>
-</span><span class='line'><span class="s1">We&#39;</span><span class="n">ll</span> <span class="n">be</span> <span class="n">able</span> <span class="n">to</span> <span class="n">type</span> <span class="n">as</span> <span class="n">much</span> <span class="n">as</span> <span class="n">we</span> <span class="n">like</span><span class="o">.</span>
-</span><span class='line'><span class="no">Even</span> <span class="mi">4</span> <span class="n">lines</span> <span class="k">if</span> <span class="n">we</span> <span class="n">want</span><span class="p">,</span> <span class="ow">or</span> <span class="mi">5</span><span class="p">,</span> <span class="ow">or</span> <span class="mi">6</span><span class="o">.</span>
-</span></code></pre></td></tr></table></div></figure>
-
+<pre><code>Here are the days: 
+Mon Tue Wed Thu Fri Sat Sun
+Here are the months: 
+Jan
+Feb
+Mar
+Apr
+May
+Jun
+Jul
+Aug
+There's something going on here.
+With the three double-quotes.
+We'll be able to type as much as we like.
+Even 4 lines if we want, or 5, or 6.
+</code></pre>
 
 <p><code>\t</code> <code>\n</code> 什么的 Cpp 里面也是经常用的，但是那个 <code>PARAGRAPH</code> 是什么？是标签还是什么？输出的时候没有输出啊</p>
 ]]></content>
@@ -816,31 +800,21 @@ I'll do a list:
 
 <h4>Windows 7 X64</h4>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>E:<span class="se">\S</span>ourceCode<span class="se">\G</span>itHub&gt; ruby -v
-</span><span class='line'>ruby 1.9.3p429 <span class="o">(</span>2013-05-15<span class="o">)</span> <span class="o">[</span>i386-mingw32<span class="o">]</span>
-</span></code></pre></td></tr></table></div></figure>
-
+<pre><code>E:\SourceCode\GitHub&gt; ruby -v
+ruby 1.9.3p429 (2013-05-15) [i386-mingw32]
+</code></pre>
 
 <p>我安装的是 1.9.3 版本的。</p>
 
-<p>同样，也可以运行 Ruby 命令行，可能 PowerShell 属于 bash 吧，退出方式是 Linux 的 <code>Ctrl+D</code>，而不是 <code>Ctrl+Z</code>。</p>
+<p>同样，Windows 下也可以运行 Ruby 命令行 irb，可能 PowerShell 属于 bash 吧，退出方式是 Linux 的 <code>Ctrl+D</code>，而不是 <code>Ctrl+Z</code>（<code>Ctrl+C</code> 也不行）。</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>E:<span class="se">\S</span>ourceCode<span class="se">\G</span>itHub&gt; irb
-</span><span class='line'>irb<span class="o">(</span>main<span class="o">)</span>:001:0&gt; ^Z
-</span><span class='line'><span class="o">=</span>&gt; nil
-</span><span class='line'>irb<span class="o">(</span>main<span class="o">)</span>:002:0* ^C
-</span><span class='line'>irb<span class="o">(</span>main<span class="o">)</span>:002:0&gt;
-</span><span class='line'>E:<span class="se">\S</span>ourceCode<span class="se">\G</span>itHub&gt;
-</span></code></pre></td></tr></table></div></figure>
-
+<pre><code>E:\SourceCode\GitHub&gt; irb
+irb(main):001:0&gt; ^Z
+=&gt; nil
+irb(main):002:0* ^C
+irb(main):002:0&gt;
+E:\SourceCode\GitHub&gt; 
+</code></pre>
 
 <p>已经安装了 Vim 的，Notepad++ 也已经安装了 Vim 插件，不过还是用不惯。</p>
 

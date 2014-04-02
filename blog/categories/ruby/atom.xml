@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | Notes for Ruby]]></title>
   <link href="http://ruby.code.kekou.de//blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://ruby.code.kekou.de//"/>
-  <updated>2014-04-02T14:15:36+08:00</updated>
+  <updated>2014-04-02T19:13:15+08:00</updated>
   <id>http://ruby.code.kekou.de//</id>
   <author>
     <name><![CDATA[Delbert]]></name>
@@ -142,10 +142,9 @@ PARAGRAPH
 
 <p>会输出</p>
 
-<p><code>
-Here are the days:
+<pre><code>Here are the days: 
 Mon Tue Wed Thu Fri Sat Sun
-Here are the months:
+Here are the months: 
 Jan
 Feb
 Mar
@@ -158,7 +157,7 @@ There's something going on here.
 With the three double-quotes.
 We'll be able to type as much as we like.
 Even 4 lines if we want, or 5, or 6.
-</code></p>
+</code></pre>
 
 <p><code>\t</code> <code>\n</code> 什么的 Cpp 里面也是经常用的，但是那个 <code>PARAGRAPH</code> 是什么？是标签还是什么？输出的时候没有输出啊</p>
 ]]></content>
