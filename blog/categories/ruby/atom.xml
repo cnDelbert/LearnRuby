@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | Notes for Ruby]]></title>
   <link href="http://ruby.code.kekou.de//blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://ruby.code.kekou.de//"/>
-  <updated>2014-04-02T14:14:07+08:00</updated>
+  <updated>2014-04-02T14:15:36+08:00</updated>
   <id>http://ruby.code.kekou.de//</id>
   <author>
     <name><![CDATA[Delbert]]></name>
@@ -45,12 +45,11 @@ weight = gets.chomp()</p>
 
 <p>输出：</p>
 
-<p><code>bash
-How old are you?         24
+<pre><code>How old are you?         24
 How tall are you?       1.72
 How much do you weigh?  70
 So, you're 24 years old, 1.72 meters tall and 70 kilograms heavy.
-</code></p>
+</code></pre>
 
 <p><code>gets</code> 和 <code>puts</code> 一样，后面会跟一个换行，而 <code>gets.chomp()</code> 的后面是没有换行的。</p>
 
@@ -100,23 +99,16 @@ puts fat_cat
 
 <p>输出为</p>
 
-<p>``` bash</p>
-
-<pre><code>I'm tabbed in.
-</code></pre>
-
-<p>I&rsquo;m split
+<pre><code>    I'm tabbed in.
+I'm split
 on a line.
-I&rsquo;m \ a \ cat.
-I&rsquo;ll do a list:</p>
-
-<pre><code>* Cat food
-* Fishies
-* Catnip
-* Grass
+I'm \ a \ cat.
+I'll do a list:
+    * Cat food
+    * Fishies
+    * Catnip
+    * Grass
 </code></pre>
-
-<p>```</p>
 ]]></content>
   </entry>
   
