@@ -9,17 +9,7 @@
   <meta name="author" content="Delbert">
 
   
-  <meta name="description" content="上来的那个栗子例子是分析 URL 的。 ex12.rbDownload Code1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-require &#39;open-uri&#39; open(&quot;http://baidu.com&quot;) do |f| f.each_line {|line &hellip;">
+  <meta name="description" content="不知道 lrthw 繁体版是什么原因，参数两个汉字写了一遍简体，一遍繁体。 ">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -81,6 +71,47 @@ require &#39;open-uri&#39; open(&quot;http://baidu.com&quot;) do |f| f.each_line
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2014/04/02/ex13/">Ex 13: 参数、解包</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-04-02T21:10:45+08:00" pubdate data-updated="true">Apr 2<span>nd</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>不知道 lrthw 繁体版是什么原因，<em>参数</em>两个汉字写了一遍简体，一遍繁体。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/04/02/ex13/">Continue reading &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2014/04/02/ex12/">Ex 12: 模块(Modules)</a></h1>
     
     
@@ -106,52 +137,12 @@ require &#39;open-uri&#39; open(&quot;http://baidu.com&quot;) do |f| f.each_line
 
   <div class="entry-content"><p>上来的那个<del>栗子</del>例子是分析 URL 的。</p>
 
-<figure class='code'><figcaption><span>ex12.rb</span><a href='//ruby.code.kekou.de/code/ex12.rb'>Download Code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">require</span> <span class="s1">&#39;open-uri&#39;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;http://baidu.com&quot;</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">f</span><span class="o">|</span>
-</span><span class='line'>  <span class="n">f</span><span class="o">.</span><span class="n">each_line</span> <span class="p">{</span><span class="o">|</span><span class="n">line</span><span class="o">|</span> <span class="nb">p</span> <span class="n">line</span><span class="p">}</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="n">f</span><span class="o">.</span><span class="n">base_uri</span>         <span class="c1"># http://baidu.com</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="n">f</span><span class="o">.</span><span class="n">content_type</span>     <span class="c1"># &quot;text/html&quot;</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="n">f</span><span class="o">.</span><span class="n">charset</span>          <span class="c1"># &quot;iso-8859-1&quot;</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="n">f</span><span class="o">.</span><span class="n">content_encoding</span> <span class="c1"># []</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="n">f</span><span class="o">.</span><span class="n">last_modified</span>    <span class="c1"># 2010-01-12 21:48:00 +0800</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>貌似和原文说的不是太一样，执行 <code>open</code> 的时候会将整个页面进行输出吗？我在命令行下面是将整个页面都输出了。</p>
-
-<p>用 ruby-lang 的话会产生运行时错误。</p>
-
-<p>我用 <code>http://baidu.com</code> 是因为产生的输出很少。如下：</p>
-
-<pre><code>"&lt;html&gt;\n"
-"&lt;meta http-equiv=\"refresh\" content=\"0;url=http://www.baidu.com/\"&gt;\n"
-"&lt;/html&gt;\n"
-http://baidu.com
-text/html
-iso-8859-1
-2010-01-12 21:48:00 +0800
-</code></pre>
-
-<ol>
-<li><p>关于 <code>require</code> 和 <code>include</code>，找到了一篇文章： <a href="http://www.cnblogs.com/phaibin/archive/2009/11/06/1597333.html">http://www.cnblogs.com/phaibin/archive/2009/11/06/1597333.html</a>，原文在<a href="http://ionrails.com/2009/09/19/ruby_require-vs-load-vs-include-vs-extend/">这里</a>    。</p></li>
-<li><p>貌似不能。</p></li>
-<li><p>安装路径下 <code>/lib/ruby/版本号/</code> 中寻找。</p></li>
-</ol>
-
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/04/02/ex12/">Continue reading &rarr;</a>
+    </footer>
   
 
 
@@ -485,47 +476,6 @@ iso-8859-1
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/04/01/ex03/">Ex 3: 数字和数学计算</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-04-01T13:29:08+08:00" pubdate data-updated="true">Apr 1<span>st</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>我配置了 Notepad++，可以写完 ruby 之后一键执行，不用再开启命令行了。</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2014/04/01/ex03/">Continue reading &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -539,6 +489,10 @@ iso-8859-1
     <section>
   <h1>最近文章</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/04/02/ex13/">Ex 13: 参数、解包</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/04/02/ex12/">Ex 12: 模块(Modules)</a>

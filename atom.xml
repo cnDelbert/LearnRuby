@@ -4,7 +4,7 @@
   <title><![CDATA[Notes for Ruby]]></title>
   <link href="http://ruby.code.kekou.de//atom.xml" rel="self"/>
   <link href="http://ruby.code.kekou.de//"/>
-  <updated>2014-04-02T20:34:02+08:00</updated>
+  <updated>2014-04-02T21:54:46+08:00</updated>
   <id>http://ruby.code.kekou.de//</id>
   <author>
     <name><![CDATA[Delbert]]></name>
@@ -14,11 +14,55 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Ex 13: 参数、解包]]></title>
+    <link href="http://ruby.code.kekou.de//blog/2014/04/02/ex13/"/>
+    <updated>2014-04-02T21:10:45+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/2014/04/02/ex13</id>
+    <content type="html"><![CDATA[<p>不知道 lrthw 繁体版是什么原因，<em>参数</em>两个汉字写了一遍简体，一遍繁体。</p>
+
+<!--more-->
+
+
+
+
+<figure class='code'><figcaption><span>ex13.rb</span><a href='//ruby.code.kekou.de/code/ex13.rb'>Download Code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">,</span> <span class="n">third</span> <span class="o">=</span> <span class="no">ARGV</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;The script is called: </span><span class="si">#{</span><span class="vg">$0</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Your first variable is: </span><span class="si">#{</span><span class="n">first</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Your second variable is: </span><span class="si">#{</span><span class="n">second</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Your third variable is: </span><span class="si">#{</span><span class="n">third</span><span class="si">}</span><span class="s2">&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>其实有 <code>C++</code> 的基础的话，很好理解的。和 <code>int argc, char** argv</code> 里面的 <code>argv</code> 是一个道理，理解了参数就好。第 0 个参数是程序/脚本本身。</p>
+
+<p>什么都不写，直接运行的话，输出：</p>
+
+<pre><code>The script is called: ex13.rb
+Your first variable is: 
+Your second variable is: 
+Your third variable is:
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Ex 12: 模块(Modules)]]></title>
     <link href="http://ruby.code.kekou.de//blog/2014/04/02/ex12/"/>
     <updated>2014-04-02T20:07:56+08:00</updated>
     <id>http://ruby.code.kekou.de//blog/2014/04/02/ex12</id>
     <content type="html"><![CDATA[<p>上来的那个<del>栗子</del>例子是分析 URL 的。</p>
+
+<!--more-->
+
+
+
 
 <figure class='code'><figcaption><span>ex12.rb</span><a href='//ruby.code.kekou.de/code/ex12.rb'>Download Code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
