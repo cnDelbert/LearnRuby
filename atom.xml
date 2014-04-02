@@ -4,7 +4,7 @@
   <title><![CDATA[Notes for Ruby]]></title>
   <link href="http://ruby.code.kekou.de//atom.xml" rel="self"/>
   <link href="http://ruby.code.kekou.de//"/>
-  <updated>2014-04-01T21:52:54+08:00</updated>
+  <updated>2014-04-02T13:22:11+08:00</updated>
   <id>http://ruby.code.kekou.de//</id>
   <author>
     <name><![CDATA[Delbert]]></name>
@@ -12,6 +12,183 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 9: 输出，输出，输出]]></title>
+    <link href="http://ruby.code.kekou.de//blog/2014/04/02/ex09/"/>
+    <updated>2014-04-02T13:09:26+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/2014/04/02/ex09</id>
+    <content type="html"><![CDATA[<p>开始用到转义字符了。</p>
+
+<!--more-->
+
+
+
+
+<figure class='code'><figcaption><span>ex9.rb</span><a href='//ruby.code.kekou.de/code/ex9.rb'>Download Code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Here&#39;s some new strange stuff, remember type it exactly.</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">days</span> <span class="o">=</span> <span class="s2">&quot;Mon Tue Wed Thu Fri Sat Sun&quot;</span>
+</span><span class='line'><span class="n">months</span> <span class="o">=</span> <span class="s2">&quot;Jan</span><span class="se">\n</span><span class="s2">Feb</span><span class="se">\n</span><span class="s2">Mar</span><span class="se">\n</span><span class="s2">Apr</span><span class="se">\n</span><span class="s2">May</span><span class="se">\n</span><span class="s2">Jun</span><span class="se">\n</span><span class="s2">Jul</span><span class="se">\n</span><span class="s2">Aug&quot;</span> <span class="c1">#转义字符</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Here are the days: &quot;</span><span class="p">,</span> <span class="n">days</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Here are the months: &quot;</span><span class="p">,</span> <span class="n">months</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="o">&lt;&lt;</span><span class="no">PARAGRAPH</span> <span class="c1">#这是什么？</span>
+</span><span class='line'><span class="sh">There&#39;s something going on here.</span>
+</span><span class='line'><span class="sh">With the three double-quotes.</span>
+</span><span class='line'><span class="sh">We&#39;ll be able to type as much as we like.</span>
+</span><span class='line'><span class="sh">Even 4 lines if we want, or 5, or 6.</span>
+</span><span class='line'><span class="no">PARAGRAPH</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>会输出</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>Here are the days:
+</span><span class='line'>Mon Tue Wed Thu Fri Sat Sun
+</span><span class='line'>Here are the months:
+</span><span class='line'>Jan
+</span><span class='line'>Feb
+</span><span class='line'>Mar
+</span><span class='line'>Apr
+</span><span class='line'>May
+</span><span class='line'>Jun
+</span><span class='line'>Jul
+</span><span class='line'>Aug
+</span><span class='line'>There<span class="s1">&#39;s something going on here.</span>
+</span><span class='line'><span class="s1">With the three double-quotes.</span>
+</span><span class='line'><span class="s1">We&#39;</span>ll be able to <span class="nb">type </span>as much as we like.
+</span><span class='line'>Even 4 lines <span class="k">if </span>we want, or 5, or 6.
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>\t</code> <code>\n</code> 什么的 Cpp 里面也是经常用的，但是那个 <code>PARAGRAPH</code> 是什么？是标签还是什么？输出的时候没有输出啊</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 8: 输出，输出]]></title>
+    <link href="http://ruby.code.kekou.de//blog/2014/04/02/ex08/"/>
+    <updated>2014-04-02T12:49:43+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/2014/04/02/ex08</id>
+    <content type="html"><![CDATA[<p>另外一种格式化输出，同时可以用格式输出输出格式。Ruby 的输出貌似挺灵活的样子。</p>
+
+<!--more-->
+
+
+
+
+<figure class='code'><figcaption><span>ex8.rb</span><a href='//ruby.code.kekou.de/code/ex8.rb'>Download Code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">formatter</span> <span class="o">=</span> <span class="s2">&quot;%s %s %s %s&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="n">formatter</span> <span class="o">%</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
+</span><span class='line'><span class="nb">puts</span> <span class="n">formatter</span> <span class="o">%</span> <span class="o">[</span><span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="s2">&quot;two&quot;</span><span class="p">,</span> <span class="s2">&quot;three&quot;</span><span class="p">,</span> <span class="s2">&quot;four&quot;</span><span class="o">]</span>
+</span><span class='line'><span class="nb">puts</span> <span class="n">formatter</span> <span class="o">%</span> <span class="o">[</span><span class="kp">true</span><span class="p">,</span> <span class="kp">false</span><span class="p">,</span> <span class="kp">false</span><span class="p">,</span> <span class="kp">true</span><span class="o">]</span>
+</span><span class='line'><span class="nb">puts</span> <span class="n">formatter</span> <span class="o">%</span> <span class="o">[</span><span class="n">formatter</span><span class="p">,</span> <span class="n">formatter</span><span class="p">,</span> <span class="n">formatter</span><span class="p">,</span> <span class="n">formatter</span><span class="o">]</span><span class="c1">#直接输出格式</span>
+</span><span class='line'><span class="nb">puts</span> <span class="n">formatter</span> <span class="o">%</span> <span class="o">[</span>
+</span><span class='line'>    <span class="s2">&quot;I had this thing.&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s2">&quot;That you could type up right.&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s2">&quot;But it didn&#39;t sing.&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s2">&quot;So I said goodnight.&quot;</span>
+</span><span class='line'><span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>输出为</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>1 2 3 4
+</span><span class='line'>one two three four
+</span><span class='line'><span class="nb">true false false true</span>
+</span><span class='line'>%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s
+</span><span class='line'>I had this thing. That you could <span class="nb">type </span>up right. But it didn<span class="err">&#39;</span>t sing. So I said goodnight.
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>%</code> 后面用的是中括号 <code>[]</code>，格式化输出的说明见下面：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>%a   浮点数、十六进制数字和p-记数法（C99）
+</span><span class='line'>%A    浮点数、十六进制数字和p-记法（C99）
+</span><span class='line'>%c    一个字符　
+</span><span class='line'>%d    有符号十进制整数　
+</span><span class='line'>%e    浮点数、e-记数法
+</span><span class='line'>%E    浮点数、E-记数法
+</span><span class='line'>%f    浮点数、十进制记数法　　
+</span><span class='line'>%g    根据数值不同自动选择%f或%e．
+</span><span class='line'>%G    根据数值不同自动选择%f或%e.
+</span><span class='line'>%i    有符号十进制数（与%d相同）
+</span><span class='line'>%o    无符号八进制整数
+</span><span class='line'>%p    指针　　　　
+</span><span class='line'>%s    字符串
+</span><span class='line'>%u    无符号十进制整数
+</span><span class='line'>%x    使用十六进制数字０f的无符号十六进制整数　
+</span><span class='line'>%X    使用十六进制数字０f的无符号十六进制整数
+</span><span class='line'>%%    打印一个百分号
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Ex 7: 更多输出]]></title>
@@ -25,7 +202,7 @@
 
 
 
-<figure class='code'><figcaption><span>ex07.rb</span><a href='//ruby.code.kekou.de/code/ex07.rb'>Download Code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>ex7.rb</span><a href='//ruby.code.kekou.de/code/ex7.rb'>Download Code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>

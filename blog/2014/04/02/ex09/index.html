@@ -5,17 +5,25 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Ex 2: 注释和＃号 - Notes for Ruby</title>
+  <title>Ex 9: 输出，输出，输出 - Notes for Ruby</title>
   <meta name="author" content="Delbert">
 
   
-  <meta name="description" content="# 的作用是注释，英文为 octothorpe 或者 pound character。 一行中， # 之后的所有内容都不会被执行。 ex2.rbDownload code1
+  <meta name="description" content="开始用到转义字符了。 ex9.rbDownload Code1
 2
 3
 4
 5
-#This is comment.
-puts &quot;You can see this.&quot; # &hellip;">
+6
+7
+8
+9
+10
+11
+12
+13
+14
+# Here&#39;s some new strange stuff, remember type it exactly. days = &quot;Mon Tue &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -24,7 +32,7 @@ puts &quot;You can see this.&quot; # &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ruby.code.kekou.de//blog/2014/04/01/ex02">
+  <link rel="canonical" href="http://ruby.code.kekou.de//blog/2014/04/02/ex09">
   <link href="/favicon.ico" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Notes for Ruby" type="application/atom+xml">
@@ -74,7 +82,7 @@ puts &quot;You can see this.&quot; # &hellip;">
   
   <header>
     
-      <h1 class="entry-title">Ex 2: 注释和＃号</h1>
+      <h1 class="entry-title">Ex 9: 输出，输出，输出</h1>
     
     
       <p class="meta">
@@ -90,45 +98,87 @@ puts &quot;You can see this.&quot; # &hellip;">
   
 
 
-<time datetime="2014-04-01T13:20:46+08:00" pubdate data-updated="true">Apr 1<span>st</span>, 2014</time>
+<time datetime="2014-04-02T13:09:26+08:00" pubdate data-updated="true">Apr 2<span>nd</span>, 2014</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p><code>#</code> 的作用是注释，英文为 octothorpe 或者 pound character。</p>
+<div class="entry-content"><p>开始用到转义字符了。</p>
 
 <!--more-->
 
 
-<p>一行中， <code>#</code> 之后的所有内容都不会被执行。</p>
 
-<figure class='code'><figcaption><span>ex2.rb</span><a href='//ruby.code.kekou.de/code/ex2.rb'>Download code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+
+<figure class='code'><figcaption><span>ex9.rb</span><a href='//ruby.code.kekou.de/code/ex9.rb'>Download Code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#This is comment.</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;You can see this.&quot;</span> <span class="c1">#While you will not see this</span>
-</span><span class='line'><span class="c1">#This will not run.</span>
-</span><span class='line'><span class="c1">#puts &quot;This will not run.&quot;</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;This will run.&quot;</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Here&#39;s some new strange stuff, remember type it exactly.</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">days</span> <span class="o">=</span> <span class="s2">&quot;Mon Tue Wed Thu Fri Sat Sun&quot;</span>
+</span><span class='line'><span class="n">months</span> <span class="o">=</span> <span class="s2">&quot;Jan</span><span class="se">\n</span><span class="s2">Feb</span><span class="se">\n</span><span class="s2">Mar</span><span class="se">\n</span><span class="s2">Apr</span><span class="se">\n</span><span class="s2">May</span><span class="se">\n</span><span class="s2">Jun</span><span class="se">\n</span><span class="s2">Jul</span><span class="se">\n</span><span class="s2">Aug&quot;</span> <span class="c1">#转义字符</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Here are the days: &quot;</span><span class="p">,</span> <span class="n">days</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Here are the months: &quot;</span><span class="p">,</span> <span class="n">months</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="o">&lt;&lt;</span><span class="no">PARAGRAPH</span> <span class="c1">#这是什么？</span>
+</span><span class='line'><span class="sh">There&#39;s something going on here.</span>
+</span><span class='line'><span class="sh">With the three double-quotes.</span>
+</span><span class='line'><span class="sh">We&#39;ll be able to type as much as we like.</span>
+</span><span class='line'><span class="sh">Even 4 lines if we want, or 5, or 6.</span>
+</span><span class='line'><span class="no">PARAGRAPH</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>将会输出</p>
+<p>会输出</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>C:<span class="se">\U</span>sers<span class="se">\A</span>dministrator&gt;ruby ex2.rb
-</span><span class='line'>
-</span><span class='line'>You can see this.
-</span><span class='line'>This will run.
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>Here are the days:
+</span><span class='line'>Mon Tue Wed Thu Fri Sat Sun
+</span><span class='line'>Here are the months:
+</span><span class='line'>Jan
+</span><span class='line'>Feb
+</span><span class='line'>Mar
+</span><span class='line'>Apr
+</span><span class='line'>May
+</span><span class='line'>Jun
+</span><span class='line'>Jul
+</span><span class='line'>Aug
+</span><span class='line'>There<span class="s1">&#39;s something going on here.</span>
+</span><span class='line'><span class="s1">With the three double-quotes.</span>
+</span><span class='line'><span class="s1">We&#39;</span>ll be able to <span class="nb">type </span>as much as we like.
+</span><span class='line'>Even 4 lines <span class="k">if </span>we want, or 5, or 6.
 </span></code></pre></td></tr></table></div></figure>
 
+
+<p><code>\t</code> <code>\n</code> 什么的 Cpp 里面也是经常用的，但是那个 <code>PARAGRAPH</code> 是什么？是标签还是什么？输出的时候没有输出啊</p>
 </div>
 
 
@@ -151,7 +201,7 @@ puts &quot;You can see this.&quot; # &hellip;">
   
 
 
-<time datetime="2014-04-01T13:20:46+08:00" pubdate data-updated="true">Apr 1<span>st</span>, 2014</time>
+<time datetime="2014-04-02T13:09:26+08:00" pubdate data-updated="true">Apr 2<span>nd</span>, 2014</time>
       
 
 <span class="categories">
@@ -172,10 +222,8 @@ puts &quot;You can see this.&quot; # &hellip;">
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/03/31/ex01/" title="Previous Post: Ex 1: 第一个程序">&laquo; Ex 1: 第一个程序</a>
+        <a class="basic-alignment left" href="/blog/2014/04/02/ex08/" title="Previous Post: Ex 8: 输出，输出">&laquo; Ex 8: 输出，输出</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/04/01/ex03/" title="Next Post: Ex 3: 数字和数学计算">Ex 3: 数字和数学计算 &raquo;</a>
       
     </p>
   </footer>

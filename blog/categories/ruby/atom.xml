@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | Notes for Ruby]]></title>
   <link href="http://ruby.code.kekou.de//blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://ruby.code.kekou.de//"/>
-  <updated>2014-04-01T21:52:54+08:00</updated>
+  <updated>2014-04-02T13:22:11+08:00</updated>
   <id>http://ruby.code.kekou.de//</id>
   <author>
     <name><![CDATA[Delbert]]></name>
@@ -12,6 +12,120 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 9: 输出，输出，输出]]></title>
+    <link href="http://ruby.code.kekou.de//blog/2014/04/02/ex09/"/>
+    <updated>2014-04-02T13:09:26+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/2014/04/02/ex09</id>
+    <content type="html"><![CDATA[<p>开始用到转义字符了。</p>
+
+<!--more-->
+
+
+<p>``` ruby ex9.rb //ruby.code.kekou.de/code/ex9.rb Download Code</p>
+
+<h1>Here&rsquo;s some new strange stuff, remember type it exactly.</h1>
+
+<p>days = &ldquo;Mon Tue Wed Thu Fri Sat Sun&rdquo;
+months = &ldquo;Jan\nFeb\nMar\nApr\nMay\nJun\nJul\nAug&rdquo; #转义字符</p>
+
+<p>puts &ldquo;Here are the days: &rdquo;, days
+puts &ldquo;Here are the months: &rdquo;, months</p>
+
+<p>puts &lt;&lt;PARAGRAPH    #这是什么？
+There&rsquo;s something going on here.
+With the three double-quotes.
+We&rsquo;ll be able to type as much as we like.
+Even 4 lines if we want, or 5, or 6.
+PARAGRAPH
+```</p>
+
+<p>会输出</p>
+
+<p><code>bash
+Here are the days:
+Mon Tue Wed Thu Fri Sat Sun
+Here are the months:
+Jan
+Feb
+Mar
+Apr
+May
+Jun
+Jul
+Aug
+There's something going on here.
+With the three double-quotes.
+We'll be able to type as much as we like.
+Even 4 lines if we want, or 5, or 6.
+</code></p>
+
+<p><code>\t</code> <code>\n</code> 什么的 Cpp 里面也是经常用的，但是那个 <code>PARAGRAPH</code> 是什么？是标签还是什么？输出的时候没有输出啊</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 8: 输出，输出]]></title>
+    <link href="http://ruby.code.kekou.de//blog/2014/04/02/ex08/"/>
+    <updated>2014-04-02T12:49:43+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/2014/04/02/ex08</id>
+    <content type="html"><![CDATA[<p>另外一种格式化输出，同时可以用格式输出输出格式。Ruby 的输出貌似挺灵活的样子。</p>
+
+<!--more-->
+
+
+<p>``` ruby ex8.rb //ruby.code.kekou.de/code/ex8.rb Download Code
+formatter = &ldquo;%s %s %s %s&rdquo;</p>
+
+<p>puts formatter % [1, 2, 3, 4]
+puts formatter % [&ldquo;one&rdquo;, &ldquo;two&rdquo;, &ldquo;three&rdquo;, &ldquo;four&rdquo;]
+puts formatter % [true, false, false, true]
+puts formatter % [formatter, formatter, formatter, formatter]#直接输出格式
+puts formatter % [</p>
+
+<pre><code>"I had this thing.",
+"That you could type up right.",
+"But it didn't sing.",
+"So I said goodnight."
+</code></pre>
+
+<p>]
+```</p>
+
+<p>输出为</p>
+
+<p><code>bash
+1 2 3 4
+one two three four
+true false false true
+%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s
+I had this thing. That you could type up right. But it didn't sing. So I said goodnight.
+</code></p>
+
+<p><code>%</code> 后面用的是中括号 <code>[]</code>，格式化输出的说明见下面：</p>
+
+<p><code>
+%a  浮点数、十六进制数字和p-记数法（C99）
+%A  浮点数、十六进制数字和p-记法（C99）
+%c  一个字符　
+%d  有符号十进制整数　
+%e  浮点数、e-记数法
+%E  浮点数、E-记数法
+%f  浮点数、十进制记数法　　
+%g  根据数值不同自动选择%f或%e．
+%G  根据数值不同自动选择%f或%e.
+%i  有符号十进制数（与%d相同）
+%o  无符号八进制整数
+%p  指针　　　　
+%s  字符串
+%u  无符号十进制整数
+%x  使用十六进制数字０f的无符号十六进制整数　
+%X  使用十六进制数字０f的无符号十六进制整数
+%%  打印一个百分号
+</code></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Ex 7: 更多输出]]></title>
@@ -23,7 +137,7 @@
 <!--more-->
 
 
-<p>``` ruby ex07.rb //ruby.code.kekou.de/code/ex07.rb Download Code
+<p>``` ruby ex7.rb //ruby.code.kekou.de/code/ex7.rb Download Code
 puts &ldquo;Normal sentences.&rdquo;
 puts &ldquo;This is %s.&rdquo;%&ldquo;a word&rdquo;
 puts &ldquo;And next one will output #{10} dots.&rdquo;
@@ -104,137 +218,63 @@ This is the left side of...a string with a right side.
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Ex 4: 变量和命名]]></title>
-    <link href="http://ruby.code.kekou.de//blog/2014/04/01/ex04/"/>
-    <updated>2014-04-01T14:13:58+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/2014/04/01/ex04</id>
-    <content type="html"><![CDATA[<p>似乎 Ruby 是<strong>弱类型</strong>的语言，不用声明一个变量的类型即可使用。</p>
+    <title type="html"><![CDATA[Ex 5: 更多的变量和输出]]></title>
+    <link href="http://ruby.code.kekou.de//blog/2014/04/01/ex05/"/>
+    <updated>2014-04-01T17:12:11+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/2014/04/01/ex05</id>
+    <content type="html"><![CDATA[<p>本节是格式化输出，如果不理解，参考 C 语言的 <code>printf</code> 函数即可。</p>
 
 <!--more-->
 
 
-<p>用自己喜欢的方式给变量来命名，我喜欢骆驼(Camel)式的，就像这样 <code>thisVar</code>，不需要 underscore <code>_</code>。</p>
+<p>``` ruby ex5.rb //ruby.code.kekou.de/code/ex5.rb Download code
+my_name = &lsquo;Delbert&rsquo;
+my_age = 35 # not a lie
+my_height = 74 # inches
+my_weight = 180 # lbs
+my_eyes = &lsquo;Blue&rsquo;
+my_teeth = &lsquo;White&rsquo;
+my_hair = &lsquo;Brown&rsquo;</p>
 
-<p>update:</p>
+<p>puts &ldquo;Let&rsquo;s talk about %s.&rdquo; % my_name
+puts &ldquo;He&rsquo;s %d inches tall.&rdquo; % my_height
+puts &ldquo;He&rsquo;s %d pounds heavy.&rdquo; % my_weight
+puts &ldquo;Actually that&rsquo;s not too heavy.&rdquo;
+puts &ldquo;He&rsquo;s got %s eyes and %s hair.&rdquo; % [my_eyes, my_hair]
+puts &ldquo;His teeth are usually %s depending on the coffee.&rdquo; % my_teeth</p>
 
-<p>看到一个评论是这样说的：</p>
+<h1>this line is tricky, try to get it exactly right</h1>
 
-<blockquote><p>python大小写混合原因是大小写敏感，实际上是java风格；php小写加下划线是语言对大小写不敏感的原因；ruby既大小写敏感，又使用小写加下划线，感觉不伦不类啊。</p></blockquote>
-
-<p>另外， Ruby 的行末竟然是不用加分号<code>;</code>的，太晕了。</p>
-
-<p>``` ruby ex4.rb //ruby.code.kekou.de/code/ex4.rb Download code
-cars = 100
-passengers = 90
-drivers = 30
-space_in_a_car = 4.0
-cars_not_driven = cars &ndash; drivers
-cars_driven = drivers
-carpool_capacity = cars_driven * space_in_a_car
-average_passengers_per_car = passengers / cars_driven</p>
-
-<p>puts &ldquo;There are #{cars} cars available.&rdquo;
-puts &ldquo;There are only #{drivers} drivers available.&rdquo;
-puts &ldquo;There will be #{cars_not_driven} empty cars today.&rdquo;
-puts &ldquo;We can transport #{carpool_capacity} people today.&rdquo;
-puts &ldquo;We have #{passengers} passengers to carpool today.&rdquo;
-puts &ldquo;We need to put about #{average_passengers_per_car} in each car.&rdquo;
+<p>puts &ldquo;If I add %d, %d, and %d I get %d.&rdquo; % [my_age, my_height, my_weight, my_age + my_height + my_weight]
 ```</p>
 
-<p>执行后将会输出</p>
-
-<p><code>sh
-There are 100 cars available.
-There are only 30 drivers available.
-There will be 70 empty cars today.
-We can transport 120.0 people today.
-We have 90 passengers to carpool today.
-We need to put about 3 in each car.
-</code></p>
-
-<p>Ruby 在输出中调用变量是 <code>#{var}</code> 的形式。总感觉就是 php 的变种。</p>
-
-<p>irb 中用变量名来进行计算：
-<code>irb
-irb(main):001:0&gt; i = 4
-=&gt; 4
-irb(main):002:0&gt; s = 3
-=&gt; 3
-irb(main):003:0&gt; i*s
-=&gt; 12
-</code>
-输入 <code>Ctrl+D</code> 返回命令行/Bash。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ex 2: 注释和＃号]]></title>
-    <link href="http://ruby.code.kekou.de//blog/2014/04/01/ex02/"/>
-    <updated>2014-04-01T13:20:46+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/2014/04/01/ex02</id>
-    <content type="html"><![CDATA[<p><code>#</code> 的作用是注释，英文为 octothorpe 或者 pound character。</p>
-
-<!--more-->
-
-
-<p>一行中， <code>#</code> 之后的所有内容都不会被执行。</p>
-
-<p>``` ruby ex2.rb //ruby.code.kekou.de/code/ex2.rb Download code</p>
-
-<h1>This is comment.</h1>
-
-<p>puts &ldquo;You can see this.&rdquo; #While you will not see this</p>
-
-<h1>This will not run.</h1>
-
-<h1>puts &ldquo;This will not run.&rdquo;</h1>
-
-<p>puts &ldquo;This will run.&rdquo;
-```</p>
-
-<p>将会输出</p>
-
-<p>``` sh
-C:\Users\Administrator>ruby ex2.rb</p>
-
-<p>You can see this.
-This will run.
-```</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ex 1: 第一个程序]]></title>
-    <link href="http://ruby.code.kekou.de//blog/2014/03/31/ex01/"/>
-    <updated>2014-03-31T22:33:27+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/2014/03/31/ex01</id>
-    <content type="html"><![CDATA[<p>将下面的代码复制保存为 <code>ex1.rb</code>，然后执行。</p>
-
-<!--more-->
-
-
-<p><code>ruby ex1.rb //ruby.code.kekou.de/code/ex1.rb Download code
-puts "Hello World!"
-puts "Hello Again!"
-puts "I use Notepad++."
-puts "This is fun."
-puts "Yea! I'm printing..."
-puts "Well, save this as 'ex1.rb'."
-</code></p>
-
-<p>执行后显示</p>
+<p>运行后输出的是</p>
 
 <p><code>bash
-E:\SourceCode\GitHub&gt; ruby ex1.rb
-Hello World!
-Hello Again!
-I use Notepad++.
-This is fun.
-Yea! I'm printing...
-Well, save this as 'ex1.rb'.
+Let's talk about Delbert.
+He's 74 inches tall.
+He's 180 pounds heavy.
+Actually that's not too heavy.
+He's got Blue eyes and Brown hair.
+His teeth are usually White depending on the coffee.
+If I add 35, 74, and 180 I get 289.
 </code></p>
 
-<p><code>#</code>的作用应该是注释。没有尝试，但是应该错不了。</p>
+<p>下面是转换英寸和厘米的（我不知道<code>磅</code>这个单位是多重）</p>
+
+<p>``` ruby</p>
+
+<h1>convert inch to cm</h1>
+
+<p>inch = 23
+puts &ldquo;%d inches equals %f cm.&rdquo;%[inch, inch/2.54]
+```</p>
+
+<p>输出</p>
+
+<p><code>bash
+23 inches equals 9.055118 cm.
+</code></p>
 ]]></content>
   </entry>
   
