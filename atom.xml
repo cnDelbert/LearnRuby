@@ -4,7 +4,7 @@
   <title><![CDATA[Notes for Ruby]]></title>
   <link href="http://ruby.code.kekou.de//atom.xml" rel="self"/>
   <link href="http://ruby.code.kekou.de//"/>
-  <updated>2014-04-02T22:02:31+08:00</updated>
+  <updated>2014-04-02T22:46:08+08:00</updated>
   <id>http://ruby.code.kekou.de//</id>
   <author>
     <name><![CDATA[Delbert]]></name>
@@ -12,6 +12,87 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 14: 提示和传递]]></title>
+    <link href="http://ruby.code.kekou.de//blog/2014/04/02/ex14/"/>
+    <updated>2014-04-02T22:31:29+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/2014/04/02/ex14</id>
+    <content type="html"><![CDATA[<p>感觉标题怪怪的，又感觉看到 <code>prompt</code> 不像是 ruby ，倒像是 JavaScript 了呢。</p>
+
+<!--more-->
+
+
+
+
+<figure class='code'><figcaption><span>ex14.rb</span><a href='//ruby.code.kekou.de/code/ex14.rb'>Download Code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">user</span> <span class="o">=</span> <span class="no">ARGV</span><span class="o">.</span><span class="n">first</span>
+</span><span class='line'><span class="n">prompt</span> <span class="o">=</span> <span class="s1">&#39;&gt; &#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Hi </span><span class="si">#{</span><span class="n">user</span><span class="si">}</span><span class="s2">, I&#39;m the </span><span class="si">#{</span><span class="vg">$0</span><span class="si">}</span><span class="s2"> script.&quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;I&#39;d like to ask you a few questions.&quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Do you like me </span><span class="si">#{</span><span class="n">user</span><span class="si">}</span><span class="s2">?&quot;</span>
+</span><span class='line'><span class="nb">print</span> <span class="n">prompt</span>
+</span><span class='line'><span class="n">likes</span> <span class="o">=</span> <span class="no">STDIN</span><span class="o">.</span><span class="n">gets</span><span class="o">.</span><span class="n">chomp</span><span class="p">()</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Where do you live </span><span class="si">#{</span><span class="n">user</span><span class="si">}</span><span class="s2">?&quot;</span>
+</span><span class='line'><span class="nb">print</span> <span class="n">prompt</span>
+</span><span class='line'><span class="n">lives</span> <span class="o">=</span> <span class="no">STDIN</span><span class="o">.</span><span class="n">gets</span><span class="o">.</span><span class="n">chomp</span><span class="p">()</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;What kind of computer do you have?&quot;</span>
+</span><span class='line'><span class="nb">print</span> <span class="n">prompt</span>
+</span><span class='line'><span class="n">computer</span> <span class="o">=</span> <span class="no">STDIN</span><span class="o">.</span><span class="n">gets</span><span class="o">.</span><span class="n">chomp</span><span class="p">()</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="o">&lt;&lt;</span><span class="no">MESSAGE</span>
+</span><span class='line'><span class="sh">Alright, so you said #{likes} about liking me.</span>
+</span><span class='line'><span class="sh">You live in #{lives}.  Not sure where that is.</span>
+</span><span class='line'><span class="sh">And you have a #{computer} computer.  Nice.</span>
+</span><span class='line'><span class="no">MESSAGE</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>交互式输出，因为使用 <code>&gt;</code> 作为输入提示符，所以其后是我所输入的内容：</p>
+
+<pre><code>$ruby ex14.rb Delbert
+Hi Delbert, I'm the ex14.rb script.
+I'd like to ask you a few questions.
+Do you like me Delbert?
+&gt; Yes
+Where do you live Delbert?
+&gt; Wuhan/Jinan
+What kind of computer do you have?
+&gt; ASUS A41I and MacBook Air
+Alright, so you said Yes about liking me.
+You live in Wuhan/Jinan.  Not sure where that is.
+And you have a ASUS A41I and MacBook Air computer.  Nice.
+</code></pre>
+
+<p>先通过 <code>#{user}</code> 获取 <code>ARGV</code> 的第一个参数，并使用变量替换。使用<code>文件语法</code>输入的时候也可以进行替换。用 <code>STDIN</code> 是因为 <code>gets.chomp</code> 默认会取程序而不是后面的参数。</p>
+
+<p>使用变量的好处就是可以只替换其初始化的地方就可以完成整个的替换。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Ex 13: 参数、解包、变量]]></title>
@@ -190,7 +271,7 @@ So, you're 24 years old, 1.72 meters tall and 70 kilograms heavy.
 
 <p>上面这种是<strong>文件语法</strong>(Document Syntax)，放在 <code>TAG_NAME</code> 中间的可以是任意多行的文本，相当于一个文件，也可以将其赋值给一个变量。</p>
 
-<figure class='code'><figcaption><span>rb10</span><a href='//ruby.code.kekou.de/code/rb10.rb'>Download Code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>ex10.rb</span><a href='//ruby.code.kekou.de/code/ex10.rb'>Download Code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>

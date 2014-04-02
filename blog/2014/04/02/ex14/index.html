@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Ex 9: 输出，输出，输出 - Notes for Ruby</title>
+  <title>Ex 14: 提示和传递 - Notes for Ruby</title>
   <meta name="author" content="Delbert">
 
   
-  <meta name="description" content="开始用到转义字符了。 ex9.rbDownload Code1
+  <meta name="description" content="感觉标题怪怪的，又感觉看到 prompt 不像是 ruby ，倒像是 JavaScript 了呢。 ex14.rbDownload Code1
 2
 3
 4
@@ -23,7 +23,15 @@
 12
 13
 14
-# Here&#39;s some new strange stuff, remember type it exactly. days = &quot;Mon Tue &hellip;">
+15
+16
+17
+18
+19
+20
+21
+22
+user = ARGV.first &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -32,7 +40,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ruby.code.kekou.de//blog/2014/04/02/ex09">
+  <link rel="canonical" href="http://ruby.code.kekou.de//blog/2014/04/02/ex14">
   <link href="/favicon.ico" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Notes for Ruby" type="application/atom+xml">
@@ -82,7 +90,7 @@
   
   <header>
     
-      <h1 class="entry-title">Ex 9: 输出，输出，输出</h1>
+      <h1 class="entry-title">Ex 14: 提示和传递</h1>
     
     
       <p class="meta">
@@ -98,21 +106,21 @@
   
 
 
-<time datetime="2014-04-02T13:09:26+08:00" pubdate data-updated="true">2014-Apr-02, 13:09:26, Wednesday</time>
+<time datetime="2014-04-02T22:31:29+08:00" pubdate data-updated="true">2014-Apr-02, 22:31:29, Wednesday</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>开始用到转义字符了。</p>
+<div class="entry-content"><p>感觉标题怪怪的，又感觉看到 <code>prompt</code> 不像是 ruby ，倒像是 JavaScript 了呢。</p>
 
 <!--more-->
 
 
 
 
-<figure class='code'><figcaption><span>ex9.rb</span><a href='//ruby.code.kekou.de/code/ex9.rb'>Download Code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>ex14.rb</span><a href='//ruby.code.kekou.de/code/ex14.rb'>Download Code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -126,43 +134,58 @@
 <span class='line-number'>12</span>
 <span class='line-number'>13</span>
 <span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Here&#39;s some new strange stuff, remember type it exactly.</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">user</span> <span class="o">=</span> <span class="no">ARGV</span><span class="o">.</span><span class="n">first</span>
+</span><span class='line'><span class="n">prompt</span> <span class="o">=</span> <span class="s1">&#39;&gt; &#39;</span>
 </span><span class='line'>
-</span><span class='line'><span class="n">days</span> <span class="o">=</span> <span class="s2">&quot;Mon Tue Wed Thu Fri Sat Sun&quot;</span>
-</span><span class='line'><span class="n">months</span> <span class="o">=</span> <span class="s2">&quot;Jan</span><span class="se">\n</span><span class="s2">Feb</span><span class="se">\n</span><span class="s2">Mar</span><span class="se">\n</span><span class="s2">Apr</span><span class="se">\n</span><span class="s2">May</span><span class="se">\n</span><span class="s2">Jun</span><span class="se">\n</span><span class="s2">Jul</span><span class="se">\n</span><span class="s2">Aug&quot;</span> <span class="c1">#转义字符</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Hi </span><span class="si">#{</span><span class="n">user</span><span class="si">}</span><span class="s2">, I&#39;m the </span><span class="si">#{</span><span class="vg">$0</span><span class="si">}</span><span class="s2"> script.&quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;I&#39;d like to ask you a few questions.&quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Do you like me </span><span class="si">#{</span><span class="n">user</span><span class="si">}</span><span class="s2">?&quot;</span>
+</span><span class='line'><span class="nb">print</span> <span class="n">prompt</span>
+</span><span class='line'><span class="n">likes</span> <span class="o">=</span> <span class="no">STDIN</span><span class="o">.</span><span class="n">gets</span><span class="o">.</span><span class="n">chomp</span><span class="p">()</span>
 </span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Here are the days: &quot;</span><span class="p">,</span> <span class="n">days</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Here are the months: &quot;</span><span class="p">,</span> <span class="n">months</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Where do you live </span><span class="si">#{</span><span class="n">user</span><span class="si">}</span><span class="s2">?&quot;</span>
+</span><span class='line'><span class="nb">print</span> <span class="n">prompt</span>
+</span><span class='line'><span class="n">lives</span> <span class="o">=</span> <span class="no">STDIN</span><span class="o">.</span><span class="n">gets</span><span class="o">.</span><span class="n">chomp</span><span class="p">()</span>
 </span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="o">&lt;&lt;</span><span class="no">PARAGRAPH</span> <span class="c1">#这是什么？</span>
-</span><span class='line'><span class="sh">There&#39;s something going on here.</span>
-</span><span class='line'><span class="sh">With the three double-quotes.</span>
-</span><span class='line'><span class="sh">We&#39;ll be able to type as much as we like.</span>
-</span><span class='line'><span class="sh">Even 4 lines if we want, or 5, or 6.</span>
-</span><span class='line'><span class="no">PARAGRAPH</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;What kind of computer do you have?&quot;</span>
+</span><span class='line'><span class="nb">print</span> <span class="n">prompt</span>
+</span><span class='line'><span class="n">computer</span> <span class="o">=</span> <span class="no">STDIN</span><span class="o">.</span><span class="n">gets</span><span class="o">.</span><span class="n">chomp</span><span class="p">()</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="o">&lt;&lt;</span><span class="no">MESSAGE</span>
+</span><span class='line'><span class="sh">Alright, so you said #{likes} about liking me.</span>
+</span><span class='line'><span class="sh">You live in #{lives}.  Not sure where that is.</span>
+</span><span class='line'><span class="sh">And you have a #{computer} computer.  Nice.</span>
+</span><span class='line'><span class="no">MESSAGE</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>会输出</p>
+<p>交互式输出，因为使用 <code>&gt;</code> 作为输入提示符，所以其后是我所输入的内容：</p>
 
-<pre><code>Here are the days: 
-Mon Tue Wed Thu Fri Sat Sun
-Here are the months: 
-Jan
-Feb
-Mar
-Apr
-May
-Jun
-Jul
-Aug
-There's something going on here.
-With the three double-quotes.
-We'll be able to type as much as we like.
-Even 4 lines if we want, or 5, or 6.
+<pre><code>$ruby ex14.rb Delbert
+Hi Delbert, I'm the ex14.rb script.
+I'd like to ask you a few questions.
+Do you like me Delbert?
+&gt; Yes
+Where do you live Delbert?
+&gt; Wuhan/Jinan
+What kind of computer do you have?
+&gt; ASUS A41I and MacBook Air
+Alright, so you said Yes about liking me.
+You live in Wuhan/Jinan.  Not sure where that is.
+And you have a ASUS A41I and MacBook Air computer.  Nice.
 </code></pre>
 
-<p><code>\t</code> <code>\n</code> 什么的 Cpp 里面也是经常用的，但是那个 <code>PARAGRAPH</code> 是什么？是标签还是什么？输出的时候没有输出啊</p>
+<p>先通过 <code>#{user}</code> 获取 <code>ARGV</code> 的第一个参数，并使用变量替换。使用<code>文件语法</code>输入的时候也可以进行替换。用 <code>STDIN</code> 是因为 <code>gets.chomp</code> 默认会取程序而不是后面的参数。</p>
+
+<p>使用变量的好处就是可以只替换其初始化的地方就可以完成整个的替换。</p>
 </div>
 
 
@@ -185,14 +208,8 @@ Even 4 lines if we want, or 5, or 6.
   
 
 
-<time datetime="2014-04-02T13:09:26+08:00" pubdate data-updated="true">2014-Apr-02, 13:09:26, Wednesday</time>
+<time datetime="2014-04-02T22:31:29+08:00" pubdate data-updated="true">2014-Apr-02, 22:31:29, Wednesday</time>
       
-
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/ruby/'>Ruby</a>
-  
-</span>
 
 
     </p>
@@ -206,10 +223,8 @@ Even 4 lines if we want, or 5, or 6.
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/04/02/ex08/" title="Previous Post: Ex 8: 输出，输出">&laquo; Ex 8: 输出，输出</a>
+        <a class="basic-alignment left" href="/blog/2014/04/02/ex13/" title="Previous Post: Ex 13: 参数、解包、变量">&laquo; Ex 13: 参数、解包、变量</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/04/02/ex10/" title="Next Post: Ex 10: 那是什么？">Ex 10: 那是什么？ &raquo;</a>
       
     </p>
   </footer>

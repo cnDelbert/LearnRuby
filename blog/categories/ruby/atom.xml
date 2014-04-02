@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | Notes for Ruby]]></title>
   <link href="http://ruby.code.kekou.de//blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://ruby.code.kekou.de//"/>
-  <updated>2014-04-02T22:02:31+08:00</updated>
+  <updated>2014-04-02T22:46:08+08:00</updated>
   <id>http://ruby.code.kekou.de//</id>
   <author>
     <name><![CDATA[Delbert]]></name>
@@ -126,7 +126,7 @@ TAG_NAME
 
 <p>上面这种是<strong>文件语法</strong>(Document Syntax)，放在 <code>TAG_NAME</code> 中间的可以是任意多行的文本，相当于一个文件，也可以将其赋值给一个变量。</p>
 
-<p>``` ruby rb10 //ruby.code.kekou.de/code/rb10.rb Download Code
+<p>``` ruby ex10.rb //ruby.code.kekou.de/code/ex10.rb Download Code
 tabby_cat = &ldquo;\tI&rsquo;m tabbed in.&rdquo;
 persian_cat = &ldquo;I&rsquo;m split\non a line.&rdquo;
 backslash_cat = &ldquo;I&rsquo;m \ a \ cat.&rdquo;</p>
