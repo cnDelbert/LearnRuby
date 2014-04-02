@@ -4,7 +4,7 @@
   <title><![CDATA[Notes for Ruby]]></title>
   <link href="http://ruby.code.kekou.de//atom.xml" rel="self"/>
   <link href="http://ruby.code.kekou.de//"/>
-  <updated>2014-04-02T21:54:46+08:00</updated>
+  <updated>2014-04-02T22:02:31+08:00</updated>
   <id>http://ruby.code.kekou.de//</id>
   <author>
     <name><![CDATA[Delbert]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Ex 13: 参数、解包]]></title>
+    <title type="html"><![CDATA[Ex 13: 参数、解包、变量]]></title>
     <link href="http://ruby.code.kekou.de//blog/2014/04/02/ex13/"/>
     <updated>2014-04-02T21:10:45+08:00</updated>
     <id>http://ruby.code.kekou.de//blog/2014/04/02/ex13</id>
@@ -23,7 +23,7 @@
 <!--more-->
 
 
-
+<blockquote><p>Update: 看了一下英文原版，原文是 “Parameters, Unpacking, Variables”，估计是翻译的时候一时走神了吧，但是他已经不再维护这个 repo 了啊……</p></blockquote>
 
 <figure class='code'><figcaption><span>ex13.rb</span><a href='//ruby.code.kekou.de/code/ex13.rb'>Download Code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
