@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | Notes for Ruby]]></title>
   <link href="http://ruby.code.kekou.de//blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://ruby.code.kekou.de//"/>
-  <updated>2014-04-02T13:42:03+08:00</updated>
+  <updated>2014-04-02T14:12:14+08:00</updated>
   <id>http://ruby.code.kekou.de//</id>
   <author>
     <name><![CDATA[Delbert]]></name>
@@ -12,6 +12,51 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 11: 提问]]></title>
+    <link href="http://ruby.code.kekou.de//blog/2014/04/02/ex11/"/>
+    <updated>2014-04-02T13:56:33+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/2014/04/02/ex11</id>
+    <content type="html"><![CDATA[<p>终于到了有输入有输出的一节了。</p>
+
+<!--more-->
+
+
+<ol>
+<li>获取输入。</li>
+<li>改变输入的东西。</li>
+<li>输出以显示是如何改变的。</li>
+</ol>
+
+
+<p>代码如下（稍作修改）:</p>
+
+<p>``` ruby ex11.rb //ruby.code.kekou.de/code/ex11.rb Download Code
+print &ldquo;How old are you?\t &rdquo;
+age = gets.chomp()
+print &ldquo;How tall are you? \t&rdquo;
+height = gets.chomp()
+print &ldquo;How much do you weigh? \t&rdquo;
+weight = gets.chomp()</p>
+
+<p>puts &ldquo;So, you&rsquo;re #{age} years old, #{height} meters tall and #{weight} kilograms heavy.&rdquo;
+```</p>
+
+<p>输出：</p>
+
+<p><code>
+How old are you?         24
+How tall are you?       1.72
+How much do you weigh?  70
+So, you're 24 years old, 1.72 meters tall and 70 kilograms heavy.
+</code></p>
+
+<p><code>gets</code> 和 <code>puts</code> 一样，后面会跟一个换行，而 <code>gets.chomp()</code> 的后面是没有换行的。</p>
+
+<p>看了一下， <code>chmop</code> 的作用是移除行末的分离符。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Ex 10: 那是什么？]]></title>
@@ -230,52 +275,6 @@ Now you see the DIFFERENCE.&lt;&lt;&lt; Process finished. (Exit code 0)
 </code></p>
 
 <p>其中 <code>&lt;&lt;&lt; Process finished. (Exit code 0)</code> 是结束后没有换行，命令行的内容自动加到了后面。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ex 6: 字符串]]></title>
-    <link href="http://ruby.code.kekou.de//blog/2014/04/01/ex06/"/>
-    <updated>2014-04-01T17:12:41+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/2014/04/01/ex06</id>
-    <content type="html"><![CDATA[<p>前面用 <code>puts</code> 输出的用双引号引起来的就是字符串。</p>
-
-<!--more-->
-
-
-<p>``` ruby ex6.rb //ruby.code.kekou.de/code/ex6.rb Download code
-x = &ldquo;There are #{10} types of people.&rdquo;  # 10 本身是数字
-binary = &ldquo;binary&rdquo;
-do_not = &ldquo;don&rsquo;t&rdquo;
-y = &ldquo;Those who know #{binary} and those who #{do_not}.&rdquo;# 引用另外两个变量</p>
-
-<p>puts x
-puts y</p>
-
-<p>puts &ldquo;I said: #{x}.&rdquo;
-puts &ldquo;I also said: &lsquo;#{y}&rsquo;.&rdquo; # 继续引用 x 和 y</p>
-
-<p>hilarious = false
-joke_evaluation = &ldquo;Isn&rsquo;t that joke so funny?! #{hilarious}&rdquo; # 布尔值的变量</p>
-
-<p>puts joke_evaluation</p>
-
-<p>w = &ldquo;This is the left side of&hellip;&rdquo;
-e = &ldquo;a string with a right side.&rdquo;</p>
-
-<p>puts w + e # + 连接字符串
-```</p>
-
-<p>上面的代码中加上了部分注释， bash 中输出如下</p>
-
-<p><code>bash
-There are 10 types of people.
-Those who know binary and those who don't.
-I said: There are 10 types of people..
-I also said: 'Those who know binary and those who don't.'.
-Isn't that joke so funny?! false
-This is the left side of...a string with a right side.
-</code></p>
 ]]></content>
   </entry>
   

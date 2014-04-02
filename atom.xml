@@ -4,7 +4,7 @@
   <title><![CDATA[Notes for Ruby]]></title>
   <link href="http://ruby.code.kekou.de//atom.xml" rel="self"/>
   <link href="http://ruby.code.kekou.de//"/>
-  <updated>2014-04-02T13:42:03+08:00</updated>
+  <updated>2014-04-02T14:12:14+08:00</updated>
   <id>http://ruby.code.kekou.de//</id>
   <author>
     <name><![CDATA[Delbert]]></name>
@@ -12,6 +12,63 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 11: 提问]]></title>
+    <link href="http://ruby.code.kekou.de//blog/2014/04/02/ex11/"/>
+    <updated>2014-04-02T13:56:33+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/2014/04/02/ex11</id>
+    <content type="html"><![CDATA[<p>终于到了有输入有输出的一节了。</p>
+
+<!--more-->
+
+
+<ol>
+<li>获取输入。</li>
+<li>改变输入的东西。</li>
+<li>输出以显示是如何改变的。</li>
+</ol>
+
+
+<p>代码如下（稍作修改）:</p>
+
+<figure class='code'><figcaption><span>ex11.rb</span><a href='//ruby.code.kekou.de/code/ex11.rb'>Download Code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">print</span> <span class="s2">&quot;How old are you?</span><span class="se">\t</span><span class="s2"> &quot;</span>
+</span><span class='line'><span class="n">age</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span><span class="p">()</span>
+</span><span class='line'><span class="nb">print</span> <span class="s2">&quot;How tall are you? </span><span class="se">\t</span><span class="s2">&quot;</span>
+</span><span class='line'><span class="n">height</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span><span class="p">()</span>
+</span><span class='line'><span class="nb">print</span> <span class="s2">&quot;How much do you weigh? </span><span class="se">\t</span><span class="s2">&quot;</span>
+</span><span class='line'><span class="n">weight</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span><span class="p">()</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;So, you&#39;re </span><span class="si">#{</span><span class="n">age</span><span class="si">}</span><span class="s2"> years old, </span><span class="si">#{</span><span class="n">height</span><span class="si">}</span><span class="s2"> meters tall and </span><span class="si">#{</span><span class="n">weight</span><span class="si">}</span><span class="s2"> kilograms heavy.&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>输出：</p>
+
+<figure class='code'><figcaption><span>ex11.rb</span><a href='//ruby.code.kekou.de/code/ex11.rb'>Download Code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">How</span> <span class="n">old</span> <span class="n">are</span> <span class="n">you?</span>         <span class="mi">24</span>
+</span><span class='line'><span class="no">How</span> <span class="n">tall</span> <span class="n">are</span> <span class="n">you?</span>       <span class="mi">1</span><span class="o">.</span><span class="mi">72</span>
+</span><span class='line'><span class="no">How</span> <span class="n">much</span> <span class="k">do</span> <span class="n">you</span> <span class="n">weigh?</span>  <span class="mi">70</span>
+</span><span class='line'><span class="no">So</span><span class="p">,</span> <span class="n">you</span><span class="err">&#39;</span><span class="n">re</span> <span class="mi">24</span> <span class="n">years</span> <span class="n">old</span><span class="p">,</span> <span class="mi">1</span><span class="o">.</span><span class="mi">72</span> <span class="n">meters</span> <span class="n">tall</span> <span class="ow">and</span> <span class="mi">70</span> <span class="n">kilograms</span> <span class="n">heavy</span><span class="o">.</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>gets</code> 和 <code>puts</code> 一样，后面会跟一个换行，而 <code>gets.chomp()</code> 的后面是没有换行的。</p>
+
+<p>看了一下， <code>chmop</code> 的作用是移除行末的分离符。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Ex 10: 那是什么？]]></title>
