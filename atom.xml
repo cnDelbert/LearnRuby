@@ -4,7 +4,7 @@
   <title><![CDATA[Notes for Ruby]]></title>
   <link href="http://ruby.code.kekou.de//atom.xml" rel="self"/>
   <link href="http://ruby.code.kekou.de//"/>
-  <updated>2014-04-02T14:12:14+08:00</updated>
+  <updated>2014-04-02T14:14:07+08:00</updated>
   <id>http://ruby.code.kekou.de//</id>
   <author>
     <name><![CDATA[Delbert]]></name>
@@ -53,14 +53,14 @@
 
 <p>输出：</p>
 
-<figure class='code'><figcaption><span>ex11.rb</span><a href='//ruby.code.kekou.de/code/ex11.rb'>Download Code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">How</span> <span class="n">old</span> <span class="n">are</span> <span class="n">you?</span>         <span class="mi">24</span>
-</span><span class='line'><span class="no">How</span> <span class="n">tall</span> <span class="n">are</span> <span class="n">you?</span>       <span class="mi">1</span><span class="o">.</span><span class="mi">72</span>
-</span><span class='line'><span class="no">How</span> <span class="n">much</span> <span class="k">do</span> <span class="n">you</span> <span class="n">weigh?</span>  <span class="mi">70</span>
-</span><span class='line'><span class="no">So</span><span class="p">,</span> <span class="n">you</span><span class="err">&#39;</span><span class="n">re</span> <span class="mi">24</span> <span class="n">years</span> <span class="n">old</span><span class="p">,</span> <span class="mi">1</span><span class="o">.</span><span class="mi">72</span> <span class="n">meters</span> <span class="n">tall</span> <span class="ow">and</span> <span class="mi">70</span> <span class="n">kilograms</span> <span class="n">heavy</span><span class="o">.</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>How old are you?         24
+</span><span class='line'>How tall are you?       1.72
+</span><span class='line'>How much <span class="k">do </span>you weigh?  70
+</span><span class='line'>So, you<span class="err">&#39;</span>re 24 years old, 1.72 meters tall and 70 kilograms heavy.
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -132,7 +132,7 @@
 
 <p>输出为</p>
 
-<figure class='code'><figcaption><span>rb10</span><a href='//ruby.code.kekou.de/code/rb10.rb'>Download Code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -141,15 +141,15 @@
 <span class='line-number'>7</span>
 <span class='line-number'>8</span>
 <span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">I</span><span class="s1">&#39;m tabbed in.</span>
-</span><span class='line'><span class="s1">I&#39;</span><span class="n">m</span> <span class="nb">split</span>
-</span><span class='line'><span class="n">on</span> <span class="n">a</span> <span class="n">line</span><span class="o">.</span>
-</span><span class='line'><span class="n">I</span><span class="s1">&#39;m \ a \ cat.</span>
-</span><span class='line'><span class="s1">I&#39;</span><span class="n">ll</span> <span class="k">do</span> <span class="n">a</span> <span class="ss">list</span><span class="p">:</span>
-</span><span class='line'><span class="o">*</span> <span class="no">Cat</span> <span class="n">food</span>
-</span><span class='line'><span class="o">*</span> <span class="no">Fishies</span>
-</span><span class='line'><span class="o">*</span> <span class="no">Catnip</span>
-</span><span class='line'><span class="o">*</span> <span class="no">Grass</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>I<span class="s1">&#39;m tabbed in.</span>
+</span><span class='line'><span class="s1">I&#39;</span>m split
+</span><span class='line'>on a line.
+</span><span class='line'>I<span class="s1">&#39;m \ a \ cat.</span>
+</span><span class='line'><span class="s1">I&#39;</span>ll <span class="k">do </span>a list:
+</span><span class='line'>* Cat food
+</span><span class='line'>* Fishies
+</span><span class='line'>* Catnip
+</span><span class='line'>* Grass
 </span></code></pre></td></tr></table></div></figure>
 
 ]]></content>

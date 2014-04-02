@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | Notes for Ruby]]></title>
   <link href="http://ruby.code.kekou.de//blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://ruby.code.kekou.de//"/>
-  <updated>2014-04-02T14:12:14+08:00</updated>
+  <updated>2014-04-02T14:14:07+08:00</updated>
   <id>http://ruby.code.kekou.de//</id>
   <author>
     <name><![CDATA[Delbert]]></name>
@@ -45,7 +45,7 @@ weight = gets.chomp()</p>
 
 <p>输出：</p>
 
-<p><code>
+<p><code>bash
 How old are you?         24
 How tall are you?       1.72
 How much do you weigh?  70
@@ -100,7 +100,7 @@ puts fat_cat
 
 <p>输出为</p>
 
-<p>```</p>
+<p>``` bash</p>
 
 <pre><code>I'm tabbed in.
 </code></pre>
