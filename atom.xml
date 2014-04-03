@@ -4,7 +4,7 @@
   <title><![CDATA[Notes for Ruby]]></title>
   <link href="http://ruby.code.kekou.de//atom.xml" rel="self"/>
   <link href="http://ruby.code.kekou.de//"/>
-  <updated>2014-04-03T20:34:47+08:00</updated>
+  <updated>2014-04-03T21:17:37+08:00</updated>
   <id>http://ruby.code.kekou.de//</id>
   <author>
     <name><![CDATA[Delbert]]></name>
@@ -12,6 +12,29 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[ex28]]></title>
+    <link href="http://ruby.code.kekou.de//blog/ex28/"/>
+    <updated>2014-04-03T21:09:44+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/ex28</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 27: 记忆逻辑关系]]></title>
+    <link href="http://ruby.code.kekou.de//blog/ex27/"/>
+    <updated>2014-04-03T21:09:38+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/ex27</id>
+    <content type="html"><![CDATA[<p>这一节是<em>与</em>、<em>或</em>、<em>非</em>的关系，之前有过程序基础或数字电路基础的同学可以略过。</p>
+
+<!--more-->
+
+
+<p>稍微有点逻辑基础即可知道，但是这是以后编程的基础。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Ex 26: 恭喜你，现在来考试啦！]]></title>
@@ -1522,169 +1545,6 @@ Even 4 lines if we want, or 5, or 6.
 </code></pre>
 
 <p><code>\t</code> <code>\n</code> 什么的 Cpp 里面也是经常用的，但是那个 <code>PARAGRAPH</code> 是什么？是标签还是什么？输出的时候没有输出啊</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ex 8: 输出，输出]]></title>
-    <link href="http://ruby.code.kekou.de//blog/ex08/"/>
-    <updated>2014-04-02T12:49:43+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/ex08</id>
-    <content type="html"><![CDATA[<p>另外一种格式化输出，同时可以用格式输出输出格式。Ruby 的输出貌似挺灵活的样子。</p>
-
-<!--more-->
-
-
-
-
-<figure class='code'><figcaption><span>ex8.rb</span><a href='//ruby.code.kekou.de/code/ex8.rb'>Download Code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">formatter</span> <span class="o">=</span> <span class="s2">&quot;%s %s %s %s&quot;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="n">formatter</span> <span class="o">%</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
-</span><span class='line'><span class="nb">puts</span> <span class="n">formatter</span> <span class="o">%</span> <span class="o">[</span><span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="s2">&quot;two&quot;</span><span class="p">,</span> <span class="s2">&quot;three&quot;</span><span class="p">,</span> <span class="s2">&quot;four&quot;</span><span class="o">]</span>
-</span><span class='line'><span class="nb">puts</span> <span class="n">formatter</span> <span class="o">%</span> <span class="o">[</span><span class="kp">true</span><span class="p">,</span> <span class="kp">false</span><span class="p">,</span> <span class="kp">false</span><span class="p">,</span> <span class="kp">true</span><span class="o">]</span>
-</span><span class='line'><span class="nb">puts</span> <span class="n">formatter</span> <span class="o">%</span> <span class="o">[</span><span class="n">formatter</span><span class="p">,</span> <span class="n">formatter</span><span class="p">,</span> <span class="n">formatter</span><span class="p">,</span> <span class="n">formatter</span><span class="o">]</span><span class="c1">#直接输出格式</span>
-</span><span class='line'><span class="nb">puts</span> <span class="n">formatter</span> <span class="o">%</span> <span class="o">[</span>
-</span><span class='line'>    <span class="s2">&quot;I had this thing.&quot;</span><span class="p">,</span>
-</span><span class='line'>    <span class="s2">&quot;That you could type up right.&quot;</span><span class="p">,</span>
-</span><span class='line'>    <span class="s2">&quot;But it didn&#39;t sing.&quot;</span><span class="p">,</span>
-</span><span class='line'>    <span class="s2">&quot;So I said goodnight.&quot;</span>
-</span><span class='line'><span class="o">]</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>输出为</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>1 2 3 4
-</span><span class='line'>one two three four
-</span><span class='line'><span class="nb">true false false true</span>
-</span><span class='line'>%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s
-</span><span class='line'>I had this thing. That you could <span class="nb">type </span>up right. But it didn<span class="err">&#39;</span>t sing. So I said goodnight.
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p><code>%</code> 后面用的是中括号 <code>[]</code>，格式化输出的说明见下面：</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>%a   浮点数、十六进制数字和p-记数法（C99）
-</span><span class='line'>%A    浮点数、十六进制数字和p-记法（C99）
-</span><span class='line'>%c    一个字符　
-</span><span class='line'>%d    有符号十进制整数　
-</span><span class='line'>%e    浮点数、e-记数法
-</span><span class='line'>%E    浮点数、E-记数法
-</span><span class='line'>%f    浮点数、十进制记数法　　
-</span><span class='line'>%g    根据数值不同自动选择%f或%e．
-</span><span class='line'>%G    根据数值不同自动选择%f或%e.
-</span><span class='line'>%i    有符号十进制数（与%d相同）
-</span><span class='line'>%o    无符号八进制整数
-</span><span class='line'>%p    指针　　　　
-</span><span class='line'>%s    字符串
-</span><span class='line'>%u    无符号十进制整数
-</span><span class='line'>%x    使用十六进制数字０f的无符号十六进制整数　
-</span><span class='line'>%X    使用十六进制数字０f的无符号十六进制整数
-</span><span class='line'>%%    打印一个百分号
-</span></code></pre></td></tr></table></div></figure>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ex 7: 更多输出]]></title>
-    <link href="http://ruby.code.kekou.de//blog/ex07/"/>
-    <updated>2014-04-01T20:51:50+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/ex07</id>
-    <content type="html"><![CDATA[<p>格式化输出并不要求后面一定是变量，输出的同时可以进行类似数学计算的奇怪东东。</p>
-
-<!--more-->
-
-
-
-
-<figure class='code'><figcaption><span>ex7.rb</span><a href='//ruby.code.kekou.de/code/ex7.rb'>Download Code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Normal sentences.&quot;</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;This is %s.&quot;</span><span class="sx">%&quot;a word&quot;</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;And next one will output </span><span class="si">#{</span><span class="mi">10</span><span class="si">}</span><span class="s2"> dots.&quot;</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;.&quot;</span><span class="o">*</span><span class="mi">10</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">word1</span> <span class="o">=</span> <span class="s2">&quot;W&quot;</span>
-</span><span class='line'><span class="n">word2</span> <span class="o">=</span> <span class="s2">&quot;o&quot;</span>
-</span><span class='line'><span class="n">word3</span> <span class="o">=</span> <span class="s2">&quot;r&quot;</span>
-</span><span class='line'><span class="n">word4</span> <span class="o">=</span> <span class="s2">&quot;d&quot;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">print</span> <span class="n">word1</span><span class="o">+</span><span class="n">word2</span><span class="o">+</span><span class="n">word3</span><span class="o">+</span><span class="n">word4</span>    <span class="c1">#No Return</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;And&quot;</span>
-</span><span class='line'><span class="nb">puts</span> <span class="n">word1</span><span class="o">+</span><span class="n">word2</span><span class="o">+</span><span class="n">word3</span><span class="o">+</span><span class="n">word4</span> <span class="c1">#Switch to the next line.</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">print</span> <span class="s2">&quot;Now you see the DIFFERENCE.&quot;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>从输出来看，可以明显看到区别：</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>Normal sentences.
-</span><span class='line'>This is a word.
-</span><span class='line'>And next one will output 10 dots.
-</span><span class='line'>..........
-</span><span class='line'>WordAnd
-</span><span class='line'>Word
-</span><span class='line'>Now you see the DIFFERENCE.<span class="o">&lt;&lt;&lt;</span> Process finished. <span class="o">(</span>Exit code 0<span class="o">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>其中 <code>&lt;&lt;&lt; Process finished. (Exit code 0)</code> 是结束后没有换行，命令行的内容自动加到了后面。</p>
 ]]></content>
   </entry>
   
