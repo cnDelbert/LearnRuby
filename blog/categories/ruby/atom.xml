@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | Notes for Ruby]]></title>
   <link href="http://ruby.code.kekou.de//blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://ruby.code.kekou.de//"/>
-  <updated>2014-04-03T16:12:35+08:00</updated>
+  <updated>2014-04-03T19:54:07+08:00</updated>
   <id>http://ruby.code.kekou.de//</id>
   <author>
     <name><![CDATA[Delbert]]></name>
@@ -12,6 +12,88 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 25: 更多更多的练习]]></title>
+    <link href="http://ruby.code.kekou.de//blog/ex25/"/>
+    <updated>2014-04-03T19:37:49+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/ex25</id>
+    <content type="html"><![CDATA[<p>本节的内容给封装成一个模块(Module)了，是可以调用的哦。</p>
+
+<!--more-->
+
+
+<p>``` ruby ex25.rb //ruby.code.kekou.de/code/ex25.rb Download Code
+module Ex25
+  def self.break_words(stuff)</p>
+
+<pre><code># This function will break up words for us.
+words = stuff.split(' ')
+words
+</code></pre>
+
+<p>  end</p>
+
+<p>  def self.sort_words(words)</p>
+
+<pre><code># Sorts the words.
+words.sort()
+</code></pre>
+
+<p>  end</p>
+
+<p>  def self.print_first_word(words)</p>
+
+<pre><code># Prints the first word and shifts the others down by one.
+word = words.shift()
+puts word
+</code></pre>
+
+<p>  end</p>
+
+<p>  def self.print_last_word(words)</p>
+
+<pre><code># Prints the last word after popping it off the end.
+word = words.pop()
+puts word
+</code></pre>
+
+<p>  end</p>
+
+<p>  def self.sort_sentence(sentence)</p>
+
+<pre><code># Takes in a full sentence and returns the sorted words.
+words = break_words(sentence)
+sort_words(words)
+</code></pre>
+
+<p>  end</p>
+
+<p>  def self.print_first_and_last(sentence)</p>
+
+<pre><code># Prints the first and last words of the sentence.
+words = break_words(sentence)
+print_first_word(words)
+print_last_word(words)
+</code></pre>
+
+<p>  end</p>
+
+<p>  def self.print_first_and_last_sorted(sentence)</p>
+
+<pre><code># Sorts the words then prints the first and last one.
+words = sort_sentence(sentence)
+print_first_word(words)
+print_last_word(words)
+</code></pre>
+
+<p>  end
+end
+```</p>
+
+<p>注意这里正常方式运行，是没有任何输出的。因为内部都是函数，却没有任何调用。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Ex 24: 更多练习]]></title>
@@ -189,73 +271,6 @@ SUBTRACTING 74 - 4500
 ADDING 35 + -4426
 That becomes: -4391 Can you do it by hand?
 </code></pre>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ex 20: 函数和文件]]></title>
-    <link href="http://ruby.code.kekou.de//blog/ex20/"/>
-    <updated>2014-04-03T14:54:15+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/ex20</id>
-    <content type="html"><![CDATA[<p>这一节是写了用来操作文件的函数，包括输出指定行，从头输出等方法。</p>
-
-<!--more-->
-
-
-<p>``` ruby ex20.rb //ruby.code.kekou.de/code/ex20.rb Download Code
-input_file = ARGV[0]</p>
-
-<p>def print_all(f)
-  puts f.read()
-end</p>
-
-<p>def rewind(f)
-  f.seek(0, IO::SEEK_SET)
-end</p>
-
-<p>def print_a_line(line_count, f)
-  puts &ldquo;#{line_count} #{f.readline()}&rdquo;
-end</p>
-
-<p>current_file = File.open(input_file)</p>
-
-<p>puts &ldquo;First let&rsquo;s print the whole file:&rdquo;
-puts # a blank line</p>
-
-<p>print_all(current_file)</p>
-
-<p>puts &ldquo;Now let&rsquo;s rewind, kind of like a tape.&rdquo;</p>
-
-<p>rewind(current_file)</p>
-
-<p>puts &ldquo;Let&rsquo;s print three lines:&rdquo;</p>
-
-<p>current_line = 1
-print_a_line(current_line, current_file)</p>
-
-<p>current_line = current_line + 1
-print_a_line(current_line, current_file)</p>
-
-<p>current_line = current_line + 1
-print_a_line(current_line, current_file)
-```</p>
-
-<p>执行后输出：</p>
-
-<pre><code>$ruby ex20.rb ex16_sample.txt
-First let's print the whole file:
-
-Line One.
-Line Two.
-Line Three.
-Now let's rewind, kind of like a tape.
-Let's print three lines:
-1 Line One.
-2 Line Two.
-3 Line Three.
-</code></pre>
-
-<p>注释直接写在<a href="//ruby.code.kekou.de/code/ex20.rb" title="源码">源码</a>里面了。</p>
 ]]></content>
   </entry>
   

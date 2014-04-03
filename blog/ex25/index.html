@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Ex 21: 函数可以返回一些东西 - Notes for Ruby</title>
+  <title>Ex 25: 更多更多的练习 - Notes for Ruby</title>
   <meta name="author" content="Delbert">
 
   
-  <meta name="description" content="就是函数的返回值啦。不过本节还没有用到 return 关键字， Ruby 默认把函数最后一行作为返回值。 ex21.rbDownload Code1
+  <meta name="description" content="本节的内容给封装成一个模块(Module)了，是可以调用的哦。 ex25.rbDownload Code1
 2
 3
 4
@@ -36,7 +36,14 @@
 25
 26
 27
-28 &hellip;">
+28
+29
+30
+31
+32
+33
+34
+35 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -45,7 +52,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ruby.code.kekou.de//blog/ex21">
+  <link rel="canonical" href="http://ruby.code.kekou.de//blog/ex25">
   <link href="/favicon.ico" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Notes for Ruby" type="application/atom+xml">
@@ -95,7 +102,7 @@
   
   <header>
     
-      <h1 class="entry-title">Ex 21: 函数可以返回一些东西</h1>
+      <h1 class="entry-title">Ex 25: 更多更多的练习</h1>
     
     
       <p class="meta">
@@ -111,7 +118,7 @@
   
 
 
-<time datetime="2014-04-03T15:47:13+08:00" pubdate data-updated="true">2014-Apr-03, 15:47:13, Thursday</time>
+<time datetime="2014-04-03T19:37:49+08:00" pubdate data-updated="true">2014-Apr-03, 19:37:49, Thursday</time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://ruby.code.kekou.de/">Comments</a>
@@ -121,14 +128,14 @@
   </header>
 
 
-<div class="entry-content"><p>就是函数的返回值啦。不过本节还没有用到 <code>return</code> 关键字， Ruby 默认把函数最后一行作为返回值。</p>
+<div class="entry-content"><p>本节的内容给封装成一个模块(Module)了，是可以调用的哦。</p>
 
 <!--more-->
 
 
 
 
-<figure class='code'><figcaption><span>ex21.rb</span><a href='//ruby.code.kekou.de/code/ex21.rb'>Download Code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>ex25.rb</span><a href='//ruby.code.kekou.de/code/ex25.rb'>Download Code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -163,59 +170,63 @@
 <span class='line-number'>33</span>
 <span class='line-number'>34</span>
 <span class='line-number'>35</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;ADDING </span><span class="si">#{</span><span class="n">a</span><span class="si">}</span><span class="s2"> + </span><span class="si">#{</span><span class="n">b</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span class='line'>  <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">module</span> <span class="nn">Ex25</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">break_words</span><span class="p">(</span><span class="n">stuff</span><span class="p">)</span>
+</span><span class='line'>    <span class="c1"># This function will break up words for us.</span>
+</span><span class='line'>    <span class="n">words</span> <span class="o">=</span> <span class="n">stuff</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">words</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">sort_words</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+</span><span class='line'>    <span class="c1"># Sorts the words.</span>
+</span><span class='line'>    <span class="n">words</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">print_first_word</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+</span><span class='line'>    <span class="c1"># Prints the first word and shifts the others down by one.</span>
+</span><span class='line'>    <span class="n">word</span> <span class="o">=</span> <span class="n">words</span><span class="o">.</span><span class="n">shift</span><span class="p">()</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="n">word</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">print_last_word</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+</span><span class='line'>    <span class="c1"># Prints the last word after popping it off the end.</span>
+</span><span class='line'>    <span class="n">word</span> <span class="o">=</span> <span class="n">words</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="n">word</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">sort_sentence</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+</span><span class='line'>    <span class="c1"># Takes in a full sentence and returns the sorted words.</span>
+</span><span class='line'>    <span class="n">words</span> <span class="o">=</span> <span class="n">break_words</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">sort_words</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">print_first_and_last</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+</span><span class='line'>    <span class="c1"># Prints the first and last words of the sentence.</span>
+</span><span class='line'>    <span class="n">words</span> <span class="o">=</span> <span class="n">break_words</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">print_first_word</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">print_last_word</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">print_first_and_last_sorted</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+</span><span class='line'>    <span class="c1"># Sorts the words then prints the first and last one.</span>
+</span><span class='line'>    <span class="n">words</span> <span class="o">=</span> <span class="n">sort_sentence</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">print_first_word</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">print_last_word</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">end</span>
 </span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">def</span> <span class="nf">subtract</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;SUBTRACTING </span><span class="si">#{</span><span class="n">a</span><span class="si">}</span><span class="s2"> - </span><span class="si">#{</span><span class="n">b</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span class='line'>  <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">def</span> <span class="nf">multiply</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;MULTIPLYING </span><span class="si">#{</span><span class="n">a</span><span class="si">}</span><span class="s2"> * </span><span class="si">#{</span><span class="n">b</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span class='line'>  <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">def</span> <span class="nf">divide</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;DIVIDING </span><span class="si">#{</span><span class="n">a</span><span class="si">}</span><span class="s2"> / </span><span class="si">#{</span><span class="n">b</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span class='line'>  <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Let&#39;s do some math with just functions!&quot;</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">age</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-</span><span class='line'><span class="n">height</span> <span class="o">=</span> <span class="n">subtract</span><span class="p">(</span><span class="mi">78</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
-</span><span class='line'><span class="n">weight</span> <span class="o">=</span> <span class="n">multiply</span><span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-</span><span class='line'><span class="n">iq</span> <span class="o">=</span> <span class="n">divide</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Age: </span><span class="si">#{</span><span class="n">age</span><span class="si">}</span><span class="s2">, Height: </span><span class="si">#{</span><span class="n">height</span><span class="si">}</span><span class="s2">, Weight: </span><span class="si">#{</span><span class="n">weight</span><span class="si">}</span><span class="s2">, IQ: </span><span class="si">#{</span><span class="n">iq</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1"># A puzzle for the extra credit, type it in anyway.</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Here is a puzzle.&quot;</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">what</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span><span class="n">age</span><span class="p">,</span> <span class="n">subtract</span><span class="p">(</span><span class="n">height</span><span class="p">,</span> <span class="n">multiply</span><span class="p">(</span><span class="n">weight</span><span class="p">,</span> <span class="n">divide</span><span class="p">(</span><span class="n">iq</span><span class="p">,</span> <span class="mi">2</span><span class="p">))))</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;That becomes: </span><span class="si">#{</span><span class="n">what</span><span class="si">}</span><span class="s2"> Can you do it by hand?&quot;</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>输出为</p>
-
-<pre><code>Let's do some math with just functions!
-ADDING 30 + 5
-SUBTRACTING 78 - 4
-MULTIPLYING 90 * 2
-DIVIDING 100 / 2
-Age: 35, Height: 74, Weight: 180, IQ: 50
-Here is a puzzle.
-DIVIDING 50 / 2
-MULTIPLYING 180 * 25
-SUBTRACTING 74 - 4500
-ADDING 35 + -4426
-That becomes: -4391 Can you do it by hand?
-</code></pre>
+<p>注意这里正常方式运行，是没有任何输出的。因为内部都是函数，却没有任何调用。</p>
 </div>
 
 
@@ -238,7 +249,7 @@ That becomes: -4391 Can you do it by hand?
   
 
 
-<time datetime="2014-04-03T15:47:13+08:00" pubdate data-updated="true">2014-Apr-03, 15:47:13, Thursday</time>
+<time datetime="2014-04-03T19:37:49+08:00" pubdate data-updated="true">2014-Apr-03, 19:37:49, Thursday</time>
       
 
 <span class="categories">
@@ -259,10 +270,8 @@ That becomes: -4391 Can you do it by hand?
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/ex20/" title="Previous Post: Ex 20: 函数和文件">&laquo; Ex 20: 函数和文件</a>
+        <a class="basic-alignment left" href="/blog/ex24/" title="Previous Post: Ex 24: 更多练习">&laquo; Ex 24: 更多练习</a>
       
-      
-        <a class="basic-alignment right" href="/blog/ex22/" title="Next Post: Ex 22: 目前为止你学到了什么">Ex 22: 目前为止你学到了什么 &raquo;</a>
       
     </p>
   </footer>
@@ -416,8 +425,8 @@ That becomes: -4391 Can you do it by hand?
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://ruby.code.kekou.de//blog/ex21/';
-        var disqus_url = 'http://ruby.code.kekou.de//blog/ex21/';
+        var disqus_identifier = 'http://ruby.code.kekou.de//blog/ex25/';
+        var disqus_url = 'http://ruby.code.kekou.de//blog/ex25/';
         var disqus_script = 'embed.js';
       
     (function () {
