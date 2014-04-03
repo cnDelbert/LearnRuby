@@ -4,7 +4,7 @@
   <title><![CDATA[Notes for Ruby]]></title>
   <link href="http://ruby.code.kekou.de//atom.xml" rel="self"/>
   <link href="http://ruby.code.kekou.de//"/>
-  <updated>2014-04-02T22:46:08+08:00</updated>
+  <updated>2014-04-03T10:26:15+08:00</updated>
   <id>http://ruby.code.kekou.de//</id>
   <author>
     <name><![CDATA[Delbert]]></name>
@@ -12,6 +12,217 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 17: 更多文件操作]]></title>
+    <link href="http://ruby.code.kekou.de//blog/2014/04/03/ex17/"/>
+    <updated>2014-04-03T09:45:55+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/2014/04/03/ex17</id>
+    <content type="html"><![CDATA[<p>本节进行文件内容的复制。</p>
+
+<!--more-->
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 16: 读写文件]]></title>
+    <link href="http://ruby.code.kekou.de//blog/2014/04/03/ex16/"/>
+    <updated>2014-04-03T09:45:48+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/2014/04/03/ex16</id>
+    <content type="html"><![CDATA[<p>继续文件的读写。本节代码如下：</p>
+
+<!--more-->
+
+
+
+
+<figure class='code'><figcaption><span>ex16.rb</span><a href='//ruby.code.kekou.de/code/ex16.rb'>Download Code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">filename</span> <span class="o">=</span> <span class="no">ARGV</span><span class="o">.</span><span class="n">first</span>
+</span><span class='line'><span class="c1">#script = $0</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;We&#39;re going to erase </span><span class="si">#{</span><span class="n">filename</span><span class="si">}</span><span class="s2">.&quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;If you don&#39;t want that, hit CTRL-C (^C).&quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;If you do want that, hit RETURN.&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">print</span> <span class="s2">&quot;? &quot;</span>
+</span><span class='line'><span class="no">STDIN</span><span class="o">.</span><span class="n">gets</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Opening the file...&quot;</span>
+</span><span class='line'><span class="n">target</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Truncating the file.  Goodbye!&quot;</span>
+</span><span class='line'><span class="n">target</span><span class="o">.</span><span class="n">truncate</span><span class="p">(</span><span class="n">target</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Now I&#39;m going to ask you for three lines.&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">print</span> <span class="s2">&quot;line 1: &quot;</span><span class="p">;</span> <span class="n">line1</span> <span class="o">=</span> <span class="no">STDIN</span><span class="o">.</span><span class="n">gets</span><span class="o">.</span><span class="n">chomp</span><span class="p">()</span>
+</span><span class='line'><span class="nb">print</span> <span class="s2">&quot;line 2: &quot;</span><span class="p">;</span> <span class="n">line2</span> <span class="o">=</span> <span class="no">STDIN</span><span class="o">.</span><span class="n">gets</span><span class="o">.</span><span class="n">chomp</span><span class="p">()</span>
+</span><span class='line'><span class="nb">print</span> <span class="s2">&quot;line 3: &quot;</span><span class="p">;</span> <span class="n">line3</span> <span class="o">=</span> <span class="no">STDIN</span><span class="o">.</span><span class="n">gets</span><span class="o">.</span><span class="n">chomp</span><span class="p">()</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;I&#39;m going to write these to the file.&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">#target.write(line1)</span>
+</span><span class='line'><span class="c1">#target.write(&quot;\n&quot;)</span>
+</span><span class='line'><span class="c1">#target.write(line2)</span>
+</span><span class='line'><span class="c1">#target.write(&quot;\n&quot;)</span>
+</span><span class='line'><span class="c1">#target.write(line3)</span>
+</span><span class='line'><span class="c1">#target.write(&quot;\n&quot;)</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">contents</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">line1</span><span class="si">}</span><span class="se">\n</span><span class="si">#{</span><span class="n">line2</span><span class="si">}</span><span class="se">\n</span><span class="si">#{</span><span class="n">line3</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'><span class="n">target</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">contents</span><span class="p">)</span> <span class="c1"># Write the contents with one target.write()</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;And finally, we close it.&quot;</span>
+</span><span class='line'><span class="n">target</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>运行命令</p>
+
+<pre><code>$ruby ex16.rb ex16_sample.txt
+We're going to erase ex16_sample.txt.
+If you don't want that, hit CTRL-C (^C).
+If you do want that, hit RETURN.
+?
+Opening the file...
+Truncating the file.  Goodbye!
+Now I'm going to ask you for three lines.
+line 1: Line One.
+line 2: Line Two.
+line 3: Line Three.
+I'm going to write these to the file.
+And finally, we close it.
+
+$cat ex16_sample.txt // replace "cat" with "type" if you use Windows
+Line One.
+Line Two.
+Line Three.
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 15: 读取文件]]></title>
+    <link href="http://ruby.code.kekou.de//blog/2014/04/03/ex15/"/>
+    <updated>2014-04-03T09:15:30+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/2014/04/03/ex15</id>
+    <content type="html"><![CDATA[<p>从一个文本文件中读取内容，并显示在屏幕上。</p>
+
+<!--more-->
+
+
+
+
+<figure class='code'><figcaption><span>ex15_sample.txt</span><a href='//ruby.code.kekou.de/code/ex15_sample.txt'>Download Code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='text'><span class='line'>This is stuff I typed into a file.
+</span><span class='line'>It is really cool stuff.
+</span><span class='line'>Lots and lots of fun to have in here.
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>程序片段如下</p>
+
+<figure class='code'><figcaption><span>ex15.rb</span><a href='//ruby.code.kekou.de/code/ex15.rb'>Download Code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">filename</span> <span class="o">=</span> <span class="no">ARGV</span><span class="o">.</span><span class="n">first</span>    <span class="c1"># get the first argument.</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;&gt; &quot;</span>  <span class="c1"># as the sign of tip</span>
+</span><span class='line'><span class="n">txt</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>    <span class="c1"># open the file #{filename}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Here&#39;s your file: </span><span class="si">#{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span> <span class="c1"># print the #{filename} with a line feed</span>
+</span><span class='line'><span class="nb">puts</span> <span class="n">txt</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>   <span class="c1"># print the contents out</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Type the filename again:&quot;</span> <span class="c1"># input the name of the file</span>
+</span><span class='line'><span class="nb">print</span> <span class="n">prompt</span>   <span class="c1"># sign of the input tip</span>
+</span><span class='line'><span class="n">file_again</span> <span class="o">=</span> <span class="no">STDIN</span><span class="o">.</span><span class="n">gets</span><span class="o">.</span><span class="n">chomp</span><span class="p">()</span>  <span class="c1"># get the filename without a line feed</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">txt_again</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">file_again</span><span class="p">)</span>    <span class="c1"># get the contents</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="n">txt_again</span><span class="o">.</span><span class="n">read</span><span class="p">()</span> <span class="c1"># and print it out</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>命令提示符中输出如下：</p>
+
+<pre><code>$ruby ex15.rb ex15_sample.txt
+Here's your file: ex15_sample.txt
+This is stuff I typed into a file.
+It is really cool stuff.
+Lots and lots of fun to have in here.
+Type the filename again:
+&gt; ex15_sample.txt
+This is stuff I typed into a file.
+It is really cool stuff.
+Lots and lots of fun to have in here.
+</code></pre>
+
+<p>删掉使用 <code>STDIN.gets</code> 的部分后，提示：</p>
+
+<pre><code>$ruby ex15.rb ex15_sample.txt
+Here's your file: ex15_sample.txt
+This is stuff I typed into a file.
+It is really cool stuff.
+Lots and lots of fun to have in here.
+Type the filename again:
+&gt; ex15.rb:13:in `&lt;main&gt;': undefined local variable or method `file_again' for ma
+in:Object (NameError)
+</code></pre>
+
+<p>也就是说并不是编译后再执行， Ruby 是一种运行时的语言。</p>
+
+<p>PowerShell 中是有 <code>cat</code> 命令的， CMD 命令行中没有。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Ex 14: 提示和传递]]></title>
