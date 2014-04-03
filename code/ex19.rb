@@ -15,7 +15,7 @@ amount_of_crackers = 50
 cheese_and_crackers(amount_of_cheese, amount_of_crackers)
 
 puts "We can even do math inside too:"
-cheese_and_crackers(10 + 20, 5 + 6)
+cheese_and_crackers(10 + 20, 5 + 6)	# calculate the result before the function
 
 puts "And we can combine the two, variables and math:"
 cheese_and_crackers(amount_of_cheese + 100, amount_of_crackers + 1000)

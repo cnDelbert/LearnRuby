@@ -4,7 +4,7 @@
   <title><![CDATA[Notes for Ruby]]></title>
   <link href="http://ruby.code.kekou.de//atom.xml" rel="self"/>
   <link href="http://ruby.code.kekou.de//"/>
-  <updated>2014-04-03T14:45:40+08:00</updated>
+  <updated>2014-04-03T14:52:24+08:00</updated>
   <id>http://ruby.code.kekou.de//</id>
   <author>
     <name><![CDATA[Delbert]]></name>
@@ -69,6 +69,35 @@
 </span><span class='line'><span class="n">cheese_and_crackers</span><span class="p">(</span><span class="n">amount_of_cheese</span> <span class="o">+</span> <span class="mi">100</span><span class="p">,</span> <span class="n">amount_of_crackers</span> <span class="o">+</span> <span class="mi">1000</span><span class="p">)</span>
 </span></code></pre></td></tr></table></div></figure>
 
+
+<p>输出</p>
+
+<pre><code>We can just give the function numbers directly:
+You have 20 cheeses!
+You have 30 boxes of crackers!
+Man that's enough for a party!
+Get a blanket.
+
+OR, we can use variables from our script:
+You have 10 cheeses!
+You have 50 boxes of crackers!
+Man that's enough for a party!
+Get a blanket.
+
+We can even do math inside too:
+You have 30 cheeses!
+You have 11 boxes of crackers!
+Man that's enough for a party!
+Get a blanket.
+
+And we can combine the two, variables and math:
+You have 110 cheeses!
+You have 1050 boxes of crackers!
+Man that's enough for a party!
+Get a blanket.
+</code></pre>
+
+<p>繁体版最后少加了一个空行。对应<a href="//ruby.code.kekou.de/code/ex19.rb" title="源码">源码</a>就能知道是怎么执行的了。</p>
 ]]></content>
   </entry>
   
@@ -141,7 +170,7 @@
 
 <ol>
 <li>函数定义是以 <code>def</code> 开始的；</li>
-<li>Ruby 的规范是以小写字符和 <code>\_</code> 下划线来进行连接；</li>
+<li>Ruby 的规范是以小写字符和 <code>_</code> 下划线来进行连接；</li>
 <li>函数名后紧接左括号；</li>
 <li>多个参数时应用英文逗号隔开；</li>
 <li>参数结束后要用英文右括号结束；</li>

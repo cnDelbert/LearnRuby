@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | Notes for Ruby]]></title>
   <link href="http://ruby.code.kekou.de//blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://ruby.code.kekou.de//"/>
-  <updated>2014-04-03T14:45:40+08:00</updated>
+  <updated>2014-04-03T14:52:24+08:00</updated>
   <id>http://ruby.code.kekou.de//</id>
   <author>
     <name><![CDATA[Delbert]]></name>
@@ -60,7 +60,7 @@ puts_none()
 
 <ol>
 <li>函数定义是以 <code>def</code> 开始的；</li>
-<li>Ruby 的规范是以小写字符和 <code>\_</code> 下划线来进行连接；</li>
+<li>Ruby 的规范是以小写字符和 <code>_</code> 下划线来进行连接；</li>
 <li>函数名后紧接左括号；</li>
 <li>多个参数时应用英文逗号隔开；</li>
 <li>参数结束后要用英文右括号结束；</li>
