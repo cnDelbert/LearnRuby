@@ -9,7 +9,30 @@
   <meta name="author" content="Delbert">
 
   
-  <meta name="description" content="本节进行文件内容的复制。 ">
+  <meta name="description" content="本节进行文件内容的复制。 ex17.rbDownload Code1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+from_file, to_file = ARGV
+script = $0 puts &quot;Copying &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -97,6 +120,79 @@
 <div class="entry-content"><p>本节进行文件内容的复制。</p>
 
 <!--more-->
+
+
+
+
+<figure class='code'><figcaption><span>ex17.rb</span><a href='//ruby.code.kekou.de/code/ex17.rb'>Download Code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">from_file</span><span class="p">,</span> <span class="n">to_file</span> <span class="o">=</span> <span class="no">ARGV</span>
+</span><span class='line'><span class="n">script</span> <span class="o">=</span> <span class="vg">$0</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Copying from </span><span class="si">#{</span><span class="n">from_file</span><span class="si">}</span><span class="s2"> to </span><span class="si">#{</span><span class="n">to_file</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># we could do these two on one line too, how?</span>
+</span><span class='line'><span class="n">input</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">from_file</span><span class="p">)</span>
+</span><span class='line'><span class="n">indata</span> <span class="o">=</span> <span class="n">input</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;The input file is </span><span class="si">#{</span><span class="n">indata</span><span class="o">.</span><span class="n">length</span><span class="si">}</span><span class="s2"> bytes long&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Does the output file exist? </span><span class="si">#{</span><span class="no">File</span><span class="o">.</span><span class="n">exists?</span> <span class="n">to_file</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Ready, hit RETURN to continue, CTRL-C to abort.&quot;</span>
+</span><span class='line'><span class="no">STDIN</span><span class="o">.</span><span class="n">gets</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">output</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">to_file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="n">output</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">indata</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Alright, all done.&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">output</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span><span class='line'><span class="n">input</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>执行该文件的时候需要两个参数，输入文件和输出文件。</p>
+
+<p>我使用了上一节的文本</p>
+
+<pre><code>$ruby ex17.rb ex16_sample.txt ex17_sample.txt
+Copying from ex16_sample.txt to ex17_sample.txt
+The input file is 31 bytes long
+Does the output file exist? false
+Ready, hit RETURN to continue, CTRL-C to abort.
+
+Alright, all done.
+</code></pre>
+
+<p>你可以用 Linux 下的 <code>cat</code> 命令，我也可以用 Windows 下的 <code>COPY</code> 命令来完成复制。</p>
+
+<p>如果没有 <code>close()</code> 是不会保存文件的吧。</p>
+
+<p>至于改写程序，我是这样改写的，最后只用一行完成，测试执行可用。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">File</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="no">ARGV</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="no">File</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="no">ARGV</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</span></code></pre></td></tr></table></div></figure>
 
 </div>
 
@@ -260,7 +356,7 @@
   
 
 <script type="text/javascript">
-      var disqus_shortname = 'Delbert';
+      var disqus_shortname = 'cnDelbert';
       
         
         // var disqus_developer = 1;

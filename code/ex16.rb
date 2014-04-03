@@ -1,5 +1,5 @@
 filename = ARGV.first
-#script = $0
+script = $0 #不知道这句话是什么意思
 
 puts "We're going to erase #{filename}."
 puts "If you don't want that, hit CTRL-C (^C)."

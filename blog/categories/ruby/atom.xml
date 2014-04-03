@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | Notes for Ruby]]></title>
   <link href="http://ruby.code.kekou.de//blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://ruby.code.kekou.de//"/>
-  <updated>2014-04-03T10:30:52+08:00</updated>
+  <updated>2014-04-03T11:54:38+08:00</updated>
   <id>http://ruby.code.kekou.de//</id>
   <author>
     <name><![CDATA[Delbert]]></name>
@@ -22,6 +22,55 @@
 
 <!--more-->
 
+
+<p>``` ruby ex17.rb //ruby.code.kekou.de/code/ex17.rb Download Code
+from_file, to_file = ARGV
+script = $0</p>
+
+<p>puts &ldquo;Copying from #{from_file} to #{to_file}&rdquo;</p>
+
+<h1>we could do these two on one line too, how?</h1>
+
+<p>input = File.open(from_file)
+indata = input.read()</p>
+
+<p>puts &ldquo;The input file is #{indata.length} bytes long&rdquo;</p>
+
+<p>puts &ldquo;Does the output file exist? #{File.exists? to_file}&rdquo;
+puts &ldquo;Ready, hit RETURN to continue, CTRL-C to abort.&rdquo;
+STDIN.gets</p>
+
+<p>output = File.open(to_file, &lsquo;w&rsquo;)
+output.write(indata)</p>
+
+<p>puts &ldquo;Alright, all done.&rdquo;</p>
+
+<p>output.close()
+input.close()
+```</p>
+
+<p>执行该文件的时候需要两个参数，输入文件和输出文件。</p>
+
+<p>我使用了上一节的文本</p>
+
+<pre><code>$ruby ex17.rb ex16_sample.txt ex17_sample.txt
+Copying from ex16_sample.txt to ex17_sample.txt
+The input file is 31 bytes long
+Does the output file exist? false
+Ready, hit RETURN to continue, CTRL-C to abort.
+
+Alright, all done.
+</code></pre>
+
+<p>你可以用 Linux 下的 <code>cat</code> 命令，我也可以用 Windows 下的 <code>COPY</code> 命令来完成复制。</p>
+
+<p>如果没有 <code>close()</code> 是不会保存文件的吧。</p>
+
+<p>至于改写程序，我是这样改写的，最后只用一行完成，测试执行可用。</p>
+
+<p><code>ruby
+File.open(ARGV[1], 'w').write(File.open(ARGV[0]).read())
+</code></p>
 ]]></content>
   </entry>
   
