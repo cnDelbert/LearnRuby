@@ -5,21 +5,15 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Ex 12: 模块(Modules) - Notes for Ruby</title>
+  <title>Ex 23: 阅读一些代码 - Notes for Ruby</title>
   <meta name="author" content="Delbert">
 
   
-  <meta name="description" content="上来的那个栗子例子是分析 URL 的。 ex12.rbDownload Code1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-require &#39;open-uri&#39; open(&quot;http://baidu.com&quot;) do |f| f.each_line {|line &hellip;">
+  <meta name="description" content="Delbert 会在本文中提供几个链接。 github.com
+gitcafe.com
+oschina.net
+ruby-china.org
+Google.com ">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -28,7 +22,7 @@ require &#39;open-uri&#39; open(&quot;http://baidu.com&quot;) do |f| f.each_line
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ruby.code.kekou.de//blog/ex12">
+  <link rel="canonical" href="http://ruby.code.kekou.de//blog/ex23">
   <link href="/favicon.ico" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Notes for Ruby" type="application/atom+xml">
@@ -78,7 +72,7 @@ require &#39;open-uri&#39; open(&quot;http://baidu.com&quot;) do |f| f.each_line
   
   <header>
     
-      <h1 class="entry-title">Ex 12: 模块(Modules)</h1>
+      <h1 class="entry-title">Ex 23: 阅读一些代码</h1>
     
     
       <p class="meta">
@@ -94,7 +88,7 @@ require &#39;open-uri&#39; open(&quot;http://baidu.com&quot;) do |f| f.each_line
   
 
 
-<time datetime="2014-04-02T20:07:56+08:00" pubdate data-updated="true">2014-Apr-02, 20:07:56, Wednesday</time>
+<time datetime="2014-04-03T15:54:39+08:00" pubdate data-updated="true">2014-Apr-03, 15:54:39, Thursday</time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://ruby.code.kekou.de/">Comments</a>
@@ -104,55 +98,17 @@ require &#39;open-uri&#39; open(&quot;http://baidu.com&quot;) do |f| f.each_line
   </header>
 
 
-<div class="entry-content"><p>上来的那个<del>栗子</del>例子是分析 URL 的。</p>
+<div class="entry-content"><p>Delbert 会在本文中提供几个链接。</p>
 
 <!--more-->
 
 
-
-
-<figure class='code'><figcaption><span>ex12.rb</span><a href='//ruby.code.kekou.de/code/ex12.rb'>Download Code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">require</span> <span class="s1">&#39;open-uri&#39;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;http://baidu.com&quot;</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">f</span><span class="o">|</span>
-</span><span class='line'>  <span class="n">f</span><span class="o">.</span><span class="n">each_line</span> <span class="p">{</span><span class="o">|</span><span class="n">line</span><span class="o">|</span> <span class="nb">p</span> <span class="n">line</span><span class="p">}</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="n">f</span><span class="o">.</span><span class="n">base_uri</span>         <span class="c1"># http://baidu.com</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="n">f</span><span class="o">.</span><span class="n">content_type</span>     <span class="c1"># &quot;text/html&quot;</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="n">f</span><span class="o">.</span><span class="n">charset</span>          <span class="c1"># &quot;iso-8859-1&quot;</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="n">f</span><span class="o">.</span><span class="n">content_encoding</span> <span class="c1"># []</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="n">f</span><span class="o">.</span><span class="n">last_modified</span>    <span class="c1"># 2010-01-12 21:48:00 +0800</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>貌似和原文说的不是太一样，执行 <code>open</code> 的时候会将整个页面进行输出吗？我在命令行下面是将整个页面都输出了。</p>
-
-<p>用 ruby-lang 的话会产生运行时错误。</p>
-
-<p>我用 <code>http://baidu.com</code> 是因为产生的输出很少。如下：</p>
-
-<pre><code>"&lt;html&gt;\n"
-"&lt;meta http-equiv=\"refresh\" content=\"0;url=http://www.baidu.com/\"&gt;\n"
-"&lt;/html&gt;\n"
-http://baidu.com
-text/html
-iso-8859-1
-2010-01-12 21:48:00 +0800
-</code></pre>
-
 <ol>
-<li>关于 <code>require</code> 和 <code>include</code>，找到了一篇文章： <a href="http://www.cnblogs.com/phaibin/archive/2009/11/06/1597333.html">http://www.cnblogs.com/phaibin/archive/2009/11/06/1597333.html</a>，原文在<a href="http://ionrails.com/2009/09/19/ruby_require-vs-load-vs-include-vs-extend/">这里</a>    。</li>
-<li>貌似不能。</li>
-<li>安装路径下 <code>/lib/ruby/版本号/</code> 中寻找。</li>
+<li><a href="//github.com%20GitHub">github.com</a></li>
+<li><a href="//gitcafe.com" title="大陆的 GitHub">gitcafe.com</a></li>
+<li><a href="//oschina.net%20Open%20Source%20China">oschina.net</a></li>
+<li><a href="//ruby-china.org%20Ruby%20China">ruby-china.org</a></li>
+<li><a href="//www.google.com/ncr">Google.com</a></li>
 </ol>
 
 </div>
@@ -177,7 +133,7 @@ iso-8859-1
   
 
 
-<time datetime="2014-04-02T20:07:56+08:00" pubdate data-updated="true">2014-Apr-02, 20:07:56, Wednesday</time>
+<time datetime="2014-04-03T15:54:39+08:00" pubdate data-updated="true">2014-Apr-03, 15:54:39, Thursday</time>
       
 
 <span class="categories">
@@ -198,10 +154,8 @@ iso-8859-1
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/ex11/" title="Previous Post: Ex 11: 提问">&laquo; Ex 11: 提问</a>
+        <a class="basic-alignment left" href="/blog/ex22/" title="Previous Post: Ex 22: 目前为止你学到了什么">&laquo; Ex 22: 目前为止你学到了什么</a>
       
-      
-        <a class="basic-alignment right" href="/blog/ex13/" title="Next Post: Ex 13: 参数、解包、变量">Ex 13: 参数、解包、变量 &raquo;</a>
       
     </p>
   </footer>
@@ -347,8 +301,8 @@ iso-8859-1
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://ruby.code.kekou.de//blog/ex12/';
-        var disqus_url = 'http://ruby.code.kekou.de//blog/ex12/';
+        var disqus_identifier = 'http://ruby.code.kekou.de//blog/ex23/';
+        var disqus_url = 'http://ruby.code.kekou.de//blog/ex23/';
         var disqus_script = 'embed.js';
       
     (function () {

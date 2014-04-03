@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | Notes for Ruby]]></title>
   <link href="http://ruby.code.kekou.de//blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://ruby.code.kekou.de//"/>
-  <updated>2014-04-03T15:24:44+08:00</updated>
+  <updated>2014-04-03T16:00:12+08:00</updated>
   <id>http://ruby.code.kekou.de//</id>
   <author>
     <name><![CDATA[Delbert]]></name>
@@ -12,6 +12,108 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 23: 阅读一些代码]]></title>
+    <link href="http://ruby.code.kekou.de//blog/ex23/"/>
+    <updated>2014-04-03T15:54:39+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/ex23</id>
+    <content type="html"><![CDATA[<p>Delbert 会在本文中提供几个链接。</p>
+
+<!--more-->
+
+
+<ol>
+<li><a href="//github.com%20GitHub">github.com</a></li>
+<li><a href="//gitcafe.com" title="大陆的 GitHub">gitcafe.com</a></li>
+<li><a href="//oschina.net%20Open%20Source%20China">oschina.net</a></li>
+<li><a href="//ruby-china.org%20Ruby%20China">ruby-china.org</a></li>
+<li><a href="//www.google.com/ncr">Google.com</a></li>
+</ol>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 22: 目前为止你学到了什么]]></title>
+    <link href="http://ruby.code.kekou.de//blog/ex22/"/>
+    <updated>2014-04-03T15:47:38+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/ex22</id>
+    <content type="html"><![CDATA[<p>本节没有代码。点开原文也没有，加上这个只是为了看起来整齐。</p>
+
+<!--more-->
+
+
+<p>有还是没有？</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 21: 函数可以返回一些东西]]></title>
+    <link href="http://ruby.code.kekou.de//blog/ex21/"/>
+    <updated>2014-04-03T15:47:13+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/ex21</id>
+    <content type="html"><![CDATA[<p>就是函数的返回值啦。不过本节还没有用到 <code>return</code> 关键字， Ruby 默认把函数最后一行作为返回值。</p>
+
+<!--more-->
+
+
+<p>``` ruby ex21.rb //ruby.code.kekou.de/code/ex21.rb Download Code
+def add(a, b)
+  puts &ldquo;ADDING #{a} + #{b}&rdquo;
+  a + b
+end</p>
+
+<p>def subtract(a, b)
+  puts &ldquo;SUBTRACTING #{a} &ndash; #{b}&rdquo;
+  a &ndash; b
+end</p>
+
+<p>def multiply(a, b)
+  puts &ldquo;MULTIPLYING #{a} * #{b}&rdquo;
+  a * b
+end</p>
+
+<p>def divide(a, b)
+  puts &ldquo;DIVIDING #{a} / #{b}&rdquo;
+  a / b
+end</p>
+
+<p>puts &ldquo;Let&rsquo;s do some math with just functions!&rdquo;</p>
+
+<p>age = add(30, 5)
+height = subtract(78,4)
+weight = multiply(90, 2)
+iq = divide(100, 2)</p>
+
+<p>puts &ldquo;Age: #{age}, Height: #{height}, Weight: #{weight}, IQ: #{iq}&rdquo;</p>
+
+<h1>A puzzle for the extra credit, type it in anyway.</h1>
+
+<p>puts &ldquo;Here is a puzzle.&rdquo;</p>
+
+<p>what = add(age, subtract(height, multiply(weight, divide(iq, 2))))</p>
+
+<p>puts &ldquo;That becomes: #{what} Can you do it by hand?&rdquo;
+```</p>
+
+<p>输出为</p>
+
+<pre><code>Let's do some math with just functions!
+ADDING 30 + 5
+SUBTRACTING 78 - 4
+MULTIPLYING 90 * 2
+DIVIDING 100 / 2
+Age: 35, Height: 74, Weight: 180, IQ: 50
+Here is a puzzle.
+DIVIDING 50 / 2
+MULTIPLYING 180 * 25
+SUBTRACTING 74 - 4500
+ADDING 35 + -4426
+That becomes: -4391 Can you do it by hand?
+</code></pre>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Ex 20: 函数和文件]]></title>
@@ -131,219 +233,10 @@ puts_none()
 <li>函数名后紧接左括号；</li>
 <li>多个参数时应用英文逗号隔开；</li>
 <li>参数结束后要用英文右括号结束；</li>
-<li>函数体要进行缩进；</li>
+<li>函数体要进行缩进两个空格(Delbert 自己更习惯用一个 Tab)；</li>
 <li>与相应的 <code>def</code> 对齐的地方要有 <code>end</code> 来完成函数。</li>
 </ol>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ex 17: 更多文件操作]]></title>
-    <link href="http://ruby.code.kekou.de//blog/ex17/"/>
-    <updated>2014-04-03T09:45:55+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/ex17</id>
-    <content type="html"><![CDATA[<p>本节进行文件内容的复制。</p>
-
-<!--more-->
-
-
-<p>``` ruby ex17.rb //ruby.code.kekou.de/code/ex17.rb Download Code
-from_file, to_file = ARGV
-script = $0</p>
-
-<p>puts &ldquo;Copying from #{from_file} to #{to_file}&rdquo;</p>
-
-<h1>we could do these two on one line too, how?</h1>
-
-<p>input = File.open(from_file)
-indata = input.read()</p>
-
-<h1>input = File.open(from_file).read()</h1>
-
-<p>puts &ldquo;The input file is #{indata.length} bytes long&rdquo;</p>
-
-<p>puts &ldquo;Does the output file exist? #{File.exists? to_file}&rdquo;
-puts &ldquo;Ready, hit RETURN to continue, CTRL-C to abort.&rdquo;
-STDIN.gets</p>
-
-<p>output = File.open(to_file, &lsquo;w&rsquo;)
-output.write(indata)</p>
-
-<p>puts &ldquo;Alright, all done.&rdquo;</p>
-
-<p>output.close()
-input.close()
-```</p>
-
-<p>执行该文件的时候需要两个参数，输入文件和输出文件。</p>
-
-<p>我使用了上一节的文本</p>
-
-<pre><code>$ruby ex17.rb ex16_sample.txt ex17_sample.txt
-Copying from ex16_sample.txt to ex17_sample.txt
-The input file is 31 bytes long
-Does the output file exist? false
-Ready, hit RETURN to continue, CTRL-C to abort.
-
-Alright, all done.
-</code></pre>
-
-<p>你可以用 Linux 下的 <code>cat</code> 命令，我也可以用 Windows 下的 <code>COPY</code> 命令来完成复制。</p>
-
-<p>如果没有 <code>close()</code> 是不会保存文件的吧。</p>
-
-<p>至于改写程序，我是这样改写的，最后只用一行完成，测试执行可用。</p>
-
-<p><code>ruby
-File.open(ARGV[1], 'w').write(File.open(ARGV[0]).read())
-</code></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ex 16: 读写文件]]></title>
-    <link href="http://ruby.code.kekou.de//blog/ex16/"/>
-    <updated>2014-04-03T09:45:48+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/ex16</id>
-    <content type="html"><![CDATA[<p>继续文件的读写。本节代码如下：</p>
-
-<!--more-->
-
-
-<p>``` ruby ex16.rb //ruby.code.kekou.de/code/ex16.rb Download Code
-filename = ARGV.first</p>
-
-<h1>script = $0</h1>
-
-<p>puts &ldquo;We&rsquo;re going to erase #{filename}.&rdquo;
-puts &ldquo;If you don&rsquo;t want that, hit CTRL-C (^C).&rdquo;
-puts &ldquo;If you do want that, hit RETURN.&rdquo;</p>
-
-<p>print &ldquo;? &rdquo;
-STDIN.gets</p>
-
-<p>puts &ldquo;Opening the file&hellip;&rdquo;
-target = File.open(filename, &lsquo;w&rsquo;)</p>
-
-<p>puts &ldquo;Truncating the file.  Goodbye!&rdquo;
-target.truncate(target.size)</p>
-
-<p>puts &ldquo;Now I&rsquo;m going to ask you for three lines.&rdquo;</p>
-
-<p>print &ldquo;line 1: &rdquo;; line1 = STDIN.gets.chomp()
-print &ldquo;line 2: &rdquo;; line2 = STDIN.gets.chomp()
-print &ldquo;line 3: &rdquo;; line3 = STDIN.gets.chomp()</p>
-
-<p>puts &ldquo;I&rsquo;m going to write these to the file.&rdquo;</p>
-
-<h1>target.write(line1)</h1>
-
-<h1>target.write(&ldquo;\n&rdquo;)</h1>
-
-<h1>target.write(line2)</h1>
-
-<h1>target.write(&ldquo;\n&rdquo;)</h1>
-
-<h1>target.write(line3)</h1>
-
-<h1>target.write(&ldquo;\n&rdquo;)</h1>
-
-<p>contents = &ldquo;#{line1}\n#{line2}\n#{line3}&rdquo;
-target.write(contents) # Write the contents with one target.write()</p>
-
-<p>puts &ldquo;And finally, we close it.&rdquo;
-target.close()
-```</p>
-
-<p>运行命令</p>
-
-<pre><code>$ruby ex16.rb ex16_sample.txt
-We're going to erase ex16_sample.txt.
-If you don't want that, hit CTRL-C (^C).
-If you do want that, hit RETURN.
-?
-Opening the file...
-Truncating the file.  Goodbye!
-Now I'm going to ask you for three lines.
-line 1: Line One.
-line 2: Line Two.
-line 3: Line Three.
-I'm going to write these to the file.
-And finally, we close it.
-
-$cat ex16_sample.txt // replace "cat" with "type" if you use Windows
-Line One.
-Line Two.
-Line Three.
-</code></pre>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ex 15: 读取文件]]></title>
-    <link href="http://ruby.code.kekou.de//blog/ex15/"/>
-    <updated>2014-04-03T09:15:30+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/ex15</id>
-    <content type="html"><![CDATA[<p>从一个文本文件中读取内容，并显示在屏幕上。</p>
-
-<!--more-->
-
-
-<p><code>text ex15_sample.txt //ruby.code.kekou.de/code/ex15_sample.txt Download Code
-This is stuff I typed into a file.
-It is really cool stuff.
-Lots and lots of fun to have in here.
-</code>
-程序片段如下</p>
-
-<p>``` ruby ex15.rb //ruby.code.kekou.de/code/ex15.rb Download Code
-filename = ARGV.first   # get the first argument.</p>
-
-<p>prompt = &ldquo;> &rdquo;   # as the sign of tip
-txt = File.open(filename)   # open the file #{filename}</p>
-
-<p>puts &ldquo;Here&rsquo;s your file: #{filename}&rdquo;    # print the #{filename} with a line feed
-puts txt.read() # print the contents out</p>
-
-<p>puts &ldquo;Type the filename again:&rdquo; # input the name of the file
-print prompt    # sign of the input tip
-file_again = STDIN.gets.chomp() # get the filename without a line feed</p>
-
-<p>txt_again = File.open(file_again)   # get the contents</p>
-
-<p>puts txt_again.read()   # and print it out
-```</p>
-
-<p>命令提示符中输出如下：</p>
-
-<pre><code>$ruby ex15.rb ex15_sample.txt
-Here's your file: ex15_sample.txt
-This is stuff I typed into a file.
-It is really cool stuff.
-Lots and lots of fun to have in here.
-Type the filename again:
-&gt; ex15_sample.txt
-This is stuff I typed into a file.
-It is really cool stuff.
-Lots and lots of fun to have in here.
-</code></pre>
-
-<p>删掉使用 <code>STDIN.gets</code> 的部分后，提示：</p>
-
-<pre><code>$ruby ex15.rb ex15_sample.txt
-Here's your file: ex15_sample.txt
-This is stuff I typed into a file.
-It is really cool stuff.
-Lots and lots of fun to have in here.
-Type the filename again:
-&gt; ex15.rb:13:in `&lt;main&gt;': undefined local variable or method `file_again' for ma
-in:Object (NameError)
-</code></pre>
-
-<p>也就是说并不是编译后再执行， Ruby 是一种运行时的语言。</p>
-
-<p>PowerShell 中是有 <code>cat</code> 命令的， CMD 命令行中没有。</p>
 ]]></content>
   </entry>
   

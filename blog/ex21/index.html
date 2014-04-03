@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Ex 18: 命名、变量、代码、函数 - Notes for Ruby</title>
+  <title>Ex 21: 函数可以返回一些东西 - Notes for Ruby</title>
   <meta name="author" content="Delbert">
 
   
-  <meta name="description" content="这一节要接触函数了，用 def 关键字和 Python 真是像呢。话说，真的是松本看不惯 Python 才写的 Ruby 么？ ex18.rbDownload Code1
+  <meta name="description" content="就是函数的返回值啦。不过本节还没有用到 return 关键字， Ruby 默认把函数最后一行作为返回值。 ex21.rbDownload Code1
 2
 3
 4
@@ -33,7 +33,10 @@
 22
 23
 24
-25 &hellip;">
+25
+26
+27
+28 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -42,7 +45,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ruby.code.kekou.de//blog/ex18">
+  <link rel="canonical" href="http://ruby.code.kekou.de//blog/ex21">
   <link href="/favicon.ico" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Notes for Ruby" type="application/atom+xml">
@@ -92,7 +95,7 @@
   
   <header>
     
-      <h1 class="entry-title">Ex 18: 命名、变量、代码、函数</h1>
+      <h1 class="entry-title">Ex 21: 函数可以返回一些东西</h1>
     
     
       <p class="meta">
@@ -108,7 +111,7 @@
   
 
 
-<time datetime="2014-04-03T12:00:04+08:00" pubdate data-updated="true">2014-Apr-03, 12:00:04, Thursday</time>
+<time datetime="2014-04-03T15:47:13+08:00" pubdate data-updated="true">2014-Apr-03, 15:47:13, Thursday</time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://ruby.code.kekou.de/">Comments</a>
@@ -118,14 +121,14 @@
   </header>
 
 
-<div class="entry-content"><p>这一节要接触函数了，用 <code>def</code> 关键字和 Python 真是像呢。话说，真的是松本看不惯 Python 才写的 Ruby 么？</p>
+<div class="entry-content"><p>就是函数的返回值啦。不过本节还没有用到 <code>return</code> 关键字， Ruby 默认把函数最后一行作为返回值。</p>
 
 <!--more-->
 
 
 
 
-<figure class='code'><figcaption><span>ex18.rb</span><a href='//ruby.code.kekou.de/code/ex18.rb'>Download Code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>ex21.rb</span><a href='//ruby.code.kekou.de/code/ex21.rb'>Download Code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -150,46 +153,69 @@
 <span class='line-number'>23</span>
 <span class='line-number'>24</span>
 <span class='line-number'>25</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># this one is like your scripts with argv</span>
-</span><span class='line'><span class="k">def</span> <span class="nf">puts_two</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
-</span><span class='line'>  <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span> <span class="o">=</span> <span class="n">args</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;arg1: </span><span class="si">#{</span><span class="n">arg1</span><span class="si">}</span><span class="s2">, arg2: </span><span class="si">#{</span><span class="n">arg2</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;ADDING </span><span class="si">#{</span><span class="n">a</span><span class="si">}</span><span class="s2"> + </span><span class="si">#{</span><span class="n">b</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'>  <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
 </span><span class='line'><span class="k">end</span>
 </span><span class='line'>
-</span><span class='line'><span class="c1"># ok, that *args is actually pointless, we can just do this</span>
-</span><span class='line'><span class="k">def</span> <span class="nf">puts_two_again</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">)</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;arg1: </span><span class="si">#{</span><span class="n">arg1</span><span class="si">}</span><span class="s2">, arg2: </span><span class="si">#{</span><span class="n">arg2</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">subtract</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;SUBTRACTING </span><span class="si">#{</span><span class="n">a</span><span class="si">}</span><span class="s2"> - </span><span class="si">#{</span><span class="n">b</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'>  <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
 </span><span class='line'><span class="k">end</span>
 </span><span class='line'>
-</span><span class='line'><span class="c1"># this just takes one argument</span>
-</span><span class='line'><span class="k">def</span> <span class="nf">puts_one</span><span class="p">(</span><span class="n">arg1</span><span class="p">)</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;arg1: </span><span class="si">#{</span><span class="n">arg1</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">multiply</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;MULTIPLYING </span><span class="si">#{</span><span class="n">a</span><span class="si">}</span><span class="s2"> * </span><span class="si">#{</span><span class="n">b</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'>  <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
 </span><span class='line'><span class="k">end</span>
 </span><span class='line'>
-</span><span class='line'><span class="c1"># this one takes no arguments</span>
-</span><span class='line'><span class="k">def</span> <span class="nf">puts_none</span><span class="p">()</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;I got nothin&#39;.&quot;</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">divide</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;DIVIDING </span><span class="si">#{</span><span class="n">a</span><span class="si">}</span><span class="s2"> / </span><span class="si">#{</span><span class="n">b</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'>  <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
 </span><span class='line'><span class="k">end</span>
 </span><span class='line'>
-</span><span class='line'><span class="n">puts_two</span><span class="p">(</span><span class="s2">&quot;Zed&quot;</span><span class="p">,</span><span class="s2">&quot;Shaw&quot;</span><span class="p">)</span>
-</span><span class='line'><span class="n">puts_two_again</span><span class="p">(</span><span class="s2">&quot;Zed&quot;</span><span class="p">,</span><span class="s2">&quot;Shaw&quot;</span><span class="p">)</span>
-</span><span class='line'><span class="n">puts_one</span><span class="p">(</span><span class="s2">&quot;First!&quot;</span><span class="p">)</span>
-</span><span class='line'><span class="n">puts_none</span><span class="p">()</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Let&#39;s do some math with just functions!&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">age</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</span><span class='line'><span class="n">height</span> <span class="o">=</span> <span class="n">subtract</span><span class="p">(</span><span class="mi">78</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+</span><span class='line'><span class="n">weight</span> <span class="o">=</span> <span class="n">multiply</span><span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</span><span class='line'><span class="n">iq</span> <span class="o">=</span> <span class="n">divide</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Age: </span><span class="si">#{</span><span class="n">age</span><span class="si">}</span><span class="s2">, Height: </span><span class="si">#{</span><span class="n">height</span><span class="si">}</span><span class="s2">, Weight: </span><span class="si">#{</span><span class="n">weight</span><span class="si">}</span><span class="s2">, IQ: </span><span class="si">#{</span><span class="n">iq</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># A puzzle for the extra credit, type it in anyway.</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Here is a puzzle.&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">what</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span><span class="n">age</span><span class="p">,</span> <span class="n">subtract</span><span class="p">(</span><span class="n">height</span><span class="p">,</span> <span class="n">multiply</span><span class="p">(</span><span class="n">weight</span><span class="p">,</span> <span class="n">divide</span><span class="p">(</span><span class="n">iq</span><span class="p">,</span> <span class="mi">2</span><span class="p">))))</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;That becomes: </span><span class="si">#{</span><span class="n">what</span><span class="si">}</span><span class="s2"> Can you do it by hand?&quot;</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>定义了四个函数，第一个是用指针方式指定了参数个数，剩余三个则是指定了有限个参数个数。最后调用执行这四个函数。</p>
+<p>输出为</p>
 
-<ol>
-<li>函数定义是以 <code>def</code> 开始的；</li>
-<li>Ruby 的规范是以小写字符和 <code>_</code> 下划线来进行连接；</li>
-<li>函数名后紧接左括号；</li>
-<li>多个参数时应用英文逗号隔开；</li>
-<li>参数结束后要用英文右括号结束；</li>
-<li>函数体要进行缩进两个空格(Delbert 自己更习惯用一个 Tab)；</li>
-<li>与相应的 <code>def</code> 对齐的地方要有 <code>end</code> 来完成函数。</li>
-</ol>
-
+<pre><code>Let's do some math with just functions!
+ADDING 30 + 5
+SUBTRACTING 78 - 4
+MULTIPLYING 90 * 2
+DIVIDING 100 / 2
+Age: 35, Height: 74, Weight: 180, IQ: 50
+Here is a puzzle.
+DIVIDING 50 / 2
+MULTIPLYING 180 * 25
+SUBTRACTING 74 - 4500
+ADDING 35 + -4426
+That becomes: -4391 Can you do it by hand?
+</code></pre>
 </div>
 
 
@@ -212,7 +238,7 @@
   
 
 
-<time datetime="2014-04-03T12:00:04+08:00" pubdate data-updated="true">2014-Apr-03, 12:00:04, Thursday</time>
+<time datetime="2014-04-03T15:47:13+08:00" pubdate data-updated="true">2014-Apr-03, 15:47:13, Thursday</time>
       
 
 <span class="categories">
@@ -233,10 +259,10 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/ex17/" title="Previous Post: Ex 17: 更多文件操作">&laquo; Ex 17: 更多文件操作</a>
+        <a class="basic-alignment left" href="/blog/ex20/" title="Previous Post: Ex 20: 函数和文件">&laquo; Ex 20: 函数和文件</a>
       
       
-        <a class="basic-alignment right" href="/blog/ex19/" title="Next Post: Ex 19: 函数和变量">Ex 19: 函数和变量 &raquo;</a>
+        <a class="basic-alignment right" href="/blog/ex22/" title="Next Post: Ex 22: 目前为止你学到了什么">Ex 22: 目前为止你学到了什么 &raquo;</a>
       
     </p>
   </footer>
@@ -382,8 +408,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://ruby.code.kekou.de//blog/ex18/';
-        var disqus_url = 'http://ruby.code.kekou.de//blog/ex18/';
+        var disqus_identifier = 'http://ruby.code.kekou.de//blog/ex21/';
+        var disqus_url = 'http://ruby.code.kekou.de//blog/ex21/';
         var disqus_script = 'embed.js';
       
     (function () {

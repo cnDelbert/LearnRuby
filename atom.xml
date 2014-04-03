@@ -4,7 +4,7 @@
   <title><![CDATA[Notes for Ruby]]></title>
   <link href="http://ruby.code.kekou.de//atom.xml" rel="self"/>
   <link href="http://ruby.code.kekou.de//"/>
-  <updated>2014-04-03T15:24:44+08:00</updated>
+  <updated>2014-04-03T16:00:12+08:00</updated>
   <id>http://ruby.code.kekou.de//</id>
   <author>
     <name><![CDATA[Delbert]]></name>
@@ -12,6 +12,144 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 23: 阅读一些代码]]></title>
+    <link href="http://ruby.code.kekou.de//blog/ex23/"/>
+    <updated>2014-04-03T15:54:39+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/ex23</id>
+    <content type="html"><![CDATA[<p>Delbert 会在本文中提供几个链接。</p>
+
+<!--more-->
+
+
+<ol>
+<li><a href="//github.com%20GitHub">github.com</a></li>
+<li><a href="//gitcafe.com" title="大陆的 GitHub">gitcafe.com</a></li>
+<li><a href="//oschina.net%20Open%20Source%20China">oschina.net</a></li>
+<li><a href="//ruby-china.org%20Ruby%20China">ruby-china.org</a></li>
+<li><a href="//www.google.com/ncr">Google.com</a></li>
+</ol>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 22: 目前为止你学到了什么]]></title>
+    <link href="http://ruby.code.kekou.de//blog/ex22/"/>
+    <updated>2014-04-03T15:47:38+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/ex22</id>
+    <content type="html"><![CDATA[<p>本节没有代码。点开原文也没有，加上这个只是为了看起来整齐。</p>
+
+<!--more-->
+
+
+<p>有还是没有？</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 21: 函数可以返回一些东西]]></title>
+    <link href="http://ruby.code.kekou.de//blog/ex21/"/>
+    <updated>2014-04-03T15:47:13+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/ex21</id>
+    <content type="html"><![CDATA[<p>就是函数的返回值啦。不过本节还没有用到 <code>return</code> 关键字， Ruby 默认把函数最后一行作为返回值。</p>
+
+<!--more-->
+
+
+
+
+<figure class='code'><figcaption><span>ex21.rb</span><a href='//ruby.code.kekou.de/code/ex21.rb'>Download Code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;ADDING </span><span class="si">#{</span><span class="n">a</span><span class="si">}</span><span class="s2"> + </span><span class="si">#{</span><span class="n">b</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'>  <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">def</span> <span class="nf">subtract</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;SUBTRACTING </span><span class="si">#{</span><span class="n">a</span><span class="si">}</span><span class="s2"> - </span><span class="si">#{</span><span class="n">b</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'>  <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">def</span> <span class="nf">multiply</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;MULTIPLYING </span><span class="si">#{</span><span class="n">a</span><span class="si">}</span><span class="s2"> * </span><span class="si">#{</span><span class="n">b</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'>  <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">def</span> <span class="nf">divide</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;DIVIDING </span><span class="si">#{</span><span class="n">a</span><span class="si">}</span><span class="s2"> / </span><span class="si">#{</span><span class="n">b</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'>  <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Let&#39;s do some math with just functions!&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">age</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</span><span class='line'><span class="n">height</span> <span class="o">=</span> <span class="n">subtract</span><span class="p">(</span><span class="mi">78</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+</span><span class='line'><span class="n">weight</span> <span class="o">=</span> <span class="n">multiply</span><span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</span><span class='line'><span class="n">iq</span> <span class="o">=</span> <span class="n">divide</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Age: </span><span class="si">#{</span><span class="n">age</span><span class="si">}</span><span class="s2">, Height: </span><span class="si">#{</span><span class="n">height</span><span class="si">}</span><span class="s2">, Weight: </span><span class="si">#{</span><span class="n">weight</span><span class="si">}</span><span class="s2">, IQ: </span><span class="si">#{</span><span class="n">iq</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># A puzzle for the extra credit, type it in anyway.</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Here is a puzzle.&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">what</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span><span class="n">age</span><span class="p">,</span> <span class="n">subtract</span><span class="p">(</span><span class="n">height</span><span class="p">,</span> <span class="n">multiply</span><span class="p">(</span><span class="n">weight</span><span class="p">,</span> <span class="n">divide</span><span class="p">(</span><span class="n">iq</span><span class="p">,</span> <span class="mi">2</span><span class="p">))))</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;That becomes: </span><span class="si">#{</span><span class="n">what</span><span class="si">}</span><span class="s2"> Can you do it by hand?&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>输出为</p>
+
+<pre><code>Let's do some math with just functions!
+ADDING 30 + 5
+SUBTRACTING 78 - 4
+MULTIPLYING 90 * 2
+DIVIDING 100 / 2
+Age: 35, Height: 74, Weight: 180, IQ: 50
+Here is a puzzle.
+DIVIDING 50 / 2
+MULTIPLYING 180 * 25
+SUBTRACTING 74 - 4500
+ADDING 35 + -4426
+That becomes: -4391 Can you do it by hand?
+</code></pre>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Ex 20: 函数和文件]]></title>
@@ -281,7 +419,7 @@ $
 <li>函数名后紧接左括号；</li>
 <li>多个参数时应用英文逗号隔开；</li>
 <li>参数结束后要用英文右括号结束；</li>
-<li>函数体要进行缩进；</li>
+<li>函数体要进行缩进两个空格(Delbert 自己更习惯用一个 Tab)；</li>
 <li>与相应的 <code>def</code> 对齐的地方要有 <code>end</code> 来完成函数。</li>
 </ol>
 
@@ -1363,168 +1501,6 @@ Even 4 lines if we want, or 5, or 6.
 
 
 <p>输入 <code>Ctrl+D</code> 返回命令行/Bash。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ex 3: 数字和数学计算]]></title>
-    <link href="http://ruby.code.kekou.de//blog/ex03/"/>
-    <updated>2014-04-01T13:29:08+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/ex03</id>
-    <content type="html"><![CDATA[<p>我配置了 Notepad++，可以写完 ruby 之后一键执行，不用再开启命令行了。</p>
-
-<!--more-->
-
-
-
-
-<figure class='code'><figcaption><span>ex3.rb</span><a href='//ruby.code.kekou.de/code/ex3.rb'>Download code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Calc the results of 3+5&quot;</span>
-</span><span class='line'><span class="nb">puts</span> <span class="mi">3</span><span class="o">+</span><span class="mi">5</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;And 3.0+5&quot;</span>
-</span><span class='line'><span class="nb">puts</span> <span class="mi">3</span><span class="o">.</span><span class="mi">0</span><span class="o">+</span><span class="mi">5</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;And if it is true the 4 equals to 5&quot;</span>
-</span><span class='line'><span class="nb">puts</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">5</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;3/2&quot;</span>
-</span><span class='line'><span class="nb">puts</span> <span class="mi">3</span><span class="o">/</span><span class="mi">2</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;3.0/2&quot;</span>
-</span><span class='line'><span class="nb">puts</span> <span class="mi">3</span><span class="o">.</span><span class="mi">0</span><span class="o">/</span><span class="mi">2</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>输出</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>Calc the results of 3+5
-</span><span class='line'>8
-</span><span class='line'>And 3.0+5
-</span><span class='line'>8.0
-</span><span class='line'>And <span class="k">if </span>it is <span class="nb">true </span>the 4 equals to 5
-</span><span class='line'><span class="nb">false</span>
-</span><span class='line'>3/2
-</span><span class='line'>1
-</span><span class='line'>3.0/2
-</span><span class='line'>1.5
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>其实，添加 PATH 之后直接用 irb 来代替 calc 应该可以的吧？</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ex 2: 注释和＃号]]></title>
-    <link href="http://ruby.code.kekou.de//blog/ex02/"/>
-    <updated>2014-04-01T13:20:46+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/ex02</id>
-    <content type="html"><![CDATA[<p><code>#</code> 的作用是注释，英文为 octothorpe 或者 pound character。</p>
-
-<!--more-->
-
-
-<p>一行中， <code>#</code> 之后的所有内容都不会被执行。</p>
-
-<figure class='code'><figcaption><span>ex2.rb</span><a href='//ruby.code.kekou.de/code/ex2.rb'>Download code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#This is comment.</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;You can see this.&quot;</span> <span class="c1">#While you will not see this</span>
-</span><span class='line'><span class="c1">#This will not run.</span>
-</span><span class='line'><span class="c1">#puts &quot;This will not run.&quot;</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;This will run.&quot;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>将会输出</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>C:<span class="se">\U</span>sers<span class="se">\A</span>dministrator&gt;ruby ex2.rb
-</span><span class='line'>
-</span><span class='line'>You can see this.
-</span><span class='line'>This will run.
-</span></code></pre></td></tr></table></div></figure>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ex 1: 第一个程序]]></title>
-    <link href="http://ruby.code.kekou.de//blog/ex01/"/>
-    <updated>2014-03-31T22:33:27+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/ex01</id>
-    <content type="html"><![CDATA[<p>将下面的代码复制保存为 <code>ex1.rb</code>，然后执行。</p>
-
-<!--more-->
-
-
-
-
-<figure class='code'><figcaption><span>ex1.rb</span><a href='//ruby.code.kekou.de/code/ex1.rb'>Download code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Hello World!&quot;</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Hello Again!&quot;</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;I use Notepad++.&quot;</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;This is fun.&quot;</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Yea! I&#39;m printing...&quot;</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Well, save this as &#39;ex1.rb&#39;.&quot;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>执行后显示</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>E:<span class="se">\S</span>ourceCode<span class="se">\G</span>itHub&gt; ruby ex1.rb
-</span><span class='line'>Hello World!
-</span><span class='line'>Hello Again!
-</span><span class='line'>I use Notepad++.
-</span><span class='line'>This is fun.
-</span><span class='line'>Yea! I<span class="s1">&#39;m printing...</span>
-</span><span class='line'><span class="s1">Well, save this as &#39;</span>ex1.rb<span class="err">&#39;</span>.
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p><code>#</code>的作用应该是注释。没有尝试，但是应该错不了。</p>
 ]]></content>
   </entry>
   
