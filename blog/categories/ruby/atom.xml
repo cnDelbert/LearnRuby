@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | Notes for Ruby]]></title>
   <link href="http://ruby.code.kekou.de//blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://ruby.code.kekou.de//"/>
-  <updated>2014-04-03T14:58:32+08:00</updated>
+  <updated>2014-04-03T15:24:44+08:00</updated>
   <id>http://ruby.code.kekou.de//</id>
   <author>
     <name><![CDATA[Delbert]]></name>
@@ -22,6 +22,61 @@
 
 <!--more-->
 
+
+<p>``` ruby ex20.rb //ruby.code.kekou.de/code/ex20.rb Download Code
+input_file = ARGV[0]</p>
+
+<p>def print_all(f)
+  puts f.read()
+end</p>
+
+<p>def rewind(f)
+  f.seek(0, IO::SEEK_SET)
+end</p>
+
+<p>def print_a_line(line_count, f)
+  puts &ldquo;#{line_count} #{f.readline()}&rdquo;
+end</p>
+
+<p>current_file = File.open(input_file)</p>
+
+<p>puts &ldquo;First let&rsquo;s print the whole file:&rdquo;
+puts # a blank line</p>
+
+<p>print_all(current_file)</p>
+
+<p>puts &ldquo;Now let&rsquo;s rewind, kind of like a tape.&rdquo;</p>
+
+<p>rewind(current_file)</p>
+
+<p>puts &ldquo;Let&rsquo;s print three lines:&rdquo;</p>
+
+<p>current_line = 1
+print_a_line(current_line, current_file)</p>
+
+<p>current_line = current_line + 1
+print_a_line(current_line, current_file)</p>
+
+<p>current_line = current_line + 1
+print_a_line(current_line, current_file)
+```</p>
+
+<p>执行后输出：</p>
+
+<pre><code>$ruby ex20.rb ex16_sample.txt
+First let's print the whole file:
+
+Line One.
+Line Two.
+Line Three.
+Now let's rewind, kind of like a tape.
+Let's print three lines:
+1 Line One.
+2 Line Two.
+3 Line Three.
+</code></pre>
+
+<p>注释直接写在<a href="//ruby.code.kekou.de/code/ex20.rb" title="源码">源码</a>里面了。</p>
 ]]></content>
   </entry>
   
