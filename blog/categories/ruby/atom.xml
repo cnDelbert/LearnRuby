@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | Notes for Ruby]]></title>
   <link href="http://ruby.code.kekou.de//blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://ruby.code.kekou.de//"/>
-  <updated>2014-04-03T21:19:07+08:00</updated>
+  <updated>2014-04-03T21:32:07+08:00</updated>
   <id>http://ruby.code.kekou.de//</id>
   <author>
     <name><![CDATA[Delbert]]></name>
@@ -40,6 +40,152 @@
 
 
 <p>稍微有点逻辑基础即可知道，但是这是以后编程的基础。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 26: 恭喜你，现在来考试啦！]]></title>
+    <link href="http://ruby.code.kekou.de//blog/ex26/"/>
+    <updated>2014-04-03T19:59:14+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/ex26</id>
+    <content type="html"><![CDATA[<p>从官网下载一个文本，将其修改正确能够运行。</p>
+
+<!--more-->
+
+
+<p>``` ruby ex26.rb //ruby.code.kekou.de/code/ex26.rb Download Code</p>
+
+<h1>This function will break up words for us.</h1>
+
+<p>def break_words(stuff)</p>
+
+<pre><code>words = stuff.split(' ')
+return words
+</code></pre>
+
+<p>end</p>
+
+<h1>Sorts the words.</h1>
+
+<p>def sort_words(words)</p>
+
+<pre><code>return sorted(words)
+</code></pre>
+
+<p>end</p>
+
+<h1>Prints the first word after popping it off.</h1>
+
+<p>def puts_first_word(words)</p>
+
+<pre><code>word = words.poop(0)
+puts word
+</code></pre>
+
+<p>end</p>
+
+<h1>Prints the last word after popping it off.</h1>
+
+<p>def puts_last_word(words)</p>
+
+<pre><code>word = words.pop(-1
+puts word
+</code></pre>
+
+<p>end</p>
+
+<h1>Takes in a full sentence and returns the sorted words.</h1>
+
+<p>def sort_sentence(sentence)</p>
+
+<pre><code>words = break_words(sentence)
+return sort_words(words)
+</code></pre>
+
+<p>end</p>
+
+<h1>Puts the first and last words of the sentence.</h1>
+
+<p>def puts_first_and_last(sentence)</p>
+
+<pre><code>words = break_words(sentence)
+puts_first_word(words)
+puts_last_word(words)
+</code></pre>
+
+<p>end</p>
+
+<h1>Sorts the words then prints the first and last one.</h1>
+
+<p>def puts_first_and_last_sorted(sentence)</p>
+
+<pre><code>words = sort_sentence(sentence)
+puts_first_word(words)
+puts_last_word(words)
+</code></pre>
+
+<p>end</p>
+
+<p>puts &ldquo;Let&rsquo;s practice everything.&rdquo;
+puts &lsquo;You\&rsquo;d need to know \'bout escapes with \ that do \n newlines and \t tabs.&rsquo;</p>
+
+<p>poem = &lt;&lt;POEM
+\tThe lovely world
+with logic so firmly planted
+cannot discern \n the needs of love
+nor comprehend passion from intuition
+and requires an explantion
+\n\t\twhere there is none.
+POEM</p>
+
+<p>puts &ldquo;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&rdquo;
+puts poem
+puts &ldquo;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&rdquo;</p>
+
+<p>five = 10 &ndash; 2 + 3 &ndash; 5
+puts &ldquo;This should be five: %s&rdquo; % five</p>
+
+<p>def secret_formula(started)</p>
+
+<pre><code>jelly_beans = started * 500
+jars = jelly_beans \ 1000
+crates = jars / 100
+return jelly_beans, jars, crates
+</code></pre>
+
+<p>end</p>
+
+<p>start_point = 10000
+beans, jars, crates == secret_formula(start-point)</p>
+
+<p>puts &ldquo;With a starting point of: %d&rdquo; % start_point
+puts &ldquo;We&rsquo;d have %d jeans, %d jars, and %d crates.&rdquo; % (beans, jars, crates)</p>
+
+<p>start_point = start_point / 10</p>
+
+<p>puts &ldquo;We can also do that this way:&rdquo;
+puts &ldquo;We&rsquo;d have %d beans, %d jars, and %d crabapples.&rdquo; % secret_formula(start_pont</p>
+
+<p>sentence = &ldquo;All god\tthings come to those who weight.&rdquo;</p>
+
+<p>words = ex25.break_words(sentence)
+sorted_words = ex25.sort_words(words)</p>
+
+<p>puts_first_word(words)
+puts_last_word(words)
+.puts_first_word(sorted_words)
+puts_last_word(sorted_words)
+sorted_words = ex25.sort_sentence(sentence)
+prin sorted_words</p>
+
+<p>puts_irst_and_last(sentence)</p>
+
+<p>puts_first_a_last_sorted(senence)
+```</p>
+
+<p>也就是上面这段代码了。</p>
+
+<p>Delbert 将修改后的代码放在<a href="//ruby.code.kekou.de/code/ex26-correct.rb" title="修改后源码">这里</a></p>
 ]]></content>
   </entry>
   
@@ -199,27 +345,6 @@ We'd have 5000000 beans, 5000 jars, and 50 crates.
 We can also do that this way:
 We'd have 500000 beans, 500 jars, and 5 crates.
 </code></pre>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ex 23: 阅读一些代码]]></title>
-    <link href="http://ruby.code.kekou.de//blog/ex23/"/>
-    <updated>2014-04-03T15:54:39+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/ex23</id>
-    <content type="html"><![CDATA[<p>Delbert 会在本文中提供几个链接。</p>
-
-<!--more-->
-
-
-<ol>
-<li><a href="//github.com" title="GitHub&quot;">github.com</a></li>
-<li><a href="//gitcafe.com" title="大陆的 GitHub">gitcafe.com</a></li>
-<li><a href="//oschina.net" title="Open Source China">oschina.net</a></li>
-<li><a href="//ruby-china.org" title="Ruby China">ruby-china.org</a></li>
-<li><a href="//www.google.com/ncr">Google.com</a></li>
-</ol>
-
 ]]></content>
   </entry>
   
