@@ -1,0 +1,373 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Ex 10: 那是什么？ - Notes for Ruby</title>
+  <meta name="author" content="Delbert">
+
+  
+  <meta name="description" content="表示不明白标题想说什么意思，不过，上一节的疑问有了答案。 上一节主要是引入了转义字符，再就是反斜线可以将一些有特殊含义的字符还原本来的意思。繁体版本用了“跳脱”这个字眼，我觉得用“还原”可能更好一点。 1
+2
+3
+4
+5
+&lt;&lt;&lt;TAG_NAME
+......
+code &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://ruby.code.kekou.de//blog/ex10">
+  <link href="/favicon.ico" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Notes for Ruby" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><!--<a href="/">--><a href="http://ruby.code.kekou.de/">Notes for Ruby</a></h1>
+  
+    <h2>Learn Ruby The Hard Way</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:ruby.code.kekou.de/" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Ex 10: 那是什么？</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-04-02T13:31:22+08:00" pubdate data-updated="true">2014-Apr-02, 13:31:22, Wednesday</time>
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://ruby.code.kekou.de/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>表示不明白标题想说什么意思，不过，上一节的疑问有了答案。</p>
+
+<!--more-->
+
+
+<p>上一节主要是引入了转义字符，再就是反斜线可以将一些有特殊含义的字符还原本来的意思。繁体版本用了“<strong>跳脱</strong>”这个字眼，我觉得用“<strong>还原</strong>”可能更好一点。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;&lt;&lt;</span><span class="no">TAG_NAME</span>
+</span><span class='line'><span class="o">.</span><span class="n">.</span><span class="o">.</span><span class="n">.</span><span class="o">.</span><span class="n">.</span>
+</span><span class='line'><span class="n">code</span>
+</span><span class='line'><span class="o">.</span><span class="n">.</span><span class="o">.</span><span class="n">.</span><span class="o">.</span>
+</span><span class='line'><span class="no">TAG_NAME</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>上面这种是<strong>文件语法</strong>(Document Syntax)，放在 <code>TAG_NAME</code> 中间的可以是任意多行的文本，相当于一个文件，也可以将其赋值给一个变量。</p>
+
+<figure class='code'><figcaption><span>ex10.rb</span><a href='//ruby.code.kekou.de/code/ex10.rb'>Download Code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">tabby_cat</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\t</span><span class="s2">I&#39;m tabbed in.&quot;</span>
+</span><span class='line'><span class="n">persian_cat</span> <span class="o">=</span> <span class="s2">&quot;I&#39;m split</span><span class="se">\n</span><span class="s2">on a line.&quot;</span>
+</span><span class='line'><span class="n">backslash_cat</span> <span class="o">=</span> <span class="s2">&quot;I&#39;m </span><span class="se">\\</span><span class="s2"> a </span><span class="se">\\</span><span class="s2"> cat.&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">fat_cat</span> <span class="o">=</span> <span class="o">&lt;&lt;</span><span class="no">MY_HEREDOC</span>
+</span><span class='line'><span class="sh">I&#39;ll do a list:</span>
+</span><span class='line'><span class="sh">\t* Cat food</span>
+</span><span class='line'><span class="sh">\t* Fishies</span>
+</span><span class='line'><span class="sh">\t* Catnip\n\t* Grass</span>
+</span><span class='line'><span class="no">MY_HEREDOC</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="n">tabby_cat</span>
+</span><span class='line'><span class="nb">puts</span> <span class="n">persian_cat</span>
+</span><span class='line'><span class="nb">puts</span> <span class="n">backslash_cat</span>
+</span><span class='line'><span class="nb">puts</span> <span class="n">fat_cat</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>输出为</p>
+
+<pre><code>    I'm tabbed in.
+I'm split
+on a line.
+I'm \ a \ cat.
+I'll do a list:
+    * Cat food
+    * Fishies
+    * Catnip
+    * Grass
+</code></pre>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Delbert</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-04-02T13:31:22+08:00" pubdate data-updated="true">2014-Apr-02, 13:31:22, Wednesday</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/ruby/'>Ruby</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/ex09/" title="Previous Post: Ex 9: 输出，输出，输出">&laquo; Ex 9: 输出，输出，输出</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/ex11/" title="Next Post: Ex 11: 提问">Ex 11: 提问 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>最近文章</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/ex20/">Ex 20: 函数和文件</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex19/">Ex 19: 函数和变量</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex18/">Ex 18: 命名、变量、代码、函数</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex17/">Ex 17: 更多文件操作</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex16/">Ex 16: 读写文件</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex15/">Ex 15: 读取文件</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex14/">Ex 14: 提示和传递</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex13/">Ex 13: 参数、解包、变量</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex12/">Ex 12: 模块(Modules)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex11/">Ex 11: 提问</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex10/">Ex 10: 那是什么？</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex09/">Ex 9: 输出，输出，输出</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex08/">Ex 8: 输出，输出</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex07/">Ex 7: 更多输出</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex06/">Ex 6: 字符串</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex05/">Ex 5: 更多的变量和输出</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex04/">Ex 4: 变量和命名</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex03/">Ex 3: 数字和数学计算</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex02/">Ex 2: 注释和＃号</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex01/">Ex 1: 第一个程序</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex00/">Ex 0: 准备工作</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/learn-ruby-the-hard-way/">Learn Ruby The Hard Way</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Delbert -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a> | <a href="//delbert.me" title="Delbert's Blog'">Delbert</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'ruby-code';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://ruby.code.kekou.de//blog/ex10/';
+        var disqus_url = 'http://ruby.code.kekou.de//blog/ex10/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

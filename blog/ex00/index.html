@@ -5,11 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Notes for Ruby</title>
+  <title>Ex 0: 准备工作 - Notes for Ruby</title>
   <meta name="author" content="Delbert">
 
   
-  <meta name="description" content="由于安装 Octopress，应该是已经部署好了 Ruby 的环境了。我是在 Windows 7 X64 环境下操作的。 ">
+  <meta name="description" content="由于安装 Octopress，应该是已经部署好了 Ruby 的环境了。我是在 Windows 7 X64 环境下操作的。 Windows 7 X64 E:\SourceCode\GitHub&gt; ruby -v
+ruby 1.9.3p429 (2013-05-15) [i386-mingw32 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ruby.code.kekou.de//blog/page/3">
+  <link rel="canonical" href="http://ruby.code.kekou.de//blog/ex00">
   <link href="/favicon.ico" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Notes for Ruby" type="application/atom+xml">
@@ -63,15 +64,12 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/ex00/">Ex 0: 准备工作</a></h1>
+      <h1 class="entry-title">Ex 0: 准备工作</h1>
     
     
       <p class="meta">
@@ -89,37 +87,51 @@
 
 <time datetime="2014-03-31T22:15:50+08:00" pubdate data-updated="true">2014-Mar-31, 22:15:50, Monday</time>
         
-           | <a href="/blog/ex00/#disqus_thread"
-             data-disqus-identifier="http://ruby.code.kekou.de//blog/ex00/">Comments</a>
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://ruby.code.kekou.de/">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>由于安装 Octopress，应该是已经部署好了 Ruby 的环境了。我是在 Windows 7 X64 环境下操作的。</p>
+<div class="entry-content"><p>由于安装 Octopress，应该是已经部署好了 Ruby 的环境了。我是在 Windows 7 X64 环境下操作的。</p>
 
+<!--more-->
+
+
+<h4>Windows 7 X64</h4>
+
+<pre><code>E:\SourceCode\GitHub&gt; ruby -v
+ruby 1.9.3p429 (2013-05-15) [i386-mingw32]
+</code></pre>
+
+<p>我安装的是 1.9.3 版本的。</p>
+
+<p>同样，Windows 下也可以运行 Ruby 命令行 irb，可能 PowerShell 属于 bash 吧，退出方式是 Linux 的 <code>Ctrl+D</code>，而不是 <code>Ctrl+Z</code>（<code>Ctrl+C</code> 也不行）。</p>
+
+<pre><code>E:\SourceCode\GitHub&gt; irb
+irb(main):001:0&gt; ^Z
+=&gt; nil
+irb(main):002:0* ^C
+irb(main):002:0&gt;
+E:\SourceCode\GitHub&gt; 
+</code></pre>
+
+<p>已经安装了 Vim 的，Notepad++ 也已经安装了 Vim 插件，不过还是用不惯。</p>
+
+<p>暑假就可以用 Mac OS 了，期待我的更新吧。</p>
 </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/ex00/">Continue reading &rarr;</a>
-    </footer>
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/learn-ruby-the-hard-way/">Learn Ruby The Hard Way</a></h1>
-    
-    
-      <p class="meta">
-        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Delbert</span></span>
+
+      
 
 
 
@@ -131,37 +143,44 @@
   
 
 
-<time datetime="2014-03-31T21:55:45+08:00" pubdate data-updated="true">2014-Mar-31, 21:55:45, Monday</time>
-        
-           | <a href="/blog/learn-ruby-the-hard-way/#disqus_thread"
-             data-disqus-identifier="http://ruby.code.kekou.de//blog/learn-ruby-the-hard-way/">Comments</a>
-        
-      </p>
+<time datetime="2014-03-31T22:15:50+08:00" pubdate data-updated="true">2014-Mar-31, 22:15:50, Monday</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/ruby/'>Ruby</a>
+  
+</span>
+
+
+    </p>
     
-  </header>
+      <div class="sharing">
+  
+  
+  
+</div>
 
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/learn-ruby-the-hard-way/" title="Previous Post: Learn Ruby The Hard Way">&laquo; Learn Ruby The Hard Way</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/ex01/" title="Next Post: Ex 1: 第一个程序">Ex 1: 第一个程序 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
 
-  <div class="entry-content"><h4>为什么学 Ruby</h4>
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/learn-ruby-the-hard-way/">Continue reading &rarr;</a>
-    </footer>
-  
 
-
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-    <a class="next" href="/blog/page/2/">Newer &rarr;</a>
-    
-  </div>
-</div>
 <aside class="sidebar">
   
     <section>
@@ -266,6 +285,7 @@
   
 </aside>
 
+
     </div>
   </div>
   <footer role="contentinfo"><p>
@@ -280,7 +300,10 @@
       var disqus_shortname = 'ruby-code';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://ruby.code.kekou.de//blog/ex00/';
+        var disqus_url = 'http://ruby.code.kekou.de//blog/ex00/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

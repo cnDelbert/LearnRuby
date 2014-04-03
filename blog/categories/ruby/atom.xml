@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | Notes for Ruby]]></title>
   <link href="http://ruby.code.kekou.de//blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://ruby.code.kekou.de//"/>
-  <updated>2014-04-03T14:52:24+08:00</updated>
+  <updated>2014-04-03T14:58:32+08:00</updated>
   <id>http://ruby.code.kekou.de//</id>
   <author>
     <name><![CDATA[Delbert]]></name>
@@ -14,10 +14,22 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Ex 20: 函数和文件]]></title>
+    <link href="http://ruby.code.kekou.de//blog/ex20/"/>
+    <updated>2014-04-03T14:54:15+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/ex20</id>
+    <content type="html"><![CDATA[<p>这一节是写了用来操作文件的函数，包括输出指定行，从头输出等方法。</p>
+
+<!--more-->
+
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Ex 18: 命名、变量、代码、函数]]></title>
-    <link href="http://ruby.code.kekou.de//blog/2014/04/03/ex18/"/>
+    <link href="http://ruby.code.kekou.de//blog/ex18/"/>
     <updated>2014-04-03T12:00:04+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/2014/04/03/ex18</id>
+    <id>http://ruby.code.kekou.de//blog/ex18</id>
     <content type="html"><![CDATA[<p>这一节要接触函数了，用 <code>def</code> 关键字和 Python 真是像呢。话说，真的是松本看不惯 Python 才写的 Ruby 么？</p>
 
 <!--more-->
@@ -73,9 +85,9 @@ puts_none()
   
   <entry>
     <title type="html"><![CDATA[Ex 17: 更多文件操作]]></title>
-    <link href="http://ruby.code.kekou.de//blog/2014/04/03/ex17/"/>
+    <link href="http://ruby.code.kekou.de//blog/ex17/"/>
     <updated>2014-04-03T09:45:55+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/2014/04/03/ex17</id>
+    <id>http://ruby.code.kekou.de//blog/ex17</id>
     <content type="html"><![CDATA[<p>本节进行文件内容的复制。</p>
 
 <!--more-->
@@ -136,9 +148,9 @@ File.open(ARGV[1], 'w').write(File.open(ARGV[0]).read())
   
   <entry>
     <title type="html"><![CDATA[Ex 16: 读写文件]]></title>
-    <link href="http://ruby.code.kekou.de//blog/2014/04/03/ex16/"/>
+    <link href="http://ruby.code.kekou.de//blog/ex16/"/>
     <updated>2014-04-03T09:45:48+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/2014/04/03/ex16</id>
+    <id>http://ruby.code.kekou.de//blog/ex16</id>
     <content type="html"><![CDATA[<p>继续文件的读写。本节代码如下：</p>
 
 <!--more-->
@@ -215,9 +227,9 @@ Line Three.
   
   <entry>
     <title type="html"><![CDATA[Ex 15: 读取文件]]></title>
-    <link href="http://ruby.code.kekou.de//blog/2014/04/03/ex15/"/>
+    <link href="http://ruby.code.kekou.de//blog/ex15/"/>
     <updated>2014-04-03T09:15:30+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/2014/04/03/ex15</id>
+    <id>http://ruby.code.kekou.de//blog/ex15</id>
     <content type="html"><![CDATA[<p>从一个文本文件中读取内容，并显示在屏幕上。</p>
 
 <!--more-->
@@ -277,53 +289,6 @@ in:Object (NameError)
 <p>也就是说并不是编译后再执行， Ruby 是一种运行时的语言。</p>
 
 <p>PowerShell 中是有 <code>cat</code> 命令的， CMD 命令行中没有。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ex 12: 模块(Modules)]]></title>
-    <link href="http://ruby.code.kekou.de//blog/2014/04/02/ex12/"/>
-    <updated>2014-04-02T20:07:56+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/2014/04/02/ex12</id>
-    <content type="html"><![CDATA[<p>上来的那个<del>栗子</del>例子是分析 URL 的。</p>
-
-<!--more-->
-
-
-<p>``` ruby ex12.rb //ruby.code.kekou.de/code/ex12.rb Download Code
-require &lsquo;open-uri&rsquo;</p>
-
-<p>open(&ldquo;<a href="http://baidu.com">http://baidu.com</a>&rdquo;) do |f|
-  f.each_line {|line| p line}
-  puts f.base_uri         # <a href="http://baidu.com">http://baidu.com</a>
-  puts f.content_type     # &ldquo;text/html&rdquo;
-  puts f.charset          # &ldquo;iso-8859-1&rdquo;
-  puts f.content_encoding # []
-  puts f.last_modified    # 2010-01-12 21:48:00 +0800
-end
-```</p>
-
-<p>貌似和原文说的不是太一样，执行 <code>open</code> 的时候会将整个页面进行输出吗？我在命令行下面是将整个页面都输出了。</p>
-
-<p>用 ruby-lang 的话会产生运行时错误。</p>
-
-<p>我用 <code>http://baidu.com</code> 是因为产生的输出很少。如下：</p>
-
-<pre><code>"&lt;html&gt;\n"
-"&lt;meta http-equiv=\"refresh\" content=\"0;url=http://www.baidu.com/\"&gt;\n"
-"&lt;/html&gt;\n"
-http://baidu.com
-text/html
-iso-8859-1
-2010-01-12 21:48:00 +0800
-</code></pre>
-
-<ol>
-<li>关于 <code>require</code> 和 <code>include</code>，找到了一篇文章： <a href="http://www.cnblogs.com/phaibin/archive/2009/11/06/1597333.html">http://www.cnblogs.com/phaibin/archive/2009/11/06/1597333.html</a>，原文在<a href="http://ionrails.com/2009/09/19/ruby_require-vs-load-vs-include-vs-extend/">这里</a>    。</li>
-<li>貌似不能。</li>
-<li>安装路径下 <code>/lib/ruby/版本号/</code> 中寻找。</li>
-</ol>
-
 ]]></content>
   </entry>
   

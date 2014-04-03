@@ -1,0 +1,384 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Ex 4: 变量和命名 - Notes for Ruby</title>
+  <meta name="author" content="Delbert">
+
+  
+  <meta name="description" content="似乎 Ruby 是弱类型的语言，不用声明一个变量的类型即可使用。 用自己喜欢的方式给变量来命名，我喜欢骆驼(Camel)式的，就像这样 thisVar，不需要 underscore _。 update: 看到一个评论是这样说的： python大小写混合原因是大小写敏感，实际上是java风格； &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://ruby.code.kekou.de//blog/ex04">
+  <link href="/favicon.ico" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Notes for Ruby" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><!--<a href="/">--><a href="http://ruby.code.kekou.de/">Notes for Ruby</a></h1>
+  
+    <h2>Learn Ruby The Hard Way</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:ruby.code.kekou.de/" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Ex 4: 变量和命名</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-04-01T14:13:58+08:00" pubdate data-updated="true">2014-Apr-01, 14:13:58, Tuesday</time>
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://ruby.code.kekou.de/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>似乎 Ruby 是<strong>弱类型</strong>的语言，不用声明一个变量的类型即可使用。</p>
+
+<!--more-->
+
+
+<p>用自己喜欢的方式给变量来命名，我喜欢骆驼(Camel)式的，就像这样 <code>thisVar</code>，不需要 underscore <code>_</code>。</p>
+
+<p>update:</p>
+
+<p>看到一个评论是这样说的：</p>
+
+<blockquote><p>python大小写混合原因是大小写敏感，实际上是java风格；php小写加下划线是语言对大小写不敏感的原因；ruby既大小写敏感，又使用小写加下划线，感觉不伦不类啊。</p></blockquote>
+
+<p>另外， Ruby 的行末竟然是不用加分号<code>;</code>的，太晕了。</p>
+
+<figure class='code'><figcaption><span>ex4.rb</span><a href='//ruby.code.kekou.de/code/ex4.rb'>Download code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">cars</span> <span class="o">=</span> <span class="mi">100</span>
+</span><span class='line'><span class="n">passengers</span> <span class="o">=</span> <span class="mi">90</span>
+</span><span class='line'><span class="n">drivers</span> <span class="o">=</span> <span class="mi">30</span>
+</span><span class='line'><span class="n">space_in_a_car</span> <span class="o">=</span> <span class="mi">4</span><span class="o">.</span><span class="mi">0</span>
+</span><span class='line'><span class="n">cars_not_driven</span> <span class="o">=</span> <span class="n">cars</span> <span class="o">-</span> <span class="n">drivers</span>
+</span><span class='line'><span class="n">cars_driven</span> <span class="o">=</span> <span class="n">drivers</span>
+</span><span class='line'><span class="n">carpool_capacity</span> <span class="o">=</span> <span class="n">cars_driven</span> <span class="o">*</span> <span class="n">space_in_a_car</span>
+</span><span class='line'><span class="n">average_passengers_per_car</span> <span class="o">=</span> <span class="n">passengers</span> <span class="o">/</span> <span class="n">cars_driven</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;There are </span><span class="si">#{</span><span class="n">cars</span><span class="si">}</span><span class="s2"> cars available.&quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;There are only </span><span class="si">#{</span><span class="n">drivers</span><span class="si">}</span><span class="s2"> drivers available.&quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;There will be </span><span class="si">#{</span><span class="n">cars_not_driven</span><span class="si">}</span><span class="s2"> empty cars today.&quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;We can transport </span><span class="si">#{</span><span class="n">carpool_capacity</span><span class="si">}</span><span class="s2"> people today.&quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;We have </span><span class="si">#{</span><span class="n">passengers</span><span class="si">}</span><span class="s2"> passengers to carpool today.&quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;We need to put about </span><span class="si">#{</span><span class="n">average_passengers_per_car</span><span class="si">}</span><span class="s2"> in each car.&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>执行后将会输出</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>There are 100 cars available.
+</span><span class='line'>There are only 30 drivers available.
+</span><span class='line'>There will be 70 empty cars today.
+</span><span class='line'>We can transport 120.0 people today.
+</span><span class='line'>We have 90 passengers to carpool today.
+</span><span class='line'>We need to put about 3 in each car.
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Ruby 在输出中调用变量是 <code>#{var}</code> 的形式。总感觉就是 php 的变种。</p>
+
+<p>irb 中用变量名来进行计算：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='irb'><span class='line'><span class="gp">irb(main):001:0&gt; </span><span class="n">i</span> <span class="o">=</span> <span class="mi">4</span>
+</span><span class='line'><span class="go">=&gt; 4</span>
+</span><span class='line'><span class="gp">irb(main):002:0&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="mi">3</span>
+</span><span class='line'><span class="go">=&gt; 3</span>
+</span><span class='line'><span class="gp">irb(main):003:0&gt; </span><span class="n">i</span><span class="o">*</span><span class="n">s</span>
+</span><span class='line'><span class="go">=&gt; 12</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>输入 <code>Ctrl+D</code> 返回命令行/Bash。</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Delbert</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-04-01T14:13:58+08:00" pubdate data-updated="true">2014-Apr-01, 14:13:58, Tuesday</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/ruby/'>Ruby</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/ex03/" title="Previous Post: Ex 3: 数字和数学计算">&laquo; Ex 3: 数字和数学计算</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/ex05/" title="Next Post: Ex 5: 更多的变量和输出">Ex 5: 更多的变量和输出 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>最近文章</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/ex20/">Ex 20: 函数和文件</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex19/">Ex 19: 函数和变量</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex18/">Ex 18: 命名、变量、代码、函数</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex17/">Ex 17: 更多文件操作</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex16/">Ex 16: 读写文件</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex15/">Ex 15: 读取文件</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex14/">Ex 14: 提示和传递</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex13/">Ex 13: 参数、解包、变量</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex12/">Ex 12: 模块(Modules)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex11/">Ex 11: 提问</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex10/">Ex 10: 那是什么？</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex09/">Ex 9: 输出，输出，输出</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex08/">Ex 8: 输出，输出</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex07/">Ex 7: 更多输出</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex06/">Ex 6: 字符串</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex05/">Ex 5: 更多的变量和输出</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex04/">Ex 4: 变量和命名</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex03/">Ex 3: 数字和数学计算</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex02/">Ex 2: 注释和＃号</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex01/">Ex 1: 第一个程序</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex00/">Ex 0: 准备工作</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/learn-ruby-the-hard-way/">Learn Ruby The Hard Way</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Delbert -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a> | <a href="//delbert.me" title="Delbert's Blog'">Delbert</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'ruby-code';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://ruby.code.kekou.de//blog/ex04/';
+        var disqus_url = 'http://ruby.code.kekou.de//blog/ex04/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
