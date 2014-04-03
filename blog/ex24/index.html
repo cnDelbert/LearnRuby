@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Ex 21: 函数可以返回一些东西 - Notes for Ruby</title>
+  <title>Ex 24: 更多练习 - Notes for Ruby</title>
   <meta name="author" content="Delbert">
 
   
-  <meta name="description" content="就是函数的返回值啦。不过本节还没有用到 return 关键字， Ruby 默认把函数最后一行作为返回值。 ex21.rbDownload Code1
+  <meta name="description" content="就是将之前的给综合起来了，这一节明确使用了 return 关键字。 ex24.rbDownload Code1
 2
 3
 4
@@ -36,7 +36,14 @@
 25
 26
 27
-28 &hellip;">
+28
+29
+30
+31
+32
+33
+34
+35 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -45,7 +52,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ruby.code.kekou.de//blog/ex21">
+  <link rel="canonical" href="http://ruby.code.kekou.de//blog/ex24">
   <link href="/favicon.ico" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Notes for Ruby" type="application/atom+xml">
@@ -95,7 +102,7 @@
   
   <header>
     
-      <h1 class="entry-title">Ex 21: 函数可以返回一些东西</h1>
+      <h1 class="entry-title">Ex 24: 更多练习</h1>
     
     
       <p class="meta">
@@ -111,7 +118,7 @@
   
 
 
-<time datetime="2014-04-03T15:47:13+08:00" pubdate data-updated="true">2014-Apr-03, 15:47:13, Thursday</time>
+<time datetime="2014-04-03T16:04:23+08:00" pubdate data-updated="true">2014-Apr-03, 16:04:23, Thursday</time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://ruby.code.kekou.de/">Comments</a>
@@ -121,14 +128,14 @@
   </header>
 
 
-<div class="entry-content"><p>就是函数的返回值啦。不过本节还没有用到 <code>return</code> 关键字， Ruby 默认把函数最后一行作为返回值。</p>
+<div class="entry-content"><p>就是将之前的给综合起来了，这一节明确使用了 <code>return</code> 关键字。</p>
 
 <!--more-->
 
 
 
 
-<figure class='code'><figcaption><span>ex21.rb</span><a href='//ruby.code.kekou.de/code/ex21.rb'>Download Code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>ex24.rb</span><a href='//ruby.code.kekou.de/code/ex24.rb'>Download Code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -163,58 +170,72 @@
 <span class='line-number'>33</span>
 <span class='line-number'>34</span>
 <span class='line-number'>35</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;ADDING </span><span class="si">#{</span><span class="n">a</span><span class="si">}</span><span class="s2"> + </span><span class="si">#{</span><span class="n">b</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span class='line'>  <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Let&#39;s practice everything.&quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;You</span><span class="se">\&#39;</span><span class="s2">d need to know </span><span class="se">\&#39;</span><span class="s2">bout escapes with </span><span class="se">\\</span><span class="s2"> that do </span><span class="se">\n</span><span class="s2"> newlines and </span><span class="se">\t</span><span class="s2"> tabs.&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">poem</span> <span class="o">=</span> <span class="o">&lt;&lt;</span><span class="no">MULTI_LINE_STRING</span>
+</span><span class='line'>
+</span><span class='line'><span class="sh">\tThe lovely world</span>
+</span><span class='line'><span class="sh">with logic so firmly planted</span>
+</span><span class='line'><span class="sh">cannot discern \n the needs of love</span>
+</span><span class='line'><span class="sh">nor comprehend passion from intuition</span>
+</span><span class='line'><span class="sh">and requires an explanation</span>
+</span><span class='line'><span class="sh">\n\t\twhere there is none.</span>
+</span><span class='line'>
+</span><span class='line'><span class="no">MULTI_LINE_STRING</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;--------------&quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="n">poem</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;--------------&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">five</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">-</span> <span class="mi">6</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;This should be five: </span><span class="si">#{</span><span class="n">five</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">def</span> <span class="nf">secret_formula</span><span class="p">(</span><span class="n">started</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">jelly_beans</span> <span class="o">=</span> <span class="n">started</span> <span class="o">*</span> <span class="mi">500</span>
+</span><span class='line'>  <span class="n">jars</span> <span class="o">=</span> <span class="n">jelly_beans</span> <span class="o">/</span> <span class="mi">1000</span>
+</span><span class='line'>  <span class="n">crates</span> <span class="o">=</span> <span class="n">jars</span> <span class="o">/</span> <span class="mi">100</span>
+</span><span class='line'>  <span class="k">return</span> <span class="n">jelly_beans</span><span class="p">,</span> <span class="n">jars</span><span class="p">,</span> <span class="n">crates</span>
 </span><span class='line'><span class="k">end</span>
 </span><span class='line'>
-</span><span class='line'><span class="k">def</span> <span class="nf">subtract</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;SUBTRACTING </span><span class="si">#{</span><span class="n">a</span><span class="si">}</span><span class="s2"> - </span><span class="si">#{</span><span class="n">b</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span class='line'>  <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
-</span><span class='line'><span class="k">end</span>
+</span><span class='line'><span class="n">start_point</span> <span class="o">=</span> <span class="mi">10000</span>
+</span><span class='line'><span class="n">beans</span><span class="p">,</span> <span class="n">jars</span><span class="p">,</span> <span class="n">crates</span> <span class="o">=</span> <span class="n">secret_formula</span><span class="p">(</span><span class="n">start_point</span><span class="p">)</span>
 </span><span class='line'>
-</span><span class='line'><span class="k">def</span> <span class="nf">multiply</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;MULTIPLYING </span><span class="si">#{</span><span class="n">a</span><span class="si">}</span><span class="s2"> * </span><span class="si">#{</span><span class="n">b</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span class='line'>  <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
-</span><span class='line'><span class="k">end</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;With a starting point of: </span><span class="si">#{</span><span class="n">start_point</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;We&#39;d have </span><span class="si">#{</span><span class="n">beans</span><span class="si">}</span><span class="s2"> beans, </span><span class="si">#{</span><span class="n">jars</span><span class="si">}</span><span class="s2"> jars, and </span><span class="si">#{</span><span class="n">crates</span><span class="si">}</span><span class="s2"> crates.&quot;</span>
 </span><span class='line'>
-</span><span class='line'><span class="k">def</span> <span class="nf">divide</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;DIVIDING </span><span class="si">#{</span><span class="n">a</span><span class="si">}</span><span class="s2"> / </span><span class="si">#{</span><span class="n">b</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span class='line'>  <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
-</span><span class='line'><span class="k">end</span>
+</span><span class='line'><span class="n">start_point</span> <span class="o">=</span> <span class="n">start_point</span> <span class="o">/</span> <span class="mi">10</span>
 </span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Let&#39;s do some math with just functions!&quot;</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">age</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-</span><span class='line'><span class="n">height</span> <span class="o">=</span> <span class="n">subtract</span><span class="p">(</span><span class="mi">78</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
-</span><span class='line'><span class="n">weight</span> <span class="o">=</span> <span class="n">multiply</span><span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-</span><span class='line'><span class="n">iq</span> <span class="o">=</span> <span class="n">divide</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Age: </span><span class="si">#{</span><span class="n">age</span><span class="si">}</span><span class="s2">, Height: </span><span class="si">#{</span><span class="n">height</span><span class="si">}</span><span class="s2">, Weight: </span><span class="si">#{</span><span class="n">weight</span><span class="si">}</span><span class="s2">, IQ: </span><span class="si">#{</span><span class="n">iq</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1"># A puzzle for the extra credit, type it in anyway.</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Here is a puzzle.&quot;</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">what</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span><span class="n">age</span><span class="p">,</span> <span class="n">subtract</span><span class="p">(</span><span class="n">height</span><span class="p">,</span> <span class="n">multiply</span><span class="p">(</span><span class="n">weight</span><span class="p">,</span> <span class="n">divide</span><span class="p">(</span><span class="n">iq</span><span class="p">,</span> <span class="mi">2</span><span class="p">))))</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;That becomes: </span><span class="si">#{</span><span class="n">what</span><span class="si">}</span><span class="s2"> Can you do it by hand?&quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;We can also do that this way:&quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;We&#39;d have %s beans, %s jars, and %s crates.&quot;</span> <span class="o">%</span> <span class="n">secret_formula</span><span class="p">(</span><span class="n">start_point</span><span class="p">)</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>输出为</p>
+<p>输出</p>
 
-<pre><code>Let's do some math with just functions!
-ADDING 30 + 5
-SUBTRACTING 78 - 4
-MULTIPLYING 90 * 2
-DIVIDING 100 / 2
-Age: 35, Height: 74, Weight: 180, IQ: 50
-Here is a puzzle.
-DIVIDING 50 / 2
-MULTIPLYING 180 * 25
-SUBTRACTING 74 - 4500
-ADDING 35 + -4426
-That becomes: -4391 Can you do it by hand?
+<pre><code>Let's practice everything.
+You'd need to know 'bout escapes with \ that do 
+ newlines and    tabs.
+--------------
+
+    The lovely world
+with logic so firmly planted
+cannot discern 
+ the needs of love
+nor comprehend passion from intuition
+and requires an explanation
+
+        where there is none.
+
+--------------
+This should be five: 5
+With a starting point of: 10000
+We'd have 5000000 beans, 5000 jars, and 50 crates.
+We can also do that this way:
+We'd have 500000 beans, 500 jars, and 5 crates.
 </code></pre>
 </div>
 
@@ -238,7 +259,7 @@ That becomes: -4391 Can you do it by hand?
   
 
 
-<time datetime="2014-04-03T15:47:13+08:00" pubdate data-updated="true">2014-Apr-03, 15:47:13, Thursday</time>
+<time datetime="2014-04-03T16:04:23+08:00" pubdate data-updated="true">2014-Apr-03, 16:04:23, Thursday</time>
       
 
 <span class="categories">
@@ -259,10 +280,8 @@ That becomes: -4391 Can you do it by hand?
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/ex20/" title="Previous Post: Ex 20: 函数和文件">&laquo; Ex 20: 函数和文件</a>
+        <a class="basic-alignment left" href="/blog/ex23/" title="Previous Post: Ex 23: 阅读一些代码">&laquo; Ex 23: 阅读一些代码</a>
       
-      
-        <a class="basic-alignment right" href="/blog/ex22/" title="Next Post: Ex 22: 目前为止你学到了什么">Ex 22: 目前为止你学到了什么 &raquo;</a>
       
     </p>
   </footer>
@@ -412,8 +431,8 @@ That becomes: -4391 Can you do it by hand?
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://ruby.code.kekou.de//blog/ex21/';
-        var disqus_url = 'http://ruby.code.kekou.de//blog/ex21/';
+        var disqus_identifier = 'http://ruby.code.kekou.de//blog/ex24/';
+        var disqus_url = 'http://ruby.code.kekou.de//blog/ex24/';
         var disqus_script = 'embed.js';
       
     (function () {

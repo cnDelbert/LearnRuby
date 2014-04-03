@@ -4,7 +4,7 @@
   <title><![CDATA[Notes for Ruby]]></title>
   <link href="http://ruby.code.kekou.de//atom.xml" rel="self"/>
   <link href="http://ruby.code.kekou.de//"/>
-  <updated>2014-04-03T16:00:12+08:00</updated>
+  <updated>2014-04-03T16:12:35+08:00</updated>
   <id>http://ruby.code.kekou.de//</id>
   <author>
     <name><![CDATA[Delbert]]></name>
@@ -12,6 +12,123 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 24: 更多练习]]></title>
+    <link href="http://ruby.code.kekou.de//blog/ex24/"/>
+    <updated>2014-04-03T16:04:23+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/ex24</id>
+    <content type="html"><![CDATA[<p>就是将之前的给综合起来了，这一节明确使用了 <code>return</code> 关键字。</p>
+
+<!--more-->
+
+
+
+
+<figure class='code'><figcaption><span>ex24.rb</span><a href='//ruby.code.kekou.de/code/ex24.rb'>Download Code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Let&#39;s practice everything.&quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;You</span><span class="se">\&#39;</span><span class="s2">d need to know </span><span class="se">\&#39;</span><span class="s2">bout escapes with </span><span class="se">\\</span><span class="s2"> that do </span><span class="se">\n</span><span class="s2"> newlines and </span><span class="se">\t</span><span class="s2"> tabs.&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">poem</span> <span class="o">=</span> <span class="o">&lt;&lt;</span><span class="no">MULTI_LINE_STRING</span>
+</span><span class='line'>
+</span><span class='line'><span class="sh">\tThe lovely world</span>
+</span><span class='line'><span class="sh">with logic so firmly planted</span>
+</span><span class='line'><span class="sh">cannot discern \n the needs of love</span>
+</span><span class='line'><span class="sh">nor comprehend passion from intuition</span>
+</span><span class='line'><span class="sh">and requires an explanation</span>
+</span><span class='line'><span class="sh">\n\t\twhere there is none.</span>
+</span><span class='line'>
+</span><span class='line'><span class="no">MULTI_LINE_STRING</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;--------------&quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="n">poem</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;--------------&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">five</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">-</span> <span class="mi">6</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;This should be five: </span><span class="si">#{</span><span class="n">five</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">def</span> <span class="nf">secret_formula</span><span class="p">(</span><span class="n">started</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">jelly_beans</span> <span class="o">=</span> <span class="n">started</span> <span class="o">*</span> <span class="mi">500</span>
+</span><span class='line'>  <span class="n">jars</span> <span class="o">=</span> <span class="n">jelly_beans</span> <span class="o">/</span> <span class="mi">1000</span>
+</span><span class='line'>  <span class="n">crates</span> <span class="o">=</span> <span class="n">jars</span> <span class="o">/</span> <span class="mi">100</span>
+</span><span class='line'>  <span class="k">return</span> <span class="n">jelly_beans</span><span class="p">,</span> <span class="n">jars</span><span class="p">,</span> <span class="n">crates</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">start_point</span> <span class="o">=</span> <span class="mi">10000</span>
+</span><span class='line'><span class="n">beans</span><span class="p">,</span> <span class="n">jars</span><span class="p">,</span> <span class="n">crates</span> <span class="o">=</span> <span class="n">secret_formula</span><span class="p">(</span><span class="n">start_point</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;With a starting point of: </span><span class="si">#{</span><span class="n">start_point</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;We&#39;d have </span><span class="si">#{</span><span class="n">beans</span><span class="si">}</span><span class="s2"> beans, </span><span class="si">#{</span><span class="n">jars</span><span class="si">}</span><span class="s2"> jars, and </span><span class="si">#{</span><span class="n">crates</span><span class="si">}</span><span class="s2"> crates.&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">start_point</span> <span class="o">=</span> <span class="n">start_point</span> <span class="o">/</span> <span class="mi">10</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;We can also do that this way:&quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;We&#39;d have %s beans, %s jars, and %s crates.&quot;</span> <span class="o">%</span> <span class="n">secret_formula</span><span class="p">(</span><span class="n">start_point</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>输出</p>
+
+<pre><code>Let's practice everything.
+You'd need to know 'bout escapes with \ that do 
+ newlines and    tabs.
+--------------
+
+    The lovely world
+with logic so firmly planted
+cannot discern 
+ the needs of love
+nor comprehend passion from intuition
+and requires an explanation
+
+        where there is none.
+
+--------------
+This should be five: 5
+With a starting point of: 10000
+We'd have 5000000 beans, 5000 jars, and 50 crates.
+We can also do that this way:
+We'd have 500000 beans, 500 jars, and 5 crates.
+</code></pre>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Ex 23: 阅读一些代码]]></title>
@@ -24,10 +141,10 @@
 
 
 <ol>
-<li><a href="//github.com%20GitHub">github.com</a></li>
+<li><a href="//github.com" title="GitHub&quot;">github.com</a></li>
 <li><a href="//gitcafe.com" title="大陆的 GitHub">gitcafe.com</a></li>
-<li><a href="//oschina.net%20Open%20Source%20China">oschina.net</a></li>
-<li><a href="//ruby-china.org%20Ruby%20China">ruby-china.org</a></li>
+<li><a href="//oschina.net" title="Open Source China">oschina.net</a></li>
+<li><a href="//ruby-china.org" title="Ruby China">ruby-china.org</a></li>
 <li><a href="//www.google.com/ncr">Google.com</a></li>
 </ol>
 
@@ -1408,99 +1525,6 @@ Even 4 lines if we want, or 5, or 6.
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>23 inches equals 9.055118 cm.
 </span></code></pre></td></tr></table></div></figure>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ex 4: 变量和命名]]></title>
-    <link href="http://ruby.code.kekou.de//blog/ex04/"/>
-    <updated>2014-04-01T14:13:58+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/ex04</id>
-    <content type="html"><![CDATA[<p>似乎 Ruby 是<strong>弱类型</strong>的语言，不用声明一个变量的类型即可使用。</p>
-
-<!--more-->
-
-
-<p>用自己喜欢的方式给变量来命名，我喜欢骆驼(Camel)式的，就像这样 <code>thisVar</code>，不需要 underscore <code>_</code>。</p>
-
-<p>update:</p>
-
-<p>看到一个评论是这样说的：</p>
-
-<blockquote><p>python大小写混合原因是大小写敏感，实际上是java风格；php小写加下划线是语言对大小写不敏感的原因；ruby既大小写敏感，又使用小写加下划线，感觉不伦不类啊。</p></blockquote>
-
-<p>另外， Ruby 的行末竟然是不用加分号<code>;</code>的，太晕了。</p>
-
-<figure class='code'><figcaption><span>ex4.rb</span><a href='//ruby.code.kekou.de/code/ex4.rb'>Download code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">cars</span> <span class="o">=</span> <span class="mi">100</span>
-</span><span class='line'><span class="n">passengers</span> <span class="o">=</span> <span class="mi">90</span>
-</span><span class='line'><span class="n">drivers</span> <span class="o">=</span> <span class="mi">30</span>
-</span><span class='line'><span class="n">space_in_a_car</span> <span class="o">=</span> <span class="mi">4</span><span class="o">.</span><span class="mi">0</span>
-</span><span class='line'><span class="n">cars_not_driven</span> <span class="o">=</span> <span class="n">cars</span> <span class="o">-</span> <span class="n">drivers</span>
-</span><span class='line'><span class="n">cars_driven</span> <span class="o">=</span> <span class="n">drivers</span>
-</span><span class='line'><span class="n">carpool_capacity</span> <span class="o">=</span> <span class="n">cars_driven</span> <span class="o">*</span> <span class="n">space_in_a_car</span>
-</span><span class='line'><span class="n">average_passengers_per_car</span> <span class="o">=</span> <span class="n">passengers</span> <span class="o">/</span> <span class="n">cars_driven</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;There are </span><span class="si">#{</span><span class="n">cars</span><span class="si">}</span><span class="s2"> cars available.&quot;</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;There are only </span><span class="si">#{</span><span class="n">drivers</span><span class="si">}</span><span class="s2"> drivers available.&quot;</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;There will be </span><span class="si">#{</span><span class="n">cars_not_driven</span><span class="si">}</span><span class="s2"> empty cars today.&quot;</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;We can transport </span><span class="si">#{</span><span class="n">carpool_capacity</span><span class="si">}</span><span class="s2"> people today.&quot;</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;We have </span><span class="si">#{</span><span class="n">passengers</span><span class="si">}</span><span class="s2"> passengers to carpool today.&quot;</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;We need to put about </span><span class="si">#{</span><span class="n">average_passengers_per_car</span><span class="si">}</span><span class="s2"> in each car.&quot;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>执行后将会输出</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>There are 100 cars available.
-</span><span class='line'>There are only 30 drivers available.
-</span><span class='line'>There will be 70 empty cars today.
-</span><span class='line'>We can transport 120.0 people today.
-</span><span class='line'>We have 90 passengers to carpool today.
-</span><span class='line'>We need to put about 3 in each car.
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Ruby 在输出中调用变量是 <code>#{var}</code> 的形式。总感觉就是 php 的变种。</p>
-
-<p>irb 中用变量名来进行计算：</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='irb'><span class='line'><span class="gp">irb(main):001:0&gt; </span><span class="n">i</span> <span class="o">=</span> <span class="mi">4</span>
-</span><span class='line'><span class="go">=&gt; 4</span>
-</span><span class='line'><span class="gp">irb(main):002:0&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="mi">3</span>
-</span><span class='line'><span class="go">=&gt; 3</span>
-</span><span class='line'><span class="gp">irb(main):003:0&gt; </span><span class="n">i</span><span class="o">*</span><span class="n">s</span>
-</span><span class='line'><span class="go">=&gt; 12</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>输入 <code>Ctrl+D</code> 返回命令行/Bash。</p>
 ]]></content>
   </entry>
   
