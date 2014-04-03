@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | Notes for Ruby]]></title>
   <link href="http://ruby.code.kekou.de//blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://ruby.code.kekou.de//"/>
-  <updated>2014-04-03T11:54:38+08:00</updated>
+  <updated>2014-04-03T13:34:40+08:00</updated>
   <id>http://ruby.code.kekou.de//</id>
   <author>
     <name><![CDATA[Delbert]]></name>
@@ -12,6 +12,20 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 18: 命名、变量、代码、函数]]></title>
+    <link href="http://ruby.code.kekou.de//blog/2014/04/03/ex18/"/>
+    <updated>2014-04-03T12:00:04+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/2014/04/03/ex18</id>
+    <content type="html"><![CDATA[<p>这一节要接触函数了，用 <code>def</code> 关键字和 Python 真是像呢。话说，真的是松本看不惯 Python 才写的 Ruby 么？</p>
+
+<!--more-->
+
+
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Ex 17: 更多文件操作]]></title>
@@ -33,6 +47,8 @@ script = $0</p>
 
 <p>input = File.open(from_file)
 indata = input.read()</p>
+
+<h1>input = File.open(from_file).read()</h1>
 
 <p>puts &ldquo;The input file is #{indata.length} bytes long&rdquo;</p>
 
@@ -264,50 +280,6 @@ iso-8859-1
 <li><p>安装路径下 <code>/lib/ruby/版本号/</code> 中寻找。</p></li>
 </ol>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ex 11: 提问]]></title>
-    <link href="http://ruby.code.kekou.de//blog/2014/04/02/ex11/"/>
-    <updated>2014-04-02T13:56:33+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/2014/04/02/ex11</id>
-    <content type="html"><![CDATA[<p>终于到了有输入有输出的一节了。</p>
-
-<!--more-->
-
-
-<ol>
-<li>获取输入。</li>
-<li>改变输入的东西。</li>
-<li>输出以显示是如何改变的。</li>
-</ol>
-
-
-<p>代码如下（稍作修改）:</p>
-
-<p>``` ruby ex11.rb //ruby.code.kekou.de/code/ex11.rb Download Code
-print &ldquo;How old are you?\t &rdquo;
-age = gets.chomp()
-print &ldquo;How tall are you? \t&rdquo;
-height = gets.chomp()
-print &ldquo;How much do you weigh? \t&rdquo;
-weight = gets.chomp()</p>
-
-<p>puts &ldquo;So, you&rsquo;re #{age} years old, #{height} meters tall and #{weight} kilograms heavy.&rdquo;
-```</p>
-
-<p>输出：</p>
-
-<pre><code>How old are you?         24
-How tall are you?       1.72
-How much do you weigh?  70
-So, you're 24 years old, 1.72 meters tall and 70 kilograms heavy.
-</code></pre>
-
-<p><code>gets</code> 和 <code>puts</code> 一样，后面会跟一个换行，而 <code>gets.chomp()</code> 的后面是没有换行的。</p>
-
-<p>看了一下， <code>chmop</code> 的作用是移除行末的分离符。</p>
 ]]></content>
   </entry>
   

@@ -4,7 +4,7 @@
   <title><![CDATA[Notes for Ruby]]></title>
   <link href="http://ruby.code.kekou.de//atom.xml" rel="self"/>
   <link href="http://ruby.code.kekou.de//"/>
-  <updated>2014-04-03T11:54:38+08:00</updated>
+  <updated>2014-04-03T13:34:40+08:00</updated>
   <id>http://ruby.code.kekou.de//</id>
   <author>
     <name><![CDATA[Delbert]]></name>
@@ -12,6 +12,20 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 18: 命名、变量、代码、函数]]></title>
+    <link href="http://ruby.code.kekou.de//blog/2014/04/03/ex18/"/>
+    <updated>2014-04-03T12:00:04+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/2014/04/03/ex18</id>
+    <content type="html"><![CDATA[<p>这一节要接触函数了，用 <code>def</code> 关键字和 Python 真是像呢。话说，真的是松本看不惯 Python 才写的 Ruby 么？</p>
+
+<!--more-->
+
+
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Ex 17: 更多文件操作]]></title>
@@ -47,6 +61,7 @@
 <span class='line-number'>20</span>
 <span class='line-number'>21</span>
 <span class='line-number'>22</span>
+<span class='line-number'>23</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">from_file</span><span class="p">,</span> <span class="n">to_file</span> <span class="o">=</span> <span class="no">ARGV</span>
 </span><span class='line'><span class="n">script</span> <span class="o">=</span> <span class="vg">$0</span>
 </span><span class='line'>
@@ -55,6 +70,7 @@
 </span><span class='line'><span class="c1"># we could do these two on one line too, how?</span>
 </span><span class='line'><span class="n">input</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">from_file</span><span class="p">)</span>
 </span><span class='line'><span class="n">indata</span> <span class="o">=</span> <span class="n">input</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span><span class='line'><span class="c1"># input = File.open(from_file).read() </span>
 </span><span class='line'>
 </span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;The input file is </span><span class="si">#{</span><span class="n">indata</span><span class="o">.</span><span class="n">length</span><span class="si">}</span><span class="s2"> bytes long&quot;</span>
 </span><span class='line'>
