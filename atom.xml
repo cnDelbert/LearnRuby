@@ -4,7 +4,7 @@
   <title><![CDATA[Notes for Ruby]]></title>
   <link href="http://ruby.code.kekou.de//atom.xml" rel="self"/>
   <link href="http://ruby.code.kekou.de//"/>
-  <updated>2014-04-03T13:34:40+08:00</updated>
+  <updated>2014-04-03T14:45:40+08:00</updated>
   <id>http://ruby.code.kekou.de//</id>
   <author>
     <name><![CDATA[Delbert]]></name>
@@ -12,6 +12,65 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 19: 函数和变量]]></title>
+    <link href="http://ruby.code.kekou.de//blog/2014/04/03/ex19/"/>
+    <updated>2014-04-03T14:29:29+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/2014/04/03/ex19</id>
+    <content type="html"><![CDATA[<p>这一节涉及到函数和变量，准确来说是形参和实参的关系。简单来说，怎样给参数赋值不影响函数的表达。</p>
+
+<!--more-->
+
+
+
+
+<figure class='code'><figcaption><span>ex19.rb</span><a href='//ruby.code.kekou.de/code/ex19.rb'>Download Code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">cheese_and_crackers</span><span class="p">(</span><span class="n">cheese_count</span><span class="p">,</span> <span class="n">boxes_of_crackers</span><span class="p">)</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;You have </span><span class="si">#{</span><span class="n">cheese_count</span><span class="si">}</span><span class="s2"> cheeses!&quot;</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;You have </span><span class="si">#{</span><span class="n">boxes_of_crackers</span><span class="si">}</span><span class="s2"> boxes of crackers!&quot;</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;Man that&#39;s enough for a party!&quot;</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;Get a blanket.&quot;</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="c1"># a blank line</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;We can just give the function numbers directly:&quot;</span>
+</span><span class='line'><span class="n">cheese_and_crackers</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;OR, we can use variables from our script:&quot;</span>
+</span><span class='line'><span class="n">amount_of_cheese</span> <span class="o">=</span> <span class="mi">10</span>
+</span><span class='line'><span class="n">amount_of_crackers</span> <span class="o">=</span> <span class="mi">50</span>
+</span><span class='line'><span class="n">cheese_and_crackers</span><span class="p">(</span><span class="n">amount_of_cheese</span><span class="p">,</span> <span class="n">amount_of_crackers</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;We can even do math inside too:&quot;</span>
+</span><span class='line'><span class="n">cheese_and_crackers</span><span class="p">(</span><span class="mi">10</span> <span class="o">+</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">5</span> <span class="o">+</span> <span class="mi">6</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;And we can combine the two, variables and math:&quot;</span>
+</span><span class='line'><span class="n">cheese_and_crackers</span><span class="p">(</span><span class="n">amount_of_cheese</span> <span class="o">+</span> <span class="mi">100</span><span class="p">,</span> <span class="n">amount_of_crackers</span> <span class="o">+</span> <span class="mi">1000</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Ex 18: 命名、变量、代码、函数]]></title>
@@ -23,6 +82,72 @@
 <!--more-->
 
 
+
+
+<figure class='code'><figcaption><span>ex18.rb</span><a href='//ruby.code.kekou.de/code/ex18.rb'>Download Code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># this one is like your scripts with argv</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">puts_two</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span> <span class="o">=</span> <span class="n">args</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;arg1: </span><span class="si">#{</span><span class="n">arg1</span><span class="si">}</span><span class="s2">, arg2: </span><span class="si">#{</span><span class="n">arg2</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># ok, that *args is actually pointless, we can just do this</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">puts_two_again</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">)</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;arg1: </span><span class="si">#{</span><span class="n">arg1</span><span class="si">}</span><span class="s2">, arg2: </span><span class="si">#{</span><span class="n">arg2</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># this just takes one argument</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">puts_one</span><span class="p">(</span><span class="n">arg1</span><span class="p">)</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;arg1: </span><span class="si">#{</span><span class="n">arg1</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># this one takes no arguments</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">puts_none</span><span class="p">()</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;I got nothin&#39;.&quot;</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">puts_two</span><span class="p">(</span><span class="s2">&quot;Zed&quot;</span><span class="p">,</span><span class="s2">&quot;Shaw&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="n">puts_two_again</span><span class="p">(</span><span class="s2">&quot;Zed&quot;</span><span class="p">,</span><span class="s2">&quot;Shaw&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="n">puts_one</span><span class="p">(</span><span class="s2">&quot;First!&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="n">puts_none</span><span class="p">()</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>定义了四个函数，第一个是用指针方式指定了参数个数，剩余三个则是指定了有限个参数个数。最后调用执行这四个函数。</p>
+
+<ol>
+<li>函数定义是以 <code>def</code> 开始的；</li>
+<li>Ruby 的规范是以小写字符和 <code>\_</code> 下划线来进行连接；</li>
+<li>函数名后紧接左括号；</li>
+<li>多个参数时应用英文逗号隔开；</li>
+<li>参数结束后要用英文右括号结束；</li>
+<li>函数体要进行缩进；</li>
+<li>与相应的 <code>def</code> 对齐的地方要有 <code>end</code> 来完成函数。</li>
+</ol>
 
 ]]></content>
   </entry>
@@ -484,9 +609,9 @@ iso-8859-1
 </code></pre>
 
 <ol>
-<li><p>关于 <code>require</code> 和 <code>include</code>，找到了一篇文章： <a href="http://www.cnblogs.com/phaibin/archive/2009/11/06/1597333.html">http://www.cnblogs.com/phaibin/archive/2009/11/06/1597333.html</a>，原文在<a href="http://ionrails.com/2009/09/19/ruby_require-vs-load-vs-include-vs-extend/">这里</a>    。</p></li>
-<li><p>貌似不能。</p></li>
-<li><p>安装路径下 <code>/lib/ruby/版本号/</code> 中寻找。</p></li>
+<li>关于 <code>require</code> 和 <code>include</code>，找到了一篇文章： <a href="http://www.cnblogs.com/phaibin/archive/2009/11/06/1597333.html">http://www.cnblogs.com/phaibin/archive/2009/11/06/1597333.html</a>，原文在<a href="http://ionrails.com/2009/09/19/ruby_require-vs-load-vs-include-vs-extend/">这里</a>    。</li>
+<li>貌似不能。</li>
+<li>安装路径下 <code>/lib/ruby/版本号/</code> 中寻找。</li>
 </ol>
 
 ]]></content>
@@ -1298,30 +1423,6 @@ E:\SourceCode\GitHub&gt;
 <p>已经安装了 Vim 的，Notepad++ 也已经安装了 Vim 插件，不过还是用不惯。</p>
 
 <p>暑假就可以用 Mac OS 了，期待我的更新吧。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Learn Ruby The Hard Way]]></title>
-    <link href="http://ruby.code.kekou.de//blog/2014/03/31/learn-ruby-the-hard-way/"/>
-    <updated>2014-03-31T21:55:45+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/2014/03/31/learn-ruby-the-hard-way</id>
-    <content type="html"><![CDATA[<h4>为什么学 Ruby</h4>
-
-<!--more-->
-
-
-<p>不一定是兴趣，只是想给自己找点事情做。既然 Octopress 已经搭建好了，在 codecademy 上也稍微学了一点了，有了一个可以循序渐进的东西，为什么不开始呢？</p>
-
-<h4>这个博客是干什么的</h4>
-
-<p>对应 lrthw 上的每一节，同时给自己做个记录。</p>
-
-<h4>明天愚人节了，没提前过节？</h4>
-
-<p>希望没有。多学点东西总是没错的，技不压身嘛。</p>
-
-<p>对了，最后放上链接 <a href="http://lrthw.github.io">http://lrthw.github.io</a></p>
 ]]></content>
   </entry>
   
