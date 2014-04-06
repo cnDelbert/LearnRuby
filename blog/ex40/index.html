@@ -1,0 +1,560 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Ex 40: hash,可爱的 hash - Notes for Ruby</title>
+  <meta name="author" content="Delbert">
+
+  
+  <meta name="description" content="Ruby 的 hash 是一种 key-value 类型的容器，可以通过 key 的值来索引到对应的 value。 Hash 是没有顺序的，不能通过 index 来得到对应的 value。 Hash 现在简体中文一般翻译为哈希。 可以直接在 irb 中这样定义一个数组： 1
+2
+3
+4
+5
+6
+7 &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://ruby.code.kekou.de//blog/ex40">
+  <link href="/favicon.ico" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Notes for Ruby" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><!--<a href="/">--><a href="http://ruby.code.kekou.de/">Notes for Ruby</a></h1>
+  
+    <h2>Learn Ruby The Hard Way</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:ruby.code.kekou.de/" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Ex 40: hash,可爱的 hash</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-04-06T16:52:13+08:00" pubdate data-updated="true">2014-Apr-06, 16:52:13, Sunday</time>
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://ruby.code.kekou.de/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Ruby 的 hash 是一种 key-value 类型的容器，可以通过 key 的值来索引到对应的 value。 Hash 是没有顺序的，不能通过 index 来得到对应的 value。 Hash 现在简体中文一般翻译为<strong>哈希</strong>。</p>
+
+<!--more-->
+
+
+<p>可以直接在 irb 中这样定义一个数组：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='irb'><span class='line'><span class="go">ruby-1.9.2-p180 :015 &gt; things = [&#39;a&#39;,&#39;b&#39;,&#39;c&#39;,&#39;d&#39;]</span>
+</span><span class='line'><span class="go"> =&gt; [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;]</span>
+</span><span class='line'><span class="go">ruby-1.9.2-p180 :016 &gt; print things[1]</span>
+</span><span class='line'><span class="go">b =&gt; nil</span>
+</span><span class='line'><span class="go">ruby-1.9.2-p180 :017 &gt; things[1] = &#39;z&#39;</span>
+</span><span class='line'><span class="go"> =&gt; &quot;z&quot;</span>
+</span><span class='line'><span class="go">ruby-1.9.2-p180 :018 &gt; print things[1]</span>
+</span><span class='line'><span class="go">z =&gt; nil</span>
+</span><span class='line'><span class="go">ruby-1.9.2-p180 :019 &gt; print things</span>
+</span><span class='line'><span class="go">[&quot;a&quot;, &quot;z&quot;, &quot;c&quot;, &quot;d&quot;] =&gt; nil</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>实际上，数组相当于用数字来当 key 的 hash。当将数字替换为其他的东西之后，就变成了这样：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='irb'><span class='line'><span class="go">ruby-1.9.2-p180 :001 &gt; stuff = {:name =&gt; &quot;Rob&quot;, :age =&gt; 30, :height =&gt; 5*12+10}</span>
+</span><span class='line'><span class="go"> =&gt; {:name=&gt;&quot;Rob&quot;, :age=&gt;30, :height=&gt;70}</span>
+</span><span class='line'><span class="go">ruby-1.9.2-p180 :002 &gt; puts stuff[:name]</span>
+</span><span class='line'><span class="go">Rob</span>
+</span><span class='line'><span class="go"> =&gt; nil</span>
+</span><span class='line'><span class="go">ruby-1.9.2-p180 :003 &gt; puts stuff[:age]</span>
+</span><span class='line'><span class="go">30</span>
+</span><span class='line'><span class="go"> =&gt; nil</span>
+</span><span class='line'><span class="go">ruby-1.9.2-p180 :004 &gt; puts stuff[:height]</span>
+</span><span class='line'><span class="go">70</span>
+</span><span class='line'><span class="go"> =&gt; nil</span>
+</span><span class='line'><span class="go">ruby-1.9.2-p180 :005 &gt; stuff[:city] = &quot;New York&quot;</span>
+</span><span class='line'><span class="go"> =&gt; &quot;New York&quot;</span>
+</span><span class='line'><span class="go">ruby-1.9.2-p180 :006 &gt; puts stuff[:city]</span>
+</span><span class='line'><span class="go">New York</span>
+</span><span class='line'><span class="go"> =&gt; nil</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>当明确指明了对应的 k-w 之后，数字便不再是索引(index)，而变成了 key，例如：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='irb'><span class='line'><span class="go">ruby-1.9.2-p180 :004 &gt; stuff[1] = &quot;Wow&quot;</span>
+</span><span class='line'><span class="go"> =&gt; &quot;Wow&quot;</span>
+</span><span class='line'><span class="go">ruby-1.9.2-p180 :005 &gt; stuff[2] = &quot;Neato&quot;</span>
+</span><span class='line'><span class="go"> =&gt; &quot;Neato&quot;</span>
+</span><span class='line'><span class="go">ruby-1.9.2-p180 :006 &gt; puts stuff[1]</span>
+</span><span class='line'><span class="go">Wow</span>
+</span><span class='line'><span class="go"> =&gt; nil</span>
+</span><span class='line'><span class="go">ruby-1.9.2-p180 :007 &gt; puts stuff[2]</span>
+</span><span class='line'><span class="go">Neato</span>
+</span><span class='line'><span class="go"> =&gt; nil</span>
+</span><span class='line'><span class="go">ruby-1.9.2-p180 :008 &gt; puts stuff</span>
+</span><span class='line'><span class="go">{:name=&gt;&quot;Rob&quot;, :age=&gt;30, :height=&gt;70, :city=&gt;&quot;New York&quot;, 1=&gt;&quot;Wow&quot;, 2=&gt;&quot;Neato&quot;}</span>
+</span><span class='line'><span class="go"> =&gt; nil</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>删除其中的元素也是通过调用 key 来实现的：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='irb'><span class='line'><span class="go">ruby-1.9.2-p180 :009 &gt; stuff.delete(:city)</span>
+</span><span class='line'><span class="go"> =&gt; &quot;New York&quot;</span>
+</span><span class='line'><span class="go">ruby-1.9.2-p180 :010 &gt; stuff.delete(1)</span>
+</span><span class='line'><span class="go"> =&gt; &quot;Wow&quot;</span>
+</span><span class='line'><span class="go">ruby-1.9.2-p180 :011 &gt; stuff.delete(2)</span>
+</span><span class='line'><span class="go"> =&gt; &quot;Neato&quot;</span>
+</span><span class='line'><span class="go">ruby-1.9.2-p180 :012 &gt; stuff</span>
+</span><span class='line'><span class="go"> =&gt; {:name=&gt;&quot;Rob&quot;, :age=&gt;30, :height=&gt;70}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>下面是通过 key 来查询对应州的名字的一段代码，我们完全可以自己写一个通过区号查地区的程序(好像工作量有点大)：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">cities</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;CA&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;San Francisco&#39;</span><span class="p">,</span>
+</span><span class='line'>  <span class="s1">&#39;MI&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Detroit&#39;</span><span class="p">,</span>
+</span><span class='line'>  <span class="s1">&#39;FL&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Jacksonville&#39;</span><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">cities</span><span class="o">[</span><span class="s1">&#39;NY&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="s1">&#39;New York&#39;</span>
+</span><span class='line'><span class="n">cities</span><span class="o">[</span><span class="s1">&#39;OR&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="s1">&#39;Portland&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">def</span> <span class="nf">find_city</span><span class="p">(</span><span class="n">map</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">if</span> <span class="n">map</span><span class="o">.</span><span class="n">include?</span> <span class="n">state</span>
+</span><span class='line'>    <span class="k">return</span> <span class="n">map</span><span class="o">[</span><span class="n">state</span><span class="o">]</span>
+</span><span class='line'>  <span class="k">else</span>
+</span><span class='line'>    <span class="k">return</span> <span class="s2">&quot;Not found.&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># ok pay attention!</span>
+</span><span class='line'><span class="n">cities</span><span class="o">[</span><span class="ss">:find</span><span class="o">]</span> <span class="o">=</span> <span class="nb">method</span><span class="p">(</span><span class="ss">:find_city</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">while</span> <span class="kp">true</span>
+</span><span class='line'>  <span class="nb">print</span> <span class="s2">&quot;State? (ENTER to quit) &quot;</span>
+</span><span class='line'>  <span class="n">state</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">break</span> <span class="k">if</span> <span class="n">state</span><span class="o">.</span><span class="n">empty?</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># this line is the most important ever! study!</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="n">cities</span><span class="o">[</span><span class="ss">:find</span><span class="o">].</span><span class="n">call</span><span class="p">(</span><span class="n">cities</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Delbert</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-04-06T16:52:13+08:00" pubdate data-updated="true">2014-Apr-06, 16:52:13, Sunday</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/ruby/'>Ruby</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/ex39/" title="Previous Post: Ex 39: 数组的操作">&laquo; Ex 39: 数组的操作</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>最近文章</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/ex40/">Ex 40: hash,可爱的 hash</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex39/">Ex 39: 数组的操作</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex38/">Ex 38: 阅读代码</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex37/">Ex 37: 复习各种符号。</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex36/">Ex 36: 设计和测试</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex35/">Ex 35: 分支(branches)和函数(functions)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex34/">Ex 34: 存取数组内元素</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex33/">Ex 33: while循环</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex32/">Ex 32: 循环和数组</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex31/">Ex 31: 做出决定</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex30/">Ex 30: else 和 if</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex29/">Ex 29: 如果(if)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex28/">Ex 28: 布尔值表达式练习</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex27/">Ex 27: 记忆逻辑关系</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex26/">Ex 26: 恭喜你，现在来考试啦！</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex25/">Ex 25: 更多更多的练习</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex24/">Ex 24: 更多练习</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex23/">Ex 23: 阅读一些代码</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex22/">Ex 22: 目前为止你学到了什么</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex21/">Ex 21: 函数可以返回一些东西</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex20/">Ex 20: 函数和文件</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex19/">Ex 19: 函数和变量</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex18/">Ex 18: 命名、变量、代码、函数</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex17/">Ex 17: 更多文件操作</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex16/">Ex 16: 读写文件</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex15/">Ex 15: 读取文件</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex14/">Ex 14: 提示和传递</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex13/">Ex 13: 参数、解包、变量</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex12/">Ex 12: 模块(Modules)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex11/">Ex 11: 提问</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex10/">Ex 10: 那是什么？</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex09/">Ex 9: 输出，输出，输出</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex08/">Ex 8: 输出，输出</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex07/">Ex 7: 更多输出</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex06/">Ex 6: 字符串</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex05/">Ex 5: 更多的变量和输出</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex04/">Ex 4: 变量和命名</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex03/">Ex 3: 数字和数学计算</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex02/">Ex 2: 注释和＃号</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex01/">Ex 1: 第一个程序</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/ex00/">Ex 0: 准备工作</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/learn-ruby-the-hard-way/">Learn Ruby The Hard Way</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Delbert -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a> | <a href="//delbert.me" title="Delbert's Blog'">Delbert</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'ruby-code';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://ruby.code.kekou.de//blog/ex40/';
+        var disqus_url = 'http://ruby.code.kekou.de//blog/ex40/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

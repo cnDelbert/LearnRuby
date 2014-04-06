@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Ex 27: 记忆逻辑关系 - Notes for Ruby</title>
+  <title>Ex 34: 存取数组内元素 - Notes for Ruby</title>
   <meta name="author" content="Delbert">
 
   
-  <meta name="description" content="这一节是与、或、非的关系，之前有过程序基础或数字电路基础的同学可以略过。 稍微有点逻辑基础即可知道，但是这是以后编程的基础。
+  <meta name="description" content="这一节主要讲了下标/索引(index)的概念。 基本所有的程序语言的索引都是从 0 开始的，和人类的自然语言有所出入，使用的时候要注意。 Ruby 还提供了 first 和 last 等方便的方法，但是不经常使用。
 ">
   
 
@@ -19,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ruby.code.kekou.de//blog/ex27">
+  <link rel="canonical" href="http://ruby.code.kekou.de//blog/ex34">
   <link href="/favicon.ico" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Notes for Ruby" type="application/atom+xml">
@@ -69,7 +69,7 @@
   
   <header>
     
-      <h1 class="entry-title">Ex 27: 记忆逻辑关系</h1>
+      <h1 class="entry-title">Ex 34: 存取数组内元素</h1>
     
     
       <p class="meta">
@@ -85,7 +85,7 @@
   
 
 
-<time datetime="2014-04-03T21:09:38+08:00" pubdate data-updated="true">2014-Apr-03, 21:09:38, Thursday</time>
+<time datetime="2014-04-06T15:25:58+08:00" pubdate data-updated="true">2014-Apr-06, 15:25:58, Sunday</time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://ruby.code.kekou.de/">Comments</a>
@@ -95,12 +95,14 @@
   </header>
 
 
-<div class="entry-content"><p>这一节是<em>与</em>、<em>或</em>、<em>非</em>的关系，之前有过程序基础或数字电路基础的同学可以略过。</p>
+<div class="entry-content"><p>这一节主要讲了下标/索引(index)的概念。</p>
 
 <!--more-->
 
 
-<p>稍微有点逻辑基础即可知道，但是这是以后编程的基础。</p>
+<p>基本所有的程序语言的索引都是从 0 开始的，和人类的自然语言有所出入，使用的时候要注意。</p>
+
+<p>Ruby 还提供了 first 和 last 等方便的方法，但是不经常使用。</p>
 </div>
 
 
@@ -123,7 +125,7 @@
   
 
 
-<time datetime="2014-04-03T21:09:38+08:00" pubdate data-updated="true">2014-Apr-03, 21:09:38, Thursday</time>
+<time datetime="2014-04-06T15:25:58+08:00" pubdate data-updated="true">2014-Apr-06, 15:25:58, Sunday</time>
       
 
 <span class="categories">
@@ -144,10 +146,10 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/ex26/" title="Previous Post: Ex 26: 恭喜你，现在来考试啦！">&laquo; Ex 26: 恭喜你，现在来考试啦！</a>
+        <a class="basic-alignment left" href="/blog/ex33/" title="Previous Post: Ex 33: while循环">&laquo; Ex 33: while循环</a>
       
       
-        <a class="basic-alignment right" href="/blog/ex28/" title="Next Post: Ex 28: 布尔值表达式练习">Ex 28: 布尔值表达式练习 &raquo;</a>
+        <a class="basic-alignment right" href="/blog/ex35/" title="Next Post: Ex 35: 分支(branches)和函数(functions)">Ex 35: 分支(branches)和函数(functions) &raquo;</a>
       
     </p>
   </footer>
@@ -361,8 +363,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://ruby.code.kekou.de//blog/ex27/';
-        var disqus_url = 'http://ruby.code.kekou.de//blog/ex27/';
+        var disqus_identifier = 'http://ruby.code.kekou.de//blog/ex34/';
+        var disqus_url = 'http://ruby.code.kekou.de//blog/ex34/';
         var disqus_script = 'embed.js';
       
     (function () {

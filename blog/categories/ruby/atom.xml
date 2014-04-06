@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | Notes for Ruby]]></title>
   <link href="http://ruby.code.kekou.de//blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://ruby.code.kekou.de//"/>
-  <updated>2014-04-06T14:35:22+08:00</updated>
+  <updated>2014-04-06T17:15:55+08:00</updated>
   <id>http://ruby.code.kekou.de//</id>
   <author>
     <name><![CDATA[Delbert]]></name>
@@ -14,251 +14,319 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Ex 32: 循环和数组]]></title>
-    <link href="http://ruby.code.kekou.de//blog/ex32/"/>
-    <updated>2014-04-06T14:13:32+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/ex32</id>
-    <content type="html"><![CDATA[<p><code>array</code> 被翻译为<strong>阵列</strong>感觉怪怪的，但是简体中文里面的<strong>数组</strong>貌似也好不到什么地方去。</p>
+    <title type="html"><![CDATA[Ex 40: hash,可爱的 hash]]></title>
+    <link href="http://ruby.code.kekou.de//blog/ex40/"/>
+    <updated>2014-04-06T16:52:13+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/ex40</id>
+    <content type="html"><![CDATA[<p>Ruby 的 hash 是一种 key-value 类型的容器，可以通过 key 的值来索引到对应的 value。 Hash 是没有顺序的，不能通过 index 来得到对应的 value。 Hash 现在简体中文一般翻译为<strong>哈希</strong>。</p>
 
 <!--more-->
 
 
-<p><code>ruby 数组
-the_count = [1, 2, 3, 4, 5]
-fruits = ['apples', 'oranges', 'pears', 'apricots']
-change = [1, 'pennies', 2, 'dimes', 3, 'quarters']
-</code>
-数组是用方括号 <code>[]</code> 括起来，中间用逗号间隔的。</p>
+<p>可以直接在 irb 中这样定义一个数组：</p>
 
-<p>本节的循环是 <code>for</code> 循环。</p>
+<p><code>irb
+ruby-1.9.2-p180 :015 &gt; things = ['a','b','c','d']
+ =&gt; ["a", "b", "c", "d"]
+ruby-1.9.2-p180 :016 &gt; print things[1]
+b =&gt; nil
+ruby-1.9.2-p180 :017 &gt; things[1] = 'z'
+ =&gt; "z"
+ruby-1.9.2-p180 :018 &gt; print things[1]
+z =&gt; nil
+ruby-1.9.2-p180 :019 &gt; print things
+["a", "z", "c", "d"] =&gt; nil
+</code></p>
 
-<p>``` ruby ex32.rb //ruby.code.kekou.de/code/ex32.rb Download Code
-the_count = [1, 2, 3, 4, 5]
-fruits = [&lsquo;apples&rsquo;, &lsquo;oranges&rsquo;, &lsquo;pears&rsquo;, &lsquo;apricots&rsquo;]
-change = [1, &lsquo;pennies&rsquo;, 2, &lsquo;dimes&rsquo;, 3, &lsquo;quarters&rsquo;]</p>
+<p>实际上，数组相当于用数字来当 key 的 hash。当将数字替换为其他的东西之后，就变成了这样：</p>
 
-<h1>this first kind of for-loop goes through an array</h1>
+<p><code>irb
+ruby-1.9.2-p180 :001 &gt; stuff = {:name =&gt; "Rob", :age =&gt; 30, :height =&gt; 5*12+10}
+ =&gt; {:name=&gt;"Rob", :age=&gt;30, :height=&gt;70}
+ruby-1.9.2-p180 :002 &gt; puts stuff[:name]
+Rob
+ =&gt; nil
+ruby-1.9.2-p180 :003 &gt; puts stuff[:age]
+30
+ =&gt; nil
+ruby-1.9.2-p180 :004 &gt; puts stuff[:height]
+70
+ =&gt; nil
+ruby-1.9.2-p180 :005 &gt; stuff[:city] = "New York"
+ =&gt; "New York"
+ruby-1.9.2-p180 :006 &gt; puts stuff[:city]
+New York
+ =&gt; nil
+</code></p>
 
-<p>for number in the_count
-  puts &ldquo;This is count #{number}&rdquo;
-end</p>
+<p>当明确指明了对应的 k-w 之后，数字便不再是索引(index)，而变成了 key，例如：</p>
 
-<h1>same as above, but using a block instead</h1>
+<p><code>irb
+ruby-1.9.2-p180 :004 &gt; stuff[1] = "Wow"
+ =&gt; "Wow"
+ruby-1.9.2-p180 :005 &gt; stuff[2] = "Neato"
+ =&gt; "Neato"
+ruby-1.9.2-p180 :006 &gt; puts stuff[1]
+Wow
+ =&gt; nil
+ruby-1.9.2-p180 :007 &gt; puts stuff[2]
+Neato
+ =&gt; nil
+ruby-1.9.2-p180 :008 &gt; puts stuff
+{:name=&gt;"Rob", :age=&gt;30, :height=&gt;70, :city=&gt;"New York", 1=&gt;"Wow", 2=&gt;"Neato"}
+ =&gt; nil
+</code></p>
 
-<p>fruits.each do |fruit|
-  puts &ldquo;A fruit of type: #{fruit}&rdquo;
-end</p>
+<p>删除其中的元素也是通过调用 key 来实现的：</p>
 
-<h1>also we can go through mixed arrays too</h1>
+<p><code>irb
+ruby-1.9.2-p180 :009 &gt; stuff.delete(:city)
+ =&gt; "New York"
+ruby-1.9.2-p180 :010 &gt; stuff.delete(1)
+ =&gt; "Wow"
+ruby-1.9.2-p180 :011 &gt; stuff.delete(2)
+ =&gt; "Neato"
+ruby-1.9.2-p180 :012 &gt; stuff
+ =&gt; {:name=&gt;"Rob", :age=&gt;30, :height=&gt;70}
+</code></p>
 
-<p>for i in change
-  puts &ldquo;I got #{i}&rdquo;
-end</p>
-
-<h1>we can also build arrays, first start with an empty one</h1>
-
-<p>elements = []</p>
-
-<h1>then use a range object to do 0 to 5 counts</h1>
-
-<p>for i in (0..5)
-  puts &ldquo;Adding #{i} to the list.&rdquo;
-  # push is a function that arrays understand
-  elements.push(i)
-end</p>
-
-<h1>now we can puts them out too</h1>
-
-<p>for i in elements
-  puts &ldquo;Element was: #{i}&rdquo;
-end
-```</p>
-
-<p>注意符号范围符 <code>..</code> 和 <code>...</code> 的区别：前者包含对象的范围终点，而后者不包含。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ex 31: 做出决定]]></title>
-    <link href="http://ruby.code.kekou.de//blog/ex31/"/>
-    <updated>2014-04-06T14:06:10+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/ex31</id>
-    <content type="html"><![CDATA[<p>之前的函数都是 <code>顺序结构</code>，有 <code>if/else</code> 的是<code>分支结构</code>，剩下的一种是<code>循环结构</code>。所有的程序都是由这三种结构派生演变出来的。</p>
-
-<!--more-->
-
+<p>下面是通过 key 来查询对应州的名字的一段代码，我们完全可以自己写一个通过区号查地区的程序(好像工作量有点大)：</p>
 
 <p>``` ruby
-def prompt
-  print &ldquo;> &rdquo;
-end</p>
+cities = {&lsquo;CA&rsquo; => &lsquo;San Francisco&rsquo;,
+  &lsquo;MI&rsquo; => &lsquo;Detroit&rsquo;,
+  &lsquo;FL&rsquo; => &lsquo;Jacksonville&rsquo;}</p>
 
-<p>puts &ldquo;You enter a dark room with two doors.  Do you go through door #1 or door #2?&rdquo;</p>
+<p>cities[&lsquo;NY&rsquo;] = &lsquo;New York&rsquo;
+cities[&lsquo;OR&rsquo;] = &lsquo;Portland&rsquo;</p>
 
-<p>prompt; door = gets.chomp</p>
+<p>def find_city(map, state)
+  if map.include? state</p>
 
-<p>if door == &ldquo;1&rdquo;
-  puts &ldquo;There&rsquo;s a giant bear here eating a cheese cake.  What do you do?&rdquo;
-  puts &ldquo;1. Take the cake.&rdquo;
-  puts &ldquo;2. Scream at the bear.&rdquo;</p>
-
-<p>  prompt; bear = gets.chomp</p>
-
-<p>  if bear == &ldquo;1&rdquo;</p>
-
-<pre><code>puts "The bear eats your face off.  Good job!"
-</code></pre>
-
-<p>  elsif bear == &ldquo;2&rdquo;</p>
-
-<pre><code>puts "The bear eats your legs off.  Good job!"
+<pre><code>return map[state]
 </code></pre>
 
 <p>  else</p>
 
-<pre><code>puts "Well, doing #{bear} is probably better.  Bear runs away."
+<pre><code>return "Not found."
 </code></pre>
 
-<p>  end</p>
+<p>  end
+end</p>
 
-<p>elsif door == &ldquo;2&rdquo;
-  puts &ldquo;You stare into the endless abyss at Cthuhlu&rsquo;s retina.&rdquo;
-  puts &ldquo;1. Blueberries.&rdquo;
-  puts &ldquo;2. Yellow jacket clothespins.&rdquo;
-  puts &ldquo;3. Understanding revolvers yelling melodies.&rdquo;</p>
+<h1>ok pay attention!</h1>
 
-<p>  prompt; insanity = gets.chomp</p>
+<p>cities[:find] = method(:find_city)</p>
 
-<p>  if insanity == &ldquo;1&rdquo; or insanity == &ldquo;2&rdquo;</p>
+<p>while true
+  print &ldquo;State? (ENTER to quit) &rdquo;
+  state = gets.chomp</p>
 
-<pre><code>puts "Your body survives powered by a mind of jello.  Good job!"
-</code></pre>
+<p>  break if state.empty?</p>
 
-<p>  else</p>
-
-<pre><code>puts "The insanity rots your eyes into a pool of muck.  Good job!"
-</code></pre>
-
-<p>  end</p>
-
-<p>else
-  puts &ldquo;You stumble around and fall on a knife and die.  Good job!&rdquo;
+<p>  # this line is the most important ever! study!
+  puts cities[:find].call(cities, state)
 end
 ```</p>
-
-<p>判断用户所输入的，根据用户的输入来选择不同的分支。</p>
-
-<p>写在一行中的程序用 <code>;</code> 间隔，但是行末没有分号感觉好别扭啊。</p>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Ex 30: else 和 if]]></title>
-    <link href="http://ruby.code.kekou.de//blog/ex30/"/>
-    <updated>2014-04-06T14:01:47+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/ex30</id>
-    <content type="html"><![CDATA[<p>在上一节的基础上加上了 <code>else</code>，多了一个判断分支。</p>
+    <title type="html"><![CDATA[Ex 39: 数组的操作]]></title>
+    <link href="http://ruby.code.kekou.de//blog/ex39/"/>
+    <updated>2014-04-06T16:07:11+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/ex39</id>
+    <content type="html"><![CDATA[<p>本文说了一些数组的操作。</p>
 
 <!--more-->
 
 
 <p>``` ruby
-people = 30
-cars = 40
-buses = 15</p>
+ten_things = &ldquo;Apples Oranges Crows Telephone Light Sugar&rdquo;</p>
 
-<p>if cars > people
-  puts &ldquo;We should take the cars.&rdquo;
-elsif cars &lt; people
-  puts &ldquo;We should not take the cars.&rdquo;
-else
-  puts &ldquo;We can&rsquo;t decide.&rdquo;
+<p>puts &ldquo;Wait there&rsquo;s not 10 things in that list, let&rsquo;s fix that.&rdquo;</p>
+
+<p>stuff = ten_things.split(&lsquo; &rsquo;)
+more_stuff = %w(Day Night Song Frisbee Corn Banana Girl Boy)</p>
+
+<p>while stuff.length != 10
+  next_one = more_stuff.pop()
+  puts &ldquo;Adding: #{next_one}&rdquo;
+  stuff.push(next_one)
+  puts &ldquo;There&rsquo;s #{stuff.length} items now.&rdquo;
 end</p>
 
-<p>if buses > cars
-  puts &ldquo;That&rsquo;s too many buses.&rdquo;
-elsif buses &lt; cars
-  puts &ldquo;Maybe we could take the buses.&rdquo;
-else
-  puts &ldquo;We still can&rsquo;t decide.&rdquo;
-end</p>
+<p>puts &ldquo;There we go: #{stuff}&rdquo;</p>
 
-<p>if people > buses
-  puts &ldquo;Alright, let&rsquo;s just take the buses.&rdquo;
-else
-  puts &ldquo;Fine, let&rsquo;s stay home then.&rdquo;
-end
+<p>puts &ldquo;Let&rsquo;s do some things with stuff.&rdquo;</p>
+
+<p>puts stuff[1]
+puts stuff[-1] # whoa! fancy
+puts stuff.pop()
+puts stuff.join(&lsquo; &rsquo;) # what? cool!
+puts stuff.values_at(3,5).join(&lsquo;#&rsquo;) # super stellar!
 ```</p>
 
-<p>多了两个关键字：<code>elsif</code> 和 <code>else</code>。前者用于分支中还有判断的情况，后者用于最后一个分支，包含其他未被包含的所有情况。</p>
+<p>用到了 <code>split</code> <code>pop</code> <code>join</code> 等方法。</p>
+
+<ul>
+<li><code>split</code>: 一个最基本的字符串操作是把一个字符串分割成多个子字符串。</li>
+<li><code>pop</code>: 返回数组最后一个元素并删除。</li>
+<li><code>shift</code>: 返回数组第一个元素并删除，剩余元素依次提前。</li>
+<li><code>join</code>: 连接数组的元素。</li>
+</ul>
+
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Ex 29: 如果(if)]]></title>
-    <link href="http://ruby.code.kekou.de//blog/ex29/"/>
-    <updated>2014-04-06T13:56:24+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/ex29</id>
-    <content type="html"><![CDATA[<p><code>if</code> 是最基本的条件判断语句，虽然在不同语言中形式不同但是作用和思想都是一样的。</p>
+    <title type="html"><![CDATA[Ex 38: 阅读代码]]></title>
+    <link href="http://ruby.code.kekou.de//blog/ex38/"/>
+    <updated>2014-04-06T16:05:24+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/ex38</id>
+    <content type="html"><![CDATA[<p>和第 23 节的工作差不多，仍然是阅读代码。</p>
 
 <!--more-->
 
 
-<p>``` ruby
-people = 20
-cats = 30
-dogs = 15</p>
-
-<p>if people &lt; cats
-  puts &ldquo;Too many cats! The world is doomed!&rdquo;
-end</p>
-
-<p>if people > cats
-  puts &ldquo;Not many cats! The world is saved!&rdquo;
-end</p>
-
-<p>if people &lt; dogs
-  puts &ldquo;The world is drooled on!&rdquo;
-end</p>
-
-<p>if people > dogs
-  puts &ldquo;The world is dry!&rdquo;
-end</p>
-
-<p>dogs += 5</p>
-
-<p>if people >= dogs
-  puts &ldquo;People are greater than or equal to dogs.&rdquo;
-end</p>
-
-<p>if people &lt;= dogs
-  puts &ldquo;People are less than or equal to dogs.&rdquo;
-end</p>
-
-<p>if people == dogs
-  puts &ldquo;People are dogs.&rdquo;
-end
-```</p>
-
-<p>就不写运行后的输出了。</p>
-
-<p><code>if</code> 后面的条件为真，则执行与其对应的 <code>end</code> 之间的语句，否则直接跳过。注意 Ruby 是缩进两个空格，而且要严格执行缩进。</p>
+<p>不过这个阅读代码要尝试自己加上注释，尝试运行，尝试画出程序的流程图。</p>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Ex 28: 布尔值表达式练习]]></title>
-    <link href="http://ruby.code.kekou.de//blog/ex28/"/>
-    <updated>2014-04-03T21:09:44+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/ex28</id>
-    <content type="html"><![CDATA[<p>本节是用 IRB 进行交互练习。</p>
+    <title type="html"><![CDATA[Ex 37: 复习各种符号。]]></title>
+    <link href="http://ruby.code.kekou.de//blog/ex37/"/>
+    <updated>2014-04-06T15:55:43+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/ex37</id>
+    <content type="html"><![CDATA[<p>本节列出了 Ruby 的关键字，操作法等，可以自行复习或查阅资料了解。</p>
 
 <!--more-->
 
 
-<p>Delbert 建议到 Codecademy 上根据要求完成一些练习，以便加深印象。</p>
+<h3>关键字</h3>
 
-<p><a href="http://www.codecademy.com/tracks/ruby">http://www.codecademy.com/tracks/ruby</a></p>
+<ul>
+<li><code>alias</code></li>
+<li><code>and</code></li>
+<li><code>BEGIN</code></li>
+<li><code>begin</code></li>
+<li><code>break</code></li>
+<li><code>case</code></li>
+<li><code>class</code></li>
+<li><code>def</code></li>
+<li><code>defined?</code></li>
+<li><code>do</code></li>
+<li><code>else</code></li>
+<li><code>elsif</code></li>
+<li><code>END</code></li>
+<li><code>end</code></li>
+<li><code>ensure</code></li>
+<li><code>false</code></li>
+<li><code>for</code></li>
+<li><code>if</code></li>
+<li><code>in</code></li>
+<li><code>module</code></li>
+<li><code>next</code></li>
+<li><code>nil</code></li>
+<li><code>not</code></li>
+<li><code>or</code></li>
+<li><code>redo</code></li>
+<li><code>rescue</code></li>
+<li><code>retry</code></li>
+<li><code>return</code></li>
+<li><code>self</code></li>
+<li><code>super</code></li>
+<li><code>then</code></li>
+<li><code>true</code></li>
+<li><code>undef</code></li>
+<li><code>unless</code></li>
+<li><code>until</code></li>
+<li><code>when</code></li>
+<li><code>while</code></li>
+<li><code>yield</code></li>
+</ul>
+
+
+<h3>数据类型</h3>
+
+<ul>
+<li><code>true</code></li>
+<li><code>false</code></li>
+<li><code>nil</code></li>
+<li><code>constants</code></li>
+<li><code>strings</code></li>
+<li><code>numbers</code></li>
+<li><code>ranges</code></li>
+<li><code>arrays</code></li>
+<li><code>hashes</code></li>
+</ul>
+
+
+<h3>转义符</h3>
+
+<ul>
+<li><code>\\</code></li>
+<li><code>\'</code></li>
+<li><code>\"</code></li>
+<li><code>\a</code></li>
+<li><code>\b</code></li>
+<li><code>\f</code></li>
+<li><code>\n</code></li>
+<li><code>\r</code></li>
+<li><code>\t</code></li>
+<li><code>\v</code></li>
+</ul>
+
+
+<h3>操作符</h3>
+
+<ul>
+<li><code>::</code></li>
+<li><code>[]</code></li>
+<li><code>**</code></li>
+<li><code>-(unary)</code></li>
+<li><code>+(unary)</code></li>
+<li><code>!</code></li>
+<li><code>~</code></li>
+<li><code>*</code></li>
+<li><code>/</code></li>
+<li><code>%</code></li>
+<li><code>+</code></li>
+<li><code>-</code></li>
+<li><code>&lt;&lt;</code></li>
+<li><code>&gt;&gt;</code></li>
+<li><code>&amp;</code></li>
+<li><code>|</code></li>
+<li><code>&gt;</code></li>
+<li><code>&gt;=</code></li>
+<li><code>&lt;</code></li>
+<li><code>&lt;=</code></li>
+<li><code>&lt;=&gt;</code></li>
+<li><code>==</code></li>
+<li><code>===</code></li>
+<li><code>!=</code></li>
+<li><code>=~</code></li>
+<li><code>!~</code></li>
+<li><code>&amp;&amp;</code></li>
+<li><code>||</code></li>
+<li><code>..</code></li>
+<li><code>...</code></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 36: 设计和测试]]></title>
+    <link href="http://ruby.code.kekou.de//blog/ex36/"/>
+    <updated>2014-04-06T15:47:03+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/ex36</id>
+    <content type="html"><![CDATA[<p>本节写了一些设计和测试需要注意的地方，其他语言也应该同样注意。</p>
+
+<!--more-->
+
+
+<p>算是触类旁通吧。</p>
 ]]></content>
   </entry>
   

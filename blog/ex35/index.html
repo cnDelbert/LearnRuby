@@ -5,12 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Ex 27: 记忆逻辑关系 - Notes for Ruby</title>
+  <title>Ex 35: 分支(branches)和函数(functions) - Notes for Ruby</title>
   <meta name="author" content="Delbert">
 
   
-  <meta name="description" content="这一节是与、或、非的关系，之前有过程序基础或数字电路基础的同学可以略过。 稍微有点逻辑基础即可知道，但是这是以后编程的基础。
-">
+  <meta name="description" content="本节是前面几个练习的综合。 另：to_i 是 Ruby 中将字符串转换为数值的方法，该方法可以忽略数字以外的东西。 Interger() 的功能类似，但是如果输入数字以外的东西，则会报错。 以下来自 Ruby-China Interger: 1.9.3p0 :011 &gt; Integer(" &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ruby.code.kekou.de//blog/ex27">
+  <link rel="canonical" href="http://ruby.code.kekou.de//blog/ex35">
   <link href="/favicon.ico" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Notes for Ruby" type="application/atom+xml">
@@ -69,7 +68,7 @@
   
   <header>
     
-      <h1 class="entry-title">Ex 27: 记忆逻辑关系</h1>
+      <h1 class="entry-title">Ex 35: 分支(branches)和函数(functions)</h1>
     
     
       <p class="meta">
@@ -85,7 +84,7 @@
   
 
 
-<time datetime="2014-04-03T21:09:38+08:00" pubdate data-updated="true">2014-Apr-03, 21:09:38, Thursday</time>
+<time datetime="2014-04-06T15:31:17+08:00" pubdate data-updated="true">2014-Apr-06, 15:31:17, Sunday</time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://ruby.code.kekou.de/">Comments</a>
@@ -95,12 +94,34 @@
   </header>
 
 
-<div class="entry-content"><p>这一节是<em>与</em>、<em>或</em>、<em>非</em>的关系，之前有过程序基础或数字电路基础的同学可以略过。</p>
+<div class="entry-content"><p>本节是前面几个练习的综合。</p>
 
 <!--more-->
 
 
-<p>稍微有点逻辑基础即可知道，但是这是以后编程的基础。</p>
+<p>另：<code>to_i</code> 是 Ruby 中将字符串转换为数值的方法，该方法可以忽略数字以外的东西。 <code>Interger()</code> 的功能类似，但是如果输入数字以外的东西，则会报错。</p>
+
+<p>以下来自 <a href="http://ruby-china.org/topics/1227">Ruby-China</a></p>
+
+<blockquote><p>Interger:</p></blockquote>
+
+<pre><code>1.9.3p0 :011 &gt; Integer("123")
+ =&gt; 123 
+1.9.3p0 :012 &gt; Integer("123hello")
+ArgumentError: invalid value for Integer(): "123hello"
+</code></pre>
+
+<blockquote><p>to_i</p></blockquote>
+
+<pre><code>1.9.2p290 :006 &gt; "123t".to_i
+ =&gt; 123 
+1.9.2p290 :007 &gt; "t".to_i
+ =&gt; 0 
+1.9.2p290 :008 &gt; "".to_i
+ =&gt; 0 
+1.9.2p290 :009 &gt; nil.to_i
+ =&gt; 0 
+</code></pre>
 </div>
 
 
@@ -123,7 +144,7 @@
   
 
 
-<time datetime="2014-04-03T21:09:38+08:00" pubdate data-updated="true">2014-Apr-03, 21:09:38, Thursday</time>
+<time datetime="2014-04-06T15:31:17+08:00" pubdate data-updated="true">2014-Apr-06, 15:31:17, Sunday</time>
       
 
 <span class="categories">
@@ -144,10 +165,10 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/ex26/" title="Previous Post: Ex 26: 恭喜你，现在来考试啦！">&laquo; Ex 26: 恭喜你，现在来考试啦！</a>
+        <a class="basic-alignment left" href="/blog/ex34/" title="Previous Post: Ex 34: 存取数组内元素">&laquo; Ex 34: 存取数组内元素</a>
       
       
-        <a class="basic-alignment right" href="/blog/ex28/" title="Next Post: Ex 28: 布尔值表达式练习">Ex 28: 布尔值表达式练习 &raquo;</a>
+        <a class="basic-alignment right" href="/blog/ex36/" title="Next Post: Ex 36: 设计和测试">Ex 36: 设计和测试 &raquo;</a>
       
     </p>
   </footer>
@@ -361,8 +382,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://ruby.code.kekou.de//blog/ex27/';
-        var disqus_url = 'http://ruby.code.kekou.de//blog/ex27/';
+        var disqus_identifier = 'http://ruby.code.kekou.de//blog/ex35/';
+        var disqus_url = 'http://ruby.code.kekou.de//blog/ex35/';
         var disqus_script = 'embed.js';
       
     (function () {

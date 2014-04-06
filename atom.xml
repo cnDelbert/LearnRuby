@@ -4,7 +4,7 @@
   <title><![CDATA[Notes for Ruby]]></title>
   <link href="http://ruby.code.kekou.de//atom.xml" rel="self"/>
   <link href="http://ruby.code.kekou.de//"/>
-  <updated>2014-04-06T14:35:22+08:00</updated>
+  <updated>2014-04-06T17:15:55+08:00</updated>
   <id>http://ruby.code.kekou.de//</id>
   <author>
     <name><![CDATA[Delbert]]></name>
@@ -12,6 +12,520 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 40: hash,可爱的 hash]]></title>
+    <link href="http://ruby.code.kekou.de//blog/ex40/"/>
+    <updated>2014-04-06T16:52:13+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/ex40</id>
+    <content type="html"><![CDATA[<p>Ruby 的 hash 是一种 key-value 类型的容器，可以通过 key 的值来索引到对应的 value。 Hash 是没有顺序的，不能通过 index 来得到对应的 value。 Hash 现在简体中文一般翻译为<strong>哈希</strong>。</p>
+
+<!--more-->
+
+
+<p>可以直接在 irb 中这样定义一个数组：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='irb'><span class='line'><span class="go">ruby-1.9.2-p180 :015 &gt; things = [&#39;a&#39;,&#39;b&#39;,&#39;c&#39;,&#39;d&#39;]</span>
+</span><span class='line'><span class="go"> =&gt; [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;]</span>
+</span><span class='line'><span class="go">ruby-1.9.2-p180 :016 &gt; print things[1]</span>
+</span><span class='line'><span class="go">b =&gt; nil</span>
+</span><span class='line'><span class="go">ruby-1.9.2-p180 :017 &gt; things[1] = &#39;z&#39;</span>
+</span><span class='line'><span class="go"> =&gt; &quot;z&quot;</span>
+</span><span class='line'><span class="go">ruby-1.9.2-p180 :018 &gt; print things[1]</span>
+</span><span class='line'><span class="go">z =&gt; nil</span>
+</span><span class='line'><span class="go">ruby-1.9.2-p180 :019 &gt; print things</span>
+</span><span class='line'><span class="go">[&quot;a&quot;, &quot;z&quot;, &quot;c&quot;, &quot;d&quot;] =&gt; nil</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>实际上，数组相当于用数字来当 key 的 hash。当将数字替换为其他的东西之后，就变成了这样：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='irb'><span class='line'><span class="go">ruby-1.9.2-p180 :001 &gt; stuff = {:name =&gt; &quot;Rob&quot;, :age =&gt; 30, :height =&gt; 5*12+10}</span>
+</span><span class='line'><span class="go"> =&gt; {:name=&gt;&quot;Rob&quot;, :age=&gt;30, :height=&gt;70}</span>
+</span><span class='line'><span class="go">ruby-1.9.2-p180 :002 &gt; puts stuff[:name]</span>
+</span><span class='line'><span class="go">Rob</span>
+</span><span class='line'><span class="go"> =&gt; nil</span>
+</span><span class='line'><span class="go">ruby-1.9.2-p180 :003 &gt; puts stuff[:age]</span>
+</span><span class='line'><span class="go">30</span>
+</span><span class='line'><span class="go"> =&gt; nil</span>
+</span><span class='line'><span class="go">ruby-1.9.2-p180 :004 &gt; puts stuff[:height]</span>
+</span><span class='line'><span class="go">70</span>
+</span><span class='line'><span class="go"> =&gt; nil</span>
+</span><span class='line'><span class="go">ruby-1.9.2-p180 :005 &gt; stuff[:city] = &quot;New York&quot;</span>
+</span><span class='line'><span class="go"> =&gt; &quot;New York&quot;</span>
+</span><span class='line'><span class="go">ruby-1.9.2-p180 :006 &gt; puts stuff[:city]</span>
+</span><span class='line'><span class="go">New York</span>
+</span><span class='line'><span class="go"> =&gt; nil</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>当明确指明了对应的 k-w 之后，数字便不再是索引(index)，而变成了 key，例如：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='irb'><span class='line'><span class="go">ruby-1.9.2-p180 :004 &gt; stuff[1] = &quot;Wow&quot;</span>
+</span><span class='line'><span class="go"> =&gt; &quot;Wow&quot;</span>
+</span><span class='line'><span class="go">ruby-1.9.2-p180 :005 &gt; stuff[2] = &quot;Neato&quot;</span>
+</span><span class='line'><span class="go"> =&gt; &quot;Neato&quot;</span>
+</span><span class='line'><span class="go">ruby-1.9.2-p180 :006 &gt; puts stuff[1]</span>
+</span><span class='line'><span class="go">Wow</span>
+</span><span class='line'><span class="go"> =&gt; nil</span>
+</span><span class='line'><span class="go">ruby-1.9.2-p180 :007 &gt; puts stuff[2]</span>
+</span><span class='line'><span class="go">Neato</span>
+</span><span class='line'><span class="go"> =&gt; nil</span>
+</span><span class='line'><span class="go">ruby-1.9.2-p180 :008 &gt; puts stuff</span>
+</span><span class='line'><span class="go">{:name=&gt;&quot;Rob&quot;, :age=&gt;30, :height=&gt;70, :city=&gt;&quot;New York&quot;, 1=&gt;&quot;Wow&quot;, 2=&gt;&quot;Neato&quot;}</span>
+</span><span class='line'><span class="go"> =&gt; nil</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>删除其中的元素也是通过调用 key 来实现的：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='irb'><span class='line'><span class="go">ruby-1.9.2-p180 :009 &gt; stuff.delete(:city)</span>
+</span><span class='line'><span class="go"> =&gt; &quot;New York&quot;</span>
+</span><span class='line'><span class="go">ruby-1.9.2-p180 :010 &gt; stuff.delete(1)</span>
+</span><span class='line'><span class="go"> =&gt; &quot;Wow&quot;</span>
+</span><span class='line'><span class="go">ruby-1.9.2-p180 :011 &gt; stuff.delete(2)</span>
+</span><span class='line'><span class="go"> =&gt; &quot;Neato&quot;</span>
+</span><span class='line'><span class="go">ruby-1.9.2-p180 :012 &gt; stuff</span>
+</span><span class='line'><span class="go"> =&gt; {:name=&gt;&quot;Rob&quot;, :age=&gt;30, :height=&gt;70}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>下面是通过 key 来查询对应州的名字的一段代码，我们完全可以自己写一个通过区号查地区的程序(好像工作量有点大)：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">cities</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;CA&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;San Francisco&#39;</span><span class="p">,</span>
+</span><span class='line'>  <span class="s1">&#39;MI&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Detroit&#39;</span><span class="p">,</span>
+</span><span class='line'>  <span class="s1">&#39;FL&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Jacksonville&#39;</span><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">cities</span><span class="o">[</span><span class="s1">&#39;NY&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="s1">&#39;New York&#39;</span>
+</span><span class='line'><span class="n">cities</span><span class="o">[</span><span class="s1">&#39;OR&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="s1">&#39;Portland&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">def</span> <span class="nf">find_city</span><span class="p">(</span><span class="n">map</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">if</span> <span class="n">map</span><span class="o">.</span><span class="n">include?</span> <span class="n">state</span>
+</span><span class='line'>    <span class="k">return</span> <span class="n">map</span><span class="o">[</span><span class="n">state</span><span class="o">]</span>
+</span><span class='line'>  <span class="k">else</span>
+</span><span class='line'>    <span class="k">return</span> <span class="s2">&quot;Not found.&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># ok pay attention!</span>
+</span><span class='line'><span class="n">cities</span><span class="o">[</span><span class="ss">:find</span><span class="o">]</span> <span class="o">=</span> <span class="nb">method</span><span class="p">(</span><span class="ss">:find_city</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">while</span> <span class="kp">true</span>
+</span><span class='line'>  <span class="nb">print</span> <span class="s2">&quot;State? (ENTER to quit) &quot;</span>
+</span><span class='line'>  <span class="n">state</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">break</span> <span class="k">if</span> <span class="n">state</span><span class="o">.</span><span class="n">empty?</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># this line is the most important ever! study!</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="n">cities</span><span class="o">[</span><span class="ss">:find</span><span class="o">].</span><span class="n">call</span><span class="p">(</span><span class="n">cities</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 39: 数组的操作]]></title>
+    <link href="http://ruby.code.kekou.de//blog/ex39/"/>
+    <updated>2014-04-06T16:07:11+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/ex39</id>
+    <content type="html"><![CDATA[<p>本文说了一些数组的操作。</p>
+
+<!--more-->
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">ten_things</span> <span class="o">=</span> <span class="s2">&quot;Apples Oranges Crows Telephone Light Sugar&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Wait there&#39;s not 10 things in that list, let&#39;s fix that.&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">stuff</span> <span class="o">=</span> <span class="n">ten_things</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+</span><span class='line'><span class="n">more_stuff</span> <span class="o">=</span> <span class="sx">%w(Day Night Song Frisbee Corn Banana Girl Boy)</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">while</span> <span class="n">stuff</span><span class="o">.</span><span class="n">length</span> <span class="o">!=</span> <span class="mi">10</span>
+</span><span class='line'>  <span class="n">next_one</span> <span class="o">=</span> <span class="n">more_stuff</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;Adding: </span><span class="si">#{</span><span class="n">next_one</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'>  <span class="n">stuff</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">next_one</span><span class="p">)</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;There&#39;s </span><span class="si">#{</span><span class="n">stuff</span><span class="o">.</span><span class="n">length</span><span class="si">}</span><span class="s2"> items now.&quot;</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;There we go: </span><span class="si">#{</span><span class="n">stuff</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Let&#39;s do some things with stuff.&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="n">stuff</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span>
+</span><span class='line'><span class="nb">puts</span> <span class="n">stuff</span><span class="o">[-</span><span class="mi">1</span><span class="o">]</span> <span class="c1"># whoa! fancy</span>
+</span><span class='line'><span class="nb">puts</span> <span class="n">stuff</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+</span><span class='line'><span class="nb">puts</span> <span class="n">stuff</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span> <span class="c1"># what? cool!</span>
+</span><span class='line'><span class="nb">puts</span> <span class="n">stuff</span><span class="o">.</span><span class="n">values_at</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;#&#39;</span><span class="p">)</span> <span class="c1"># super stellar!</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>用到了 <code>split</code> <code>pop</code> <code>join</code> 等方法。</p>
+
+<ul>
+<li><code>split</code>: 一个最基本的字符串操作是把一个字符串分割成多个子字符串。</li>
+<li><code>pop</code>: 返回数组最后一个元素并删除。</li>
+<li><code>shift</code>: 返回数组第一个元素并删除，剩余元素依次提前。</li>
+<li><code>join</code>: 连接数组的元素。</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 38: 阅读代码]]></title>
+    <link href="http://ruby.code.kekou.de//blog/ex38/"/>
+    <updated>2014-04-06T16:05:24+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/ex38</id>
+    <content type="html"><![CDATA[<p>和第 23 节的工作差不多，仍然是阅读代码。</p>
+
+<!--more-->
+
+
+<p>不过这个阅读代码要尝试自己加上注释，尝试运行，尝试画出程序的流程图。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 37: 复习各种符号。]]></title>
+    <link href="http://ruby.code.kekou.de//blog/ex37/"/>
+    <updated>2014-04-06T15:55:43+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/ex37</id>
+    <content type="html"><![CDATA[<p>本节列出了 Ruby 的关键字，操作法等，可以自行复习或查阅资料了解。</p>
+
+<!--more-->
+
+
+<h3>关键字</h3>
+
+<ul>
+<li><code>alias</code></li>
+<li><code>and</code></li>
+<li><code>BEGIN</code></li>
+<li><code>begin</code></li>
+<li><code>break</code></li>
+<li><code>case</code></li>
+<li><code>class</code></li>
+<li><code>def</code></li>
+<li><code>defined?</code></li>
+<li><code>do</code></li>
+<li><code>else</code></li>
+<li><code>elsif</code></li>
+<li><code>END</code></li>
+<li><code>end</code></li>
+<li><code>ensure</code></li>
+<li><code>false</code></li>
+<li><code>for</code></li>
+<li><code>if</code></li>
+<li><code>in</code></li>
+<li><code>module</code></li>
+<li><code>next</code></li>
+<li><code>nil</code></li>
+<li><code>not</code></li>
+<li><code>or</code></li>
+<li><code>redo</code></li>
+<li><code>rescue</code></li>
+<li><code>retry</code></li>
+<li><code>return</code></li>
+<li><code>self</code></li>
+<li><code>super</code></li>
+<li><code>then</code></li>
+<li><code>true</code></li>
+<li><code>undef</code></li>
+<li><code>unless</code></li>
+<li><code>until</code></li>
+<li><code>when</code></li>
+<li><code>while</code></li>
+<li><code>yield</code></li>
+</ul>
+
+
+<h3>数据类型</h3>
+
+<ul>
+<li><code>true</code></li>
+<li><code>false</code></li>
+<li><code>nil</code></li>
+<li><code>constants</code></li>
+<li><code>strings</code></li>
+<li><code>numbers</code></li>
+<li><code>ranges</code></li>
+<li><code>arrays</code></li>
+<li><code>hashes</code></li>
+</ul>
+
+
+<h3>转义符</h3>
+
+<ul>
+<li><code>\\</code></li>
+<li><code>\'</code></li>
+<li><code>\"</code></li>
+<li><code>\a</code></li>
+<li><code>\b</code></li>
+<li><code>\f</code></li>
+<li><code>\n</code></li>
+<li><code>\r</code></li>
+<li><code>\t</code></li>
+<li><code>\v</code></li>
+</ul>
+
+
+<h3>操作符</h3>
+
+<ul>
+<li><code>::</code></li>
+<li><code>[]</code></li>
+<li><code>**</code></li>
+<li><code>-(unary)</code></li>
+<li><code>+(unary)</code></li>
+<li><code>!</code></li>
+<li><code>~</code></li>
+<li><code>*</code></li>
+<li><code>/</code></li>
+<li><code>%</code></li>
+<li><code>+</code></li>
+<li><code>-</code></li>
+<li><code>&lt;&lt;</code></li>
+<li><code>&gt;&gt;</code></li>
+<li><code>&amp;</code></li>
+<li><code>|</code></li>
+<li><code>&gt;</code></li>
+<li><code>&gt;=</code></li>
+<li><code>&lt;</code></li>
+<li><code>&lt;=</code></li>
+<li><code>&lt;=&gt;</code></li>
+<li><code>==</code></li>
+<li><code>===</code></li>
+<li><code>!=</code></li>
+<li><code>=~</code></li>
+<li><code>!~</code></li>
+<li><code>&amp;&amp;</code></li>
+<li><code>||</code></li>
+<li><code>..</code></li>
+<li><code>...</code></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 36: 设计和测试]]></title>
+    <link href="http://ruby.code.kekou.de//blog/ex36/"/>
+    <updated>2014-04-06T15:47:03+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/ex36</id>
+    <content type="html"><![CDATA[<p>本节写了一些设计和测试需要注意的地方，其他语言也应该同样注意。</p>
+
+<!--more-->
+
+
+<p>算是触类旁通吧。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 35: 分支(branches)和函数(functions)]]></title>
+    <link href="http://ruby.code.kekou.de//blog/ex35/"/>
+    <updated>2014-04-06T15:31:17+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/ex35</id>
+    <content type="html"><![CDATA[<p>本节是前面几个练习的综合。</p>
+
+<!--more-->
+
+
+<p>另：<code>to_i</code> 是 Ruby 中将字符串转换为数值的方法，该方法可以忽略数字以外的东西。 <code>Interger()</code> 的功能类似，但是如果输入数字以外的东西，则会报错。</p>
+
+<p>以下来自 <a href="http://ruby-china.org/topics/1227">Ruby-China</a></p>
+
+<blockquote><p>Interger:</p></blockquote>
+
+<pre><code>1.9.3p0 :011 &gt; Integer("123")
+ =&gt; 123 
+1.9.3p0 :012 &gt; Integer("123hello")
+ArgumentError: invalid value for Integer(): "123hello"
+</code></pre>
+
+<blockquote><p>to_i</p></blockquote>
+
+<pre><code>1.9.2p290 :006 &gt; "123t".to_i
+ =&gt; 123 
+1.9.2p290 :007 &gt; "t".to_i
+ =&gt; 0 
+1.9.2p290 :008 &gt; "".to_i
+ =&gt; 0 
+1.9.2p290 :009 &gt; nil.to_i
+ =&gt; 0 
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 34: 存取数组内元素]]></title>
+    <link href="http://ruby.code.kekou.de//blog/ex34/"/>
+    <updated>2014-04-06T15:25:58+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/ex34</id>
+    <content type="html"><![CDATA[<p>这一节主要讲了下标/索引(index)的概念。</p>
+
+<!--more-->
+
+
+<p>基本所有的程序语言的索引都是从 0 开始的，和人类的自然语言有所出入，使用的时候要注意。</p>
+
+<p>Ruby 还提供了 first 和 last 等方便的方法，但是不经常使用。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 33: while循环]]></title>
+    <link href="http://ruby.code.kekou.de//blog/ex33/"/>
+    <updated>2014-04-06T14:38:27+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/ex33</id>
+    <content type="html"><![CDATA[<p>本节讲的是 <code>while</code> 循环。<code>while</code> 循环只要后面的条件为真就会一直循环，直到条件改变为假时才会停止。因此，如果不小心将后面的条件设置为永远为真，将会陷入死循环。</p>
+
+<!--more-->
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span class='line'><span class="n">numbers</span> <span class="o">=</span> <span class="o">[]</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">6</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;At the top i is </span><span class="si">#{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'>  <span class="n">numbers</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;Numbers now: </span><span class="si">#{</span><span class="n">numbers</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;At the bottom i is </span><span class="si">#{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;The numbers: &quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">for</span> <span class="n">num</span> <span class="k">in</span> <span class="n">numbers</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="n">num</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>就是这样，喵~</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Ex 32: 循环和数组]]></title>
@@ -108,6 +622,9 @@
 
 
 <p>注意符号范围符 <code>..</code> 和 <code>...</code> 的区别：前者包含对象的范围终点，而后者不包含。</p>
+
+<pre><code>elements = (0..5) # assign `(0..5)` directly to `elements`
+</code></pre>
 ]]></content>
   </entry>
   
@@ -973,687 +1490,6 @@ MULTIPLYING 180 * 25
 SUBTRACTING 74 - 4500
 ADDING 35 + -4426
 That becomes: -4391 Can you do it by hand?
-</code></pre>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ex 20: 函数和文件]]></title>
-    <link href="http://ruby.code.kekou.de//blog/ex20/"/>
-    <updated>2014-04-03T14:54:15+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/ex20</id>
-    <content type="html"><![CDATA[<p>这一节是写了用来操作文件的函数，包括输出指定行，从头输出等方法。</p>
-
-<!--more-->
-
-
-
-
-<figure class='code'><figcaption><span>ex20.rb</span><a href='//ruby.code.kekou.de/code/ex20.rb'>Download Code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">input_file</span> <span class="o">=</span> <span class="no">ARGV</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">def</span> <span class="nf">print_all</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">def</span> <span class="nf">rewind</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-</span><span class='line'>  <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="ss">IO</span><span class="p">:</span><span class="ss">:SEEK_SET</span><span class="p">)</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">def</span> <span class="nf">print_a_line</span><span class="p">(</span><span class="n">line_count</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">line_count</span><span class="si">}</span><span class="s2"> </span><span class="si">#{</span><span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">current_file</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">input_file</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;First let&#39;s print the whole file:&quot;</span>
-</span><span class='line'><span class="nb">puts</span> <span class="c1"># a blank line</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">print_all</span><span class="p">(</span><span class="n">current_file</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Now let&#39;s rewind, kind of like a tape.&quot;</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">rewind</span><span class="p">(</span><span class="n">current_file</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Let&#39;s print three lines:&quot;</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">current_line</span> <span class="o">=</span> <span class="mi">1</span>
-</span><span class='line'><span class="n">print_a_line</span><span class="p">(</span><span class="n">current_line</span><span class="p">,</span> <span class="n">current_file</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">current_line</span> <span class="o">=</span> <span class="n">current_line</span> <span class="o">+</span> <span class="mi">1</span>
-</span><span class='line'><span class="n">print_a_line</span><span class="p">(</span><span class="n">current_line</span><span class="p">,</span> <span class="n">current_file</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">current_line</span> <span class="o">=</span> <span class="n">current_line</span> <span class="o">+</span> <span class="mi">1</span>
-</span><span class='line'><span class="n">print_a_line</span><span class="p">(</span><span class="n">current_line</span><span class="p">,</span> <span class="n">current_file</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>执行后输出：</p>
-
-<pre><code>$ruby ex20.rb ex16_sample.txt
-First let's print the whole file:
-
-Line One.
-Line Two.
-Line Three.
-Now let's rewind, kind of like a tape.
-Let's print three lines:
-1 Line One.
-2 Line Two.
-3 Line Three.
-</code></pre>
-
-<p>注释直接写在<a href="//ruby.code.kekou.de/code/ex20.rb" title="源码">源码</a>里面了。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ex 19: 函数和变量]]></title>
-    <link href="http://ruby.code.kekou.de//blog/ex19/"/>
-    <updated>2014-04-03T14:29:29+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/ex19</id>
-    <content type="html"><![CDATA[<p>这一节涉及到函数和变量，准确来说是形参和实参的关系。简单来说，怎样给参数赋值不影响函数的表达。</p>
-
-<!--more-->
-
-
-
-
-<figure class='code'><figcaption><span>ex19.rb</span><a href='//ruby.code.kekou.de/code/ex19.rb'>Download Code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">cheese_and_crackers</span><span class="p">(</span><span class="n">cheese_count</span><span class="p">,</span> <span class="n">boxes_of_crackers</span><span class="p">)</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;You have </span><span class="si">#{</span><span class="n">cheese_count</span><span class="si">}</span><span class="s2"> cheeses!&quot;</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;You have </span><span class="si">#{</span><span class="n">boxes_of_crackers</span><span class="si">}</span><span class="s2"> boxes of crackers!&quot;</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;Man that&#39;s enough for a party!&quot;</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;Get a blanket.&quot;</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="c1"># a blank line</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;We can just give the function numbers directly:&quot;</span>
-</span><span class='line'><span class="n">cheese_and_crackers</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;OR, we can use variables from our script:&quot;</span>
-</span><span class='line'><span class="n">amount_of_cheese</span> <span class="o">=</span> <span class="mi">10</span>
-</span><span class='line'><span class="n">amount_of_crackers</span> <span class="o">=</span> <span class="mi">50</span>
-</span><span class='line'><span class="n">cheese_and_crackers</span><span class="p">(</span><span class="n">amount_of_cheese</span><span class="p">,</span> <span class="n">amount_of_crackers</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;We can even do math inside too:&quot;</span>
-</span><span class='line'><span class="n">cheese_and_crackers</span><span class="p">(</span><span class="mi">10</span> <span class="o">+</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">5</span> <span class="o">+</span> <span class="mi">6</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;And we can combine the two, variables and math:&quot;</span>
-</span><span class='line'><span class="n">cheese_and_crackers</span><span class="p">(</span><span class="n">amount_of_cheese</span> <span class="o">+</span> <span class="mi">100</span><span class="p">,</span> <span class="n">amount_of_crackers</span> <span class="o">+</span> <span class="mi">1000</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>输出</p>
-
-<pre><code>$ruby ex19.rb
-We can just give the function numbers directly:
-You have 20 cheeses!
-You have 30 boxes of crackers!
-Man that's enough for a party!
-Get a blanket.
-
-OR, we can use variables from our script:
-You have 10 cheeses!
-You have 50 boxes of crackers!
-Man that's enough for a party!
-Get a blanket.
-
-We can even do math inside too:
-You have 30 cheeses!
-You have 11 boxes of crackers!
-Man that's enough for a party!
-Get a blanket.
-
-And we can combine the two, variables and math:
-You have 110 cheeses!
-You have 1050 boxes of crackers!
-Man that's enough for a party!
-Get a blanket.
-
-$
-</code></pre>
-
-<p>繁体版最后少加了一个空行。对应<a href="//ruby.code.kekou.de/code/ex19.rb" title="源码">源码</a>就能知道是怎么执行的了。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ex 18: 命名、变量、代码、函数]]></title>
-    <link href="http://ruby.code.kekou.de//blog/ex18/"/>
-    <updated>2014-04-03T12:00:04+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/ex18</id>
-    <content type="html"><![CDATA[<p>这一节要接触函数了，用 <code>def</code> 关键字和 Python 真是像呢。话说，真的是松本看不惯 Python 才写的 Ruby 么？</p>
-
-<!--more-->
-
-
-
-
-<figure class='code'><figcaption><span>ex18.rb</span><a href='//ruby.code.kekou.de/code/ex18.rb'>Download Code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># this one is like your scripts with argv</span>
-</span><span class='line'><span class="k">def</span> <span class="nf">puts_two</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
-</span><span class='line'>  <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span> <span class="o">=</span> <span class="n">args</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;arg1: </span><span class="si">#{</span><span class="n">arg1</span><span class="si">}</span><span class="s2">, arg2: </span><span class="si">#{</span><span class="n">arg2</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1"># ok, that *args is actually pointless, we can just do this</span>
-</span><span class='line'><span class="k">def</span> <span class="nf">puts_two_again</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">)</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;arg1: </span><span class="si">#{</span><span class="n">arg1</span><span class="si">}</span><span class="s2">, arg2: </span><span class="si">#{</span><span class="n">arg2</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1"># this just takes one argument</span>
-</span><span class='line'><span class="k">def</span> <span class="nf">puts_one</span><span class="p">(</span><span class="n">arg1</span><span class="p">)</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;arg1: </span><span class="si">#{</span><span class="n">arg1</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1"># this one takes no arguments</span>
-</span><span class='line'><span class="k">def</span> <span class="nf">puts_none</span><span class="p">()</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;I got nothin&#39;.&quot;</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">puts_two</span><span class="p">(</span><span class="s2">&quot;Zed&quot;</span><span class="p">,</span><span class="s2">&quot;Shaw&quot;</span><span class="p">)</span>
-</span><span class='line'><span class="n">puts_two_again</span><span class="p">(</span><span class="s2">&quot;Zed&quot;</span><span class="p">,</span><span class="s2">&quot;Shaw&quot;</span><span class="p">)</span>
-</span><span class='line'><span class="n">puts_one</span><span class="p">(</span><span class="s2">&quot;First!&quot;</span><span class="p">)</span>
-</span><span class='line'><span class="n">puts_none</span><span class="p">()</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>定义了四个函数，第一个是用指针方式指定了参数个数，剩余三个则是指定了有限个参数个数。最后调用执行这四个函数。</p>
-
-<ol>
-<li>函数定义是以 <code>def</code> 开始的；</li>
-<li>Ruby 的规范是以小写字符和 <code>_</code> 下划线来进行连接；</li>
-<li>函数名后紧接左括号；</li>
-<li>多个参数时应用英文逗号隔开；</li>
-<li>参数结束后要用英文右括号结束；</li>
-<li>函数体要进行缩进两个空格(Delbert 自己更习惯用一个 Tab)；</li>
-<li>与相应的 <code>def</code> 对齐的地方要有 <code>end</code> 来完成函数。</li>
-</ol>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ex 17: 更多文件操作]]></title>
-    <link href="http://ruby.code.kekou.de//blog/ex17/"/>
-    <updated>2014-04-03T09:45:55+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/ex17</id>
-    <content type="html"><![CDATA[<p>本节进行文件内容的复制。</p>
-
-<!--more-->
-
-
-
-
-<figure class='code'><figcaption><span>ex17.rb</span><a href='//ruby.code.kekou.de/code/ex17.rb'>Download Code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">from_file</span><span class="p">,</span> <span class="n">to_file</span> <span class="o">=</span> <span class="no">ARGV</span>
-</span><span class='line'><span class="n">script</span> <span class="o">=</span> <span class="vg">$0</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Copying from </span><span class="si">#{</span><span class="n">from_file</span><span class="si">}</span><span class="s2"> to </span><span class="si">#{</span><span class="n">to_file</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1"># we could do these two on one line too, how?</span>
-</span><span class='line'><span class="n">input</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">from_file</span><span class="p">)</span>
-</span><span class='line'><span class="n">indata</span> <span class="o">=</span> <span class="n">input</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-</span><span class='line'><span class="c1"># input = File.open(from_file).read() </span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;The input file is </span><span class="si">#{</span><span class="n">indata</span><span class="o">.</span><span class="n">length</span><span class="si">}</span><span class="s2"> bytes long&quot;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Does the output file exist? </span><span class="si">#{</span><span class="no">File</span><span class="o">.</span><span class="n">exists?</span> <span class="n">to_file</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Ready, hit RETURN to continue, CTRL-C to abort.&quot;</span>
-</span><span class='line'><span class="no">STDIN</span><span class="o">.</span><span class="n">gets</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">output</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">to_file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
-</span><span class='line'><span class="n">output</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">indata</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Alright, all done.&quot;</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">output</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</span><span class='line'><span class="n">input</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>执行该文件的时候需要两个参数，输入文件和输出文件。</p>
-
-<p>我使用了上一节的文本</p>
-
-<pre><code>$ruby ex17.rb ex16_sample.txt ex17_sample.txt
-Copying from ex16_sample.txt to ex17_sample.txt
-The input file is 31 bytes long
-Does the output file exist? false
-Ready, hit RETURN to continue, CTRL-C to abort.
-
-Alright, all done.
-</code></pre>
-
-<p>你可以用 Linux 下的 <code>cat</code> 命令，我也可以用 Windows 下的 <code>COPY</code> 命令来完成复制。</p>
-
-<p>如果没有 <code>close()</code> 是不会保存文件的吧。</p>
-
-<p>至于改写程序，我是这样改写的，最后只用一行完成，测试执行可用。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">File</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="no">ARGV</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="no">File</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="no">ARGV</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
-</span></code></pre></td></tr></table></div></figure>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ex 16: 读写文件]]></title>
-    <link href="http://ruby.code.kekou.de//blog/ex16/"/>
-    <updated>2014-04-03T09:45:48+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/ex16</id>
-    <content type="html"><![CDATA[<p>继续文件的读写。本节代码如下：</p>
-
-<!--more-->
-
-
-
-
-<figure class='code'><figcaption><span>ex16.rb</span><a href='//ruby.code.kekou.de/code/ex16.rb'>Download Code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">filename</span> <span class="o">=</span> <span class="no">ARGV</span><span class="o">.</span><span class="n">first</span>
-</span><span class='line'><span class="c1">#script = $0</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;We&#39;re going to erase </span><span class="si">#{</span><span class="n">filename</span><span class="si">}</span><span class="s2">.&quot;</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;If you don&#39;t want that, hit CTRL-C (^C).&quot;</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;If you do want that, hit RETURN.&quot;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">print</span> <span class="s2">&quot;? &quot;</span>
-</span><span class='line'><span class="no">STDIN</span><span class="o">.</span><span class="n">gets</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Opening the file...&quot;</span>
-</span><span class='line'><span class="n">target</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Truncating the file.  Goodbye!&quot;</span>
-</span><span class='line'><span class="n">target</span><span class="o">.</span><span class="n">truncate</span><span class="p">(</span><span class="n">target</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Now I&#39;m going to ask you for three lines.&quot;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">print</span> <span class="s2">&quot;line 1: &quot;</span><span class="p">;</span> <span class="n">line1</span> <span class="o">=</span> <span class="no">STDIN</span><span class="o">.</span><span class="n">gets</span><span class="o">.</span><span class="n">chomp</span><span class="p">()</span>
-</span><span class='line'><span class="nb">print</span> <span class="s2">&quot;line 2: &quot;</span><span class="p">;</span> <span class="n">line2</span> <span class="o">=</span> <span class="no">STDIN</span><span class="o">.</span><span class="n">gets</span><span class="o">.</span><span class="n">chomp</span><span class="p">()</span>
-</span><span class='line'><span class="nb">print</span> <span class="s2">&quot;line 3: &quot;</span><span class="p">;</span> <span class="n">line3</span> <span class="o">=</span> <span class="no">STDIN</span><span class="o">.</span><span class="n">gets</span><span class="o">.</span><span class="n">chomp</span><span class="p">()</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;I&#39;m going to write these to the file.&quot;</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">#target.write(line1)</span>
-</span><span class='line'><span class="c1">#target.write(&quot;\n&quot;)</span>
-</span><span class='line'><span class="c1">#target.write(line2)</span>
-</span><span class='line'><span class="c1">#target.write(&quot;\n&quot;)</span>
-</span><span class='line'><span class="c1">#target.write(line3)</span>
-</span><span class='line'><span class="c1">#target.write(&quot;\n&quot;)</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">contents</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">line1</span><span class="si">}</span><span class="se">\n</span><span class="si">#{</span><span class="n">line2</span><span class="si">}</span><span class="se">\n</span><span class="si">#{</span><span class="n">line3</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span class='line'><span class="n">target</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">contents</span><span class="p">)</span> <span class="c1"># Write the contents with one target.write()</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;And finally, we close it.&quot;</span>
-</span><span class='line'><span class="n">target</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>运行命令</p>
-
-<pre><code>$ruby ex16.rb ex16_sample.txt
-We're going to erase ex16_sample.txt.
-If you don't want that, hit CTRL-C (^C).
-If you do want that, hit RETURN.
-?
-Opening the file...
-Truncating the file.  Goodbye!
-Now I'm going to ask you for three lines.
-line 1: Line One.
-line 2: Line Two.
-line 3: Line Three.
-I'm going to write these to the file.
-And finally, we close it.
-
-$cat ex16_sample.txt // replace "cat" with "type" if you use Windows
-Line One.
-Line Two.
-Line Three.
-</code></pre>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ex 15: 读取文件]]></title>
-    <link href="http://ruby.code.kekou.de//blog/ex15/"/>
-    <updated>2014-04-03T09:15:30+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/ex15</id>
-    <content type="html"><![CDATA[<p>从一个文本文件中读取内容，并显示在屏幕上。</p>
-
-<!--more-->
-
-
-
-
-<figure class='code'><figcaption><span>ex15_sample.txt</span><a href='//ruby.code.kekou.de/code/ex15_sample.txt'>Download Code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='text'><span class='line'>This is stuff I typed into a file.
-</span><span class='line'>It is really cool stuff.
-</span><span class='line'>Lots and lots of fun to have in here.
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>程序片段如下</p>
-
-<figure class='code'><figcaption><span>ex15.rb</span><a href='//ruby.code.kekou.de/code/ex15.rb'>Download Code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">filename</span> <span class="o">=</span> <span class="no">ARGV</span><span class="o">.</span><span class="n">first</span>    <span class="c1"># get the first argument.</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;&gt; &quot;</span>  <span class="c1"># as the sign of tip</span>
-</span><span class='line'><span class="n">txt</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>    <span class="c1"># open the file #{filename}</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Here&#39;s your file: </span><span class="si">#{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span> <span class="c1"># print the #{filename} with a line feed</span>
-</span><span class='line'><span class="nb">puts</span> <span class="n">txt</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>   <span class="c1"># print the contents out</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Type the filename again:&quot;</span> <span class="c1"># input the name of the file</span>
-</span><span class='line'><span class="nb">print</span> <span class="n">prompt</span>   <span class="c1"># sign of the input tip</span>
-</span><span class='line'><span class="n">file_again</span> <span class="o">=</span> <span class="no">STDIN</span><span class="o">.</span><span class="n">gets</span><span class="o">.</span><span class="n">chomp</span><span class="p">()</span>  <span class="c1"># get the filename without a line feed</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">txt_again</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">file_again</span><span class="p">)</span>    <span class="c1"># get the contents</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="n">txt_again</span><span class="o">.</span><span class="n">read</span><span class="p">()</span> <span class="c1"># and print it out</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>命令提示符中输出如下：</p>
-
-<pre><code>$ruby ex15.rb ex15_sample.txt
-Here's your file: ex15_sample.txt
-This is stuff I typed into a file.
-It is really cool stuff.
-Lots and lots of fun to have in here.
-Type the filename again:
-&gt; ex15_sample.txt
-This is stuff I typed into a file.
-It is really cool stuff.
-Lots and lots of fun to have in here.
-</code></pre>
-
-<p>删掉使用 <code>STDIN.gets</code> 的部分后，提示：</p>
-
-<pre><code>$ruby ex15.rb ex15_sample.txt
-Here's your file: ex15_sample.txt
-This is stuff I typed into a file.
-It is really cool stuff.
-Lots and lots of fun to have in here.
-Type the filename again:
-&gt; ex15.rb:13:in `&lt;main&gt;': undefined local variable or method `file_again' for ma
-in:Object (NameError)
-</code></pre>
-
-<p>也就是说并不是编译后再执行， Ruby 是一种运行时的语言。</p>
-
-<p>PowerShell 中是有 <code>cat</code> 命令的， CMD 命令行中没有。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ex 14: 提示和传递]]></title>
-    <link href="http://ruby.code.kekou.de//blog/ex14/"/>
-    <updated>2014-04-02T22:31:29+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/ex14</id>
-    <content type="html"><![CDATA[<p>感觉标题怪怪的，又感觉看到 <code>prompt</code> 不像是 ruby ，倒像是 JavaScript 了呢。</p>
-
-<!--more-->
-
-
-
-
-<figure class='code'><figcaption><span>ex14.rb</span><a href='//ruby.code.kekou.de/code/ex14.rb'>Download Code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">user</span> <span class="o">=</span> <span class="no">ARGV</span><span class="o">.</span><span class="n">first</span>
-</span><span class='line'><span class="n">prompt</span> <span class="o">=</span> <span class="s1">&#39;&gt; &#39;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Hi </span><span class="si">#{</span><span class="n">user</span><span class="si">}</span><span class="s2">, I&#39;m the </span><span class="si">#{</span><span class="vg">$0</span><span class="si">}</span><span class="s2"> script.&quot;</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;I&#39;d like to ask you a few questions.&quot;</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Do you like me </span><span class="si">#{</span><span class="n">user</span><span class="si">}</span><span class="s2">?&quot;</span>
-</span><span class='line'><span class="nb">print</span> <span class="n">prompt</span>
-</span><span class='line'><span class="n">likes</span> <span class="o">=</span> <span class="no">STDIN</span><span class="o">.</span><span class="n">gets</span><span class="o">.</span><span class="n">chomp</span><span class="p">()</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Where do you live </span><span class="si">#{</span><span class="n">user</span><span class="si">}</span><span class="s2">?&quot;</span>
-</span><span class='line'><span class="nb">print</span> <span class="n">prompt</span>
-</span><span class='line'><span class="n">lives</span> <span class="o">=</span> <span class="no">STDIN</span><span class="o">.</span><span class="n">gets</span><span class="o">.</span><span class="n">chomp</span><span class="p">()</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;What kind of computer do you have?&quot;</span>
-</span><span class='line'><span class="nb">print</span> <span class="n">prompt</span>
-</span><span class='line'><span class="n">computer</span> <span class="o">=</span> <span class="no">STDIN</span><span class="o">.</span><span class="n">gets</span><span class="o">.</span><span class="n">chomp</span><span class="p">()</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="o">&lt;&lt;</span><span class="no">MESSAGE</span>
-</span><span class='line'><span class="sh">Alright, so you said #{likes} about liking me.</span>
-</span><span class='line'><span class="sh">You live in #{lives}.  Not sure where that is.</span>
-</span><span class='line'><span class="sh">And you have a #{computer} computer.  Nice.</span>
-</span><span class='line'><span class="no">MESSAGE</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>交互式输出，因为使用 <code>&gt;</code> 作为输入提示符，所以其后是我所输入的内容：</p>
-
-<pre><code>$ruby ex14.rb Delbert
-Hi Delbert, I'm the ex14.rb script.
-I'd like to ask you a few questions.
-Do you like me Delbert?
-&gt; Yes
-Where do you live Delbert?
-&gt; Wuhan/Jinan
-What kind of computer do you have?
-&gt; ASUS A41I and MacBook Air
-Alright, so you said Yes about liking me.
-You live in Wuhan/Jinan.  Not sure where that is.
-And you have a ASUS A41I and MacBook Air computer.  Nice.
-</code></pre>
-
-<p>先通过 <code>#{user}</code> 获取 <code>ARGV</code> 的第一个参数，并使用变量替换。使用<code>文件语法</code>输入的时候也可以进行替换。用 <code>STDIN</code> 是因为 <code>gets.chomp</code> 默认会取程序而不是后面的参数。</p>
-
-<p>使用变量的好处就是可以只替换其初始化的地方就可以完成整个的替换。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ex 13: 参数、解包、变量]]></title>
-    <link href="http://ruby.code.kekou.de//blog/ex13/"/>
-    <updated>2014-04-02T21:10:45+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/ex13</id>
-    <content type="html"><![CDATA[<p>不知道 lrthw 繁体版是什么原因，<em>参数</em>两个汉字写了一遍简体，一遍繁体。</p>
-
-<!--more-->
-
-
-<blockquote><p>Update: 看了一下英文原版，原文是 “Parameters, Unpacking, Variables”，估计是翻译的时候一时走神了吧，但是他已经不再维护这个 repo 了啊……</p></blockquote>
-
-<figure class='code'><figcaption><span>ex13.rb</span><a href='//ruby.code.kekou.de/code/ex13.rb'>Download Code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">,</span> <span class="n">third</span> <span class="o">=</span> <span class="no">ARGV</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;The script is called: </span><span class="si">#{</span><span class="vg">$0</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Your first variable is: </span><span class="si">#{</span><span class="n">first</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Your second variable is: </span><span class="si">#{</span><span class="n">second</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Your third variable is: </span><span class="si">#{</span><span class="n">third</span><span class="si">}</span><span class="s2">&quot;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>其实有 <code>C++</code> 的基础的话，很好理解的。和 <code>int argc, char** argv</code> 里面的 <code>argv</code> 是一个道理，理解了参数就好。第 0 个参数是程序/脚本本身。</p>
-
-<p>什么都不写，直接运行的话，输出：</p>
-
-<pre><code>The script is called: ex13.rb
-Your first variable is: 
-Your second variable is: 
-Your third variable is:
 </code></pre>
 ]]></content>
   </entry>
