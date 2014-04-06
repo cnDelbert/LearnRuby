@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | Notes for Ruby]]></title>
   <link href="http://ruby.code.kekou.de//blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://ruby.code.kekou.de//"/>
-  <updated>2014-04-03T21:32:07+08:00</updated>
+  <updated>2014-04-06T14:35:22+08:00</updated>
   <id>http://ruby.code.kekou.de//</id>
   <author>
     <name><![CDATA[Delbert]]></name>
@@ -12,6 +12,239 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 32: 循环和数组]]></title>
+    <link href="http://ruby.code.kekou.de//blog/ex32/"/>
+    <updated>2014-04-06T14:13:32+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/ex32</id>
+    <content type="html"><![CDATA[<p><code>array</code> 被翻译为<strong>阵列</strong>感觉怪怪的，但是简体中文里面的<strong>数组</strong>貌似也好不到什么地方去。</p>
+
+<!--more-->
+
+
+<p><code>ruby 数组
+the_count = [1, 2, 3, 4, 5]
+fruits = ['apples', 'oranges', 'pears', 'apricots']
+change = [1, 'pennies', 2, 'dimes', 3, 'quarters']
+</code>
+数组是用方括号 <code>[]</code> 括起来，中间用逗号间隔的。</p>
+
+<p>本节的循环是 <code>for</code> 循环。</p>
+
+<p>``` ruby ex32.rb //ruby.code.kekou.de/code/ex32.rb Download Code
+the_count = [1, 2, 3, 4, 5]
+fruits = [&lsquo;apples&rsquo;, &lsquo;oranges&rsquo;, &lsquo;pears&rsquo;, &lsquo;apricots&rsquo;]
+change = [1, &lsquo;pennies&rsquo;, 2, &lsquo;dimes&rsquo;, 3, &lsquo;quarters&rsquo;]</p>
+
+<h1>this first kind of for-loop goes through an array</h1>
+
+<p>for number in the_count
+  puts &ldquo;This is count #{number}&rdquo;
+end</p>
+
+<h1>same as above, but using a block instead</h1>
+
+<p>fruits.each do |fruit|
+  puts &ldquo;A fruit of type: #{fruit}&rdquo;
+end</p>
+
+<h1>also we can go through mixed arrays too</h1>
+
+<p>for i in change
+  puts &ldquo;I got #{i}&rdquo;
+end</p>
+
+<h1>we can also build arrays, first start with an empty one</h1>
+
+<p>elements = []</p>
+
+<h1>then use a range object to do 0 to 5 counts</h1>
+
+<p>for i in (0..5)
+  puts &ldquo;Adding #{i} to the list.&rdquo;
+  # push is a function that arrays understand
+  elements.push(i)
+end</p>
+
+<h1>now we can puts them out too</h1>
+
+<p>for i in elements
+  puts &ldquo;Element was: #{i}&rdquo;
+end
+```</p>
+
+<p>注意符号范围符 <code>..</code> 和 <code>...</code> 的区别：前者包含对象的范围终点，而后者不包含。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 31: 做出决定]]></title>
+    <link href="http://ruby.code.kekou.de//blog/ex31/"/>
+    <updated>2014-04-06T14:06:10+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/ex31</id>
+    <content type="html"><![CDATA[<p>之前的函数都是 <code>顺序结构</code>，有 <code>if/else</code> 的是<code>分支结构</code>，剩下的一种是<code>循环结构</code>。所有的程序都是由这三种结构派生演变出来的。</p>
+
+<!--more-->
+
+
+<p>``` ruby
+def prompt
+  print &ldquo;> &rdquo;
+end</p>
+
+<p>puts &ldquo;You enter a dark room with two doors.  Do you go through door #1 or door #2?&rdquo;</p>
+
+<p>prompt; door = gets.chomp</p>
+
+<p>if door == &ldquo;1&rdquo;
+  puts &ldquo;There&rsquo;s a giant bear here eating a cheese cake.  What do you do?&rdquo;
+  puts &ldquo;1. Take the cake.&rdquo;
+  puts &ldquo;2. Scream at the bear.&rdquo;</p>
+
+<p>  prompt; bear = gets.chomp</p>
+
+<p>  if bear == &ldquo;1&rdquo;</p>
+
+<pre><code>puts "The bear eats your face off.  Good job!"
+</code></pre>
+
+<p>  elsif bear == &ldquo;2&rdquo;</p>
+
+<pre><code>puts "The bear eats your legs off.  Good job!"
+</code></pre>
+
+<p>  else</p>
+
+<pre><code>puts "Well, doing #{bear} is probably better.  Bear runs away."
+</code></pre>
+
+<p>  end</p>
+
+<p>elsif door == &ldquo;2&rdquo;
+  puts &ldquo;You stare into the endless abyss at Cthuhlu&rsquo;s retina.&rdquo;
+  puts &ldquo;1. Blueberries.&rdquo;
+  puts &ldquo;2. Yellow jacket clothespins.&rdquo;
+  puts &ldquo;3. Understanding revolvers yelling melodies.&rdquo;</p>
+
+<p>  prompt; insanity = gets.chomp</p>
+
+<p>  if insanity == &ldquo;1&rdquo; or insanity == &ldquo;2&rdquo;</p>
+
+<pre><code>puts "Your body survives powered by a mind of jello.  Good job!"
+</code></pre>
+
+<p>  else</p>
+
+<pre><code>puts "The insanity rots your eyes into a pool of muck.  Good job!"
+</code></pre>
+
+<p>  end</p>
+
+<p>else
+  puts &ldquo;You stumble around and fall on a knife and die.  Good job!&rdquo;
+end
+```</p>
+
+<p>判断用户所输入的，根据用户的输入来选择不同的分支。</p>
+
+<p>写在一行中的程序用 <code>;</code> 间隔，但是行末没有分号感觉好别扭啊。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 30: else 和 if]]></title>
+    <link href="http://ruby.code.kekou.de//blog/ex30/"/>
+    <updated>2014-04-06T14:01:47+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/ex30</id>
+    <content type="html"><![CDATA[<p>在上一节的基础上加上了 <code>else</code>，多了一个判断分支。</p>
+
+<!--more-->
+
+
+<p>``` ruby
+people = 30
+cars = 40
+buses = 15</p>
+
+<p>if cars > people
+  puts &ldquo;We should take the cars.&rdquo;
+elsif cars &lt; people
+  puts &ldquo;We should not take the cars.&rdquo;
+else
+  puts &ldquo;We can&rsquo;t decide.&rdquo;
+end</p>
+
+<p>if buses > cars
+  puts &ldquo;That&rsquo;s too many buses.&rdquo;
+elsif buses &lt; cars
+  puts &ldquo;Maybe we could take the buses.&rdquo;
+else
+  puts &ldquo;We still can&rsquo;t decide.&rdquo;
+end</p>
+
+<p>if people > buses
+  puts &ldquo;Alright, let&rsquo;s just take the buses.&rdquo;
+else
+  puts &ldquo;Fine, let&rsquo;s stay home then.&rdquo;
+end
+```</p>
+
+<p>多了两个关键字：<code>elsif</code> 和 <code>else</code>。前者用于分支中还有判断的情况，后者用于最后一个分支，包含其他未被包含的所有情况。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 29: 如果(if)]]></title>
+    <link href="http://ruby.code.kekou.de//blog/ex29/"/>
+    <updated>2014-04-06T13:56:24+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/ex29</id>
+    <content type="html"><![CDATA[<p><code>if</code> 是最基本的条件判断语句，虽然在不同语言中形式不同但是作用和思想都是一样的。</p>
+
+<!--more-->
+
+
+<p>``` ruby
+people = 20
+cats = 30
+dogs = 15</p>
+
+<p>if people &lt; cats
+  puts &ldquo;Too many cats! The world is doomed!&rdquo;
+end</p>
+
+<p>if people > cats
+  puts &ldquo;Not many cats! The world is saved!&rdquo;
+end</p>
+
+<p>if people &lt; dogs
+  puts &ldquo;The world is drooled on!&rdquo;
+end</p>
+
+<p>if people > dogs
+  puts &ldquo;The world is dry!&rdquo;
+end</p>
+
+<p>dogs += 5</p>
+
+<p>if people >= dogs
+  puts &ldquo;People are greater than or equal to dogs.&rdquo;
+end</p>
+
+<p>if people &lt;= dogs
+  puts &ldquo;People are less than or equal to dogs.&rdquo;
+end</p>
+
+<p>if people == dogs
+  puts &ldquo;People are dogs.&rdquo;
+end
+```</p>
+
+<p>就不写运行后的输出了。</p>
+
+<p><code>if</code> 后面的条件为真，则执行与其对应的 <code>end</code> 之间的语句，否则直接跳过。注意 Ruby 是缩进两个空格，而且要严格执行缩进。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Ex 28: 布尔值表达式练习]]></title>
@@ -26,325 +259,6 @@
 <p>Delbert 建议到 Codecademy 上根据要求完成一些练习，以便加深印象。</p>
 
 <p><a href="http://www.codecademy.com/tracks/ruby">http://www.codecademy.com/tracks/ruby</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ex 27: 记忆逻辑关系]]></title>
-    <link href="http://ruby.code.kekou.de//blog/ex27/"/>
-    <updated>2014-04-03T21:09:38+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/ex27</id>
-    <content type="html"><![CDATA[<p>这一节是<em>与</em>、<em>或</em>、<em>非</em>的关系，之前有过程序基础或数字电路基础的同学可以略过。</p>
-
-<!--more-->
-
-
-<p>稍微有点逻辑基础即可知道，但是这是以后编程的基础。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ex 26: 恭喜你，现在来考试啦！]]></title>
-    <link href="http://ruby.code.kekou.de//blog/ex26/"/>
-    <updated>2014-04-03T19:59:14+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/ex26</id>
-    <content type="html"><![CDATA[<p>从官网下载一个文本，将其修改正确能够运行。</p>
-
-<!--more-->
-
-
-<p>``` ruby ex26.rb //ruby.code.kekou.de/code/ex26.rb Download Code</p>
-
-<h1>This function will break up words for us.</h1>
-
-<p>def break_words(stuff)</p>
-
-<pre><code>words = stuff.split(' ')
-return words
-</code></pre>
-
-<p>end</p>
-
-<h1>Sorts the words.</h1>
-
-<p>def sort_words(words)</p>
-
-<pre><code>return sorted(words)
-</code></pre>
-
-<p>end</p>
-
-<h1>Prints the first word after popping it off.</h1>
-
-<p>def puts_first_word(words)</p>
-
-<pre><code>word = words.poop(0)
-puts word
-</code></pre>
-
-<p>end</p>
-
-<h1>Prints the last word after popping it off.</h1>
-
-<p>def puts_last_word(words)</p>
-
-<pre><code>word = words.pop(-1
-puts word
-</code></pre>
-
-<p>end</p>
-
-<h1>Takes in a full sentence and returns the sorted words.</h1>
-
-<p>def sort_sentence(sentence)</p>
-
-<pre><code>words = break_words(sentence)
-return sort_words(words)
-</code></pre>
-
-<p>end</p>
-
-<h1>Puts the first and last words of the sentence.</h1>
-
-<p>def puts_first_and_last(sentence)</p>
-
-<pre><code>words = break_words(sentence)
-puts_first_word(words)
-puts_last_word(words)
-</code></pre>
-
-<p>end</p>
-
-<h1>Sorts the words then prints the first and last one.</h1>
-
-<p>def puts_first_and_last_sorted(sentence)</p>
-
-<pre><code>words = sort_sentence(sentence)
-puts_first_word(words)
-puts_last_word(words)
-</code></pre>
-
-<p>end</p>
-
-<p>puts &ldquo;Let&rsquo;s practice everything.&rdquo;
-puts &lsquo;You\&rsquo;d need to know \'bout escapes with \ that do \n newlines and \t tabs.&rsquo;</p>
-
-<p>poem = &lt;&lt;POEM
-\tThe lovely world
-with logic so firmly planted
-cannot discern \n the needs of love
-nor comprehend passion from intuition
-and requires an explantion
-\n\t\twhere there is none.
-POEM</p>
-
-<p>puts &ldquo;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&rdquo;
-puts poem
-puts &ldquo;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&rdquo;</p>
-
-<p>five = 10 &ndash; 2 + 3 &ndash; 5
-puts &ldquo;This should be five: %s&rdquo; % five</p>
-
-<p>def secret_formula(started)</p>
-
-<pre><code>jelly_beans = started * 500
-jars = jelly_beans \ 1000
-crates = jars / 100
-return jelly_beans, jars, crates
-</code></pre>
-
-<p>end</p>
-
-<p>start_point = 10000
-beans, jars, crates == secret_formula(start-point)</p>
-
-<p>puts &ldquo;With a starting point of: %d&rdquo; % start_point
-puts &ldquo;We&rsquo;d have %d jeans, %d jars, and %d crates.&rdquo; % (beans, jars, crates)</p>
-
-<p>start_point = start_point / 10</p>
-
-<p>puts &ldquo;We can also do that this way:&rdquo;
-puts &ldquo;We&rsquo;d have %d beans, %d jars, and %d crabapples.&rdquo; % secret_formula(start_pont</p>
-
-<p>sentence = &ldquo;All god\tthings come to those who weight.&rdquo;</p>
-
-<p>words = ex25.break_words(sentence)
-sorted_words = ex25.sort_words(words)</p>
-
-<p>puts_first_word(words)
-puts_last_word(words)
-.puts_first_word(sorted_words)
-puts_last_word(sorted_words)
-sorted_words = ex25.sort_sentence(sentence)
-prin sorted_words</p>
-
-<p>puts_irst_and_last(sentence)</p>
-
-<p>puts_first_a_last_sorted(senence)
-```</p>
-
-<p>也就是上面这段代码了。</p>
-
-<p>Delbert 将修改后的代码放在<a href="//ruby.code.kekou.de/code/ex26-correct.rb" title="修改后源码">这里</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ex 25: 更多更多的练习]]></title>
-    <link href="http://ruby.code.kekou.de//blog/ex25/"/>
-    <updated>2014-04-03T19:37:49+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/ex25</id>
-    <content type="html"><![CDATA[<p>本节的内容给封装成一个模块(Module)了，是可以调用的哦。</p>
-
-<!--more-->
-
-
-<p>``` ruby ex25.rb //ruby.code.kekou.de/code/ex25.rb Download Code
-module Ex25
-  def self.break_words(stuff)</p>
-
-<pre><code># This function will break up words for us.
-words = stuff.split(' ')
-words
-</code></pre>
-
-<p>  end</p>
-
-<p>  def self.sort_words(words)</p>
-
-<pre><code># Sorts the words.
-words.sort()
-</code></pre>
-
-<p>  end</p>
-
-<p>  def self.print_first_word(words)</p>
-
-<pre><code># Prints the first word and shifts the others down by one.
-word = words.shift()
-puts word
-</code></pre>
-
-<p>  end</p>
-
-<p>  def self.print_last_word(words)</p>
-
-<pre><code># Prints the last word after popping it off the end.
-word = words.pop()
-puts word
-</code></pre>
-
-<p>  end</p>
-
-<p>  def self.sort_sentence(sentence)</p>
-
-<pre><code># Takes in a full sentence and returns the sorted words.
-words = break_words(sentence)
-sort_words(words)
-</code></pre>
-
-<p>  end</p>
-
-<p>  def self.print_first_and_last(sentence)</p>
-
-<pre><code># Prints the first and last words of the sentence.
-words = break_words(sentence)
-print_first_word(words)
-print_last_word(words)
-</code></pre>
-
-<p>  end</p>
-
-<p>  def self.print_first_and_last_sorted(sentence)</p>
-
-<pre><code># Sorts the words then prints the first and last one.
-words = sort_sentence(sentence)
-print_first_word(words)
-print_last_word(words)
-</code></pre>
-
-<p>  end
-end
-```</p>
-
-<p>注意这里正常方式运行，是没有任何输出的。因为内部都是函数，却没有任何调用。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ex 24: 更多练习]]></title>
-    <link href="http://ruby.code.kekou.de//blog/ex24/"/>
-    <updated>2014-04-03T16:04:23+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/ex24</id>
-    <content type="html"><![CDATA[<p>就是将之前的给综合起来了，这一节明确使用了 <code>return</code> 关键字。</p>
-
-<!--more-->
-
-
-<p>``` ruby ex24.rb //ruby.code.kekou.de/code/ex24.rb Download Code
-puts &ldquo;Let&rsquo;s practice everything.&rdquo;
-puts &ldquo;You\&rsquo;d need to know \&lsquo;bout escapes with \ that do \n newlines and \t tabs.&rdquo;</p>
-
-<p>poem = &lt;&lt;MULTI_LINE_STRING</p>
-
-<p>\tThe lovely world
-with logic so firmly planted
-cannot discern \n the needs of love
-nor comprehend passion from intuition
-and requires an explanation
-\n\t\twhere there is none.</p>
-
-<p>MULTI_LINE_STRING</p>
-
-<p>puts &ldquo;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&rdquo;
-puts poem
-puts &ldquo;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&rdquo;</p>
-
-<p>five = 10 &ndash; 2 + 3 &ndash; 6
-puts &ldquo;This should be five: #{five}&rdquo;</p>
-
-<p>def secret_formula(started)
-  jelly_beans = started * 500
-  jars = jelly_beans / 1000
-  crates = jars / 100
-  return jelly_beans, jars, crates
-end</p>
-
-<p>start_point = 10000
-beans, jars, crates = secret_formula(start_point)</p>
-
-<p>puts &ldquo;With a starting point of: #{start_point}&rdquo;
-puts &ldquo;We&rsquo;d have #{beans} beans, #{jars} jars, and #{crates} crates.&rdquo;</p>
-
-<p>start_point = start_point / 10</p>
-
-<p>puts &ldquo;We can also do that this way:&rdquo;
-puts &ldquo;We&rsquo;d have %s beans, %s jars, and %s crates.&rdquo; % secret_formula(start_point)
-```</p>
-
-<p>输出</p>
-
-<pre><code>Let's practice everything.
-You'd need to know 'bout escapes with \ that do 
- newlines and    tabs.
---------------
-
-    The lovely world
-with logic so firmly planted
-cannot discern 
- the needs of love
-nor comprehend passion from intuition
-and requires an explanation
-
-        where there is none.
-
---------------
-This should be five: 5
-With a starting point of: 10000
-We'd have 5000000 beans, 5000 jars, and 50 crates.
-We can also do that this way:
-We'd have 500000 beans, 500 jars, and 5 crates.
-</code></pre>
 ]]></content>
   </entry>
   

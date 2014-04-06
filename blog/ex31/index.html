@@ -5,16 +5,42 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Ex 15: 读取文件 - Notes for Ruby</title>
+  <title>Ex 31: 做出决定 - Notes for Ruby</title>
   <meta name="author" content="Delbert">
 
   
-  <meta name="description" content="从一个文本文件中读取内容，并显示在屏幕上。 ex15_sample.txtDownload Code1
+  <meta name="description" content="之前的函数都是 顺序结构，有 if/else 的是分支结构，剩下的一种是循环结构。所有的程序都是由这三种结构派生演变出来的。 1
 2
 3
-This is stuff I typed into a file.
-It is really cool stuff.
-Lots and lots of fun to have in &hellip;">
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -23,7 +49,7 @@ Lots and lots of fun to have in &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ruby.code.kekou.de//blog/ex15">
+  <link rel="canonical" href="http://ruby.code.kekou.de//blog/ex31">
   <link href="/favicon.ico" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Notes for Ruby" type="application/atom+xml">
@@ -73,7 +99,7 @@ Lots and lots of fun to have in &hellip;">
   
   <header>
     
-      <h1 class="entry-title">Ex 15: 读取文件</h1>
+      <h1 class="entry-title">Ex 31: 做出决定</h1>
     
     
       <p class="meta">
@@ -89,7 +115,7 @@ Lots and lots of fun to have in &hellip;">
   
 
 
-<time datetime="2014-04-03T09:15:30+08:00" pubdate data-updated="true">2014-Apr-03, 09:15:30, Thursday</time>
+<time datetime="2014-04-06T14:06:10+08:00" pubdate data-updated="true">2014-Apr-06, 14:06:10, Sunday</time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://ruby.code.kekou.de/">Comments</a>
@@ -99,25 +125,14 @@ Lots and lots of fun to have in &hellip;">
   </header>
 
 
-<div class="entry-content"><p>从一个文本文件中读取内容，并显示在屏幕上。</p>
+<div class="entry-content"><p>之前的函数都是 <code>顺序结构</code>，有 <code>if/else</code> 的是<code>分支结构</code>，剩下的一种是<code>循环结构</code>。所有的程序都是由这三种结构派生演变出来的。</p>
 
 <!--more-->
 
 
 
 
-<figure class='code'><figcaption><span>ex15_sample.txt</span><a href='//ruby.code.kekou.de/code/ex15_sample.txt'>Download Code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='text'><span class='line'>This is stuff I typed into a file.
-</span><span class='line'>It is really cool stuff.
-</span><span class='line'>Lots and lots of fun to have in here.
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>程序片段如下</p>
-
-<figure class='code'><figcaption><span>ex15.rb</span><a href='//ruby.code.kekou.de/code/ex15.rb'>Download Code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -132,53 +147,77 @@ Lots and lots of fun to have in &hellip;">
 <span class='line-number'>13</span>
 <span class='line-number'>14</span>
 <span class='line-number'>15</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">filename</span> <span class="o">=</span> <span class="no">ARGV</span><span class="o">.</span><span class="n">first</span>    <span class="c1"># get the first argument.</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">prompt</span>
+</span><span class='line'>  <span class="nb">print</span> <span class="s2">&quot;&gt; &quot;</span>
+</span><span class='line'><span class="k">end</span>
 </span><span class='line'>
-</span><span class='line'><span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;&gt; &quot;</span>  <span class="c1"># as the sign of tip</span>
-</span><span class='line'><span class="n">txt</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>    <span class="c1"># open the file #{filename}</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;You enter a dark room with two doors.  Do you go through door #1 or door #2?&quot;</span>
 </span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Here&#39;s your file: </span><span class="si">#{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span> <span class="c1"># print the #{filename} with a line feed</span>
-</span><span class='line'><span class="nb">puts</span> <span class="n">txt</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>   <span class="c1"># print the contents out</span>
+</span><span class='line'><span class="n">prompt</span><span class="p">;</span> <span class="n">door</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
 </span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Type the filename again:&quot;</span> <span class="c1"># input the name of the file</span>
-</span><span class='line'><span class="nb">print</span> <span class="n">prompt</span>   <span class="c1"># sign of the input tip</span>
-</span><span class='line'><span class="n">file_again</span> <span class="o">=</span> <span class="no">STDIN</span><span class="o">.</span><span class="n">gets</span><span class="o">.</span><span class="n">chomp</span><span class="p">()</span>  <span class="c1"># get the filename without a line feed</span>
+</span><span class='line'><span class="k">if</span> <span class="n">door</span> <span class="o">==</span> <span class="s2">&quot;1&quot;</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;There&#39;s a giant bear here eating a cheese cake.  What do you do?&quot;</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;1. Take the cake.&quot;</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;2. Scream at the bear.&quot;</span>
 </span><span class='line'>
-</span><span class='line'><span class="n">txt_again</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">file_again</span><span class="p">)</span>    <span class="c1"># get the contents</span>
+</span><span class='line'>  <span class="n">prompt</span><span class="p">;</span> <span class="n">bear</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
 </span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="n">txt_again</span><span class="o">.</span><span class="n">read</span><span class="p">()</span> <span class="c1"># and print it out</span>
+</span><span class='line'>  <span class="k">if</span> <span class="n">bear</span> <span class="o">==</span> <span class="s2">&quot;1&quot;</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;The bear eats your face off.  Good job!&quot;</span>
+</span><span class='line'>  <span class="k">elsif</span> <span class="n">bear</span> <span class="o">==</span> <span class="s2">&quot;2&quot;</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;The bear eats your legs off.  Good job!&quot;</span>
+</span><span class='line'>  <span class="k">else</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;Well, doing </span><span class="si">#{</span><span class="n">bear</span><span class="si">}</span><span class="s2"> is probably better.  Bear runs away.&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">elsif</span> <span class="n">door</span> <span class="o">==</span> <span class="s2">&quot;2&quot;</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;You stare into the endless abyss at Cthuhlu&#39;s retina.&quot;</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;1. Blueberries.&quot;</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;2. Yellow jacket clothespins.&quot;</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;3. Understanding revolvers yelling melodies.&quot;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">prompt</span><span class="p">;</span> <span class="n">insanity</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">if</span> <span class="n">insanity</span> <span class="o">==</span> <span class="s2">&quot;1&quot;</span> <span class="ow">or</span> <span class="n">insanity</span> <span class="o">==</span> <span class="s2">&quot;2&quot;</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;Your body survives powered by a mind of jello.  Good job!&quot;</span>
+</span><span class='line'>  <span class="k">else</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;The insanity rots your eyes into a pool of muck.  Good job!&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">else</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;You stumble around and fall on a knife and die.  Good job!&quot;</span>
+</span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>命令提示符中输出如下：</p>
+<p>判断用户所输入的，根据用户的输入来选择不同的分支。</p>
 
-<pre><code>$ruby ex15.rb ex15_sample.txt
-Here's your file: ex15_sample.txt
-This is stuff I typed into a file.
-It is really cool stuff.
-Lots and lots of fun to have in here.
-Type the filename again:
-&gt; ex15_sample.txt
-This is stuff I typed into a file.
-It is really cool stuff.
-Lots and lots of fun to have in here.
-</code></pre>
-
-<p>删掉使用 <code>STDIN.gets</code> 的部分后，提示：</p>
-
-<pre><code>$ruby ex15.rb ex15_sample.txt
-Here's your file: ex15_sample.txt
-This is stuff I typed into a file.
-It is really cool stuff.
-Lots and lots of fun to have in here.
-Type the filename again:
-&gt; ex15.rb:13:in `&lt;main&gt;': undefined local variable or method `file_again' for ma
-in:Object (NameError)
-</code></pre>
-
-<p>也就是说并不是编译后再执行， Ruby 是一种运行时的语言。</p>
-
-<p>PowerShell 中是有 <code>cat</code> 命令的， CMD 命令行中没有。</p>
+<p>写在一行中的程序用 <code>;</code> 间隔，但是行末没有分号感觉好别扭啊。</p>
 </div>
 
 
@@ -201,7 +240,7 @@ in:Object (NameError)
   
 
 
-<time datetime="2014-04-03T09:15:30+08:00" pubdate data-updated="true">2014-Apr-03, 09:15:30, Thursday</time>
+<time datetime="2014-04-06T14:06:10+08:00" pubdate data-updated="true">2014-Apr-06, 14:06:10, Sunday</time>
       
 
 <span class="categories">
@@ -222,10 +261,10 @@ in:Object (NameError)
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/ex14/" title="Previous Post: Ex 14: 提示和传递">&laquo; Ex 14: 提示和传递</a>
+        <a class="basic-alignment left" href="/blog/ex30/" title="Previous Post: Ex 30: else 和 if">&laquo; Ex 30: else 和 if</a>
       
       
-        <a class="basic-alignment right" href="/blog/ex16/" title="Next Post: Ex 16: 读写文件">Ex 16: 读写文件 &raquo;</a>
+        <a class="basic-alignment right" href="/blog/ex32/" title="Next Post: Ex 32: 循环和数组">Ex 32: 循环和数组 &raquo;</a>
       
     </p>
   </footer>
@@ -407,8 +446,8 @@ in:Object (NameError)
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://ruby.code.kekou.de//blog/ex15/';
-        var disqus_url = 'http://ruby.code.kekou.de//blog/ex15/';
+        var disqus_identifier = 'http://ruby.code.kekou.de//blog/ex31/';
+        var disqus_url = 'http://ruby.code.kekou.de//blog/ex31/';
         var disqus_script = 'embed.js';
       
     (function () {
