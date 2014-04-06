@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | Notes for Ruby]]></title>
   <link href="http://ruby.code.kekou.de//blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://ruby.code.kekou.de//"/>
-  <updated>2014-04-06T17:15:55+08:00</updated>
+  <updated>2014-04-06T20:48:31+08:00</updated>
   <id>http://ruby.code.kekou.de//</id>
   <author>
     <name><![CDATA[Delbert]]></name>
@@ -12,6 +12,252 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 41: 来自 Percal 25 号行星的哥顿人(Gothons)]]></title>
+    <link href="http://ruby.code.kekou.de//blog/ex41/"/>
+    <updated>2014-04-06T17:48:05+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/ex41</id>
+    <content type="html"><![CDATA[<p>这一节我连标题都看不懂好不好……</p>
+
+<!--more-->
+
+
+<p>本节开始的两行代码我能看懂，但是解释却把我给解释头都大了。<code>method</code> 是一种预先规定好的返回某个特定值的方法，但是繁体中文翻译为“内建”，很无语。</p>
+
+<p>下面这一段看起来挺多，大部分都是输出：</p>
+
+<p>``` ruby ex41.rb //ruby.code.kekou.de/code/ex41.rb Download Code
+def prompt()    # sign of input tips
+  print &ldquo;> &rdquo;
+end</p>
+
+<p>def death() # game over and output one of the listed sentenses
+  quips = [&ldquo;You died.  You kinda suck at this.&rdquo;,</p>
+
+<pre><code>"Nice job, you died ...jackass.",
+"Such a luser.",
+"I have a small puppy that's better at this."]
+</code></pre>
+
+<p>  puts quips[rand(quips.length())]
+  Process.exit(1)
+end</p>
+
+<p>def central_corridor()  # input your choice after the prompt sign and generate a key
+  puts &ldquo;The Gothons of Planet Percal #25 have invaded your ship and destroyed&rdquo;
+  puts &ldquo;your entire crew.  You are the last surviving member and your last&rdquo;
+  puts &ldquo;mission is to get the neutron destruct bomb from the Weapons Armory,&rdquo;
+  puts &ldquo;put it in the bridge, and blow the ship up after getting into an &rdquo;
+  puts &ldquo;escape pod.&rdquo;
+  puts &ldquo;\n&rdquo;
+  puts &ldquo;You&rsquo;re running down the central corridor to the Weapons Armory when&rdquo;
+  puts &ldquo;a Gothon jumps out, red scaly skin, dark grimy teeth, and evil clown costume&rdquo;
+  puts &ldquo;flowing around his hate filled body.  He&rsquo;s blocking the door to the&rdquo;
+  puts &ldquo;Armory and about to pull a weapon to blast you.&rdquo;</p>
+
+<p>  prompt()
+  action = gets.chomp()</p>
+
+<p>  if action == &ldquo;shoot!&rdquo;</p>
+
+<pre><code>puts "Quick on the draw you yank out your blaster and fire it at the Gothon."
+puts "His clown costume is flowing and moving around his body, which throws"
+puts "off your aim.  Your laser hits his costume but misses him entirely.  This"
+puts "completely ruins his brand new costume his mother bought him, which"
+puts "makes him fly into an insane rage and blast you repeatedly in the face until"
+puts "you are dead.  Then he eats you."
+return :death
+</code></pre>
+
+<p>  elsif action == &ldquo;dodge!&rdquo;</p>
+
+<pre><code>puts "Like a world class boxer you dodge, weave, slip and slide right"
+puts "as the Gothon's blaster cranks a laser past your head."
+puts "In the middle of your artful dodge your foot slips and you"
+puts "bang your head on the metal wall and pass out."
+puts "You wake up shortly after only to die as the Gothon stomps on"
+puts "your head and eats you."
+return :death
+</code></pre>
+
+<p>  elsif action == &ldquo;tell a joke&rdquo;</p>
+
+<pre><code>puts "Lucky for you they made you learn Gothon insults in the academy."
+puts "You tell the one Gothon joke you know:"
+puts "Lbhe zbgure vf fb sng, jura fur fvgf nebhaq gur ubhfr, fur fvgf nebhaq gur ubhfr."
+puts "The Gothon stops, tries not to laugh, then busts out laughing and can't move."
+puts "While he's laughing you run up and shoot him square in the head"
+puts "putting him down, then jump through the Weapon Armory door."
+return :laser_weapon_armory
+</code></pre>
+
+<p>  else</p>
+
+<pre><code>puts "DOES NOT COMPUTE!"
+return :central_corridor
+</code></pre>
+
+<p>  end
+end</p>
+
+<p>def laser_weapon_armory()
+  puts &ldquo;You do a dive roll into the Weapon Armory, crouch and scan the room&rdquo;
+  puts &ldquo;for more Gothons that might be hiding.  It&rsquo;s dead quiet, too quiet.&rdquo;
+  puts &ldquo;You stand up and run to the far side of the room and find the&rdquo;
+  puts &ldquo;neutron bomb in its container.  There&rsquo;s a keypad lock on the box&rdquo;
+  puts &ldquo;and you need the code to get the bomb out.  If you get the code&rdquo;
+  puts &ldquo;wrong 10 times then the lock closes forever and you can&rsquo;t&rdquo;
+  puts &ldquo;get the bomb.  The code is 3 digits.&rdquo;
+  code = &ldquo;%s%s%s&rdquo; % [rand(9)+1, rand(9)+1, rand(9)+1]
+  print &ldquo;[keypad]> &rdquo;
+  guess = gets.chomp()
+  guesses = 0</p>
+
+<p>  while guess != code and guesses &lt; 10</p>
+
+<pre><code>puts "BZZZZEDDD!"
+guesses += 1
+print "[keypad]&gt; "
+guess = gets.chomp()
+</code></pre>
+
+<p>  end</p>
+
+<p>  if guess == code</p>
+
+<pre><code>puts "The container clicks open and the seal breaks, letting gas out."
+puts "You grab the neutron bomb and run as fast as you can to the"
+puts "bridge where you must place it in the right spot."
+return :the_bridge
+</code></pre>
+
+<p>  else</p>
+
+<pre><code>puts "The lock buzzes one last time and then you hear a sickening"
+puts "melting sound as the mechanism is fused together."
+puts "You decide to sit there, and finally the Gothons blow up the"
+puts "ship from their ship and you die."
+return :death
+</code></pre>
+
+<p>  end
+end</p>
+
+<p>def the_bridge()
+  puts &ldquo;You burst onto the Bridge with the netron destruct bomb&rdquo;
+  puts &ldquo;under your arm and surprise 5 Gothons who are trying to&rdquo;
+  puts &ldquo;take control of the ship.  Each of them has an even uglier&rdquo;
+  puts &ldquo;clown costume than the last.  They haven&rsquo;t pulled their&rdquo;
+  puts &ldquo;weapons out yet, as they see the active bomb under your&rdquo;
+  puts &ldquo;arm and don&rsquo;t want to set it off.&rdquo;</p>
+
+<p>  prompt()
+  action = gets.chomp()</p>
+
+<p>  if action == &ldquo;throw the bomb&rdquo;</p>
+
+<pre><code>puts "In a panic you throw the bomb at the group of Gothons"
+puts "and make a leap for the door.  Right as you drop it a"
+puts "Gothon shoots you right in the back killing you."
+puts "As you die you see another Gothon frantically try to disarm"
+puts "the bomb. You die knowing they will probably blow up when"
+puts "it goes off."
+return :death
+</code></pre>
+
+<p>  elsif action == &ldquo;slowly place the bomb&rdquo;</p>
+
+<pre><code>puts "You point your blaster at the bomb under your arm"
+puts "and the Gothons put their hands up and start to sweat."
+puts "You inch backward to the door, open it, and then carefully"
+puts "place the bomb on the floor, pointing your blaster at it."
+puts "You then jump back through the door, punch the close button"
+puts "and blast the lock so the Gothons can't get out."
+puts "Now that the bomb is placed you run to the escape pod to"
+puts "get off this tin can."
+return :escape_pod
+</code></pre>
+
+<p>  else</p>
+
+<pre><code>puts "DOES NOT COMPUTE!"
+return :the_bridge
+</code></pre>
+
+<p>  end
+end</p>
+
+<p>def escape_pod()
+  puts &ldquo;You rush through the ship desperately trying to make it to&rdquo;
+  puts &ldquo;the escape pod before the whole ship explodes.  It seems like&rdquo;
+  puts &ldquo;hardly any Gothons are on the ship, so your run is clear of&rdquo;
+  puts &ldquo;interference.  You get to the chamber with the escape pods, and&rdquo;
+  puts &ldquo;now need to pick one to take.  Some of them could be damaged&rdquo;
+  puts &ldquo;but you don&rsquo;t have time to look.  There&rsquo;s 5 pods, which one&rdquo;
+  puts &ldquo;do you take?&rdquo;</p>
+
+<p>  good_pod = rand(5)+1
+  print &ldquo;[pod #]>&rdquo;
+  guess = gets.chomp()</p>
+
+<p>  if guess.to_i != good_pod</p>
+
+<pre><code>puts "You jump into pod %s and hit the eject button." % guess
+puts "The pod escapes out into the void of space, then"
+puts "implodes as the hull ruptures, crushing your body"
+puts "into jam jelly."
+return :death
+</code></pre>
+
+<p>  else</p>
+
+<pre><code>puts "You jump into pod %s and hit the eject button." % guess
+puts "The pod easily slides out into space heading to"
+puts "the planet below.  As it flies to the planet, you look"
+puts "back and see your ship implode then explode like a"
+puts "bright star, taking out the Gothon ship at the same"
+puts "time.  You won!"
+Process.exit(0)
+</code></pre>
+
+<p>  end
+end</p>
+
+<p>ROOMS = {
+  :death => method(:death),
+  :central_corridor => method(:central_corridor),
+  :laser_weapon_armory => method(:laser_weapon_armory),
+  :the_bridge => method(:the_bridge),
+  :escape_pod => method(:escape_pod)
+}</p>
+
+<p>def runner(map, start)
+  next_one = start</p>
+
+<p>  while true</p>
+
+<pre><code>room = map[next_one]
+puts "\n--------"
+next_one = room.call()
+</code></pre>
+
+<p>  end
+end</p>
+
+<p>runner(ROOMS, :central_corridor)
+```</p>
+
+<p>搜了一下，以 <code>:</code> 开头的 symbol 对象。最长应的是作为哈希表的 key。虽然明白代码是执行了 <code>runner()</code> 中的 <code>next_one = room.call()</code> 语句，但是却始终没找到 <code>method</code> 相关的说明。 <code>[]</code> 中的是 key，函数是从 <code>ROOMS[:central_corridor]</code> 开始执行，但是 <code>call</code> 和 <code>method</code> 到底是有怎样的关联呢？</p>
+
+<p>根据上一节的代码：</p>
+
+<pre><code>cities[:find] = method(:find_city)
+</code></pre>
+
+<p>可以这样认为，<code>method</code> 去查找后面 symbol 对应的方法来执行。 <code>call</code> 前面是对应 symbol 的方法，<code>call</code> 的括号内是该方法的参数。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Ex 40: hash,可爱的 hash]]></title>
@@ -313,20 +559,6 @@ puts stuff.values_at(3,5).join(&lsquo;#&rsquo;) # super stellar!
 <li><code>...</code></li>
 </ul>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ex 36: 设计和测试]]></title>
-    <link href="http://ruby.code.kekou.de//blog/ex36/"/>
-    <updated>2014-04-06T15:47:03+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/ex36</id>
-    <content type="html"><![CDATA[<p>本节写了一些设计和测试需要注意的地方，其他语言也应该同样注意。</p>
-
-<!--more-->
-
-
-<p>算是触类旁通吧。</p>
 ]]></content>
   </entry>
   
