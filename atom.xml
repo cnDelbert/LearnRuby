@@ -4,7 +4,7 @@
   <title><![CDATA[Notes for Ruby]]></title>
   <link href="http://ruby.code.kekou.de//atom.xml" rel="self"/>
   <link href="http://ruby.code.kekou.de//"/>
-  <updated>2014-04-07T21:28:54+08:00</updated>
+  <updated>2014-04-07T21:54:32+08:00</updated>
   <id>http://ruby.code.kekou.de//</id>
   <author>
     <name><![CDATA[Delbert]]></name>
@@ -12,6 +12,44 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 52: 创造你自己的页游]]></title>
+    <link href="http://ruby.code.kekou.de//blog/ex52/"/>
+    <updated>2014-04-07T21:51:22+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/ex52</id>
+    <content type="html"><![CDATA[<p>课程就这么结束了。</p>
+
+<!--more-->
+
+
+<p>今天是最后一节，也是一个考核，就是将前面的游戏通过页面呈现出来。</p>
+
+<p>有了想法的话，稍微理清一下思路就可以完成了，不过 Delbert 真的是很懒，写道这里都不想写了。</p>
+
+<p>唉。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 51: 从浏览器中取得输入]]></title>
+    <link href="http://ruby.code.kekou.de//blog/ex51/"/>
+    <updated>2014-04-07T21:43:23+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/ex51</id>
+    <content type="html"><![CDATA[<p>本节需要有一点 HTML 的知识。</p>
+
+<!--more-->
+
+
+<p>其实本节主要讲的就是 <code>get</code> 和 <code>post</code> 方式获取数据。而上一节中获取数据的关键字就是通过 <code>get</code> 获取的，那个 <code>'/'</code> 字符也就很容易理解了，是通过浏览器访问的时候默认的地址。</p>
+
+<p>也就是通过 gothonweb 到 view 目录下去寻找不同的 .erb 文件。</p>
+
+<p>此外，本节还说明了一下 sinatra 的模板问题，默认是 layout.erb 这个文件。</p>
+
+<p>更多内容可以查阅 <a href="http://www.sinatrarb.com/intro.html">http://www.sinatrarb.com/intro.html</a> 。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Ex 50: 你的第一个网站]]></title>
@@ -1184,208 +1222,6 @@ ArgumentError: invalid value for Integer(): "123hello"
 
 
 <p>就是这样，喵~</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ex 32: 循环和数组]]></title>
-    <link href="http://ruby.code.kekou.de//blog/ex32/"/>
-    <updated>2014-04-06T14:13:32+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/ex32</id>
-    <content type="html"><![CDATA[<p><code>array</code> 被翻译为<strong>阵列</strong>感觉怪怪的，但是简体中文里面的<strong>数组</strong>貌似也好不到什么地方去。</p>
-
-<!--more-->
-
-
-
-
-<figure class='code'><figcaption><span>数组</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">the_count</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="o">]</span>
-</span><span class='line'><span class="n">fruits</span> <span class="o">=</span> <span class="o">[</span><span class="s1">&#39;apples&#39;</span><span class="p">,</span> <span class="s1">&#39;oranges&#39;</span><span class="p">,</span> <span class="s1">&#39;pears&#39;</span><span class="p">,</span> <span class="s1">&#39;apricots&#39;</span><span class="o">]</span>
-</span><span class='line'><span class="n">change</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;pennies&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;dimes&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;quarters&#39;</span><span class="o">]</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>数组是用方括号 <code>[]</code> 括起来，中间用逗号间隔的。</p>
-
-<p>本节的循环是 <code>for</code> 循环。</p>
-
-<figure class='code'><figcaption><span>ex32.rb</span><a href='//ruby.code.kekou.de/code/ex32.rb'>Download Code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">the_count</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="o">]</span>
-</span><span class='line'><span class="n">fruits</span> <span class="o">=</span> <span class="o">[</span><span class="s1">&#39;apples&#39;</span><span class="p">,</span> <span class="s1">&#39;oranges&#39;</span><span class="p">,</span> <span class="s1">&#39;pears&#39;</span><span class="p">,</span> <span class="s1">&#39;apricots&#39;</span><span class="o">]</span>
-</span><span class='line'><span class="n">change</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;pennies&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;dimes&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;quarters&#39;</span><span class="o">]</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1"># this first kind of for-loop goes through an array</span>
-</span><span class='line'><span class="k">for</span> <span class="n">number</span> <span class="k">in</span> <span class="n">the_count</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;This is count </span><span class="si">#{</span><span class="n">number</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1"># same as above, but using a block instead</span>
-</span><span class='line'><span class="n">fruits</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">fruit</span><span class="o">|</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;A fruit of type: </span><span class="si">#{</span><span class="n">fruit</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1"># also we can go through mixed arrays too</span>
-</span><span class='line'><span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="n">change</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;I got </span><span class="si">#{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1"># we can also build arrays, first start with an empty one</span>
-</span><span class='line'><span class="n">elements</span> <span class="o">=</span> <span class="o">[]</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1"># then use a range object to do 0 to 5 counts</span>
-</span><span class='line'><span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="n">.</span><span class="mi">5</span><span class="p">)</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;Adding </span><span class="si">#{</span><span class="n">i</span><span class="si">}</span><span class="s2"> to the list.&quot;</span>
-</span><span class='line'>  <span class="c1"># push is a function that arrays understand</span>
-</span><span class='line'>  <span class="n">elements</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1"># now we can puts them out too</span>
-</span><span class='line'><span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="n">elements</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;Element was: </span><span class="si">#{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>注意符号范围符 <code>..</code> 和 <code>...</code> 的区别：前者包含对象的范围终点，而后者不包含。</p>
-
-<pre><code>elements = (0..5) # assign `(0..5)` directly to `elements`
-</code></pre>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ex 31: 做出决定]]></title>
-    <link href="http://ruby.code.kekou.de//blog/ex31/"/>
-    <updated>2014-04-06T14:06:10+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/ex31</id>
-    <content type="html"><![CDATA[<p>之前的函数都是 <code>顺序结构</code>，有 <code>if/else</code> 的是<code>分支结构</code>，剩下的一种是<code>循环结构</code>。所有的程序都是由这三种结构派生演变出来的。</p>
-
-<!--more-->
-
-
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">prompt</span>
-</span><span class='line'>  <span class="nb">print</span> <span class="s2">&quot;&gt; &quot;</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;You enter a dark room with two doors.  Do you go through door #1 or door #2?&quot;</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">prompt</span><span class="p">;</span> <span class="n">door</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">if</span> <span class="n">door</span> <span class="o">==</span> <span class="s2">&quot;1&quot;</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;There&#39;s a giant bear here eating a cheese cake.  What do you do?&quot;</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;1. Take the cake.&quot;</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;2. Scream at the bear.&quot;</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="n">prompt</span><span class="p">;</span> <span class="n">bear</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="k">if</span> <span class="n">bear</span> <span class="o">==</span> <span class="s2">&quot;1&quot;</span>
-</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;The bear eats your face off.  Good job!&quot;</span>
-</span><span class='line'>  <span class="k">elsif</span> <span class="n">bear</span> <span class="o">==</span> <span class="s2">&quot;2&quot;</span>
-</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;The bear eats your legs off.  Good job!&quot;</span>
-</span><span class='line'>  <span class="k">else</span>
-</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;Well, doing </span><span class="si">#{</span><span class="n">bear</span><span class="si">}</span><span class="s2"> is probably better.  Bear runs away.&quot;</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">elsif</span> <span class="n">door</span> <span class="o">==</span> <span class="s2">&quot;2&quot;</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;You stare into the endless abyss at Cthuhlu&#39;s retina.&quot;</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;1. Blueberries.&quot;</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;2. Yellow jacket clothespins.&quot;</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;3. Understanding revolvers yelling melodies.&quot;</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="n">prompt</span><span class="p">;</span> <span class="n">insanity</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="k">if</span> <span class="n">insanity</span> <span class="o">==</span> <span class="s2">&quot;1&quot;</span> <span class="ow">or</span> <span class="n">insanity</span> <span class="o">==</span> <span class="s2">&quot;2&quot;</span>
-</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;Your body survives powered by a mind of jello.  Good job!&quot;</span>
-</span><span class='line'>  <span class="k">else</span>
-</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;The insanity rots your eyes into a pool of muck.  Good job!&quot;</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">else</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;You stumble around and fall on a knife and die.  Good job!&quot;</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>判断用户所输入的，根据用户的输入来选择不同的分支。</p>
-
-<p>写在一行中的程序用 <code>;</code> 间隔，但是行末没有分号感觉好别扭啊。</p>
 ]]></content>
   </entry>
   
