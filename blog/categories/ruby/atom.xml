@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | Notes for Ruby]]></title>
   <link href="http://ruby.code.kekou.de//blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://ruby.code.kekou.de//"/>
-  <updated>2014-04-07T11:05:48+08:00</updated>
+  <updated>2014-04-07T19:00:10+08:00</updated>
   <id>http://ruby.code.kekou.de//</id>
   <author>
     <name><![CDATA[Delbert]]></name>
@@ -12,6 +12,45 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 48: 高级用户输入]]></title>
+    <link href="http://ruby.code.kekou.de//blog/ex48/"/>
+    <updated>2014-04-07T18:55:14+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/ex48</id>
+    <content type="html"><![CDATA[<p>有点类似模糊输入的意思。用户的多种输入实际上对应同样的操作。</p>
+
+<!--more-->
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 47: 自动化测试]]></title>
+    <link href="http://ruby.code.kekou.de//blog/ex47/"/>
+    <updated>2014-04-07T18:28:35+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/ex47</id>
+    <content type="html"><![CDATA[<p>在上一节的基础上开始测试。</p>
+
+<!--more-->
+
+
+<p>这一节繁体中文版在表述上有多处错误：</p>
+
+<ol>
+<li>原版的 <strong>Writing A Test Case</strong> 中 “First” 一行，路径是 <code>ex47/test/test_ex47.rb</code>，繁体中文版本则变成了 <code>tests/ex47_tests.rb</code>。</li>
+<li>英文原版中创建的文件是 <code>ex47/lib/ex47.rb</code>，到了繁体中文版本则变成了 <code>ex47/lib/game.rb</code> 了。</li>
+<li>在 <strong>Testing Guidelines</strong> 中， <code>test</code> 和 <code>tests</code> 傻傻分不清。其实繁体中文版中，整篇文章这两个单词就从来没有分清楚过……</li>
+</ol>
+
+
+<p>按照英文原版的说明来调试，才会跑出正确的结果。</p>
+
+<p>另外，<code>ex47.gemspec</code> 我放不放到路径当中，放到哪个路径当中，对整个测试没有一点儿影响，那么，这个文件是干嘛用的？</p>
+
+<p>只要继承了 <code>Test::Unit::TestCase</code>，就会出现类似 C++ 中编译器编译的效果。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Ex 46: 建立一个项目框架]]></title>
@@ -23,7 +62,11 @@
 <!--more-->
 
 
-<p>TBD</p>
+<p>按照说明将这一节完成下来了，但是 Windows 下的 <code>mkdir</code> 命令只能一个一个去建立目录，而不能一次建立多个。</p>
+
+<p>前面所有的步骤都完成了，但是在哪里开始编程？</p>
+
+<p>小测验的问题不会做……</p>
 ]]></content>
   </entry>
   
@@ -81,38 +124,6 @@ Line 91: is-a
 <p>虽然不想写注释，但是如果不写注释的话，真的是会很快忘记你这段代码的作用的，除非是 <code>1+1=2</code> 这种的。</p>
 
 <p>我看 Bullet 的代码，注释真是不多，最起码对我而言是不多，最开始的时候我都不知道应该如何下手。后来还是用 Doxygen 生成了 manual ，虽然还是有很多问题，但还是聊胜于无吧。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ex 43: 你来制作一个游戏]]></title>
-    <link href="http://ruby.code.kekou.de//blog/ex43/"/>
-    <updated>2014-04-06T21:39:20+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/ex43</id>
-    <content type="html"><![CDATA[<p>略。</p>
-
-<!--more-->
-
-
-<p>我有拖延症，待会儿再说。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ex 42: 物以类聚]]></title>
-    <link href="http://ruby.code.kekou.de//blog/ex42/"/>
-    <updated>2014-04-06T21:20:04+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/ex42</id>
-    <content type="html"><![CDATA[<p>本节提到了类的概念，代码太长，懒得粘贴了。</p>
-
-<!--more-->
-
-
-<p>Ruby 的实例变量是以 <code>@</code> 开头，只对单个对象可见。不管在类的什么地方定义，用的都是同一个。初始化对象函数 <code>initialize</code> 函数可以类比成 C++ 里面的构造函数。</p>
-
-<p>通过 <code>attr_*</code> 来设置实例变量能否被外界读取写入。</p>
-
-<p>类以 <code>Class 类名</code> 开头，对应 <code>end</code> 结束，类的继承用 <code>&lt;</code> 符号。</p>
 ]]></content>
   </entry>
   
