@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | Notes for Ruby]]></title>
   <link href="http://ruby.code.kekou.de//blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://ruby.code.kekou.de//"/>
-  <updated>2014-04-06T21:17:33+08:00</updated>
+  <updated>2014-04-07T11:05:48+08:00</updated>
   <id>http://ruby.code.kekou.de//</id>
   <author>
     <name><![CDATA[Delbert]]></name>
@@ -14,551 +14,105 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Ex 41: 来自 Percal 25 号行星的哥顿人(Gothons)]]></title>
-    <link href="http://ruby.code.kekou.de//blog/ex41/"/>
-    <updated>2014-04-06T17:48:05+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/ex41</id>
-    <content type="html"><![CDATA[<p>这一节我连标题都看不懂好不好……</p>
+    <title type="html"><![CDATA[Ex 46: 建立一个项目框架]]></title>
+    <link href="http://ruby.code.kekou.de//blog/ex46/"/>
+    <updated>2014-04-06T22:24:42+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/ex46</id>
+    <content type="html"><![CDATA[<p>很明显，这一节中所有的内容都是在 *nix 系统下完成的。不过， Windows 系统的 PowerShell 命令应该也可以胜任。不行的话还是架设虚拟机吧。</p>
 
 <!--more-->
 
 
-<p>本节开始的两行代码我能看懂，但是解释却把我给解释头都大了。<code>method</code> 是一种预先规定好的返回某个特定值的方法，但是繁体中文翻译为“内建”，很无语。</p>
-
-<p>下面这一段看起来挺多，大部分都是输出：</p>
-
-<p>``` ruby ex41.rb //ruby.code.kekou.de/code/ex41.rb Download Code
-def prompt()    # sign of input tips
-  print &ldquo;> &rdquo;
-end</p>
-
-<p>def death() # game over and output one of the listed sentenses
-  quips = [&ldquo;You died.  You kinda suck at this.&rdquo;,</p>
-
-<pre><code>"Nice job, you died ...jackass.",
-"Such a luser.",
-"I have a small puppy that's better at this."]
-</code></pre>
-
-<p>  puts quips[rand(quips.length())]
-  Process.exit(1)
-end</p>
-
-<p>def central_corridor()  # input your choice after the prompt sign and generate a key
-  puts &ldquo;The Gothons of Planet Percal #25 have invaded your ship and destroyed&rdquo;
-  puts &ldquo;your entire crew.  You are the last surviving member and your last&rdquo;
-  puts &ldquo;mission is to get the neutron destruct bomb from the Weapons Armory,&rdquo;
-  puts &ldquo;put it in the bridge, and blow the ship up after getting into an &rdquo;
-  puts &ldquo;escape pod.&rdquo;
-  puts &ldquo;\n&rdquo;
-  puts &ldquo;You&rsquo;re running down the central corridor to the Weapons Armory when&rdquo;
-  puts &ldquo;a Gothon jumps out, red scaly skin, dark grimy teeth, and evil clown costume&rdquo;
-  puts &ldquo;flowing around his hate filled body.  He&rsquo;s blocking the door to the&rdquo;
-  puts &ldquo;Armory and about to pull a weapon to blast you.&rdquo;</p>
-
-<p>  prompt()
-  action = gets.chomp()</p>
-
-<p>  if action == &ldquo;shoot!&rdquo;</p>
-
-<pre><code>puts "Quick on the draw you yank out your blaster and fire it at the Gothon."
-puts "His clown costume is flowing and moving around his body, which throws"
-puts "off your aim.  Your laser hits his costume but misses him entirely.  This"
-puts "completely ruins his brand new costume his mother bought him, which"
-puts "makes him fly into an insane rage and blast you repeatedly in the face until"
-puts "you are dead.  Then he eats you."
-return :death
-</code></pre>
-
-<p>  elsif action == &ldquo;dodge!&rdquo;</p>
-
-<pre><code>puts "Like a world class boxer you dodge, weave, slip and slide right"
-puts "as the Gothon's blaster cranks a laser past your head."
-puts "In the middle of your artful dodge your foot slips and you"
-puts "bang your head on the metal wall and pass out."
-puts "You wake up shortly after only to die as the Gothon stomps on"
-puts "your head and eats you."
-return :death
-</code></pre>
-
-<p>  elsif action == &ldquo;tell a joke&rdquo;</p>
-
-<pre><code>puts "Lucky for you they made you learn Gothon insults in the academy."
-puts "You tell the one Gothon joke you know:"
-puts "Lbhe zbgure vf fb sng, jura fur fvgf nebhaq gur ubhfr, fur fvgf nebhaq gur ubhfr."
-puts "The Gothon stops, tries not to laugh, then busts out laughing and can't move."
-puts "While he's laughing you run up and shoot him square in the head"
-puts "putting him down, then jump through the Weapon Armory door."
-return :laser_weapon_armory
-</code></pre>
-
-<p>  else</p>
-
-<pre><code>puts "DOES NOT COMPUTE!"
-return :central_corridor
-</code></pre>
-
-<p>  end
-end</p>
-
-<p>def laser_weapon_armory()
-  puts &ldquo;You do a dive roll into the Weapon Armory, crouch and scan the room&rdquo;
-  puts &ldquo;for more Gothons that might be hiding.  It&rsquo;s dead quiet, too quiet.&rdquo;
-  puts &ldquo;You stand up and run to the far side of the room and find the&rdquo;
-  puts &ldquo;neutron bomb in its container.  There&rsquo;s a keypad lock on the box&rdquo;
-  puts &ldquo;and you need the code to get the bomb out.  If you get the code&rdquo;
-  puts &ldquo;wrong 10 times then the lock closes forever and you can&rsquo;t&rdquo;
-  puts &ldquo;get the bomb.  The code is 3 digits.&rdquo;
-  code = &ldquo;%s%s%s&rdquo; % [rand(9)+1, rand(9)+1, rand(9)+1]
-  print &ldquo;[keypad]> &rdquo;
-  guess = gets.chomp()
-  guesses = 0</p>
-
-<p>  while guess != code and guesses &lt; 10</p>
-
-<pre><code>puts "BZZZZEDDD!"
-guesses += 1
-print "[keypad]&gt; "
-guess = gets.chomp()
-</code></pre>
-
-<p>  end</p>
-
-<p>  if guess == code</p>
-
-<pre><code>puts "The container clicks open and the seal breaks, letting gas out."
-puts "You grab the neutron bomb and run as fast as you can to the"
-puts "bridge where you must place it in the right spot."
-return :the_bridge
-</code></pre>
-
-<p>  else</p>
-
-<pre><code>puts "The lock buzzes one last time and then you hear a sickening"
-puts "melting sound as the mechanism is fused together."
-puts "You decide to sit there, and finally the Gothons blow up the"
-puts "ship from their ship and you die."
-return :death
-</code></pre>
-
-<p>  end
-end</p>
-
-<p>def the_bridge()
-  puts &ldquo;You burst onto the Bridge with the netron destruct bomb&rdquo;
-  puts &ldquo;under your arm and surprise 5 Gothons who are trying to&rdquo;
-  puts &ldquo;take control of the ship.  Each of them has an even uglier&rdquo;
-  puts &ldquo;clown costume than the last.  They haven&rsquo;t pulled their&rdquo;
-  puts &ldquo;weapons out yet, as they see the active bomb under your&rdquo;
-  puts &ldquo;arm and don&rsquo;t want to set it off.&rdquo;</p>
-
-<p>  prompt()
-  action = gets.chomp()</p>
-
-<p>  if action == &ldquo;throw the bomb&rdquo;</p>
-
-<pre><code>puts "In a panic you throw the bomb at the group of Gothons"
-puts "and make a leap for the door.  Right as you drop it a"
-puts "Gothon shoots you right in the back killing you."
-puts "As you die you see another Gothon frantically try to disarm"
-puts "the bomb. You die knowing they will probably blow up when"
-puts "it goes off."
-return :death
-</code></pre>
-
-<p>  elsif action == &ldquo;slowly place the bomb&rdquo;</p>
-
-<pre><code>puts "You point your blaster at the bomb under your arm"
-puts "and the Gothons put their hands up and start to sweat."
-puts "You inch backward to the door, open it, and then carefully"
-puts "place the bomb on the floor, pointing your blaster at it."
-puts "You then jump back through the door, punch the close button"
-puts "and blast the lock so the Gothons can't get out."
-puts "Now that the bomb is placed you run to the escape pod to"
-puts "get off this tin can."
-return :escape_pod
-</code></pre>
-
-<p>  else</p>
-
-<pre><code>puts "DOES NOT COMPUTE!"
-return :the_bridge
-</code></pre>
-
-<p>  end
-end</p>
-
-<p>def escape_pod()
-  puts &ldquo;You rush through the ship desperately trying to make it to&rdquo;
-  puts &ldquo;the escape pod before the whole ship explodes.  It seems like&rdquo;
-  puts &ldquo;hardly any Gothons are on the ship, so your run is clear of&rdquo;
-  puts &ldquo;interference.  You get to the chamber with the escape pods, and&rdquo;
-  puts &ldquo;now need to pick one to take.  Some of them could be damaged&rdquo;
-  puts &ldquo;but you don&rsquo;t have time to look.  There&rsquo;s 5 pods, which one&rdquo;
-  puts &ldquo;do you take?&rdquo;</p>
-
-<p>  good_pod = rand(5)+1
-  print &ldquo;[pod #]>&rdquo;
-  guess = gets.chomp()</p>
-
-<p>  if guess.to_i != good_pod</p>
-
-<pre><code>puts "You jump into pod %s and hit the eject button." % guess
-puts "The pod escapes out into the void of space, then"
-puts "implodes as the hull ruptures, crushing your body"
-puts "into jam jelly."
-return :death
-</code></pre>
-
-<p>  else</p>
-
-<pre><code>puts "You jump into pod %s and hit the eject button." % guess
-puts "The pod easily slides out into space heading to"
-puts "the planet below.  As it flies to the planet, you look"
-puts "back and see your ship implode then explode like a"
-puts "bright star, taking out the Gothon ship at the same"
-puts "time.  You won!"
-Process.exit(0)
-</code></pre>
-
-<p>  end
-end</p>
-
-<p>ROOMS = {
-  :death => method(:death),
-  :central_corridor => method(:central_corridor),
-  :laser_weapon_armory => method(:laser_weapon_armory),
-  :the_bridge => method(:the_bridge),
-  :escape_pod => method(:escape_pod)
-}</p>
-
-<p>def runner(map, start)
-  next_one = start</p>
-
-<p>  while true</p>
-
-<pre><code>room = map[next_one]
-puts "\n--------"
-next_one = room.call()
-</code></pre>
-
-<p>  end
-end</p>
-
-<p>runner(ROOMS, :central_corridor)
-```</p>
-
-<p>搜了一下，以 <code>:</code> 开头的 symbol 对象。最长应的是作为哈希表的 key。虽然明白代码是执行了 <code>runner()</code> 中的 <code>next_one = room.call()</code> 语句，但是却始终没找到 <code>method</code> 相关的说明。 <code>[]</code> 中的是 key，函数是从 <code>ROOMS[:central_corridor]</code> 开始执行，但是 <code>call</code> 和 <code>method</code> 到底是有怎样的关联呢？</p>
-
-<p>根据上一节的代码：</p>
-
-<pre><code>cities[:find] = method(:find_city)
-</code></pre>
-
-<p>可以这样认为，<code>method</code> 去查找后面 symbol 对应的方法来执行。 <code>call</code> 前面是对应 symbol 的方法，<code>call</code> 的括号内是该方法的参数。</p>
+<p>TBD</p>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Ex 40: hash,可爱的 hash]]></title>
-    <link href="http://ruby.code.kekou.de//blog/ex40/"/>
-    <updated>2014-04-06T16:52:13+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/ex40</id>
-    <content type="html"><![CDATA[<p>Ruby 的 hash 是一种 key-value 类型的容器，可以通过 key 的值来索引到对应的 value。 Hash 是没有顺序的，不能通过 index 来得到对应的 value。 Hash 现在简体中文一般翻译为<strong>哈希</strong>。</p>
+    <title type="html"><![CDATA[Ex 45: 对象、类和继承关系]]></title>
+    <link href="http://ruby.code.kekou.de//blog/ex45/"/>
+    <updated>2014-04-06T21:46:18+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/ex45</id>
+    <content type="html"><![CDATA[<p>本节讲到了类与对象， is-a 和 has-a 的关系。</p>
 
 <!--more-->
 
 
-<p>可以直接在 irb 中这样定义一个数组：</p>
+<p>is-a 是这样的：狗<strong>是一种</strong>动物。</p>
 
-<p><code>irb
-ruby-1.9.2-p180 :015 &gt; things = ['a','b','c','d']
- =&gt; ["a", "b", "c", "d"]
-ruby-1.9.2-p180 :016 &gt; print things[1]
-b =&gt; nil
-ruby-1.9.2-p180 :017 &gt; things[1] = 'z'
- =&gt; "z"
-ruby-1.9.2-p180 :018 &gt; print things[1]
-z =&gt; nil
-ruby-1.9.2-p180 :019 &gt; print things
-["a", "z", "c", "d"] =&gt; nil
+<p>has-a 是这样的： 狗<strong>有一个</strong>名字。</p>
+
+<p>所以，类与类的关系是 is-a，类与其中的成员的关系是 has-a。</p>
+
+<p><code>text
+Line 6: is-a
+Line 10: has-a
+Line 16: is-a
+Line 20: has-a
+Line 26: is-a
+Line 32: has-a
+Line 40: is-a
+Line 44: has-a
+Line 46: has-a
+Line 52: is-a
+Line 57: is-a
+Line 62: is-a
+Line 70: is-a
+Line 73: is-a
+Line 76: has-a
+Line 79: is-a
+Line 82: has-a
+Line 85: is-a
+Line 88: is-a
+Line 91: is-a
 </code></p>
-
-<p>实际上，数组相当于用数字来当 key 的 hash。当将数字替换为其他的东西之后，就变成了这样：</p>
-
-<p><code>irb
-ruby-1.9.2-p180 :001 &gt; stuff = {:name =&gt; "Rob", :age =&gt; 30, :height =&gt; 5*12+10}
- =&gt; {:name=&gt;"Rob", :age=&gt;30, :height=&gt;70}
-ruby-1.9.2-p180 :002 &gt; puts stuff[:name]
-Rob
- =&gt; nil
-ruby-1.9.2-p180 :003 &gt; puts stuff[:age]
-30
- =&gt; nil
-ruby-1.9.2-p180 :004 &gt; puts stuff[:height]
-70
- =&gt; nil
-ruby-1.9.2-p180 :005 &gt; stuff[:city] = "New York"
- =&gt; "New York"
-ruby-1.9.2-p180 :006 &gt; puts stuff[:city]
-New York
- =&gt; nil
-</code></p>
-
-<p>当明确指明了对应的 k-w 之后，数字便不再是索引(index)，而变成了 key，例如：</p>
-
-<p><code>irb
-ruby-1.9.2-p180 :004 &gt; stuff[1] = "Wow"
- =&gt; "Wow"
-ruby-1.9.2-p180 :005 &gt; stuff[2] = "Neato"
- =&gt; "Neato"
-ruby-1.9.2-p180 :006 &gt; puts stuff[1]
-Wow
- =&gt; nil
-ruby-1.9.2-p180 :007 &gt; puts stuff[2]
-Neato
- =&gt; nil
-ruby-1.9.2-p180 :008 &gt; puts stuff
-{:name=&gt;"Rob", :age=&gt;30, :height=&gt;70, :city=&gt;"New York", 1=&gt;"Wow", 2=&gt;"Neato"}
- =&gt; nil
-</code></p>
-
-<p>删除其中的元素也是通过调用 key 来实现的：</p>
-
-<p><code>irb
-ruby-1.9.2-p180 :009 &gt; stuff.delete(:city)
- =&gt; "New York"
-ruby-1.9.2-p180 :010 &gt; stuff.delete(1)
- =&gt; "Wow"
-ruby-1.9.2-p180 :011 &gt; stuff.delete(2)
- =&gt; "Neato"
-ruby-1.9.2-p180 :012 &gt; stuff
- =&gt; {:name=&gt;"Rob", :age=&gt;30, :height=&gt;70}
-</code></p>
-
-<p>下面是通过 key 来查询对应州的名字的一段代码，我们完全可以自己写一个通过区号查地区的程序(好像工作量有点大)：</p>
-
-<p>``` ruby
-cities = {&lsquo;CA&rsquo; => &lsquo;San Francisco&rsquo;,
-  &lsquo;MI&rsquo; => &lsquo;Detroit&rsquo;,
-  &lsquo;FL&rsquo; => &lsquo;Jacksonville&rsquo;}</p>
-
-<p>cities[&lsquo;NY&rsquo;] = &lsquo;New York&rsquo;
-cities[&lsquo;OR&rsquo;] = &lsquo;Portland&rsquo;</p>
-
-<p>def find_city(map, state)
-  if map.include? state</p>
-
-<pre><code>return map[state]
-</code></pre>
-
-<p>  else</p>
-
-<pre><code>return "Not found."
-</code></pre>
-
-<p>  end
-end</p>
-
-<h1>ok pay attention!</h1>
-
-<p>cities[:find] = method(:find_city)</p>
-
-<p>while true
-  print &ldquo;State? (ENTER to quit) &rdquo;
-  state = gets.chomp</p>
-
-<p>  break if state.empty?</p>
-
-<p>  # this line is the most important ever! study!
-  puts cities[:find].call(cities, state)
-end
-```</p>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Ex 39: 数组的操作]]></title>
-    <link href="http://ruby.code.kekou.de//blog/ex39/"/>
-    <updated>2014-04-06T16:07:11+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/ex39</id>
-    <content type="html"><![CDATA[<p>本文说了一些数组的操作。</p>
+    <title type="html"><![CDATA[Ex 44: 评估你的游戏]]></title>
+    <link href="http://ruby.code.kekou.de//blog/ex44/"/>
+    <updated>2014-04-06T21:41:21+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/ex44</id>
+    <content type="html"><![CDATA[<p>评估你的游戏只是本节最后一部分内容，前面说了编程风格和养成良好变成习惯的问题。</p>
 
 <!--more-->
 
 
-<p>``` ruby
-ten_things = &ldquo;Apples Oranges Crows Telephone Light Sugar&rdquo;</p>
+<p>虽然不想写注释，但是如果不写注释的话，真的是会很快忘记你这段代码的作用的，除非是 <code>1+1=2</code> 这种的。</p>
 
-<p>puts &ldquo;Wait there&rsquo;s not 10 things in that list, let&rsquo;s fix that.&rdquo;</p>
-
-<p>stuff = ten_things.split(&lsquo; &rsquo;)
-more_stuff = %w(Day Night Song Frisbee Corn Banana Girl Boy)</p>
-
-<p>while stuff.length != 10
-  next_one = more_stuff.pop()
-  puts &ldquo;Adding: #{next_one}&rdquo;
-  stuff.push(next_one)
-  puts &ldquo;There&rsquo;s #{stuff.length} items now.&rdquo;
-end</p>
-
-<p>puts &ldquo;There we go: #{stuff}&rdquo;</p>
-
-<p>puts &ldquo;Let&rsquo;s do some things with stuff.&rdquo;</p>
-
-<p>puts stuff[1]
-puts stuff[-1] # whoa! fancy
-puts stuff.pop()
-puts stuff.join(&lsquo; &rsquo;) # what? cool!
-puts stuff.values_at(3,5).join(&lsquo;#&rsquo;) # super stellar!
-```</p>
-
-<p>用到了 <code>split</code> <code>pop</code> <code>join</code> 等方法。</p>
-
-<ul>
-<li><code>split</code>: 一个最基本的字符串操作是把一个字符串分割成多个子字符串。</li>
-<li><code>pop</code>: 返回数组最后一个元素并删除。</li>
-<li><code>shift</code>: 返回数组第一个元素并删除，剩余元素依次提前。</li>
-<li><code>join</code>: 连接数组的元素。</li>
-</ul>
-
+<p>我看 Bullet 的代码，注释真是不多，最起码对我而言是不多，最开始的时候我都不知道应该如何下手。后来还是用 Doxygen 生成了 manual ，虽然还是有很多问题，但还是聊胜于无吧。</p>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Ex 38: 阅读代码]]></title>
-    <link href="http://ruby.code.kekou.de//blog/ex38/"/>
-    <updated>2014-04-06T16:05:24+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/ex38</id>
-    <content type="html"><![CDATA[<p>和第 23 节的工作差不多，仍然是阅读代码。</p>
+    <title type="html"><![CDATA[Ex 43: 你来制作一个游戏]]></title>
+    <link href="http://ruby.code.kekou.de//blog/ex43/"/>
+    <updated>2014-04-06T21:39:20+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/ex43</id>
+    <content type="html"><![CDATA[<p>略。</p>
 
 <!--more-->
 
 
-<p>不过这个阅读代码要尝试自己加上注释，尝试运行，尝试画出程序的流程图。</p>
+<p>我有拖延症，待会儿再说。</p>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Ex 37: 复习各种符号。]]></title>
-    <link href="http://ruby.code.kekou.de//blog/ex37/"/>
-    <updated>2014-04-06T15:55:43+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/ex37</id>
-    <content type="html"><![CDATA[<p>本节列出了 Ruby 的关键字，操作法等，可以自行复习或查阅资料了解。</p>
+    <title type="html"><![CDATA[Ex 42: 物以类聚]]></title>
+    <link href="http://ruby.code.kekou.de//blog/ex42/"/>
+    <updated>2014-04-06T21:20:04+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/ex42</id>
+    <content type="html"><![CDATA[<p>本节提到了类的概念，代码太长，懒得粘贴了。</p>
 
 <!--more-->
 
 
-<h3>关键字</h3>
+<p>Ruby 的实例变量是以 <code>@</code> 开头，只对单个对象可见。不管在类的什么地方定义，用的都是同一个。初始化对象函数 <code>initialize</code> 函数可以类比成 C++ 里面的构造函数。</p>
 
-<ul>
-<li><code>alias</code></li>
-<li><code>and</code></li>
-<li><code>BEGIN</code></li>
-<li><code>begin</code></li>
-<li><code>break</code></li>
-<li><code>case</code></li>
-<li><code>class</code></li>
-<li><code>def</code></li>
-<li><code>defined?</code></li>
-<li><code>do</code></li>
-<li><code>else</code></li>
-<li><code>elsif</code></li>
-<li><code>END</code></li>
-<li><code>end</code></li>
-<li><code>ensure</code></li>
-<li><code>false</code></li>
-<li><code>for</code></li>
-<li><code>if</code></li>
-<li><code>in</code></li>
-<li><code>module</code></li>
-<li><code>next</code></li>
-<li><code>nil</code></li>
-<li><code>not</code></li>
-<li><code>or</code></li>
-<li><code>redo</code></li>
-<li><code>rescue</code></li>
-<li><code>retry</code></li>
-<li><code>return</code></li>
-<li><code>self</code></li>
-<li><code>super</code></li>
-<li><code>then</code></li>
-<li><code>true</code></li>
-<li><code>undef</code></li>
-<li><code>unless</code></li>
-<li><code>until</code></li>
-<li><code>when</code></li>
-<li><code>while</code></li>
-<li><code>yield</code></li>
-</ul>
+<p>通过 <code>attr_*</code> 来设置实例变量能否被外界读取写入。</p>
 
-
-<h3>数据类型</h3>
-
-<ul>
-<li><code>true</code></li>
-<li><code>false</code></li>
-<li><code>nil</code></li>
-<li><code>constants</code></li>
-<li><code>strings</code></li>
-<li><code>numbers</code></li>
-<li><code>ranges</code></li>
-<li><code>arrays</code></li>
-<li><code>hashes</code></li>
-</ul>
-
-
-<h3>转义符</h3>
-
-<ul>
-<li><code>\\</code></li>
-<li><code>\'</code></li>
-<li><code>\"</code></li>
-<li><code>\a</code></li>
-<li><code>\b</code></li>
-<li><code>\f</code></li>
-<li><code>\n</code></li>
-<li><code>\r</code></li>
-<li><code>\t</code></li>
-<li><code>\v</code></li>
-</ul>
-
-
-<h3>操作符</h3>
-
-<ul>
-<li><code>::</code></li>
-<li><code>[]</code></li>
-<li><code>**</code></li>
-<li><code>-(unary)</code></li>
-<li><code>+(unary)</code></li>
-<li><code>!</code></li>
-<li><code>~</code></li>
-<li><code>*</code></li>
-<li><code>/</code></li>
-<li><code>%</code></li>
-<li><code>+</code></li>
-<li><code>-</code></li>
-<li><code>&lt;&lt;</code></li>
-<li><code>&gt;&gt;</code></li>
-<li><code>&amp;</code></li>
-<li><code>|</code></li>
-<li><code>&gt;</code></li>
-<li><code>&gt;=</code></li>
-<li><code>&lt;</code></li>
-<li><code>&lt;=</code></li>
-<li><code>&lt;=&gt;</code></li>
-<li><code>==</code></li>
-<li><code>===</code></li>
-<li><code>!=</code></li>
-<li><code>=~</code></li>
-<li><code>!~</code></li>
-<li><code>&amp;&amp;</code></li>
-<li><code>||</code></li>
-<li><code>..</code></li>
-<li><code>...</code></li>
-</ul>
-
+<p>类以 <code>Class 类名</code> 开头，对应 <code>end</code> 结束，类的继承用 <code>&lt;</code> 符号。</p>
 ]]></content>
   </entry>
   

@@ -5,23 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Ex 8: 输出，输出 - Notes for Ruby</title>
+  <title>Ex 46: 建立一个项目框架 - Notes for Ruby</title>
   <meta name="author" content="Delbert">
 
   
-  <meta name="description" content="另外一种格式化输出，同时可以用格式输出输出格式。Ruby 的输出貌似挺灵活的样子。 ex8.rbDownload Code1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-formatter = &quot;%s %s %s %s&quot; puts formatter % [1, 2, 3 &hellip;">
+  <meta name="description" content="很明显，这一节中所有的内容都是在 *nix 系统下完成的。不过， Windows 系统的 PowerShell 命令应该也可以胜任。不行的话还是架设虚拟机吧。 TBD
+">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -30,7 +19,7 @@ formatter = &quot;%s %s %s %s&quot; puts formatter % [1, 2, 3 &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ruby.code.kekou.de//blog/ex08">
+  <link rel="canonical" href="http://ruby.code.kekou.de//blog/ex46">
   <link href="/favicon.ico" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Notes for Ruby" type="application/atom+xml">
@@ -79,7 +68,7 @@ formatter = &quot;%s %s %s %s&quot; puts formatter % [1, 2, 3 &hellip;">
   
   <header>
     
-      <h1 class="entry-title">Ex 8: 输出，输出</h1>
+      <h1 class="entry-title">Ex 46: 建立一个项目框架</h1>
     
     
       <p class="meta">
@@ -95,7 +84,7 @@ formatter = &quot;%s %s %s %s&quot; puts formatter % [1, 2, 3 &hellip;">
   
 
 
-<time datetime="2014-04-02T12:49:43+08:00" pubdate data-updated="true">2014-Apr-02, 12:49:43, Wednesday</time>
+<time datetime="2014-04-06T22:24:42+08:00" pubdate data-updated="true">2014-Apr-06, 22:24:42, Sunday</time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://ruby.code.kekou.de/">Comments</a>
@@ -105,93 +94,12 @@ formatter = &quot;%s %s %s %s&quot; puts formatter % [1, 2, 3 &hellip;">
   </header>
 
 
-<div class="entry-content"><p>另外一种格式化输出，同时可以用格式输出输出格式。Ruby 的输出貌似挺灵活的样子。</p>
+<div class="entry-content"><p>很明显，这一节中所有的内容都是在 *nix 系统下完成的。不过， Windows 系统的 PowerShell 命令应该也可以胜任。不行的话还是架设虚拟机吧。</p>
 
 <!--more-->
 
 
-
-
-<figure class='code'><figcaption><span>ex8.rb</span><a href='//ruby.code.kekou.de/code/ex8.rb'>Download Code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">formatter</span> <span class="o">=</span> <span class="s2">&quot;%s %s %s %s&quot;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="n">formatter</span> <span class="o">%</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
-</span><span class='line'><span class="nb">puts</span> <span class="n">formatter</span> <span class="o">%</span> <span class="o">[</span><span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="s2">&quot;two&quot;</span><span class="p">,</span> <span class="s2">&quot;three&quot;</span><span class="p">,</span> <span class="s2">&quot;four&quot;</span><span class="o">]</span>
-</span><span class='line'><span class="nb">puts</span> <span class="n">formatter</span> <span class="o">%</span> <span class="o">[</span><span class="kp">true</span><span class="p">,</span> <span class="kp">false</span><span class="p">,</span> <span class="kp">false</span><span class="p">,</span> <span class="kp">true</span><span class="o">]</span>
-</span><span class='line'><span class="nb">puts</span> <span class="n">formatter</span> <span class="o">%</span> <span class="o">[</span><span class="n">formatter</span><span class="p">,</span> <span class="n">formatter</span><span class="p">,</span> <span class="n">formatter</span><span class="p">,</span> <span class="n">formatter</span><span class="o">]</span><span class="c1">#直接输出格式</span>
-</span><span class='line'><span class="nb">puts</span> <span class="n">formatter</span> <span class="o">%</span> <span class="o">[</span>
-</span><span class='line'>    <span class="s2">&quot;I had this thing.&quot;</span><span class="p">,</span>
-</span><span class='line'>    <span class="s2">&quot;That you could type up right.&quot;</span><span class="p">,</span>
-</span><span class='line'>    <span class="s2">&quot;But it didn&#39;t sing.&quot;</span><span class="p">,</span>
-</span><span class='line'>    <span class="s2">&quot;So I said goodnight.&quot;</span>
-</span><span class='line'><span class="o">]</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>输出为</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>1 2 3 4
-</span><span class='line'>one two three four
-</span><span class='line'><span class="nb">true false false true</span>
-</span><span class='line'>%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s
-</span><span class='line'>I had this thing. That you could <span class="nb">type </span>up right. But it didn<span class="err">&#39;</span>t sing. So I said goodnight.
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p><code>%</code> 后面用的是中括号 <code>[]</code>，格式化输出的说明见下面：</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>%a   浮点数、十六进制数字和p-记数法（C99）
-</span><span class='line'>%A    浮点数、十六进制数字和p-记法（C99）
-</span><span class='line'>%c    一个字符　
-</span><span class='line'>%d    有符号十进制整数　
-</span><span class='line'>%e    浮点数、e-记数法
-</span><span class='line'>%E    浮点数、E-记数法
-</span><span class='line'>%f    浮点数、十进制记数法　　
-</span><span class='line'>%g    根据数值不同自动选择%f或%e．
-</span><span class='line'>%G    根据数值不同自动选择%f或%e.
-</span><span class='line'>%i    有符号十进制数（与%d相同）
-</span><span class='line'>%o    无符号八进制整数
-</span><span class='line'>%p    指针　　　　
-</span><span class='line'>%s    字符串
-</span><span class='line'>%u    无符号十进制整数
-</span><span class='line'>%x    使用十六进制数字０f的无符号十六进制整数　
-</span><span class='line'>%X    使用十六进制数字０f的无符号十六进制整数
-</span><span class='line'>%%    打印一个百分号
-</span></code></pre></td></tr></table></div></figure>
-
+<p>TBD</p>
 </div>
 
 
@@ -214,7 +122,7 @@ formatter = &quot;%s %s %s %s&quot; puts formatter % [1, 2, 3 &hellip;">
   
 
 
-<time datetime="2014-04-02T12:49:43+08:00" pubdate data-updated="true">2014-Apr-02, 12:49:43, Wednesday</time>
+<time datetime="2014-04-06T22:24:42+08:00" pubdate data-updated="true">2014-Apr-06, 22:24:42, Sunday</time>
       
 
 <span class="categories">
@@ -235,10 +143,8 @@ formatter = &quot;%s %s %s %s&quot; puts formatter % [1, 2, 3 &hellip;">
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/ex07/" title="Previous Post: Ex 7: 更多输出">&laquo; Ex 7: 更多输出</a>
+        <a class="basic-alignment left" href="/blog/ex45/" title="Previous Post: Ex 45: 对象、类和继承关系">&laquo; Ex 45: 对象、类和继承关系</a>
       
-      
-        <a class="basic-alignment right" href="/blog/ex09/" title="Next Post: Ex 9: 输出，输出，输出">Ex 9: 输出，输出，输出 &raquo;</a>
       
     </p>
   </footer>
@@ -476,8 +382,8 @@ formatter = &quot;%s %s %s %s&quot; puts formatter % [1, 2, 3 &hellip;">
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://ruby.code.kekou.de//blog/ex08/';
-        var disqus_url = 'http://ruby.code.kekou.de//blog/ex08/';
+        var disqus_identifier = 'http://ruby.code.kekou.de//blog/ex46/';
+        var disqus_url = 'http://ruby.code.kekou.de//blog/ex46/';
         var disqus_script = 'embed.js';
       
     (function () {

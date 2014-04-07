@@ -4,7 +4,7 @@
   <title><![CDATA[Notes for Ruby]]></title>
   <link href="http://ruby.code.kekou.de//atom.xml" rel="self"/>
   <link href="http://ruby.code.kekou.de//"/>
-  <updated>2014-04-06T21:17:22+08:00</updated>
+  <updated>2014-04-07T11:05:48+08:00</updated>
   <id>http://ruby.code.kekou.de//</id>
   <author>
     <name><![CDATA[Delbert]]></name>
@@ -12,6 +12,129 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 46: 建立一个项目框架]]></title>
+    <link href="http://ruby.code.kekou.de//blog/ex46/"/>
+    <updated>2014-04-06T22:24:42+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/ex46</id>
+    <content type="html"><![CDATA[<p>很明显，这一节中所有的内容都是在 *nix 系统下完成的。不过， Windows 系统的 PowerShell 命令应该也可以胜任。不行的话还是架设虚拟机吧。</p>
+
+<!--more-->
+
+
+<p>TBD</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 45: 对象、类和继承关系]]></title>
+    <link href="http://ruby.code.kekou.de//blog/ex45/"/>
+    <updated>2014-04-06T21:46:18+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/ex45</id>
+    <content type="html"><![CDATA[<p>本节讲到了类与对象， is-a 和 has-a 的关系。</p>
+
+<!--more-->
+
+
+<p>is-a 是这样的：狗<strong>是一种</strong>动物。</p>
+
+<p>has-a 是这样的： 狗<strong>有一个</strong>名字。</p>
+
+<p>所以，类与类的关系是 is-a，类与其中的成员的关系是 has-a。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class='text'><span class='line'>Line 6: is-a
+</span><span class='line'>Line 10: has-a
+</span><span class='line'>Line 16: is-a
+</span><span class='line'>Line 20: has-a
+</span><span class='line'>Line 26: is-a
+</span><span class='line'>Line 32: has-a
+</span><span class='line'>Line 40: is-a
+</span><span class='line'>Line 44: has-a
+</span><span class='line'>Line 46: has-a
+</span><span class='line'>Line 52: is-a
+</span><span class='line'>Line 57: is-a
+</span><span class='line'>Line 62: is-a
+</span><span class='line'>Line 70: is-a
+</span><span class='line'>Line 73: is-a
+</span><span class='line'>Line 76: has-a
+</span><span class='line'>Line 79: is-a
+</span><span class='line'>Line 82: has-a
+</span><span class='line'>Line 85: is-a
+</span><span class='line'>Line 88: is-a
+</span><span class='line'>Line 91: is-a
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 44: 评估你的游戏]]></title>
+    <link href="http://ruby.code.kekou.de//blog/ex44/"/>
+    <updated>2014-04-06T21:41:21+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/ex44</id>
+    <content type="html"><![CDATA[<p>评估你的游戏只是本节最后一部分内容，前面说了编程风格和养成良好变成习惯的问题。</p>
+
+<!--more-->
+
+
+<p>虽然不想写注释，但是如果不写注释的话，真的是会很快忘记你这段代码的作用的，除非是 <code>1+1=2</code> 这种的。</p>
+
+<p>我看 Bullet 的代码，注释真是不多，最起码对我而言是不多，最开始的时候我都不知道应该如何下手。后来还是用 Doxygen 生成了 manual ，虽然还是有很多问题，但还是聊胜于无吧。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 43: 你来制作一个游戏]]></title>
+    <link href="http://ruby.code.kekou.de//blog/ex43/"/>
+    <updated>2014-04-06T21:39:20+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/ex43</id>
+    <content type="html"><![CDATA[<p>略。</p>
+
+<!--more-->
+
+
+<p>我有拖延症，待会儿再说。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 42: 物以类聚]]></title>
+    <link href="http://ruby.code.kekou.de//blog/ex42/"/>
+    <updated>2014-04-06T21:20:04+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/ex42</id>
+    <content type="html"><![CDATA[<p>本节提到了类的概念，代码太长，懒得粘贴了。</p>
+
+<!--more-->
+
+
+<p>Ruby 的实例变量是以 <code>@</code> 开头，只对单个对象可见。不管在类的什么地方定义，用的都是同一个。初始化对象函数 <code>initialize</code> 函数可以类比成 C++ 里面的构造函数。</p>
+
+<p>通过 <code>attr_*</code> 来设置实例变量能否被外界读取写入。</p>
+
+<p>类以 <code>Class 类名</code> 开头，对应 <code>end</code> 结束，类的继承用 <code>&lt;</code> 符号。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Ex 41: 来自 Percal 25 号行星的哥顿人(Gothons)]]></title>
@@ -1300,482 +1423,6 @@ ArgumentError: invalid value for Integer(): "123hello"
 
 
 <p>稍微有点逻辑基础即可知道，但是这是以后编程的基础。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ex 26: 恭喜你，现在来考试啦！]]></title>
-    <link href="http://ruby.code.kekou.de//blog/ex26/"/>
-    <updated>2014-04-03T19:59:14+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/ex26</id>
-    <content type="html"><![CDATA[<p>从官网下载一个文本，将其修改正确能够运行。</p>
-
-<!--more-->
-
-
-
-
-<figure class='code'><figcaption><span>ex26.rb</span><a href='//ruby.code.kekou.de/code/ex26.rb'>Download Code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-<span class='line-number'>52</span>
-<span class='line-number'>53</span>
-<span class='line-number'>54</span>
-<span class='line-number'>55</span>
-<span class='line-number'>56</span>
-<span class='line-number'>57</span>
-<span class='line-number'>58</span>
-<span class='line-number'>59</span>
-<span class='line-number'>60</span>
-<span class='line-number'>61</span>
-<span class='line-number'>62</span>
-<span class='line-number'>63</span>
-<span class='line-number'>64</span>
-<span class='line-number'>65</span>
-<span class='line-number'>66</span>
-<span class='line-number'>67</span>
-<span class='line-number'>68</span>
-<span class='line-number'>69</span>
-<span class='line-number'>70</span>
-<span class='line-number'>71</span>
-<span class='line-number'>72</span>
-<span class='line-number'>73</span>
-<span class='line-number'>74</span>
-<span class='line-number'>75</span>
-<span class='line-number'>76</span>
-<span class='line-number'>77</span>
-<span class='line-number'>78</span>
-<span class='line-number'>79</span>
-<span class='line-number'>80</span>
-<span class='line-number'>81</span>
-<span class='line-number'>82</span>
-<span class='line-number'>83</span>
-<span class='line-number'>84</span>
-<span class='line-number'>85</span>
-<span class='line-number'>86</span>
-<span class='line-number'>87</span>
-<span class='line-number'>88</span>
-<span class='line-number'>89</span>
-<span class='line-number'>90</span>
-<span class='line-number'>91</span>
-<span class='line-number'>92</span>
-<span class='line-number'>93</span>
-<span class='line-number'>94</span>
-<span class='line-number'>95</span>
-<span class='line-number'>96</span>
-<span class='line-number'>97</span>
-<span class='line-number'>98</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># This function will break up words for us.</span>
-</span><span class='line'><span class="k">def</span> <span class="nf">break_words</span><span class="p">(</span><span class="n">stuff</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">words</span> <span class="o">=</span> <span class="n">stuff</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
-</span><span class='line'>    <span class="k">return</span> <span class="n">words</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1"># Sorts the words.</span>
-</span><span class='line'><span class="k">def</span> <span class="nf">sort_words</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
-</span><span class='line'>    <span class="k">return</span> <span class="n">sorted</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1"># Prints the first word after popping it off.</span>
-</span><span class='line'><span class="k">def</span> <span class="nf">puts_first_word</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">word</span> <span class="o">=</span> <span class="n">words</span><span class="o">.</span><span class="n">poop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-</span><span class='line'>    <span class="nb">puts</span> <span class="n">word</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1"># Prints the last word after popping it off.</span>
-</span><span class='line'><span class="k">def</span> <span class="nf">puts_last_word</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">word</span> <span class="o">=</span> <span class="n">words</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span>
-</span><span class='line'>    <span class="nb">puts</span> <span class="n">word</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1"># Takes in a full sentence and returns the sorted words.</span>
-</span><span class='line'><span class="k">def</span> <span class="nf">sort_sentence</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">words</span> <span class="o">=</span> <span class="n">break_words</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
-</span><span class='line'>    <span class="k">return</span> <span class="n">sort_words</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1"># Puts the first and last words of the sentence.</span>
-</span><span class='line'><span class="k">def</span> <span class="nf">puts_first_and_last</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">words</span> <span class="o">=</span> <span class="n">break_words</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">puts_first_word</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">puts_last_word</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1"># Sorts the words then prints the first and last one.</span>
-</span><span class='line'><span class="k">def</span> <span class="nf">puts_first_and_last_sorted</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">words</span> <span class="o">=</span> <span class="n">sort_sentence</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">puts_first_word</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">puts_last_word</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Let&#39;s practice everything.&quot;</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s1">&#39;You\&#39;d need to know \&#39;bout escapes with \\ that do \n newlines and \t tabs.&#39;</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">poem</span> <span class="o">=</span> <span class="o">&lt;&lt;</span><span class="no">POEM</span>
-</span><span class='line'><span class="sh">\tThe lovely world</span>
-</span><span class='line'><span class="sh">with logic so firmly planted</span>
-</span><span class='line'><span class="sh">cannot discern \n the needs of love</span>
-</span><span class='line'><span class="sh">nor comprehend passion from intuition</span>
-</span><span class='line'><span class="sh">and requires an explantion</span>
-</span><span class='line'><span class="sh">\n\t\twhere there is none.</span>
-</span><span class='line'><span class="no">POEM</span>
-</span><span class='line'>
-</span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;--------------&quot;</span>
-</span><span class='line'><span class="nb">puts</span> <span class="n">poem</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;--------------&quot;</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">five</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">-</span> <span class="mi">5</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;This should be five: %s&quot;</span> <span class="o">%</span> <span class="n">five</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">def</span> <span class="nf">secret_formula</span><span class="p">(</span><span class="n">started</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">jelly_beans</span> <span class="o">=</span> <span class="n">started</span> <span class="o">*</span> <span class="mi">500</span>
-</span><span class='line'>    <span class="n">jars</span> <span class="o">=</span> <span class="n">jelly_beans</span> <span class="p">\</span> <span class="mi">1000</span>
-</span><span class='line'>    <span class="n">crates</span> <span class="o">=</span> <span class="n">jars</span> <span class="o">/</span> <span class="mi">100</span>
-</span><span class='line'>    <span class="k">return</span> <span class="n">jelly_beans</span><span class="p">,</span> <span class="n">jars</span><span class="p">,</span> <span class="n">crates</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">start_point</span> <span class="o">=</span> <span class="mi">10000</span>
-</span><span class='line'><span class="n">beans</span><span class="p">,</span> <span class="n">jars</span><span class="p">,</span> <span class="n">crates</span> <span class="o">==</span> <span class="n">secret_formula</span><span class="p">(</span><span class="n">start</span><span class="o">-</span><span class="n">point</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;With a starting point of: %d&quot;</span> <span class="o">%</span> <span class="n">start_point</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;We&#39;d have %d jeans, %d jars, and %d crates.&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">beans</span><span class="p">,</span> <span class="n">jars</span><span class="p">,</span> <span class="n">crates</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">start_point</span> <span class="o">=</span> <span class="n">start_point</span> <span class="o">/</span> <span class="mi">10</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;We can also do that this way:&quot;</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;We&#39;d have %d beans, %d jars, and %d crabapples.&quot;</span> <span class="o">%</span> <span class="n">secret_formula</span><span class="p">(</span><span class="n">start_pont</span>
-</span><span class='line'>
-</span><span class='line'>
-</span><span class='line'><span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;All god</span><span class="se">\t</span><span class="s2">things come to those who weight.&quot;</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">words</span> <span class="o">=</span> <span class="n">ex25</span><span class="o">.</span><span class="n">break_words</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
-</span><span class='line'><span class="n">sorted_words</span> <span class="o">=</span> <span class="n">ex25</span><span class="o">.</span><span class="n">sort_words</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">puts_first_word</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
-</span><span class='line'><span class="n">puts_last_word</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
-</span><span class='line'><span class="o">.</span><span class="n">puts_first_word</span><span class="p">(</span><span class="n">sorted_words</span><span class="p">)</span>
-</span><span class='line'><span class="n">puts_last_word</span><span class="p">(</span><span class="n">sorted_words</span><span class="p">)</span>
-</span><span class='line'><span class="n">sorted_words</span> <span class="o">=</span> <span class="n">ex25</span><span class="o">.</span><span class="n">sort_sentence</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
-</span><span class='line'><span class="n">prin</span> <span class="n">sorted_words</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">puts_irst_and_last</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">puts_first_a_last_sorted</span><span class="p">(</span><span class="n">senence</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>也就是上面这段代码了。</p>
-
-<p>Delbert 将修改后的代码放在<a href="//ruby.code.kekou.de/code/ex26-correct.rb" title="修改后源码">这里</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ex 25: 更多更多的练习]]></title>
-    <link href="http://ruby.code.kekou.de//blog/ex25/"/>
-    <updated>2014-04-03T19:37:49+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/ex25</id>
-    <content type="html"><![CDATA[<p>本节的内容给封装成一个模块(Module)了，是可以调用的哦。</p>
-
-<!--more-->
-
-
-
-
-<figure class='code'><figcaption><span>ex25.rb</span><a href='//ruby.code.kekou.de/code/ex25.rb'>Download Code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">module</span> <span class="nn">Ex25</span>
-</span><span class='line'>  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">break_words</span><span class="p">(</span><span class="n">stuff</span><span class="p">)</span>
-</span><span class='line'>    <span class="c1"># This function will break up words for us.</span>
-</span><span class='line'>    <span class="n">words</span> <span class="o">=</span> <span class="n">stuff</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">words</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">sort_words</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
-</span><span class='line'>    <span class="c1"># Sorts the words.</span>
-</span><span class='line'>    <span class="n">words</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">print_first_word</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
-</span><span class='line'>    <span class="c1"># Prints the first word and shifts the others down by one.</span>
-</span><span class='line'>    <span class="n">word</span> <span class="o">=</span> <span class="n">words</span><span class="o">.</span><span class="n">shift</span><span class="p">()</span>
-</span><span class='line'>    <span class="nb">puts</span> <span class="n">word</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">print_last_word</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
-</span><span class='line'>    <span class="c1"># Prints the last word after popping it off the end.</span>
-</span><span class='line'>    <span class="n">word</span> <span class="o">=</span> <span class="n">words</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
-</span><span class='line'>    <span class="nb">puts</span> <span class="n">word</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">sort_sentence</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
-</span><span class='line'>    <span class="c1"># Takes in a full sentence and returns the sorted words.</span>
-</span><span class='line'>    <span class="n">words</span> <span class="o">=</span> <span class="n">break_words</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">sort_words</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">print_first_and_last</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
-</span><span class='line'>    <span class="c1"># Prints the first and last words of the sentence.</span>
-</span><span class='line'>    <span class="n">words</span> <span class="o">=</span> <span class="n">break_words</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">print_first_word</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">print_last_word</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">print_first_and_last_sorted</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
-</span><span class='line'>    <span class="c1"># Sorts the words then prints the first and last one.</span>
-</span><span class='line'>    <span class="n">words</span> <span class="o">=</span> <span class="n">sort_sentence</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">print_first_word</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">print_last_word</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>注意这里正常方式运行，是没有任何输出的。因为内部都是函数，却没有任何调用。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ex 24: 更多练习]]></title>
-    <link href="http://ruby.code.kekou.de//blog/ex24/"/>
-    <updated>2014-04-03T16:04:23+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/ex24</id>
-    <content type="html"><![CDATA[<p>就是将之前的给综合起来了，这一节明确使用了 <code>return</code> 关键字。</p>
-
-<!--more-->
-
-
-
-
-<figure class='code'><figcaption><span>ex24.rb</span><a href='//ruby.code.kekou.de/code/ex24.rb'>Download Code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Let&#39;s practice everything.&quot;</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;You</span><span class="se">\&#39;</span><span class="s2">d need to know </span><span class="se">\&#39;</span><span class="s2">bout escapes with </span><span class="se">\\</span><span class="s2"> that do </span><span class="se">\n</span><span class="s2"> newlines and </span><span class="se">\t</span><span class="s2"> tabs.&quot;</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">poem</span> <span class="o">=</span> <span class="o">&lt;&lt;</span><span class="no">MULTI_LINE_STRING</span>
-</span><span class='line'>
-</span><span class='line'><span class="sh">\tThe lovely world</span>
-</span><span class='line'><span class="sh">with logic so firmly planted</span>
-</span><span class='line'><span class="sh">cannot discern \n the needs of love</span>
-</span><span class='line'><span class="sh">nor comprehend passion from intuition</span>
-</span><span class='line'><span class="sh">and requires an explanation</span>
-</span><span class='line'><span class="sh">\n\t\twhere there is none.</span>
-</span><span class='line'>
-</span><span class='line'><span class="no">MULTI_LINE_STRING</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;--------------&quot;</span>
-</span><span class='line'><span class="nb">puts</span> <span class="n">poem</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;--------------&quot;</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">five</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">-</span> <span class="mi">6</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;This should be five: </span><span class="si">#{</span><span class="n">five</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">def</span> <span class="nf">secret_formula</span><span class="p">(</span><span class="n">started</span><span class="p">)</span>
-</span><span class='line'>  <span class="n">jelly_beans</span> <span class="o">=</span> <span class="n">started</span> <span class="o">*</span> <span class="mi">500</span>
-</span><span class='line'>  <span class="n">jars</span> <span class="o">=</span> <span class="n">jelly_beans</span> <span class="o">/</span> <span class="mi">1000</span>
-</span><span class='line'>  <span class="n">crates</span> <span class="o">=</span> <span class="n">jars</span> <span class="o">/</span> <span class="mi">100</span>
-</span><span class='line'>  <span class="k">return</span> <span class="n">jelly_beans</span><span class="p">,</span> <span class="n">jars</span><span class="p">,</span> <span class="n">crates</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">start_point</span> <span class="o">=</span> <span class="mi">10000</span>
-</span><span class='line'><span class="n">beans</span><span class="p">,</span> <span class="n">jars</span><span class="p">,</span> <span class="n">crates</span> <span class="o">=</span> <span class="n">secret_formula</span><span class="p">(</span><span class="n">start_point</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;With a starting point of: </span><span class="si">#{</span><span class="n">start_point</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;We&#39;d have </span><span class="si">#{</span><span class="n">beans</span><span class="si">}</span><span class="s2"> beans, </span><span class="si">#{</span><span class="n">jars</span><span class="si">}</span><span class="s2"> jars, and </span><span class="si">#{</span><span class="n">crates</span><span class="si">}</span><span class="s2"> crates.&quot;</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">start_point</span> <span class="o">=</span> <span class="n">start_point</span> <span class="o">/</span> <span class="mi">10</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;We can also do that this way:&quot;</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;We&#39;d have %s beans, %s jars, and %s crates.&quot;</span> <span class="o">%</span> <span class="n">secret_formula</span><span class="p">(</span><span class="n">start_point</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>输出</p>
-
-<pre><code>Let's practice everything.
-You'd need to know 'bout escapes with \ that do 
- newlines and    tabs.
---------------
-
-    The lovely world
-with logic so firmly planted
-cannot discern 
- the needs of love
-nor comprehend passion from intuition
-and requires an explanation
-
-        where there is none.
-
---------------
-This should be five: 5
-With a starting point of: 10000
-We'd have 5000000 beans, 5000 jars, and 50 crates.
-We can also do that this way:
-We'd have 500000 beans, 500 jars, and 5 crates.
-</code></pre>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ex 23: 阅读一些代码]]></title>
-    <link href="http://ruby.code.kekou.de//blog/ex23/"/>
-    <updated>2014-04-03T15:54:39+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/ex23</id>
-    <content type="html"><![CDATA[<p>Delbert 会在本文中提供几个链接。</p>
-
-<!--more-->
-
-
-<ol>
-<li><a href="//github.com" title="GitHub&quot;">github.com</a></li>
-<li><a href="//gitcafe.com" title="大陆的 GitHub">gitcafe.com</a></li>
-<li><a href="//oschina.net" title="Open Source China">oschina.net</a></li>
-<li><a href="//ruby-china.org" title="Ruby China">ruby-china.org</a></li>
-<li><a href="//www.google.com/ncr">Google.com</a></li>
-</ol>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ex 22: 目前为止你学到了什么]]></title>
-    <link href="http://ruby.code.kekou.de//blog/ex22/"/>
-    <updated>2014-04-03T15:47:38+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/ex22</id>
-    <content type="html"><![CDATA[<p>本节没有代码。点开原文也没有，加上这个只是为了看起来整齐。</p>
-
-<!--more-->
-
-
-<p>有还是没有？</p>
 ]]></content>
   </entry>
   
