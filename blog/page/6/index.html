@@ -5,31 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Ex 37: 复习各种符号。 - Notes for Ruby</title>
+  <title>Notes for Ruby</title>
   <meta name="author" content="Delbert">
 
   
-  <meta name="description" content="本节列出了 Ruby 的关键字，操作法等，可以自行复习或查阅资料了解。 关键字 alias
-and
-BEGIN
-begin
-break
-case
-class
-def
-defined?
-do
-else
-elsif
-END
-end
-ensure
-false
-for
-if
-in
-module
-next &hellip;">
+  <meta name="description" content="为什么学 Ruby ">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -38,7 +18,7 @@ next &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ruby.code.kekou.de//blog/ex37">
+  <link rel="canonical" href="http://ruby.code.kekou.de//blog/page/6">
   <link href="/favicon.ico" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Notes for Ruby" type="application/atom+xml">
@@ -82,12 +62,15 @@ next &hellip;">
 </nav>
   <div id="main">
     <div id="content">
-      <div>
-<article class="hentry" role="article">
+      <div class="blog-index">
   
+  
+  
+    <article>
+      
   <header>
     
-      <h1 class="entry-title">Ex 37: 复习各种符号。</h1>
+      <h1 class="entry-title"><a href="/blog/learn-ruby-the-hard-way/">Learn Ruby The Hard Way</a></h1>
     
     
       <p class="meta">
@@ -103,191 +86,37 @@ next &hellip;">
   
 
 
-<time datetime="2014-04-06T15:55:43+08:00" pubdate data-updated="true">2014-Apr-06, 15:55:43, Sunday</time>
+<time datetime="2014-03-31T21:55:45+08:00" pubdate data-updated="true">2014-Mar-31, 21:55:45, Monday</time>
         
-           | <a href="#disqus_thread"
-             data-disqus-identifier="http://ruby.code.kekou.de/">Comments</a>
+           | <a href="/blog/learn-ruby-the-hard-way/#disqus_thread"
+             data-disqus-identifier="http://ruby.code.kekou.de//blog/learn-ruby-the-hard-way/">Comments</a>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>本节列出了 Ruby 的关键字，操作法等，可以自行复习或查阅资料了解。</p>
-
-<!--more-->
-
-
-<h3>关键字</h3>
-
-<ul>
-<li><code>alias</code></li>
-<li><code>and</code></li>
-<li><code>BEGIN</code></li>
-<li><code>begin</code></li>
-<li><code>break</code></li>
-<li><code>case</code></li>
-<li><code>class</code></li>
-<li><code>def</code></li>
-<li><code>defined?</code></li>
-<li><code>do</code></li>
-<li><code>else</code></li>
-<li><code>elsif</code></li>
-<li><code>END</code></li>
-<li><code>end</code></li>
-<li><code>ensure</code></li>
-<li><code>false</code></li>
-<li><code>for</code></li>
-<li><code>if</code></li>
-<li><code>in</code></li>
-<li><code>module</code></li>
-<li><code>next</code></li>
-<li><code>nil</code></li>
-<li><code>not</code></li>
-<li><code>or</code></li>
-<li><code>redo</code></li>
-<li><code>rescue</code></li>
-<li><code>retry</code></li>
-<li><code>return</code></li>
-<li><code>self</code></li>
-<li><code>super</code></li>
-<li><code>then</code></li>
-<li><code>true</code></li>
-<li><code>undef</code></li>
-<li><code>unless</code></li>
-<li><code>until</code></li>
-<li><code>when</code></li>
-<li><code>while</code></li>
-<li><code>yield</code></li>
-</ul>
-
-
-<h3>数据类型</h3>
-
-<ul>
-<li><code>true</code></li>
-<li><code>false</code></li>
-<li><code>nil</code></li>
-<li><code>constants</code></li>
-<li><code>strings</code></li>
-<li><code>numbers</code></li>
-<li><code>ranges</code></li>
-<li><code>arrays</code></li>
-<li><code>hashes</code></li>
-</ul>
-
-
-<h3>转义符</h3>
-
-<ul>
-<li><code>\\</code></li>
-<li><code>\'</code></li>
-<li><code>\"</code></li>
-<li><code>\a</code></li>
-<li><code>\b</code></li>
-<li><code>\f</code></li>
-<li><code>\n</code></li>
-<li><code>\r</code></li>
-<li><code>\t</code></li>
-<li><code>\v</code></li>
-</ul>
-
-
-<h3>操作符</h3>
-
-<ul>
-<li><code>::</code></li>
-<li><code>[]</code></li>
-<li><code>**</code></li>
-<li><code>-(unary)</code></li>
-<li><code>+(unary)</code></li>
-<li><code>!</code></li>
-<li><code>~</code></li>
-<li><code>*</code></li>
-<li><code>/</code></li>
-<li><code>%</code></li>
-<li><code>+</code></li>
-<li><code>-</code></li>
-<li><code>&lt;&lt;</code></li>
-<li><code>&gt;&gt;</code></li>
-<li><code>&amp;</code></li>
-<li><code>|</code></li>
-<li><code>&gt;</code></li>
-<li><code>&gt;=</code></li>
-<li><code>&lt;</code></li>
-<li><code>&lt;=</code></li>
-<li><code>&lt;=&gt;</code></li>
-<li><code>==</code></li>
-<li><code>===</code></li>
-<li><code>!=</code></li>
-<li><code>=~</code></li>
-<li><code>!~</code></li>
-<li><code>&amp;&amp;</code></li>
-<li><code>||</code></li>
-<li><code>..</code></li>
-<li><code>...</code></li>
-</ul>
+  <div class="entry-content"><h4>为什么学 Ruby</h4>
 
 </div>
-
-
-  <footer>
-    <p class="meta">
-      
   
-
-<span class="byline author vcard">Posted by <span class="fn">Delbert</span></span>
-
-      
-
-
-
-
-
-
-
-
+  
+    <footer>
+      <a rel="full-article" href="/blog/learn-ruby-the-hard-way/">Continue reading &rarr;</a>
+    </footer>
   
 
 
-<time datetime="2014-04-06T15:55:43+08:00" pubdate data-updated="true">2014-Apr-06, 15:55:43, Sunday</time>
-      
-
-<span class="categories">
+    </article>
   
-    <a class='category' href='/blog/categories/ruby/'>Ruby</a>
-  
-</span>
-
-
-    </p>
+  <div class="pagination">
     
-      <div class="sharing">
-  
-  
-  
-</div>
-
+    <a href="/blog/archives">Blog Archives</a>
     
-    <p class="meta">
-      
-        <a class="basic-alignment left" href="/blog/ex36/" title="Previous Post: Ex 36: 设计和测试">&laquo; Ex 36: 设计和测试</a>
-      
-      
-        <a class="basic-alignment right" href="/blog/ex38/" title="Next Post: Ex 38: 阅读代码">Ex 38: 阅读代码 &raquo;</a>
-      
-    </p>
-  </footer>
-</article>
-
-  <section>
-    <h1>Comments</h1>
-    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a class="next" href="/blog/page/5/">Newer &rarr;</a>
+    
+  </div>
 </div>
-  </section>
-
-</div>
-
 <aside class="sidebar">
   
     <section>
@@ -508,7 +337,6 @@ next &hellip;">
   
 </aside>
 
-
     </div>
   </div>
   <footer role="contentinfo"><p>
@@ -523,10 +351,7 @@ next &hellip;">
       var disqus_shortname = 'ruby-code';
       
         
-        // var disqus_developer = 1;
-        var disqus_identifier = 'http://ruby.code.kekou.de//blog/ex37/';
-        var disqus_url = 'http://ruby.code.kekou.de//blog/ex37/';
-        var disqus_script = 'embed.js';
+        var disqus_script = 'count.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

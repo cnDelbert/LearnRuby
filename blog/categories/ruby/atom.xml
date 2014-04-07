@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | Notes for Ruby]]></title>
   <link href="http://ruby.code.kekou.de//blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://ruby.code.kekou.de//"/>
-  <updated>2014-04-07T19:00:10+08:00</updated>
+  <updated>2014-04-07T20:28:41+08:00</updated>
   <id>http://ruby.code.kekou.de//</id>
   <author>
     <name><![CDATA[Delbert]]></name>
@@ -12,6 +12,22 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 49: 创造句子]]></title>
+    <link href="http://ruby.code.kekou.de//blog/ex49/"/>
+    <updated>2014-04-07T20:05:59+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/ex49</id>
+    <content type="html"><![CDATA[<p>按照自己的理解解释一下程序吧。</p>
+
+<!--more-->
+
+
+<p>Match and Peek 里面的 <code>peek</code> 获取第一个单词的 token。不过， token 是什么东西啊？(从后文看，应该是和 symbol 相关的)<code>match</code> 从单词 list 当中取出第一个，如果是所期望的，返回；如果不是，直接抛弃。<code>skip</code> 调用上述两个方法，若是所期望的则返回，若不是则跳过。</p>
+
+<p>这样的话，后面的程序就会输出为最开始的样子了。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Ex 48: 高级用户输入]]></title>
@@ -22,6 +38,14 @@
 
 <!--more-->
 
+
+<p><strong>分词</strong>： 用 <code>split</code> 方法。</p>
+
+<p><strong>组合</strong>： 用 Ruby 的 struct 结构。目前还不是很清楚。</p>
+
+<p><strong>数字</strong>： 用 <code>Integer</code> 方法。</p>
+
+<p><strong>异常</strong>： 用 <code>begin/rescue</code> ，类似 C++ 里面的 <code>try/catch</code>。</p>
 ]]></content>
   </entry>
   
@@ -108,22 +132,6 @@ Line 85: is-a
 Line 88: is-a
 Line 91: is-a
 </code></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ex 44: 评估你的游戏]]></title>
-    <link href="http://ruby.code.kekou.de//blog/ex44/"/>
-    <updated>2014-04-06T21:41:21+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/ex44</id>
-    <content type="html"><![CDATA[<p>评估你的游戏只是本节最后一部分内容，前面说了编程风格和养成良好变成习惯的问题。</p>
-
-<!--more-->
-
-
-<p>虽然不想写注释，但是如果不写注释的话，真的是会很快忘记你这段代码的作用的，除非是 <code>1+1=2</code> 这种的。</p>
-
-<p>我看 Bullet 的代码，注释真是不多，最起码对我而言是不多，最开始的时候我都不知道应该如何下手。后来还是用 Doxygen 生成了 manual ，虽然还是有很多问题，但还是聊胜于无吧。</p>
 ]]></content>
   </entry>
   

@@ -4,7 +4,7 @@
   <title><![CDATA[Notes for Ruby]]></title>
   <link href="http://ruby.code.kekou.de//atom.xml" rel="self"/>
   <link href="http://ruby.code.kekou.de//"/>
-  <updated>2014-04-07T19:00:10+08:00</updated>
+  <updated>2014-04-07T20:28:41+08:00</updated>
   <id>http://ruby.code.kekou.de//</id>
   <author>
     <name><![CDATA[Delbert]]></name>
@@ -12,6 +12,22 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 49: 创造句子]]></title>
+    <link href="http://ruby.code.kekou.de//blog/ex49/"/>
+    <updated>2014-04-07T20:05:59+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/ex49</id>
+    <content type="html"><![CDATA[<p>按照自己的理解解释一下程序吧。</p>
+
+<!--more-->
+
+
+<p>Match and Peek 里面的 <code>peek</code> 获取第一个单词的 token。不过， token 是什么东西啊？(从后文看，应该是和 symbol 相关的)<code>match</code> 从单词 list 当中取出第一个，如果是所期望的，返回；如果不是，直接抛弃。<code>skip</code> 调用上述两个方法，若是所期望的则返回，若不是则跳过。</p>
+
+<p>这样的话，后面的程序就会输出为最开始的样子了。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Ex 48: 高级用户输入]]></title>
@@ -22,6 +38,14 @@
 
 <!--more-->
 
+
+<p><strong>分词</strong>： 用 <code>split</code> 方法。</p>
+
+<p><strong>组合</strong>： 用 Ruby 的 struct 结构。目前还不是很清楚。</p>
+
+<p><strong>数字</strong>： 用 <code>Integer</code> 方法。</p>
+
+<p><strong>异常</strong>： 用 <code>begin/rescue</code> ，类似 C++ 里面的 <code>try/catch</code>。</p>
 ]]></content>
   </entry>
   
@@ -1349,93 +1373,6 @@ ArgumentError: invalid value for Integer(): "123hello"
 
 
 <p>多了两个关键字：<code>elsif</code> 和 <code>else</code>。前者用于分支中还有判断的情况，后者用于最后一个分支，包含其他未被包含的所有情况。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ex 29: 如果(if)]]></title>
-    <link href="http://ruby.code.kekou.de//blog/ex29/"/>
-    <updated>2014-04-06T13:56:24+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/ex29</id>
-    <content type="html"><![CDATA[<p><code>if</code> 是最基本的条件判断语句，虽然在不同语言中形式不同但是作用和思想都是一样的。</p>
-
-<!--more-->
-
-
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">people</span> <span class="o">=</span> <span class="mi">20</span>
-</span><span class='line'><span class="n">cats</span> <span class="o">=</span> <span class="mi">30</span>
-</span><span class='line'><span class="n">dogs</span> <span class="o">=</span> <span class="mi">15</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">if</span> <span class="n">people</span> <span class="o">&lt;</span> <span class="n">cats</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;Too many cats! The world is doomed!&quot;</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">if</span> <span class="n">people</span> <span class="o">&gt;</span> <span class="n">cats</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;Not many cats! The world is saved!&quot;</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">if</span> <span class="n">people</span> <span class="o">&lt;</span> <span class="n">dogs</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;The world is drooled on!&quot;</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">if</span> <span class="n">people</span> <span class="o">&gt;</span> <span class="n">dogs</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;The world is dry!&quot;</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">dogs</span> <span class="o">+=</span> <span class="mi">5</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">if</span> <span class="n">people</span> <span class="o">&gt;=</span> <span class="n">dogs</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;People are greater than or equal to dogs.&quot;</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">if</span> <span class="n">people</span> <span class="o">&lt;=</span> <span class="n">dogs</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;People are less than or equal to dogs.&quot;</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">if</span> <span class="n">people</span> <span class="o">==</span> <span class="n">dogs</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;People are dogs.&quot;</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>就不写运行后的输出了。</p>
-
-<p><code>if</code> 后面的条件为真，则执行与其对应的 <code>end</code> 之间的语句，否则直接跳过。注意 Ruby 是缩进两个空格，而且要严格执行缩进。</p>
 ]]></content>
   </entry>
   
