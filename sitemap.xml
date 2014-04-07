@@ -217,12 +217,20 @@
         <lastmod>2014-04-07T21:54:20+08:00</lastmod>
     </url>
     <url>
+        <loc>http://ruby.code.kekou.de//blog/next/</loc>
+        <lastmod>2014-04-07T22:12:20+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://ruby.code.kekou.de//blog/advice/</loc>
+        <lastmod>2014-04-07T22:12:10+08:00</lastmod>
+    </url>
+    <url>
         <loc>http://ruby.code.kekou.de//blog/archives/</loc>
-        <lastmod>2014-04-07T21:54:20+08:00</lastmod>
+        <lastmod>2014-04-07T22:12:20+08:00</lastmod>
     </url>
     <url>
         <loc>http://ruby.code.kekou.de//</loc>
-        <lastmod>2014-04-07T21:54:20+08:00</lastmod>
+        <lastmod>2014-04-07T22:12:20+08:00</lastmod>
     </url>
     <url>
         <loc>http://ruby.code.kekou.de//robots.txt</loc>

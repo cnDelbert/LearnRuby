@@ -4,7 +4,7 @@
   <title><![CDATA[Notes for Ruby]]></title>
   <link href="http://ruby.code.kekou.de//atom.xml" rel="self"/>
   <link href="http://ruby.code.kekou.de//"/>
-  <updated>2014-04-07T21:54:32+08:00</updated>
+  <updated>2014-04-07T22:12:32+08:00</updated>
   <id>http://ruby.code.kekou.de//</id>
   <author>
     <name><![CDATA[Delbert]]></name>
@@ -12,6 +12,98 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[来自老程序员的建议]]></title>
+    <link href="http://ruby.code.kekou.de//blog/advice/"/>
+    <updated>2014-04-07T22:06:20+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/advice</id>
+    <content type="html"><![CDATA[<h3>笔记完结</h3>
+
+<p>Delbert 本身都不是个程序员，因此是给不了什么建议的，只能摘抄了。</p>
+
+<!--more-->
+
+
+<p>英文原版摘抄如下：</p>
+
+<hr />
+
+<p>You&rsquo;ve finished this book and have decided to continue with programming. Maybe it will be a career for you, or maybe it will be a hobby. You&rsquo;ll need some advice to make sure you continue on the right path, and get the most enjoyment out of your newly chosen activity.</p>
+
+<p>I&rsquo;ve been programming for a very long time. So long that it&rsquo;s incredibly boring to me. At the time that I wrote this book, I knew about 20 programming languages and could learn new ones in about a day to a week depending on how weird they were. Eventually though this just became boring and couldn&rsquo;t hold my interest anymore. This doesn&rsquo;t mean I think programming is boring, or that you will think it&rsquo;s boring, only that I find it uninteresting at this point in my journey.</p>
+
+<p>What I discovered after this journey of learning is that it&rsquo;s not the languages that matter but what you do with them. Actually, I always knew that, but I&rsquo;d get distracted by the languages and forget it periodically. Now I never forget it, and neither should you.</p>
+
+<p>Which programming language you learn and use doesn&rsquo;t matter. Do not get sucked into the religion surrounding programming languages as that will only blind you to their true purpose of being your tool for doing interesting things.</p>
+
+<p>Programming as an intellectual activity is the only art form that allows you to create interactive art. You can create projects that other people can play with, and you can talk to them indirectly. No other art form is quite this interactive. Movies flow to the audience in one direction. Paintings do not move. Code goes both ways.</p>
+
+<p>Programming as a profession is only moderately interesting. It can be a good job, but you could make about the same money and be happier running a fast food joint. You&rsquo;re much better off using code as your secret weapon in another profession.</p>
+
+<p>People who can code in the world of technology companies are a dime a dozen and get no respect. People who can code in biology, medicine, government, sociology, physics, history, and mathematics are respected and can do amazing things to advance those disciplines.</p>
+
+<p>Of course, all of this advice is pointless. If you liked learning to write software with this book, you should try to use it to improve your life any way you can. Go out and explore this weird wonderful new intellectual pursuit that barely anyone in the last 50 years has been able to explore. Might as well enjoy it while you can.</p>
+
+<p>Finally, I&rsquo;ll say that learning to create software changes you and makes you different. Not better or worse, just different. You may find that people treat you harshly because you can create software, maybe using words like &ldquo;nerd&rdquo;. Maybe you&rsquo;ll find that because you can dissect their logic that they hate arguing with you. You may even find that simply knowing how a computer works makes you annoying and weird to them.</p>
+
+<p>To this I have just one piece of advice: they can go to hell. The world needs more weird people who know how things work and who love to figure it all out. When they treat you like this, just remember that this is your journey, not theirs. Being different is not a crime, and people who tell you it is are just jealous that you&rsquo;ve picked up a skill they never in their wildest dreams could acquire.</p>
+
+<p>You can code. They cannot. That is pretty damn cool.</p>
+
+<hr />
+
+<p>繁体中文版的翻译：</p>
+
+<hr />
+
+<p>你已經完成了這本書而且打算繼續寫程式。也許這會成為你的一門職業，也許你只是作為業餘愛好玩玩。無論如何，你都需要一些建議以保證你在正確的道路上繼續前行，並且讓這項新的愛好為你帶來最大程度的享受。</p>
+
+<p>我從事寫程式這行已經太長時間，長到對我來說寫程式已經是非常乏味的事情了。我寫這本書的時候，已經懂得大約20 種程式語言，而且可以在大約一天或者一個星期內學會一門程式語言(取決於這門語言有多古怪)。現在對我來說寫程式這件事情已經很無聊，已經談不上什麼興趣了。當然這不是說寫程式本身是一件無聊的事情，也不是說你以後也一定會這樣覺得，這只是我個人在當前的感覺而已。</p>
+
+<p>在這麼久的旅程下來我的體會是：程式語言這東西並不重要，重要的是你用這些語言做的事情。事實上我一直知道這一點，不過以前我會周期性地被各種程式語言分神而忘記了這一點。現在我是永遠不會忘記這一點了，你也不應該忘記這一點。</p>
+
+<p>你學到和用到的程式語言並不重要。不要被圍繞某一種語言的宗教把你扯進去，這只會讓你忘掉了語言的真正目的，也就是作為你的工具來實現有趣的事情。</p>
+
+<p>寫程式作為一項智力活動，是唯一一種能讓你創建交互式藝術的藝術形式。你可以建立專案讓別人使用，而且你可以間接地和使用者溝通。沒有其他的藝術形式能做到如此程度的交互性。電影領著觀眾走向一個方向，繪畫是不會動的。而程式碼卻是雙向互動的。</p>
+
+<p>寫程式作為一項職業只是一般般有趣而已。寫程式可能是一份好工作，但如果你想賺更多的錢而且過得更快樂，你其實開一間快餐分店就可以了。你最好的選擇是將你的程式技術作為你其他職業的秘密武器。</p>
+
+<p>技術公司裡邊會寫程式的人多到一毛錢一打，根本得不到什麼尊敬。而在生物學、醫藥學、政府部門、社會學、物理學、數​​學等行業領域從事寫程式的人就能得到足夠的尊敬，而且你可以使用這項技能在這些領域做出令人驚異的成就。</p>
+
+<p>當然，所有的這些建議都是沒啥意義的。如果你跟著這本書學習寫軟體而且覺得很喜歡這件事情的話，那你完全可以將其當作一門職業去追求。你應該繼續深入拓展這個近五十年來極少有人探索過的奇異而美妙的智力工作領域。若能從中得到樂趣當然就更好了。</p>
+
+<p>最後我要說的是學習創造軟體的過程會改變你而讓你與眾不同。不是說更好或更壞，只是不同了。你也許會發現因為你會寫軟件而人們對你的態度有些怪異，也許會用「怪人「這樣的詞來形容你。也許你會發現因為你會戳穿他們的邏輯漏洞而他們開始討厭和你爭辯。甚至你可能會發現有人因為你懂得電腦怎麼運作而覺得你是個討厭的怪人。</p>
+
+<p>對於這些我只有一個建議: 讓他們去死吧。這個世界需要更多的怪人，他們知道東西是怎麼工作的而且喜歡找到答案。當他們那樣對你時，只要記住這是你的旅程，不是他們的。「與眾不同」不是誰的錯，告訴你「與眾不同是一種錯」的人只是嫉妒你掌握了他們做夢都不能想到的技能而已。</p>
+
+<p>你會寫程式。他們不會。這真他媽的酷。</p>
+
+<hr />
+
+<p>Delbert 最近在泡的论坛 <a href="//www.v2ex.com">V2EX</a> <a href="//ourcodes.com">OurCoders</a> 。</p>
+
+<p>就这样结束吧。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[下一步]]></title>
+    <link href="http://ruby.code.kekou.de//blog/next/"/>
+    <updated>2014-04-07T21:58:55+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/next</id>
+    <content type="html"><![CDATA[<p>每个人都是某一方面的菜鸟。</p>
+
+<!--more-->
+
+
+<p>看了一下 <strong><a href="http://mislav.uniqpath.com/poignant-guide/">Why&rsquo;s Guide to Ruby</a></strong> 貌似还挺好玩的，还带着插画，虽然画风实在是接受不能。第二章用的是 Kon&#8217;nichi wa ，是在是被萌了一下。</p>
+
+<p>虽然是全英文，但是还是可以读下来的吧……</p>
+
+<p>全书 7 章。目录看<a href="http://mislav.uniqpath.com/poignant-guide/book/">这里</a>吧。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Ex 52: 创造你自己的页游]]></title>
@@ -1153,75 +1245,6 @@ ArgumentError: invalid value for Integer(): "123hello"
 1.9.2p290 :009 &gt; nil.to_i
  =&gt; 0 
 </code></pre>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ex 34: 存取数组内元素]]></title>
-    <link href="http://ruby.code.kekou.de//blog/ex34/"/>
-    <updated>2014-04-06T15:25:58+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/ex34</id>
-    <content type="html"><![CDATA[<p>这一节主要讲了下标/索引(index)的概念。</p>
-
-<!--more-->
-
-
-<p>基本所有的程序语言的索引都是从 0 开始的，和人类的自然语言有所出入，使用的时候要注意。</p>
-
-<p>Ruby 还提供了 first 和 last 等方便的方法，但是不经常使用。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ex 33: while循环]]></title>
-    <link href="http://ruby.code.kekou.de//blog/ex33/"/>
-    <updated>2014-04-06T14:38:27+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/ex33</id>
-    <content type="html"><![CDATA[<p>本节讲的是 <code>while</code> 循环。<code>while</code> 循环只要后面的条件为真就会一直循环，直到条件改变为假时才会停止。因此，如果不小心将后面的条件设置为永远为真，将会陷入死循环。</p>
-
-<!--more-->
-
-
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
-</span><span class='line'><span class="n">numbers</span> <span class="o">=</span> <span class="o">[]</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">6</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;At the top i is </span><span class="si">#{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span class='line'>  <span class="n">numbers</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;Numbers now: </span><span class="si">#{</span><span class="n">numbers</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;At the bottom i is </span><span class="si">#{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;The numbers: &quot;</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">for</span> <span class="n">num</span> <span class="k">in</span> <span class="n">numbers</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="n">num</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>就是这样，喵~</p>
 ]]></content>
   </entry>
   
