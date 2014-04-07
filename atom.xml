@@ -4,7 +4,7 @@
   <title><![CDATA[Notes for Ruby]]></title>
   <link href="http://ruby.code.kekou.de//atom.xml" rel="self"/>
   <link href="http://ruby.code.kekou.de//"/>
-  <updated>2014-04-07T20:28:41+08:00</updated>
+  <updated>2014-04-07T21:28:54+08:00</updated>
   <id>http://ruby.code.kekou.de//</id>
   <author>
     <name><![CDATA[Delbert]]></name>
@@ -12,6 +12,88 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 50: 你的第一个网站]]></title>
+    <link href="http://ruby.code.kekou.de//blog/ex50/"/>
+    <updated>2014-04-07T20:45:44+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/ex50</id>
+    <content type="html"><![CDATA[<p>好吧，对 Delbert 而言，应该不是第一个了……</p>
+
+<!--more-->
+
+
+<h3>安装 Sinatra</h3>
+
+<p>在命令行中输入 <code>fem install sinatra</code>:</p>
+
+<pre><code>$ gem install sinatra
+Fetching: sinatra-1.4.4.gem (100%)
+Successfully installed sinatra-1.4.4
+1 gem installed
+Installing ri documentation for sinatra-1.4.4...
+Installing RDoc documentation for sinatra-1.4.4...
+</code></pre>
+
+<h3>写一个简单的 Hello World 项目</h3>
+
+<pre><code>E:\SourceCode\ruby\projects&gt; bundle gem gothonweb
+      create  gothonweb/Gemfile
+      create  gothonweb/Rakefile
+      create  gothonweb/LICENSE.txt
+      create  gothonweb/README.md
+      create  gothonweb/.gitignore
+      create  gothonweb/gothonweb.gemspec
+      create  gothonweb/lib/gothonweb.rb
+      create  gothonweb/lib/gothonweb/version.rb
+Initializing git repo in E:/SourceCode/ruby/projects/gothonweb
+warning: LF will be replaced by CRLF in .gitignore.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Gemfile.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in LICENSE.txt.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in README.md.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Rakefile.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in gothonweb.gemspec.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in lib/gothonweb.rb.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in lib/gothonweb/version.rb.
+The file will have its original line endings in your working directory.
+</code></pre>
+
+<p>直接运行 <code>ruby lib/gothonweb.rb</code> 会得到下面的错误：</p>
+
+<pre><code>lib/gothonweb.rb:5:in `&lt;module:Gothonweb&gt;': undefined method `get' for Gothonweb
+:Module (NoMethodError)
+        from lib/gothonweb.rb:4:in `&lt;main&gt;'
+</code></pre>
+
+<p>根据 SOF <a href="http://stackoverflow.com/questions/16645762/exercise-50-http-ruby-learncodethehardway-org-book-ex50-html-error-while-r">http://stackoverflow.com/questions/16645762/exercise-50-http-ruby-learncodethehardway-org-book-ex50-html-error-while-r</a> 这个来看，是 Sinatra 的版本高了。要么安装低版本的，要么将 <code>Module</code> 注释掉。</p>
+
+<p>剩下的就是解释具体是怎样执行的了。</p>
+
+<p>Update: Sinatra 官网的示例程序是这样的：</p>
+
+<figure class='code'><figcaption><span>Example</span><a href='http://www.sinatrarb.com/intro.html'>Official Site</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># myapp.rb</span>
+</span><span class='line'><span class="nb">require</span> <span class="s1">&#39;sinatra&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">get</span> <span class="s1">&#39;/&#39;</span> <span class="k">do</span>
+</span><span class='line'>  <span class="s1">&#39;Hello world!&#39;</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Ex 49: 创造句子]]></title>
@@ -1304,75 +1386,6 @@ ArgumentError: invalid value for Integer(): "123hello"
 <p>判断用户所输入的，根据用户的输入来选择不同的分支。</p>
 
 <p>写在一行中的程序用 <code>;</code> 间隔，但是行末没有分号感觉好别扭啊。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ex 30: else 和 if]]></title>
-    <link href="http://ruby.code.kekou.de//blog/ex30/"/>
-    <updated>2014-04-06T14:01:47+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/ex30</id>
-    <content type="html"><![CDATA[<p>在上一节的基础上加上了 <code>else</code>，多了一个判断分支。</p>
-
-<!--more-->
-
-
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">people</span> <span class="o">=</span> <span class="mi">30</span>
-</span><span class='line'><span class="n">cars</span> <span class="o">=</span> <span class="mi">40</span>
-</span><span class='line'><span class="n">buses</span> <span class="o">=</span> <span class="mi">15</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">if</span> <span class="n">cars</span> <span class="o">&gt;</span> <span class="n">people</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;We should take the cars.&quot;</span>
-</span><span class='line'><span class="k">elsif</span> <span class="n">cars</span> <span class="o">&lt;</span> <span class="n">people</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;We should not take the cars.&quot;</span>
-</span><span class='line'><span class="k">else</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;We can&#39;t decide.&quot;</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">if</span> <span class="n">buses</span> <span class="o">&gt;</span> <span class="n">cars</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;That&#39;s too many buses.&quot;</span>
-</span><span class='line'><span class="k">elsif</span> <span class="n">buses</span> <span class="o">&lt;</span> <span class="n">cars</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;Maybe we could take the buses.&quot;</span>
-</span><span class='line'><span class="k">else</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;We still can&#39;t decide.&quot;</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">if</span> <span class="n">people</span> <span class="o">&gt;</span> <span class="n">buses</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;Alright, let&#39;s just take the buses.&quot;</span>
-</span><span class='line'><span class="k">else</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;Fine, let&#39;s stay home then.&quot;</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>多了两个关键字：<code>elsif</code> 和 <code>else</code>。前者用于分支中还有判断的情况，后者用于最后一个分支，包含其他未被包含的所有情况。</p>
 ]]></content>
   </entry>
   

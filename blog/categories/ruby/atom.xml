@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | Notes for Ruby]]></title>
   <link href="http://ruby.code.kekou.de//blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://ruby.code.kekou.de//"/>
-  <updated>2014-04-07T20:28:41+08:00</updated>
+  <updated>2014-04-07T21:28:54+08:00</updated>
   <id>http://ruby.code.kekou.de//</id>
   <author>
     <name><![CDATA[Delbert]]></name>
@@ -12,6 +12,84 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Ex 50: 你的第一个网站]]></title>
+    <link href="http://ruby.code.kekou.de//blog/ex50/"/>
+    <updated>2014-04-07T20:45:44+08:00</updated>
+    <id>http://ruby.code.kekou.de//blog/ex50</id>
+    <content type="html"><![CDATA[<p>好吧，对 Delbert 而言，应该不是第一个了……</p>
+
+<!--more-->
+
+
+<h3>安装 Sinatra</h3>
+
+<p>在命令行中输入 <code>fem install sinatra</code>:</p>
+
+<pre><code>$ gem install sinatra
+Fetching: sinatra-1.4.4.gem (100%)
+Successfully installed sinatra-1.4.4
+1 gem installed
+Installing ri documentation for sinatra-1.4.4...
+Installing RDoc documentation for sinatra-1.4.4...
+</code></pre>
+
+<h3>写一个简单的 Hello World 项目</h3>
+
+<pre><code>E:\SourceCode\ruby\projects&gt; bundle gem gothonweb
+      create  gothonweb/Gemfile
+      create  gothonweb/Rakefile
+      create  gothonweb/LICENSE.txt
+      create  gothonweb/README.md
+      create  gothonweb/.gitignore
+      create  gothonweb/gothonweb.gemspec
+      create  gothonweb/lib/gothonweb.rb
+      create  gothonweb/lib/gothonweb/version.rb
+Initializing git repo in E:/SourceCode/ruby/projects/gothonweb
+warning: LF will be replaced by CRLF in .gitignore.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Gemfile.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in LICENSE.txt.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in README.md.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Rakefile.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in gothonweb.gemspec.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in lib/gothonweb.rb.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in lib/gothonweb/version.rb.
+The file will have its original line endings in your working directory.
+</code></pre>
+
+<p>直接运行 <code>ruby lib/gothonweb.rb</code> 会得到下面的错误：</p>
+
+<pre><code>lib/gothonweb.rb:5:in `&lt;module:Gothonweb&gt;': undefined method `get' for Gothonweb
+:Module (NoMethodError)
+        from lib/gothonweb.rb:4:in `&lt;main&gt;'
+</code></pre>
+
+<p>根据 SOF <a href="http://stackoverflow.com/questions/16645762/exercise-50-http-ruby-learncodethehardway-org-book-ex50-html-error-while-r">http://stackoverflow.com/questions/16645762/exercise-50-http-ruby-learncodethehardway-org-book-ex50-html-error-while-r</a> 这个来看，是 Sinatra 的版本高了。要么安装低版本的，要么将 <code>Module</code> 注释掉。</p>
+
+<p>剩下的就是解释具体是怎样执行的了。</p>
+
+<p>Update: Sinatra 官网的示例程序是这样的：</p>
+
+<p>``` ruby Example <a href="http://www.sinatrarb.com/intro.html">http://www.sinatrarb.com/intro.html</a> Official Site</p>
+
+<h1>myapp.rb</h1>
+
+<p>require &lsquo;sinatra&rsquo;</p>
+
+<p>get &lsquo;/&rsquo; do
+  &lsquo;Hello world!&rsquo;
+end
+```</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Ex 49: 创造句子]]></title>
@@ -91,47 +169,6 @@
 <p>前面所有的步骤都完成了，但是在哪里开始编程？</p>
 
 <p>小测验的问题不会做……</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ex 45: 对象、类和继承关系]]></title>
-    <link href="http://ruby.code.kekou.de//blog/ex45/"/>
-    <updated>2014-04-06T21:46:18+08:00</updated>
-    <id>http://ruby.code.kekou.de//blog/ex45</id>
-    <content type="html"><![CDATA[<p>本节讲到了类与对象， is-a 和 has-a 的关系。</p>
-
-<!--more-->
-
-
-<p>is-a 是这样的：狗<strong>是一种</strong>动物。</p>
-
-<p>has-a 是这样的： 狗<strong>有一个</strong>名字。</p>
-
-<p>所以，类与类的关系是 is-a，类与其中的成员的关系是 has-a。</p>
-
-<p><code>text
-Line 6: is-a
-Line 10: has-a
-Line 16: is-a
-Line 20: has-a
-Line 26: is-a
-Line 32: has-a
-Line 40: is-a
-Line 44: has-a
-Line 46: has-a
-Line 52: is-a
-Line 57: is-a
-Line 62: is-a
-Line 70: is-a
-Line 73: is-a
-Line 76: has-a
-Line 79: is-a
-Line 82: has-a
-Line 85: is-a
-Line 88: is-a
-Line 91: is-a
-</code></p>
 ]]></content>
   </entry>
   

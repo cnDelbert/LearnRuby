@@ -5,11 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Ex 4: 变量和命名 - Notes for Ruby</title>
+  <title>Ex 50: 你的第一个网站 - Notes for Ruby</title>
   <meta name="author" content="Delbert">
 
   
-  <meta name="description" content="似乎 Ruby 是弱类型的语言，不用声明一个变量的类型即可使用。 用自己喜欢的方式给变量来命名，我喜欢骆驼(Camel)式的，就像这样 thisVar，不需要 underscore _。 update: 看到一个评论是这样说的： python大小写混合原因是大小写敏感，实际上是java风格； &hellip;">
+  <meta name="description" content="好吧，对 Delbert 而言，应该不是第一个了…… 安装 Sinatra 在命令行中输入 fem install sinatra: $ gem install sinatra
+Fetching: sinatra-1.4.4.gem (100%)
+Successfully installed &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +20,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ruby.code.kekou.de//blog/ex04">
+  <link rel="canonical" href="http://ruby.code.kekou.de//blog/ex50">
   <link href="/favicon.ico" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Notes for Ruby" type="application/atom+xml">
@@ -67,7 +69,7 @@
   
   <header>
     
-      <h1 class="entry-title">Ex 4: 变量和命名</h1>
+      <h1 class="entry-title">Ex 50: 你的第一个网站</h1>
     
     
       <p class="meta">
@@ -83,7 +85,7 @@
   
 
 
-<time datetime="2014-04-01T14:13:58+08:00" pubdate data-updated="true">2014-Apr-01, 14:13:58, Tuesday</time>
+<time datetime="2014-04-07T20:45:44+08:00" pubdate data-updated="true">2014-Apr-07, 20:45:44, Monday</time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://ruby.code.kekou.de/">Comments</a>
@@ -93,91 +95,80 @@
   </header>
 
 
-<div class="entry-content"><p>似乎 Ruby 是<strong>弱类型</strong>的语言，不用声明一个变量的类型即可使用。</p>
+<div class="entry-content"><p>好吧，对 Delbert 而言，应该不是第一个了……</p>
 
 <!--more-->
 
 
-<p>用自己喜欢的方式给变量来命名，我喜欢骆驼(Camel)式的，就像这样 <code>thisVar</code>，不需要 underscore <code>_</code>。</p>
+<h3>安装 Sinatra</h3>
 
-<p>update:</p>
+<p>在命令行中输入 <code>fem install sinatra</code>:</p>
 
-<p>看到一个评论是这样说的：</p>
+<pre><code>$ gem install sinatra
+Fetching: sinatra-1.4.4.gem (100%)
+Successfully installed sinatra-1.4.4
+1 gem installed
+Installing ri documentation for sinatra-1.4.4...
+Installing RDoc documentation for sinatra-1.4.4...
+</code></pre>
 
-<blockquote><p>python大小写混合原因是大小写敏感，实际上是java风格；php小写加下划线是语言对大小写不敏感的原因；ruby既大小写敏感，又使用小写加下划线，感觉不伦不类啊。</p></blockquote>
+<h3>写一个简单的 Hello World 项目</h3>
 
-<p>另外， Ruby 的行末竟然是不用加分号<code>;</code>的，太晕了。</p>
+<pre><code>E:\SourceCode\ruby\projects&gt; bundle gem gothonweb
+      create  gothonweb/Gemfile
+      create  gothonweb/Rakefile
+      create  gothonweb/LICENSE.txt
+      create  gothonweb/README.md
+      create  gothonweb/.gitignore
+      create  gothonweb/gothonweb.gemspec
+      create  gothonweb/lib/gothonweb.rb
+      create  gothonweb/lib/gothonweb/version.rb
+Initializing git repo in E:/SourceCode/ruby/projects/gothonweb
+warning: LF will be replaced by CRLF in .gitignore.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Gemfile.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in LICENSE.txt.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in README.md.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Rakefile.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in gothonweb.gemspec.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in lib/gothonweb.rb.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in lib/gothonweb/version.rb.
+The file will have its original line endings in your working directory.
+</code></pre>
 
-<figure class='code'><figcaption><span>ex4.rb</span><a href='//ruby.code.kekou.de/code/ex4.rb'>Download code</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p>直接运行 <code>ruby lib/gothonweb.rb</code> 会得到下面的错误：</p>
+
+<pre><code>lib/gothonweb.rb:5:in `&lt;module:Gothonweb&gt;': undefined method `get' for Gothonweb
+:Module (NoMethodError)
+        from lib/gothonweb.rb:4:in `&lt;main&gt;'
+</code></pre>
+
+<p>根据 SOF <a href="http://stackoverflow.com/questions/16645762/exercise-50-http-ruby-learncodethehardway-org-book-ex50-html-error-while-r">http://stackoverflow.com/questions/16645762/exercise-50-http-ruby-learncodethehardway-org-book-ex50-html-error-while-r</a> 这个来看，是 Sinatra 的版本高了。要么安装低版本的，要么将 <code>Module</code> 注释掉。</p>
+
+<p>剩下的就是解释具体是怎样执行的了。</p>
+
+<p>Update: Sinatra 官网的示例程序是这样的：</p>
+
+<figure class='code'><figcaption><span>Example</span><a href='http://www.sinatrarb.com/intro.html'>Official Site</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">cars</span> <span class="o">=</span> <span class="mi">100</span>
-</span><span class='line'><span class="n">passengers</span> <span class="o">=</span> <span class="mi">90</span>
-</span><span class='line'><span class="n">drivers</span> <span class="o">=</span> <span class="mi">30</span>
-</span><span class='line'><span class="n">space_in_a_car</span> <span class="o">=</span> <span class="mi">4</span><span class="o">.</span><span class="mi">0</span>
-</span><span class='line'><span class="n">cars_not_driven</span> <span class="o">=</span> <span class="n">cars</span> <span class="o">-</span> <span class="n">drivers</span>
-</span><span class='line'><span class="n">cars_driven</span> <span class="o">=</span> <span class="n">drivers</span>
-</span><span class='line'><span class="n">carpool_capacity</span> <span class="o">=</span> <span class="n">cars_driven</span> <span class="o">*</span> <span class="n">space_in_a_car</span>
-</span><span class='line'><span class="n">average_passengers_per_car</span> <span class="o">=</span> <span class="n">passengers</span> <span class="o">/</span> <span class="n">cars_driven</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># myapp.rb</span>
+</span><span class='line'><span class="nb">require</span> <span class="s1">&#39;sinatra&#39;</span>
 </span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;There are </span><span class="si">#{</span><span class="n">cars</span><span class="si">}</span><span class="s2"> cars available.&quot;</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;There are only </span><span class="si">#{</span><span class="n">drivers</span><span class="si">}</span><span class="s2"> drivers available.&quot;</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;There will be </span><span class="si">#{</span><span class="n">cars_not_driven</span><span class="si">}</span><span class="s2"> empty cars today.&quot;</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;We can transport </span><span class="si">#{</span><span class="n">carpool_capacity</span><span class="si">}</span><span class="s2"> people today.&quot;</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;We have </span><span class="si">#{</span><span class="n">passengers</span><span class="si">}</span><span class="s2"> passengers to carpool today.&quot;</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;We need to put about </span><span class="si">#{</span><span class="n">average_passengers_per_car</span><span class="si">}</span><span class="s2"> in each car.&quot;</span>
+</span><span class='line'><span class="n">get</span> <span class="s1">&#39;/&#39;</span> <span class="k">do</span>
+</span><span class='line'>  <span class="s1">&#39;Hello world!&#39;</span>
+</span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
 
-
-<p>执行后将会输出</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>There are 100 cars available.
-</span><span class='line'>There are only 30 drivers available.
-</span><span class='line'>There will be 70 empty cars today.
-</span><span class='line'>We can transport 120.0 people today.
-</span><span class='line'>We have 90 passengers to carpool today.
-</span><span class='line'>We need to put about 3 in each car.
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Ruby 在输出中调用变量是 <code>#{var}</code> 的形式。总感觉就是 php 的变种。</p>
-
-<p>irb 中用变量名来进行计算：</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='irb'><span class='line'><span class="gp">irb(main):001:0&gt; </span><span class="n">i</span> <span class="o">=</span> <span class="mi">4</span>
-</span><span class='line'><span class="go">=&gt; 4</span>
-</span><span class='line'><span class="gp">irb(main):002:0&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="mi">3</span>
-</span><span class='line'><span class="go">=&gt; 3</span>
-</span><span class='line'><span class="gp">irb(main):003:0&gt; </span><span class="n">i</span><span class="o">*</span><span class="n">s</span>
-</span><span class='line'><span class="go">=&gt; 12</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>输入 <code>Ctrl+D</code> 返回命令行/Bash。</p>
 </div>
 
 
@@ -200,7 +191,7 @@
   
 
 
-<time datetime="2014-04-01T14:13:58+08:00" pubdate data-updated="true">2014-Apr-01, 14:13:58, Tuesday</time>
+<time datetime="2014-04-07T20:45:44+08:00" pubdate data-updated="true">2014-Apr-07, 20:45:44, Monday</time>
       
 
 <span class="categories">
@@ -221,10 +212,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/ex03/" title="Previous Post: Ex 3: 数字和数学计算">&laquo; Ex 3: 数字和数学计算</a>
+        <a class="basic-alignment left" href="/blog/ex49/" title="Previous Post: Ex 49: 创造句子">&laquo; Ex 49: 创造句子</a>
       
-      
-        <a class="basic-alignment right" href="/blog/ex05/" title="Next Post: Ex 5: 更多的变量和输出">Ex 5: 更多的变量和输出 &raquo;</a>
       
     </p>
   </footer>
@@ -478,8 +467,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://ruby.code.kekou.de//blog/ex04/';
-        var disqus_url = 'http://ruby.code.kekou.de//blog/ex04/';
+        var disqus_identifier = 'http://ruby.code.kekou.de//blog/ex50/';
+        var disqus_url = 'http://ruby.code.kekou.de//blog/ex50/';
         var disqus_script = 'embed.js';
       
     (function () {
